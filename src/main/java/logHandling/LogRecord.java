@@ -1,3 +1,5 @@
+package logHandling;
+
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
@@ -23,7 +25,7 @@ public class LogRecord {
                     JsonElement value = el.getAsJsonObject().get("v");
                     String lType = "v";
                     if (value == null) {
-                        value = jsonObject.get("e");
+                        value = el.getAsJsonObject().get("e");
                         lType = "e";
                     }
                     final long lId = value.getAsLong();

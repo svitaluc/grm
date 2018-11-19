@@ -1,4 +1,4 @@
-// Copyright 2017 JanusGraph Authors
+package janusExamples;// Copyright 2017 JanusGraph Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
 // limitations under the License.
 
 
+import helpers.ProcessedResultLogGraphFactory;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.Edge;
@@ -181,7 +182,7 @@ public class JanusGraphApp extends GraphApp {
      * server.
      */
     protected String createSchemaRequest() {
-        return ProcessedResultLogGraphFactory.createSchemaQuery();
+        return ProcessedResultLogGraphFactory.createStringSchemaQuery();
     }
 
     public static void main(String[] args) throws Exception {

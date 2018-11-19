@@ -1,4 +1,4 @@
-// Copyright 2017 JanusGraph Authors
+package helpers;// Copyright 2017 JanusGraph Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import logHandling.LogRecord;
+import logHandling.MyElement;
+import logHandling.MyLog;
+import logHandling.Path;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
-import org.janusgraph.core.JanusGraph;
+import org.janusgraph.core.*;
+import org.janusgraph.core.schema.JanusGraphManagement;
+import org.janusgraph.graphdb.database.StandardJanusGraph;
 
 import java.util.*;
 
@@ -26,9 +32,11 @@ import java.util.*;
  * @author Marko A. Rodriguez (http://markorodriguez.com)
  */
 public class ProcessedResultLogGraphFactory {
+    public static final String EDGE_LABEL = "queriedTogether";
 
 
-    public static String createSchemaQuery() {
+    @Deprecated
+    public static String createStringSchemaQuery() {
         final StringBuilder s = new StringBuilder();
 
         s.append("JanusGraphManagement management = graph.openManagement(); ");
@@ -61,15 +69,41 @@ public class ProcessedResultLogGraphFactory {
         return s.toString();
     }
 
+    public static boolean createSchemaQuery(StandardJanusGraph graph) {
+        JanusGraphManagement management = graph.openManagement();
+        boolean created;
+        if (management.getRelationTypes(RelationType.class).iterator().hasNext()) {
+            management.rollback();
+            created = false;
+        } else {
+            PropertyKey vid = management.makePropertyKey("vid").dataType(String.class).cardinality(Cardinality.SINGLE).make();
+            PropertyKey eid = management.makePropertyKey("eid").dataType(String.class).cardinality(Cardinality.SINGLE).make();
+            PropertyKey nodeId = management.makePropertyKey("nodeIds").dataType(Long.class).cardinality(Cardinality.LIST).make();
+            PropertyKey lastUpdate = management.makePropertyKey("lastUpdate").dataType(Long.class).cardinality(Cardinality.SINGLE).make();
+            PropertyKey times = management.makePropertyKey("times").dataType(Long.class).cardinality(Cardinality.SINGLE).make();
+
+            management.makeVertexLabel("monitoredVertex").make();
+            management.makeEdgeLabel("queriedTogether").multiplicity(Multiplicity.SIMPLE).signature(eid, lastUpdate, times).make();
+            management.buildIndex("vidIndex", Vertex.class).addKey(vid).buildCompositeIndex();
+            management.buildIndex("eidIndex", Edge.class).addKey(eid).buildCompositeIndex();
+            management.commit();
+            created = true;
+        }
+        return created;
+    }
+
     public static void createElements(final GraphTraversalSource g, MyLog log) {
         // vertices
         LinkedHashMap<String, Vertex> vertexMap = new LinkedHashMap<>();
         List<MyElement> elements = new ArrayList<>(log.elements);
-        Iterator<List<Long>> physNodes = PhysicalNodeDetector.getPhysicalNodesOfData(elements).iterator();
         for (MyElement el : elements) {
-            el.setPhysicalNode(physNodes.next());
-            if (el.type.equals("v"))
-                vertexMap.put(el.getTypeId(), g.addV("vertex").property("vid", el.getTypeId()).property("nodeIds", el.physicalNodes).next());
+            if (el.type.equals("v")) {
+                vertexMap.put(
+                        el.getTypeId(),
+                        g.addV("monitoredVertex")
+                                .property("vid", el.getTypeId()).next());
+//                                .property("nodeIds", el.physicalNodes).next());
+            }
         }
         // edges
         Map<String, Edge> edgeMap = new HashMap<>();
@@ -84,7 +118,7 @@ public class ProcessedResultLogGraphFactory {
                     final Vertex v2 = vertexMap.get(vId2);
                     Edge e = edgeMap.get(eId);
                     if (e == null) {
-                        Edge newEdge = g.V(v1.id()).addE("queriedTogether")
+                        Edge newEdge = g.V(v1.id()).addE(EDGE_LABEL)
                                 .property("times", 1)
                                 .property("eid", eId)
                                 .property("lastUpdate", System.currentTimeMillis())

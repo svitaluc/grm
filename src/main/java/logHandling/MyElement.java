@@ -1,3 +1,5 @@
+package logHandling;
+
 import java.util.List;
 
 public class MyElement {
