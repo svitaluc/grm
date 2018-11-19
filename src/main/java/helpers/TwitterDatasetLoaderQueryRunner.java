@@ -1,7 +1,12 @@
 package helpers;
 
+import com.google.common.collect.Iterators;
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.structure.Direction;
+import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.T;
+import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.janusgraph.core.JanusGraphVertex;
 import org.janusgraph.core.Multiplicity;
 import org.janusgraph.core.RelationType;
@@ -9,6 +14,7 @@ import org.janusgraph.core.SchemaViolationException;
 import org.janusgraph.core.schema.JanusGraphManagement;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.janusgraph.graphdb.idmanagement.IDManager;
+import org.javatuples.Pair;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,17 +25,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 
-public class TwitterDatasetLoader implements DatasetLoader {
+public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
     private Path datasetPath;
 
     private static final String VERTEX_LABEL = "TwitterUser";
     private static final String EDGE_LABEL = "follows";
     private static final String LOG_EDGE_LABEL = "follows";
 
-    public TwitterDatasetLoader(String path) {
+    public TwitterDatasetLoaderQueryRunner(String path) {
         this.datasetPath = Paths.get(path);
     }
 
@@ -53,6 +61,7 @@ public class TwitterDatasetLoader implements DatasetLoader {
     public void loadDatasetToGraph(StandardJanusGraph graph) throws IOException {
         createSchemaQuery(graph);
         GraphTraversalSource g = graph.traversal();
+        g.tx().open();
         IDManager iDmanager = graph.getIDManager();
 
         List<File> filesToScan = new ArrayList<>();
@@ -65,7 +74,7 @@ public class TwitterDatasetLoader implements DatasetLoader {
         double i = 0;
         for (File file : filesToScan) {
             i++;
-            System.out.printf("%.2f%%\t%s\n",i / filesToScan.size() * 100,file.getName());
+            System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 JanusGraphVertex ego = (JanusGraphVertex) g.V(id).tryNext().orElse(null);
@@ -104,6 +113,52 @@ public class TwitterDatasetLoader implements DatasetLoader {
                 }
             }
         }
+        g.tx().commit();
+    }
+
+    @Override
+    public void runQueries(StandardJanusGraph graph) {
+        System.out.println("Running test queries");
+        Random random = new Random(123456);
+        GraphTraversalSource g = graph.traversal();
+        List<Long> tweetsReaders = new ArrayList<>();
+        final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
+        long maxDegree = 0;
+        double avgDegree = 0;
+        for (GraphTraversal<Vertex, Vertex> it = g.V(); it.hasNext(); ) {
+            Vertex vertex = it.next();
+            long degree = Iterators.size(vertex.edges(Direction.OUT));
+            avgDegree += degree;
+            System.out.println(vertex.id());
+            vertexIdsDegrees.add(new Pair<>((Long) vertex.id(), degree));
+            if (degree > maxDegree) maxDegree = degree;
+        }
+
+        long vertexCount = vertexIdsDegrees.size();
+        long queryLimit = vertexCount / 3;
+        avgDegree /= vertexCount;
+
+        System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n",vertexCount,maxDegree,avgDegree);
+        while (tweetsReaders.size() < queryLimit) {
+            Pair<Long, Long> pair = vertexIdsDegrees.get(random.nextInt(Math.toIntExact(vertexCount)));
+            if (pair.getValue1() / 1d / vertexCount > random.nextDouble()) {
+                tweetsReaders.add(pair.getValue0()); //add the vertex id to the list provided the probability
+            }
+        }
+
+        g = graph.traversal().withStrategies(); //TODO set logging strategy
+        for (Long vid : tweetsReaders) {
+            boolean expandedNeighbour = false;
+            for (Iterator<Edge> it = g.V(vid).next().edges(Direction.OUT); it.hasNext(); ) {
+                Edge edge = it.next();
+                if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
+                    Iterators.size(edge.outVertex().edges(Direction.OUT));
+                    expandedNeighbour = true;
+                }
+            }
+
+        }
+
 
     }
 }

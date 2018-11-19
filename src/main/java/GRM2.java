@@ -1,6 +1,7 @@
 import helpers.DatasetLoader;
+import helpers.DatasetQueryRunner;
 import helpers.ProcessedResultLogGraphFactory;
-import helpers.TwitterDatasetLoader;
+import helpers.TwitterDatasetLoaderQueryRunner;
 import logHandling.LogFileLoader;
 import logHandling.MyLog;
 import org.apache.commons.configuration.Configuration;
@@ -45,14 +46,12 @@ public class GRM2 {
 
     public static void main(String[] args) throws Exception {
         GRM2 grm = new GRM2();
-        grm.clearGraph();
+        TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
+//        grm.clearGraph();
         grm.connectToGraph();
-        grm.loadDataset(new TwitterDatasetLoader("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter"));
-//        grm.connectToRealGraph();
-//        grm.getPhysicalPartitions();
-//        grm.runPartitioningAlgorithm();
-//        grm.evaluateResults();
-//        System.exit(0);
+//        grm.loadDataset(twitter);
+        grm.runTestQueries(twitter);
+
     }
 
     private void loadLog(String file) throws IOException {
@@ -66,6 +65,10 @@ public class GRM2 {
 
     private void loadDataset(DatasetLoader loader) throws IOException {
         loader.loadDatasetToGraph(graph);
+    }
+
+    private void runTestQueries(DatasetQueryRunner runner)  {
+        runner.runQueries(graph);
     }
 
     private void clearGraph() throws BackendException, ConfigurationException {
