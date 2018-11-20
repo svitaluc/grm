@@ -51,7 +51,7 @@ public class GRM2 {
         grm.connectToGraph();
 //        grm.loadDataset(twitter);
         grm.runTestQueries(twitter);
-
+        System.exit(0);
     }
 
     private void loadLog(String file) throws IOException {

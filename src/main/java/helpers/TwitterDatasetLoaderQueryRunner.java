@@ -1,10 +1,12 @@
 package helpers;
 
 import com.google.common.collect.Iterators;
+import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.DefaultGraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
 import org.apache.tinkerpop.gremlin.structure.Direction;
-import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.T;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.janusgraph.core.JanusGraphVertex;
@@ -25,7 +27,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -125,20 +127,19 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
         long maxDegree = 0;
         double avgDegree = 0;
-        for (GraphTraversal<Vertex, Vertex> it = g.V(); it.hasNext(); ) {
+        for (GraphTraversal<Vertex, Vertex> it = g.V().limit(50); it.hasNext(); ) { //TODO remove limit
             Vertex vertex = it.next();
             long degree = Iterators.size(vertex.edges(Direction.OUT));
             avgDegree += degree;
-            System.out.println(vertex.id());
             vertexIdsDegrees.add(new Pair<>((Long) vertex.id(), degree));
             if (degree > maxDegree) maxDegree = degree;
         }
 
         long vertexCount = vertexIdsDegrees.size();
-        long queryLimit = vertexCount / 3;
+        long queryLimit = 20; //vertexCount / 3;
         avgDegree /= vertexCount;
 
-        System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n",vertexCount,maxDegree,avgDegree);
+        System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree, avgDegree);
         while (tweetsReaders.size() < queryLimit) {
             Pair<Long, Long> pair = vertexIdsDegrees.get(random.nextInt(Math.toIntExact(vertexCount)));
             if (pair.getValue1() / 1d / vertexCount > random.nextDouble()) {
@@ -146,16 +147,28 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             }
         }
 
-        g = graph.traversal().withStrategies(); //TODO set logging strategy
+        g = graph.traversal().withStrategies(LogPathStrategy.instance());
+//        g = graph.traversal().withStrategies();
         for (Long vid : tweetsReaders) {
             boolean expandedNeighbour = false;
-            for (Iterator<Edge> it = g.V(vid).next().edges(Direction.OUT); it.hasNext(); ) {
-                Edge edge = it.next();
+            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).outE().inV(); it.hasNext(); ) {
+                Vertex vertex = it.next();
                 if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
-                    Iterators.size(edge.outVertex().edges(Direction.OUT));
+                    Iterators.size(g.V(vertex.id()).out());
                     expandedNeighbour = true;
                 }
             }
+//            DefaultGraphTraversal<Vertex, Vertex> it = (DefaultGraphTraversal<Vertex, Vertex>) g.V(vid).outE().inV();
+//            GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path> it2 = it.clone().path();
+//            System.out.println("b" + Arrays.toString(((Traversal.Admin<?, ?>) it2).getSteps().toArray()));
+//            System.out.println(Arrays.toString(it.getStrategies().toList().toArray()));
+//            it.applyStrategies();
+//            System.out.println("a" + Arrays.toString(it.getSteps().toArray()));
+
+//            for (GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path> it = g.V(vid).outE().inV().path(); it.hasNext(); ) {
+//                org.apache.tinkerpop.gremlin.process.traversal.Path path = it.next();
+//                System.out.println(Arrays.toString(path.objects().toArray()));
+//            }
 
         }
 
