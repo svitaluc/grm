@@ -73,7 +73,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         double i = 0;
         for (File file : filesToScan) {
             i++;
-            if (i > 150) break;
+            if (i > 50) break; //TODO remove this limit
             System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -150,7 +150,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         }
 
         long vertexCount = vertexIdsDegrees.size();
-        long queryLimit = 20; //vertexCount / 3;
+        long queryLimit = 50; //vertexCount / 3;
         avgDegree /= vertexCount;
 
         System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree, avgDegree);
@@ -165,7 +165,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 //        g = graph.traversal().withStrategies();
         for (Long vid : tweetsReaders) {
             boolean expandedNeighbour = false;
-            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).outE().inV(); it.hasNext(); ) {
+            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(); it.hasNext(); ) {
                 Vertex vertex = it.next();
                 if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
                     Iterators.size(g.V(vertex.id()).out());

@@ -37,7 +37,7 @@ import java.util.concurrent.atomic.AtomicReference;
 //TODO check WorkerExecutor
 public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable, Long>> {
 
-    private MessageScope.Local<?> voteScope = MessageScope.Local.of(() -> __.bothE(EDGE_LABEL));
+    private MessageScope.Local<?> voteScope = MessageScope.Local.of(() -> __.bothE(EDGE_LABEL)); //TODO how to deal with disconnected components in the context of the EDGE_LABEL
 
     public static final String LABEL = "gremlin.VaqueroVertexProgram.label";
     public static final String ARE_MOCKED_PARTITIONS = "gremlin.VaqueroVertexProgram.areMockedPartitions";
@@ -90,7 +90,6 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
 
     @Override
     public void execute(Vertex vertex, Messenger<Pair<Serializable, Long>> messenger, Memory memory) {
-        System.out.printf("Current Vacquero iteration: %d\n",memory.getIteration());
         if (memory.isInitialIteration()) {
             if (areMockedPartitions)
                 vertex.property(VertexProperty.Cardinality.single, LABEL, (long) random.nextInt(clusterCount));
@@ -114,7 +113,12 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
                     MapHelper.incr(labels, msg.getValue1(), edge.get().<Long>value("times"));
                 });
                 //get most frequent label
-                Long mfLabel = Collections.max(labels.entrySet(), Comparator.comparingLong(Map.Entry::getValue)).getKey();
+                Long mfLabel;
+                if(labels.size()>0) {
+                    mfLabel = Collections.max(labels.entrySet(), Comparator.comparingLong(Map.Entry::getValue)).getKey();
+                }else {
+                    mfLabel = vertex.<Long>value(LABEL);
+                }
                 if (mfLabel.equals(vertex.<Long>value(LABEL))) { //label is the same - voting to halt the program
                     memory.add(VOTE_TO_HALT, true);
                 } else {// acquiring new most frequent label - voting to continue the program
@@ -133,10 +137,14 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
 
     @Override
     public boolean terminate(Memory memory) {
+        System.out.printf("End of Vacquero iteration: %d\n", memory.getIteration());
         final boolean voteToHalt = memory.<Boolean>get(VOTE_TO_HALT) || memory.getIteration() >= this.maxIterations;
-        if (voteToHalt) return true;
-        else {
-            memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the next iteration because of the binary AND operator
+        if (voteToHalt) {
+            System.out.printf("Terminated Vacquero algorithm at iteration: %d\n", memory.getIteration());
+            return true;
+        } else {
+            if (memory.getIteration() > 1)
+                memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the second and later iterations because of the binary AND operator
             return false;
         }
     }
@@ -149,7 +157,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
 
     @Override
     public GraphComputer.ResultGraph getPreferredResultGraph() {
-        return GraphComputer.ResultGraph.NEW;
+        return GraphComputer.ResultGraph.ORIGINAL;
     }
 
     @Override
@@ -226,6 +234,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
             this.configuration.setProperty(CLUSTER_COUNT, clusters.size());
             return this;
         }
+
         //injects clusterMapper
         public VacqueroVertexProgram.Builder clusterMapper(ClusterMapper clusterMapper) {
             this.configuration.setProperty(CLUSTER_MAPPER, clusterMapper);

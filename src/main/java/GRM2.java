@@ -15,8 +15,11 @@ import partitioningAlgorithms.VacqueroVertexProgram;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+
+import static partitioningAlgorithms.VacqueroVertexProgram.CLUSTERS;
 
 public class GRM2 {
     private PropertiesConfiguration config;
@@ -51,7 +54,7 @@ public class GRM2 {
         grm.loadDataset(twitter, clusterMapper);
         grm.runTestQueries(twitter);
         grm.loadLog(grm.logFile);
-//        logLoader.removeSchema(grm.graph);
+//        logLoader.removeSchema(grm.graph); //TODO remove schema has some issues while iterating the traversals later
 //        grm.connectToGraph();
         grm.injectLogToGraph(logLoader);
         grm.runPartitioningAlgorithm(clusterMapper);
@@ -92,6 +95,10 @@ public class GRM2 {
         vertexProgram = VacqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
+        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id()+": O-"+ cm.map((Long) vertex.id())+": N-"+ objectVertexProperty.value()))));
+        System.out.println(Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        graph.tx().commit();
+        graph.close();
     }
 
 
