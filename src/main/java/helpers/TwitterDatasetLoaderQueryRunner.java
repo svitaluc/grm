@@ -1,8 +1,6 @@
 package helpers;
 
 import com.google.common.collect.Iterators;
-import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
-import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.DefaultGraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
@@ -26,10 +24,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
@@ -59,8 +54,10 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         return created;
     }
 
+
     @Override
-    public void loadDatasetToGraph(StandardJanusGraph graph) throws IOException {
+    public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, ClusterMapper clusterMapper) throws IOException {
+        Map<Long, Pair<Long, Long>> clusters = new HashMap<>();
         createSchemaQuery(graph);
         GraphTraversalSource g = graph.traversal();
         g.tx().open();
@@ -76,12 +73,15 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         double i = 0;
         for (File file : filesToScan) {
             i++;
+            if (i > 150) break;
             System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 JanusGraphVertex ego = (JanusGraphVertex) g.V(id).tryNext().orElse(null);
-                if (ego == null)
+                if (ego == null) {
                     ego = graph.addVertex(T.label, VERTEX_LABEL, T.id, id);
+                    computeClusterHelper(clusters,clusterMapper,id);
+                }
 
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -91,12 +91,16 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                     Long id2 = iDmanager.toVertexId(Long.decode(splits[1]));
 
                     JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
-                    if (a == null)
+                    if (a == null) {
                         a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
+                        computeClusterHelper(clusters,clusterMapper,id1);
+                    }
 
                     JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
-                    if (b == null)
+                    if (b == null) {
                         b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
+                        computeClusterHelper(clusters,clusterMapper,id2);
+                    }
 
 //                    System.out.println("\t\t" + id1 + "\t" + id2);
 
@@ -116,6 +120,16 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             }
         }
         g.tx().commit();
+        return clusters;
+    }
+
+    void computeClusterHelper(Map<Long,Pair<Long,Long>> clusters, ClusterMapper clusterMapper, long id){
+        clusters.compute(clusterMapper.map(id),(k,v)->{
+            if(v==null){
+                return new Pair<>(20000000L, 1L);
+            }else
+                return new Pair<>(20000000L,v.getValue1()+1);
+        });
     }
 
     @Override
@@ -147,7 +161,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             }
         }
 
-        g = graph.traversal().withStrategies(LogPathStrategy.instance());
+        g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
 //        g = graph.traversal().withStrategies();
         for (Long vid : tweetsReaders) {
             boolean expandedNeighbour = false;

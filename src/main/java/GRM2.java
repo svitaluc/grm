@@ -1,7 +1,4 @@
-import helpers.DatasetLoader;
-import helpers.DatasetQueryRunner;
-import helpers.ProcessedResultLogGraphFactory;
-import helpers.TwitterDatasetLoaderQueryRunner;
+import helpers.*;
 import logHandling.LogFileLoader;
 import logHandling.MyLog;
 import org.apache.commons.configuration.Configuration;
@@ -13,13 +10,13 @@ import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.janusgraph.diskstorage.BackendException;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.javatuples.Pair;
+import partitioningAlgorithms.VacqueroVertexProgram;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
-
-import static org.apache.tinkerpop.gremlin.process.computer.clustering.vacquero.VacqueroVertexProgram.LABEL;
+import java.util.concurrent.ExecutionException;
 
 public class GRM2 {
     private PropertiesConfiguration config;
@@ -27,8 +24,6 @@ public class GRM2 {
     private String graphPropFile, logFile;
     private StandardJanusGraph graph;
     private Map<Long, Pair<Long, Long>> clusters;
-    public static final String PARTITION_LABEL = LABEL;
-    public static final String EDGE_LABEL = ProcessedResultLogGraphFactory.EDGE_LABEL;
     public static final long CLUSTER_CAPACITY = 20000L; //TODO make this configurable
     private ComputerResult algorithmResult;
     private StaticVertexProgram<Pair<Serializable, Long>> vertexProgram;
@@ -36,45 +31,67 @@ public class GRM2 {
     public GRM2() throws ConfigurationException {
         this.config = new PropertiesConfiguration("config.properties");
         this.graphPropFile = config.getString("graph.propFile");
-        this.logFile = config.getString("log.logFile","C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\processedLog");
+        this.logFile = config.getString("log.logFile", "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\processedLog");
     }
 
     public void initialize() throws IOException, ConfigurationException {
-        if( config.getBoolean("log.readLog",true))
-        connectToGraph();
+        if (config.getBoolean("log.readLog", true))
+            connectToGraph();
     }
 
     public static void main(String[] args) throws Exception {
         GRM2 grm = new GRM2();
         TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
-//        grm.clearGraph();
+        LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
+        ClusterMapper clusterMapper = new ClusterMapper() {
+        };
+
+        grm.clearGraph();
         grm.connectToGraph();
-//        grm.loadDataset(twitter);
+        grm.loadDataset(twitter, clusterMapper);
         grm.runTestQueries(twitter);
+        grm.loadLog(grm.logFile);
+//        logLoader.removeSchema(grm.graph);
+//        grm.connectToGraph();
+        grm.injectLogToGraph(logLoader);
+        grm.runPartitioningAlgorithm(clusterMapper);
         System.exit(0);
     }
 
     private void loadLog(String file) throws IOException {
         this.log = LogFileLoader.load(new File(file));
+
     }
+
+    private void injectLogToGraph(LogToGraphLoader loader) throws IOException {
+        loader.addSchema(graph);
+        loader.loadLogToGraph(graph, log);
+    }
+
 
     private void connectToGraph() throws ConfigurationException {
         Configuration conf = new PropertiesConfiguration(graphPropFile);
         graph = (StandardJanusGraph) GraphFactory.open(conf);
     }
 
-    private void loadDataset(DatasetLoader loader) throws IOException {
-        loader.loadDatasetToGraph(graph);
+    private void loadDataset(DatasetLoader loader, ClusterMapper clusterMapper) throws IOException {
+        clusters = loader.loadDatasetToGraph(graph, clusterMapper);
     }
 
-    private void runTestQueries(DatasetQueryRunner runner)  {
+    private void runTestQueries(DatasetQueryRunner runner) {
         runner.runQueries(graph);
     }
 
     private void clearGraph() throws BackendException, ConfigurationException {
-        if(graph==null) connectToGraph();
+        if (graph == null) connectToGraph();
         graph.getBackend().clearStorage();
         System.out.println("Cleared the graph");
+    }
+
+    private void runPartitioningAlgorithm(ClusterMapper cm) throws ExecutionException, InterruptedException {
+        vertexProgram = VacqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
+        algorithmResult = graph.compute().program(vertexProgram).submit().get();
+        System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
     }
 
 
