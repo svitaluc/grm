@@ -233,7 +233,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             }
         }
 
-        System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f\nGood before/after Queries:  %d / %d\n"
+        System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%\nGood before/after Queries:  %d / %d\n"
                 , originalCrossNodeQueries
                 , repartitionedCrossNodeQueries
                 , (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries * 100
