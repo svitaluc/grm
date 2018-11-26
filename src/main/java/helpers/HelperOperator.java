@@ -1,7 +1,6 @@
 package helpers;
 
 
-
 import org.javatuples.Pair;
 
 import java.util.Map;
@@ -16,9 +15,24 @@ public enum HelperOperator implements BinaryOperator<Object> {
         @Override
         public Object apply(Object a, Object b) {
             if (a instanceof Map && b instanceof Map)
-                for (Map.Entry<Object, Pair<Long,Long>> entry : ((Map<Object, Pair<Long,Long>>) b).entrySet()) {
+                for (Map.Entry<Object, Pair<Long, Long>> entry : ((Map<Object, Pair<Long, Long>>) b).entrySet()) {
                     ((Map) a).computeIfAbsent(entry.getKey(), o -> entry.getValue());
-                    ((Map<Object, Pair<Long,Long>>) a).computeIfPresent(entry.getKey(), (o, o2) -> new Pair<>(o2.getValue0(),o2.getValue1()+entry.getValue().getValue1()));
+                    ((Map<Object, Pair<Long, Long>>) a).computeIfPresent(entry.getKey(), (o, o2) -> new Pair<>(o2.getValue0(), o2.getValue1() + entry.getValue().getValue1()));
+                }
+
+            return a;
+        }
+    },
+    /**
+     * Thi operator will sum the values of map a and map b.
+     */
+    sumMap {
+        @Override
+        public Object apply(Object a, Object b) {
+            if (a instanceof Map && b instanceof Map)
+                for (Map.Entry<Object, Long> entry : ((Map<Object, Long>) b).entrySet()) {
+                    ((Map) a).computeIfAbsent(entry.getKey(), o -> entry.getValue());
+                    ((Map<Object, Long>) a).computeIfPresent(entry.getKey(), (o, o2) -> o2 + entry.getValue());
                 }
 
             return a;

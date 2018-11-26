@@ -37,7 +37,7 @@ import java.io.Serializable;
 import java.util.*;
 
 //TODO check WorkerExecutor
-public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializable, Long, Long>> {
+public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializable, Long, Long>> {
 
     private MessageScope.Local<Triplet<Serializable, Long, Long>> voteScope = MessageScope.Local.of(() -> __.bothE() // __.bothE(EDGE_LABEL) //TODO how to deal with disconnected components in the context of the EDGE_LABEL
             , (m, edge) -> {
@@ -53,6 +53,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
     public static final String ARE_MOCKED_PARTITIONS = "gremlin.VaqueroVertexProgram.areMockedPartitions";
     public static final String CLUSTER_COUNT = "gremlin.VaqueroVertexProgram.clusterCount";
     public static final String CLUSTERS = "gremlin.VaqueroVertexProgram.clusters";
+    public static final String CLUSTER_SPACE = "gremlin.VaqueroVertexProgram.clusterSpace";
     public static final String ACQUIRE_LABEL_PROBABILITY = "gremlin.VaqueroVertexProgram.acquireLabelProbability";
     private static final String VOTE_TO_HALT = "gremlin.VaqueroVertexProgram.voteToHalt";
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
@@ -65,13 +66,15 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
     private int clusterCount = 16;
     //custer label -> (capacity, usage) TODO check if properly stored in memory by CLUSTERS key
     private Map<Long, Pair<Long, Long>> initialClusters = null;
+    private Map<Pair<Long, Long>, Long> initialClusterSpace = null;
     private double acquireLabelProbability = 0.5;
     private boolean areMockedPartitions = false;
     private ClusterMapper clusterMapper;
 
     private static final Set<MemoryComputeKey> MEMORY_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             MemoryComputeKey.of(VOTE_TO_HALT, Operator.and, false, true),
-            MemoryComputeKey.of(CLUSTERS, HelperOperator.incrementPairMap, true, false) //TODO check if the values are not overwritten
+            MemoryComputeKey.of(CLUSTERS, HelperOperator.incrementPairMap, true, false), //TODO check if the values are not overwritten
+            MemoryComputeKey.of(CLUSTER_SPACE, HelperOperator.sumMap, true, false) //TODO check if the values are not overwritten
     ));
     private static final Set<VertexComputeKey> VERTEX_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             VertexComputeKey.of(LABEL, false) //TODO check if the values are not overwritten
@@ -87,7 +90,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
         return VERTEX_COMPUTE_KEYS;
     }
 
-    private VacqueroVertexProgram() {
+    private VaqueroVertexProgram() {
     }
 
     @Override
@@ -95,6 +98,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
         if (memory.isInitialIteration()) {
             memory.set(VOTE_TO_HALT, false);
             memory.set(CLUSTERS, initialClusters);
+            memory.set(CLUSTER_SPACE, initialClusterSpace);
         }
 
     }
@@ -156,6 +160,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
         } else {
             if (memory.getIteration() > 1)
                 memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the second and later iterations because of the binary AND operator
+                memory.set(CLUSTER_SPACE,computeNewClusterSpace(memory.get(CLUSTERS))); // compute new cluster available space for next iteration
             return false;
         }
     }
@@ -177,8 +182,8 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
     }
 
 
-    public static VacqueroVertexProgram.Builder build() {
-        return new VacqueroVertexProgram.Builder();
+    public static VaqueroVertexProgram.Builder build() {
+        return new VaqueroVertexProgram.Builder();
     }
 
 
@@ -190,6 +195,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
         this.initialClusters = Collections.synchronizedMap((Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS));
         this.areMockedPartitions = configuration.getBoolean(ARE_MOCKED_PARTITIONS, false);
         this.clusterMapper = (ClusterMapper) configuration.getProperty(CLUSTER_MAPPER);
+        this.initialClusterSpace = computeNewClusterSpace(initialClusters);
     }
 
     @Override
@@ -208,11 +214,15 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
     private boolean acquireNewLabel(long oldClusterId, long newClusterId, Memory memory, Vertex vertex) {
         Pair<Long, Long> oldClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTERS).get(oldClusterId);
         Pair<Long, Long> newClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTERS).get(newClusterId);
-        long available = newClusterCapacityUsage.getValue0() - newClusterCapacityUsage.getValue1() / clusterCount;
+        long available = memory.<Map<Pair<Long, Long>, Long>>get(CLUSTER_SPACE).get(new Pair<>(oldClusterId, newClusterId));
         if (available > 0) { // checking upper partition space upper bound, TODO implement lower bound check
             memory.add(CLUSTERS, Collections.synchronizedMap(new HashMap<Long, Pair<Long, Long>>() {{
                 put(oldClusterId, new Pair<>(oldClusterCapacityUsage.getValue0(), -1L));
                 put(newClusterId, new Pair<>(newClusterCapacityUsage.getValue0(), 1L));
+            }}));
+
+            memory.add(CLUSTER_SPACE, Collections.synchronizedMap(new HashMap<Pair<Long, Long>, Long>() {{
+                put(new Pair<>(oldClusterId, newClusterId), -1L);
             }}));
             vertex.property(VertexProperty.Cardinality.single, LABEL, newClusterId);
             return true;
@@ -220,40 +230,58 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializa
         return false;
     }
 
+    private Map<Pair<Long, Long>, Long> computeNewClusterSpace(Map<Long, Pair<Long, Long>> cls) {
+        return
+                Collections.synchronizedMap(new HashMap<Pair<Long, Long>, Long>() {
+                    {
+                        for (Map.Entry<Long, Pair<Long, Long>> entry : cls.entrySet()) {
+                            for (Map.Entry<Long, Pair<Long, Long>> entry2 : cls.entrySet()) {
+                                if (entry.getKey().equals(entry2.getKey())) continue;
+                                put(new Pair<>(entry.getKey(), entry2.getKey()), getClusterSpace(entry.getValue()));
+                            }
+                        }
+                    }
+                });
+    }
+
+    private long getClusterSpace(Pair<Long, Long> capUsage) {
+        return (capUsage.getValue0() - capUsage.getValue1()) / (clusterCount - 1);
+    }
+
     //------------------------------------------------------------------------------------------------------------------
-    public static final class Builder extends AbstractVertexProgramBuilder<VacqueroVertexProgram.Builder> {
+    public static final class Builder extends AbstractVertexProgramBuilder<VaqueroVertexProgram.Builder> {
 
 
         private Builder() {
-            super(VacqueroVertexProgram.class);
+            super(VaqueroVertexProgram.class);
         }
 
-        public VacqueroVertexProgram.Builder maxIterations(final int iterations) {
+        public VaqueroVertexProgram.Builder maxIterations(final int iterations) {
             this.configuration.setProperty(MAX_ITERATIONS, iterations);
             return this;
         }
 
         //for testing purpose
-        public VacqueroVertexProgram.Builder areMockedPartitions(boolean value) {
+        public VaqueroVertexProgram.Builder areMockedPartitions(boolean value) {
             this.configuration.setProperty(ARE_MOCKED_PARTITIONS, value);
             return this;
         }
 
         //injects map of cluster to capacity and usage
-        public VacqueroVertexProgram.Builder clusters(Map<Long, Pair<Long, Long>> clusters) {
+        public VaqueroVertexProgram.Builder clusters(Map<Long, Pair<Long, Long>> clusters) {
             this.configuration.setProperty(CLUSTERS, clusters);
             this.configuration.setProperty(CLUSTER_COUNT, clusters.size());
             return this;
         }
 
         //injects clusterMapper
-        public VacqueroVertexProgram.Builder clusterMapper(ClusterMapper clusterMapper) {
+        public VaqueroVertexProgram.Builder clusterMapper(ClusterMapper clusterMapper) {
             this.configuration.setProperty(CLUSTER_MAPPER, clusterMapper);
             this.configuration.setProperty(ARE_MOCKED_PARTITIONS, false);
             return this;
         }
 
-        public VacqueroVertexProgram.Builder acquireLabelProbability(final double probability) {
+        public VaqueroVertexProgram.Builder acquireLabelProbability(final double probability) {
             this.configuration.setProperty(ACQUIRE_LABEL_PROBABILITY, probability);
             return this;
         }

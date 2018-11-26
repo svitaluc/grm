@@ -10,7 +10,7 @@ import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.janusgraph.diskstorage.BackendException;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.javatuples.Pair;
-import partitioningAlgorithms.VacqueroVertexProgram;
+import partitioningAlgorithms.VaqueroVertexProgram;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
-import static partitioningAlgorithms.VacqueroVertexProgram.CLUSTERS;
+import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTERS;
 
 public class GRM2 {
     private PropertiesConfiguration config;
@@ -102,7 +100,7 @@ public class GRM2 {
     }
 
     private void runPartitioningAlgorithm(ClusterMapper cm) throws ExecutionException, InterruptedException {
-        vertexProgram = VacqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
+        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
 //        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
@@ -113,7 +111,7 @@ public class GRM2 {
     }
 
     private void evaluatePartitioningAlgorithm(DatasetQueryRunner runner) throws Exception {
-        runner.evaluateQueries(algorithmResult, VacqueroVertexProgram.LABEL);
+        runner.evaluateQueries(algorithmResult, VaqueroVertexProgram.LABEL);
     }
 
 
