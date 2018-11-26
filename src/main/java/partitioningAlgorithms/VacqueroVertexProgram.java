@@ -19,6 +19,7 @@
 package partitioningAlgorithms;
 
 import helpers.ClusterMapper;
+import helpers.HelperOperator;
 import org.apache.commons.configuration.Configuration;
 import org.apache.tinkerpop.gremlin.process.computer.*;
 import org.apache.tinkerpop.gremlin.process.computer.util.AbstractVertexProgramBuilder;
@@ -26,18 +27,27 @@ import org.apache.tinkerpop.gremlin.process.computer.util.StaticVertexProgram;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
-import org.apache.tinkerpop.gremlin.structure.*;
+import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.apache.tinkerpop.gremlin.structure.Vertex;
+import org.apache.tinkerpop.gremlin.structure.VertexProperty;
 import org.javatuples.Pair;
+import org.javatuples.Triplet;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 //TODO check WorkerExecutor
-public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable, Long>> {
+public class VacqueroVertexProgram extends StaticVertexProgram<Triplet<Serializable, Long, Long>> {
 
-    private MessageScope.Local<?> voteScope = MessageScope.Local.of(() -> __.bothE(EDGE_LABEL)); //TODO how to deal with disconnected components in the context of the EDGE_LABEL
+    private MessageScope.Local<Triplet<Serializable, Long, Long>> voteScope = MessageScope.Local.of(() -> __.bothE() // __.bothE(EDGE_LABEL) //TODO how to deal with disconnected components in the context of the EDGE_LABEL
+            , (m, edge) -> {
+                try {
+                    m.setAt2(edge.value(EDGE_LABEL));
+                } catch (IllegalArgumentException e) {
+                    m.setAt2(1L);
+                }
+                return m;
+            });
 
     public static final String LABEL = "gremlin.VaqueroVertexProgram.label";
     public static final String ARE_MOCKED_PARTITIONS = "gremlin.VaqueroVertexProgram.areMockedPartitions";
@@ -48,7 +58,8 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
     private static final String EDGE_LABEL = "queriedTogether";
     private static final String CLUSTER_MAPPER = "gremlin.VaqueroVertexProgram.clusterMapper";
-    private Random random = new Random();
+    private static final long RANDOM_SEED = 123456L;
+    private Random random = new Random(RANDOM_SEED);
 
     private long maxIterations = 30;
     private int clusterCount = 16;
@@ -60,7 +71,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
 
     private static final Set<MemoryComputeKey> MEMORY_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             MemoryComputeKey.of(VOTE_TO_HALT, Operator.and, false, true),
-            MemoryComputeKey.of(CLUSTERS, Operator.addAll, true, false) //TODO check if the values are not overwritten
+            MemoryComputeKey.of(CLUSTERS, HelperOperator.incrementPairMap, true, false) //TODO check if the values are not overwritten
     ));
     private static final Set<VertexComputeKey> VERTEX_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             VertexComputeKey.of(LABEL, false) //TODO check if the values are not overwritten
@@ -89,41 +100,41 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
     }
 
     @Override
-    public void execute(Vertex vertex, Messenger<Pair<Serializable, Long>> messenger, Memory memory) {
+    public void execute(Vertex vertex, Messenger<Triplet<Serializable, Long, Long>> messenger, Memory memory) {
         if (memory.isInitialIteration()) {
             if (areMockedPartitions)
                 vertex.property(VertexProperty.Cardinality.single, LABEL, (long) random.nextInt(clusterCount));
             else {
                 vertex.property(VertexProperty.Cardinality.single, LABEL, clusterMapper.map((Long) vertex.id()));
             }
-        } else if (1 == memory.getIteration()) { //first iteration - there is on message receiving
-            messenger.sendMessage(voteScope, new Pair<>((Serializable) vertex.id(), vertex.<Long>value(LABEL)));
+            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), 1L));
         } else {
+            final long oldPID = vertex.<Long>value(LABEL);
             final Map<Long, Long> labels = new HashMap<>();
-            Iterator<Pair<Serializable, Long>> rcvMsgs = messenger.receiveMessages();
+            Iterator<Triplet<Serializable, Long, Long>> rcvMsgs = messenger.receiveMessages();
             if (random.nextDouble() > 1 - acquireLabelProbability) {
                 //count label frequency
                 rcvMsgs.forEachRemaining(msg -> {
-                    AtomicReference<Edge> edge = new AtomicReference<>();
-                    vertex.edges(Direction.BOTH, EDGE_LABEL).forEachRemaining((e) -> {
-                        AtomicBoolean thatEdge = new AtomicBoolean(false);
-                        e.bothVertices().forEachRemaining(vertex1 -> thatEdge.set(vertex1.id().equals(msg.getValue0())));
-                        if (thatEdge.get()) edge.set(e);
-                    });
-                    MapHelper.incr(labels, msg.getValue1(), edge.get().<Long>value("times"));
+//                    AtomicReference<Edge> edge = new AtomicReference<>();
+//                    vertex.edges(Direction.BOTH, EDGE_LABEL).forEachRemaining((e) -> {
+//                        AtomicBoolean thatEdge = new AtomicBoolean(false);
+//                        e.bothVertices().forEachRemaining(vertex1 -> thatEdge.set(vertex1.id().equals(msg.getValue0())));
+//                        if (thatEdge.get()) edge.set(e);
+//                    });
+//                    MapHelper.incr(labels, msg.getValue1(), edge.get().<Long>value("times"));
+                    MapHelper.incr(labels, msg.getValue1(), msg.getValue2());
                 });
                 //get most frequent label
                 Long mfLabel;
-                if(labels.size()>0) {
+                if (labels.size() > 0) {
                     mfLabel = Collections.max(labels.entrySet(), Comparator.comparingLong(Map.Entry::getValue)).getKey();
-                }else {
-                    mfLabel = vertex.<Long>value(LABEL);
+                } else {
+                    mfLabel = oldPID;
                 }
-                if (mfLabel.equals(vertex.<Long>value(LABEL))) { //label is the same - voting to halt the program
+                if (mfLabel.equals(oldPID)) { //label is the same - voting to halt the program
                     memory.add(VOTE_TO_HALT, true);
                 } else {// acquiring new most frequent label - voting to continue the program
-                    boolean acquired = acquireNewLabel(vertex.<Long>value(LABEL), mfLabel, memory, vertex);
-                    vertex.property(VertexProperty.Cardinality.single, LABEL, mfLabel);
+                    boolean acquired = acquireNewLabel(oldPID, mfLabel, memory, vertex);
                     memory.add(VOTE_TO_HALT, !acquired);//vote according to the result of acquireNewLabel()
 
                 }
@@ -131,7 +142,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
                 memory.add(VOTE_TO_HALT, true);// Not acquiring label so voting to halt the program
             }
             //sending the label to neighbours
-            messenger.sendMessage(voteScope, new Pair<>((Serializable) vertex.id(), vertex.<Long>value(LABEL)));
+            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), 0L));
         }
     }
 
@@ -176,7 +187,7 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
         this.maxIterations = configuration.getInt(MAX_ITERATIONS, 30);
         this.clusterCount = configuration.getInt(CLUSTER_COUNT, 16);
         this.acquireLabelProbability = configuration.getDouble(ACQUIRE_LABEL_PROBABILITY, 0.5);
-        this.initialClusters = (Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS);
+        this.initialClusters = Collections.synchronizedMap((Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS));
         this.areMockedPartitions = configuration.getBoolean(ARE_MOCKED_PARTITIONS, false);
         this.clusterMapper = (ClusterMapper) configuration.getProperty(CLUSTER_MAPPER);
     }
@@ -199,10 +210,10 @@ public class VacqueroVertexProgram extends StaticVertexProgram<Pair<Serializable
         Pair<Long, Long> newClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTERS).get(newClusterId);
         long available = newClusterCapacityUsage.getValue0() - newClusterCapacityUsage.getValue1() / clusterCount;
         if (available > 0) { // checking upper partition space upper bound, TODO implement lower bound check
-            memory.add(CLUSTERS, new HashMap<Long, Pair<Long, Long>>() {{
-                put(oldClusterId, new Pair<>(oldClusterCapacityUsage.getValue0(), oldClusterCapacityUsage.getValue1() - 1));
-                put(newClusterId, new Pair<>(newClusterCapacityUsage.getValue0(), newClusterCapacityUsage.getValue1() + 1));
-            }});
+            memory.add(CLUSTERS, Collections.synchronizedMap(new HashMap<Long, Pair<Long, Long>>() {{
+                put(oldClusterId, new Pair<>(oldClusterCapacityUsage.getValue0(), -1L));
+                put(newClusterId, new Pair<>(newClusterCapacityUsage.getValue0(), 1L));
+            }}));
             vertex.property(VertexProperty.Cardinality.single, LABEL, newClusterId);
             return true;
         }

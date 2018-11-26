@@ -18,6 +18,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static partitioningAlgorithms.VacqueroVertexProgram.CLUSTERS;
 
@@ -52,13 +54,21 @@ public class GRM2 {
         grm.clearGraph();
         grm.connectToGraph();
         grm.loadDataset(twitter, clusterMapper);
-        grm.runTestQueries(twitter);
+        grm.runTestQueries(twitter,clusterMapper);
         grm.loadLog(grm.logFile);
 //        logLoader.removeSchema(grm.graph); //TODO remove schema has some issues while iterating the traversals later
 //        grm.connectToGraph();
         grm.injectLogToGraph(logLoader);
         grm.runPartitioningAlgorithm(clusterMapper);
+        grm.evaluatePartitioningAlgorithm(twitter);
+        grm.closeGraph();
         System.exit(0);
+    }
+
+    private void closeGraph() throws BackendException {
+        this.graph.getBackend().close();
+        this.graph.close();
+
     }
 
     private void loadLog(String file) throws IOException {
@@ -81,8 +91,8 @@ public class GRM2 {
         clusters = loader.loadDatasetToGraph(graph, clusterMapper);
     }
 
-    private void runTestQueries(DatasetQueryRunner runner) {
-        runner.runQueries(graph);
+    private void runTestQueries(DatasetQueryRunner runner, ClusterMapper clusterMapper) {
+        runner.runQueries(graph, clusterMapper);
     }
 
     private void clearGraph() throws BackendException, ConfigurationException {
@@ -93,12 +103,17 @@ public class GRM2 {
 
     private void runPartitioningAlgorithm(ClusterMapper cm) throws ExecutionException, InterruptedException {
         vertexProgram = VacqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
-        algorithmResult = graph.compute().program(vertexProgram).submit().get();
+        algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
-        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id()+": O-"+ cm.map((Long) vertex.id())+": N-"+ objectVertexProperty.value()))));
+//        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
         System.out.println(Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters added together count: "+algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left+right).getAsLong());
+        System.out.println("Vertex count: "+graph.traversal().V().count().next());
         graph.tx().commit();
-        graph.close();
+    }
+
+    private void evaluatePartitioningAlgorithm(DatasetQueryRunner runner) throws Exception {
+        runner.evaluateQueries(algorithmResult, VacqueroVertexProgram.LABEL);
     }
 
 

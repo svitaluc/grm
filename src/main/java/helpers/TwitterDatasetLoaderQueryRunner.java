@@ -1,10 +1,12 @@
 package helpers;
 
 import com.google.common.collect.Iterators;
+import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
 import org.apache.tinkerpop.gremlin.structure.Direction;
+import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.T;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.janusgraph.core.JanusGraphVertex;
@@ -29,10 +31,20 @@ import java.util.*;
 
 public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
     private Path datasetPath;
+    private final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
+    private final Set<Long> vertexIdsExpanded = new HashSet<>();
+    private final List<Long> tweetsReaders = new ArrayList<>();
+    private long maxDegree = 0;
+    private double avgDegree = 0;
+    private long originalCrossNodeQueries = 0;
+    private long originalNodeQueries = 0;
+    private long repartitionedCrossNodeQueries = 0;
+    private long repartitionedNodeQueries = 0;
 
+
+    private static final long RANDOM_SEED = 123456L;
     private static final String VERTEX_LABEL = "TwitterUser";
     private static final String EDGE_LABEL = "follows";
-    private static final String LOG_EDGE_LABEL = "follows";
 
     public TwitterDatasetLoaderQueryRunner(String path) {
         this.datasetPath = Paths.get(path);
@@ -45,8 +57,12 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             management.rollback();
             created = false;
         } else {
-            management.makeVertexLabel("twitterUser").make();
-            management.makeEdgeLabel("follows").directed().multiplicity(Multiplicity.SIMPLE).make();
+            management.makeVertexLabel(VERTEX_LABEL).make();
+
+            management.makeEdgeLabel(EDGE_LABEL).directed().multiplicity(Multiplicity.SIMPLE).make();
+            management.buildIndex("followsIndex", Edge.class);
+            management.buildIndex("vIndex", Vertex.class);
+//            management.buildIndex("id",Vertex.class).addKey(management.getPropertyKey("id"));
             management.commit();
             created = true;
         }
@@ -80,7 +96,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                 JanusGraphVertex ego = (JanusGraphVertex) g.V(id).tryNext().orElse(null);
                 if (ego == null) {
                     ego = graph.addVertex(T.label, VERTEX_LABEL, T.id, id);
-                    computeClusterHelper(clusters,clusterMapper,id);
+                    computeClusterHelper(clusters, clusterMapper, id);
                 }
 
                 String line;
@@ -93,13 +109,13 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                     JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
                     if (a == null) {
                         a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
-                        computeClusterHelper(clusters,clusterMapper,id1);
+                        computeClusterHelper(clusters, clusterMapper, id1);
                     }
 
                     JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
                     if (b == null) {
                         b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
-                        computeClusterHelper(clusters,clusterMapper,id2);
+                        computeClusterHelper(clusters, clusterMapper, id2);
                     }
 
 //                    System.out.println("\t\t" + id1 + "\t" + id2);
@@ -120,27 +136,25 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             }
         }
         g.tx().commit();
+        System.out.println("Clusters populated to vertex count of: " + clusters.values().stream().mapToLong(Pair::getValue1).reduce(0, (left, right) -> left + right));
+        System.out.println("Clusters: " + Arrays.toString(clusters.entrySet().toArray()));
         return clusters;
     }
 
-    void computeClusterHelper(Map<Long,Pair<Long,Long>> clusters, ClusterMapper clusterMapper, long id){
-        clusters.compute(clusterMapper.map(id),(k,v)->{
-            if(v==null){
+    void computeClusterHelper(Map<Long, Pair<Long, Long>> clusters, ClusterMapper clusterMapper, long id) {
+        clusters.compute(clusterMapper.map(id), (k, v) -> {
+            if (v == null) {
                 return new Pair<>(20000000L, 1L);
-            }else
-                return new Pair<>(20000000L,v.getValue1()+1);
+            } else
+                return new Pair<>(20000000L, v.getValue1() + 1);
         });
     }
 
     @Override
-    public void runQueries(StandardJanusGraph graph) {
+    public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper) {
         System.out.println("Running test queries");
-        Random random = new Random(123456);
+        Random random = new Random(RANDOM_SEED);
         GraphTraversalSource g = graph.traversal();
-        List<Long> tweetsReaders = new ArrayList<>();
-        final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
-        long maxDegree = 0;
-        double avgDegree = 0;
         for (GraphTraversal<Vertex, Vertex> it = g.V().limit(50); it.hasNext(); ) { //TODO remove limit
             Vertex vertex = it.next();
             long degree = Iterators.size(vertex.edges(Direction.OUT));
@@ -160,32 +174,70 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                 tweetsReaders.add(pair.getValue0()); //add the vertex id to the list provided the probability
             }
         }
-
+        random = new Random(RANDOM_SEED);
         g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
 //        g = graph.traversal().withStrategies();
         for (Long vid : tweetsReaders) {
             boolean expandedNeighbour = false;
-            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(); it.hasNext(); ) {
+            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
+                if (clusterMapper.map(vid) != clusterMapper.map((Long) vertex.id()))
+                    originalCrossNodeQueries++;
+                else
+                    originalNodeQueries++;
                 if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
-                    Iterators.size(g.V(vertex.id()).out());
+                    for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
+                        Vertex otherVertex = it1.next();
+                        vertexIdsExpanded.add((Long) otherVertex.id());
+                        if (clusterMapper.map((Long) otherVertex.id()) != clusterMapper.map((Long) vertex.id()))
+                            originalCrossNodeQueries++;
+                        else
+                            originalNodeQueries++;
+
+                    }
                     expandedNeighbour = true;
                 }
             }
-//            DefaultGraphTraversal<Vertex, Vertex> it = (DefaultGraphTraversal<Vertex, Vertex>) g.V(vid).outE().inV();
-//            GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path> it2 = it.clone().path();
-//            System.out.println("b" + Arrays.toString(((Traversal.Admin<?, ?>) it2).getSteps().toArray()));
-//            System.out.println(Arrays.toString(it.getStrategies().toList().toArray()));
-//            it.applyStrategies();
-//            System.out.println("a" + Arrays.toString(it.getSteps().toArray()));
-
-//            for (GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path> it = g.V(vid).outE().inV().path(); it.hasNext(); ) {
-//                org.apache.tinkerpop.gremlin.process.traversal.Path path = it.next();
-//                System.out.println(Arrays.toString(path.objects().toArray()));
-//            }
-
         }
 
 
+    }
+
+    @Override
+    public void evaluateQueries(ComputerResult result, String label) throws Exception {
+        if (tweetsReaders.size() == 0 || vertexIdsDegrees.size() == 0)
+            throw new Exception("The dataset runner must run the queries first before the result evaluation");
+        Random random = new Random(RANDOM_SEED);
+        GraphTraversalSource g = result.graph().traversal();
+
+        for (Long vid : tweetsReaders) {
+            boolean expandedNeighbour = false;
+            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
+                Vertex vertex = it.next();
+                if (g.V(vid).next().value(label) != vertex.value(label))
+                    repartitionedCrossNodeQueries++;
+                else
+                    repartitionedNodeQueries++;
+                if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
+                    for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
+                        Vertex otherVertex = it1.next();
+//                        System.out.println(vertexIdsExpanded.contains(otherVertex.id()));
+                        if (otherVertex.value(label) != vertex.value(label))
+                            repartitionedCrossNodeQueries++;
+                        else
+                            repartitionedNodeQueries++;
+
+                    }
+                    expandedNeighbour = true;
+                }
+            }
+        }
+
+        System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f\nGood before/after Queries:  %d / %d\n"
+                , originalCrossNodeQueries
+                , repartitionedCrossNodeQueries
+                , (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries * 100
+                , originalNodeQueries,
+                repartitionedNodeQueries);
     }
 }
