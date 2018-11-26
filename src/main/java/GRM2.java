@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTERS;
+import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER_LOWER_BOUND_SPACE;
 
 public class GRM2 {
     private PropertiesConfiguration config;
@@ -104,7 +105,8 @@ public class GRM2 {
         algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
 //        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
-        System.out.println(Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters capacity/usage: "+Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters Lower Bound: "+Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
         System.out.println("Clusters added together count: "+algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left+right).getAsLong());
         System.out.println("Vertex count: "+graph.traversal().V().count().next());
         graph.tx().commit();
