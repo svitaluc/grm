@@ -4,6 +4,7 @@ import com.google.common.collect.Iterators;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
 import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
 import org.apache.tinkerpop.gremlin.structure.*;
 import org.janusgraph.core.JanusGraphVertex;
@@ -31,7 +32,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     private final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
     private final Set<Long> vertexIdsExpanded = new HashSet<>();
     private final List<Long> tweetsReaders = new ArrayList<>();
-    private final List<Long> allTweetsReaders = new ArrayList<>();
+    private final Map<Long,Long> allTweetsReaders = new HashMap<>();
     private long maxDegree = 0;
     private double avgDegree = 0;
     private long originalCrossNodeQueries = 0;
@@ -40,7 +41,8 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     private long repartitionedNodeQueries = 0;
 
 
-    private static final long RANDOM_SEED = 123456L;
+//    private static final long RANDOM_SEED = 123456L; //Original
+    private static final long RANDOM_SEED = 2L;
     private static final String VERTEX_LABEL = "TwitterUser";
     private static final String EDGE_LABEL = "follows";
 
@@ -87,7 +89,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         double i = 0;
         for (File file : filesToScan) {
             i++;
-            if (i > 50) break; //TODO remove this limit
+//            if (i > 150) break; //TODO remove this limit
             System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -149,34 +151,38 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     }
 
     @Override
-    public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper) {
+    public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper, boolean log) {
         System.out.println("Running test queries");
         Random random = new Random(RANDOM_SEED);
         GraphTraversalSource g = graph.traversal();
-        for (GraphTraversal<Vertex, Vertex> it = g.V().limit(50); it.hasNext(); ) { //TODO remove limit
+//        for (GraphTraversal<Vertex, Vertex> it = g.V().limit(50); it.hasNext(); ) { //testing limit
+        for (GraphTraversal<Vertex, Vertex> it = g.V(); it.hasNext(); ) {
             Vertex vertex = it.next();
             long degree = Iterators.size(vertex.edges(Direction.OUT));
             avgDegree += degree;
             vertexIdsDegrees.add(new Pair<>((Long) vertex.id(), degree));
             if (degree > maxDegree) maxDegree = degree;
         }
-
         long vertexCount = vertexIdsDegrees.size();
-        long queryLimit = 50; //vertexCount / 3;
+//        long queryLimit = 50; // testing limit
+        long queryLimit = vertexCount / 8;
         avgDegree /= vertexCount;
 
         System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree, avgDegree);
         while (tweetsReaders.size() < queryLimit) {
             Pair<Long, Long> pair = vertexIdsDegrees.get(random.nextInt(Math.toIntExact(vertexCount)));
-            if (pair.getValue1() / 1d / vertexCount > random.nextDouble()) {
+            if (pair.getValue1() / 1D / vertexCount > random.nextDouble()) {
                 tweetsReaders.add(pair.getValue0()); //add the vertex id to the list provided the probability
             }
         }
         random = new Random(RANDOM_SEED);
+        if (log)
         g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
-//        g = graph.traversal().withStrategies();
+        else
+            g = graph.traversal(); // disabled logging
+
         for (Long vid : tweetsReaders) {
-            allTweetsReaders.add(vid);
+            MapHelper.incr(allTweetsReaders,vid,1L);
             boolean expandedNeighbour = false;
             for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
@@ -185,7 +191,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                 else
                     originalNodeQueries++;
                 if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
-                    allTweetsReaders.add((Long) vertex.id());
+                    MapHelper.incr(allTweetsReaders,(Long) vertex.id(),1L);
                     for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
                         Vertex otherVertex = it1.next();
                         vertexIdsExpanded.add((Long) otherVertex.id());
@@ -203,7 +209,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 
     }
 
-    public List<Long> evaluatingSet() {
+    public Map<Long, Long> evaluatingMap() {
         return allTweetsReaders;
     }
 
@@ -222,14 +228,19 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
         GraphTraversalSource g = graph.traversal();
 
-        for (Long vid : allTweetsReaders) {
-            for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
-                Vertex vertex = it.next();
-                if (!g.V(vid).next().value(label).equals(vertex.value(label)))
-                    repartitionedCrossNodeQueries++;
-                else
-                    repartitionedNodeQueries++;
+        for (Map.Entry<Long,Long> entry : allTweetsReaders.entrySet()) {
+            long vid = entry.getKey();
+            long times = entry.getValue();
+            for (int i = 0; i < times; i++) {
+                for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
+                    Vertex vertex = it.next();
+                    if (!g.V(vid).next().value(label).equals(vertex.value(label)))
+                        repartitionedCrossNodeQueries++;
+                    else
+                        repartitionedNodeQueries++;
+                }
             }
+
         }
         double improvement = (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries;
         System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%" +

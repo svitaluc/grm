@@ -50,15 +50,15 @@ public class GRM2 {
         ClusterMapper clusterMapper = new ClusterMapper() {
         };
 
-        grm.clearGraph();
+//        grm.clearGraph();
         grm.connectToGraph();
-        grm.loadDataset(twitter, clusterMapper);
-        grm.runTestQueries(twitter,clusterMapper);
-        grm.loadLog(grm.logFile);
+//        grm.loadDataset(twitter, clusterMapper);
+        grm.runTestQueries(twitter, clusterMapper,false);
+//        grm.loadLog(grm.logFile);
 //        logLoader.removeSchema(grm.graph); //TODO remove schema has some issues while iterating the traversals later
 //        grm.connectToGraph();
-        grm.injectLogToGraph(logLoader);
-        grm.runPartitioningAlgorithm(clusterMapper,twitter);
+//        grm.injectLogToGraph(logLoader);
+//        grm.runPartitioningAlgorithm(clusterMapper, twitter);
         grm.evaluatePartitioningAlgorithm(twitter);
         grm.closeGraph();
         System.exit(0);
@@ -90,8 +90,8 @@ public class GRM2 {
         clusters = loader.loadDatasetToGraph(graph, clusterMapper);
     }
 
-    private void runTestQueries(DatasetQueryRunner runner, ClusterMapper clusterMapper) {
-        runner.runQueries(graph, clusterMapper);
+    private void runTestQueries(DatasetQueryRunner runner, ClusterMapper clusterMapper,boolean log) {
+        runner.runQueries(graph, clusterMapper,log);
     }
 
     private void clearGraph() throws BackendException, ConfigurationException {
@@ -101,19 +101,19 @@ public class GRM2 {
     }
 
     private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
-        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).evaluatingSet(runner.evaluatingSet()).evaluatingStatsOriginal(runner.evaluatingStats()).create(graph);
+        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).evaluatingMap(runner.evaluatingMap()).evaluatingStatsOriginal(runner.evaluatingStats()).maxIterations(200).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
 //        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
-        System.out.println("Clusters capacity/usage: "+Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
-        System.out.println("Clusters Lower Bound: "+Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
-        System.out.println("Clusters added together count: "+algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left+right).getAsLong());
-        System.out.println("Vertex count: "+graph.traversal().V().count().next());
+        System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters Lower Bound: " + Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
+        System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());
+        System.out.println("Vertex count: " + graph.traversal().V().count().next());
         graph.tx().commit();
     }
 
     private void evaluatePartitioningAlgorithm(DatasetQueryRunner runner) throws Exception {
-        runner.evaluateQueries(algorithmResult, VaqueroVertexProgram.LABEL);
+        runner.evaluateQueries(graph, VaqueroVertexProgram.LABEL);
     }
 
 
