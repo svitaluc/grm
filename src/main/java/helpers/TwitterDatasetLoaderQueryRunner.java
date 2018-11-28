@@ -5,10 +5,7 @@ import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
-import org.apache.tinkerpop.gremlin.structure.Direction;
-import org.apache.tinkerpop.gremlin.structure.Edge;
-import org.apache.tinkerpop.gremlin.structure.T;
-import org.apache.tinkerpop.gremlin.structure.Vertex;
+import org.apache.tinkerpop.gremlin.structure.*;
 import org.janusgraph.core.JanusGraphVertex;
 import org.janusgraph.core.Multiplicity;
 import org.janusgraph.core.RelationType;
@@ -34,6 +31,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     private final List<Pair<Long, Long>> vertexIdsDegrees = new ArrayList<>();
     private final Set<Long> vertexIdsExpanded = new HashSet<>();
     private final List<Long> tweetsReaders = new ArrayList<>();
+    private final List<Long> allTweetsReaders = new ArrayList<>();
     private long maxDegree = 0;
     private double avgDegree = 0;
     private long originalCrossNodeQueries = 0;
@@ -178,6 +176,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
 //        g = graph.traversal().withStrategies();
         for (Long vid : tweetsReaders) {
+            allTweetsReaders.add(vid);
             boolean expandedNeighbour = false;
             for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
@@ -186,6 +185,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                 else
                     originalNodeQueries++;
                 if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
+                    allTweetsReaders.add((Long) vertex.id());
                     for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
                         Vertex otherVertex = it1.next();
                         vertexIdsExpanded.add((Long) otherVertex.id());
@@ -203,41 +203,43 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 
     }
 
+    public List<Long> evaluatingSet() {
+        return allTweetsReaders;
+    }
+
+    public Pair<Long, Long> evaluatingStats() {
+        return new Pair<>(originalNodeQueries, originalCrossNodeQueries);
+    }
+
     @Override
-    public void evaluateQueries(ComputerResult result, String label) throws Exception {
+    public double evaluateQueries(ComputerResult result, String label) throws Exception {
+        return this.evaluateQueries(result.graph(), label);
+    }
+
+    @Override
+    public double evaluateQueries(Graph graph, String label) throws Exception {
         if (tweetsReaders.size() == 0 || vertexIdsDegrees.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
-        Random random = new Random(RANDOM_SEED);
-        GraphTraversalSource g = result.graph().traversal();
+        GraphTraversalSource g = graph.traversal();
 
-        for (Long vid : tweetsReaders) {
-            boolean expandedNeighbour = false;
+        for (Long vid : allTweetsReaders) {
             for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
-                if (g.V(vid).next().value(label) != vertex.value(label))
+                if (!g.V(vid).next().value(label).equals(vertex.value(label)))
                     repartitionedCrossNodeQueries++;
                 else
                     repartitionedNodeQueries++;
-                if (!expandedNeighbour && random.nextDouble() > 1 / avgDegree) {
-                    for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
-                        Vertex otherVertex = it1.next();
-//                        System.out.println(vertexIdsExpanded.contains(otherVertex.id()));
-                        if (otherVertex.value(label) != vertex.value(label))
-                            repartitionedCrossNodeQueries++;
-                        else
-                            repartitionedNodeQueries++;
-
-                    }
-                    expandedNeighbour = true;
-                }
             }
         }
-
-        System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%\nGood before/after Queries:  %d / %d\n"
+        double improvement = (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries;
+        System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%" +
+                        "\nGood before/after Queries:  %d / %d\n"
                 , originalCrossNodeQueries
                 , repartitionedCrossNodeQueries
-                , (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries * 100
-                , originalNodeQueries,
-                repartitionedNodeQueries);
+                , improvement * 100
+                , originalNodeQueries
+                , repartitionedNodeQueries
+        );
+        return improvement;
     }
 }

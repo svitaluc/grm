@@ -37,5 +37,18 @@ public enum HelperOperator implements BinaryOperator<Object> {
 
             return a;
         }
+    },
+    /**
+     * Thi operator will sum the values of Pair a and B.
+     */
+    sumPair {
+        @Override
+        public synchronized Object apply(Object a, Object b) {
+            if (a instanceof Pair && b instanceof Pair)
+                return new Pair<Long, Long>(((Pair<Long, Long>) a).getValue0() + ((Pair<Long, Long>) b).getValue0()
+                        , ((Pair<Long, Long>) a).getValue1() + ((Pair<Long, Long>) b).getValue1()
+                );
+            return a;
+        }
     }
 }

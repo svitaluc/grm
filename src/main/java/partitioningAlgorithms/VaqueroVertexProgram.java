@@ -35,6 +35,7 @@ import org.javatuples.Triplet;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 //TODO check WorkerExecutor
 public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializable, Long, Long>> {
@@ -42,9 +43,9 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     private MessageScope.Local<Triplet<Serializable, Long, Long>> voteScope = MessageScope.Local.of(() -> __.bothE() // __.bothE(EDGE_LABEL) //TODO how to deal with disconnected components in the context of the EDGE_LABEL
             , (m, edge) -> {
                 try {
-                    m.setAt2(edge.value(EDGE_LABEL));
-                } catch (IllegalArgumentException e) {
-                    m.setAt2(1L);
+                    m.setAt2(edge.<Long>value(EDGE_PROPERTY));
+                } catch (IllegalStateException e) {
+                    m.setAt2(-1L);
                 }
                 return m;
             });
@@ -59,14 +60,23 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     public static final String IMBALANCE_FACTOR = "gremlin.VaqueroVertexProgram.imbalanceFactor";
     private static final String VOTE_TO_HALT = "gremlin.VaqueroVertexProgram.voteToHalt";
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
-    private static final String EDGE_LABEL = "queriedTogether";
+    private static final String EDGE_PROPERTY = "times";
     private static final String CLUSTER_MAPPER = "gremlin.VaqueroVertexProgram.clusterMapper";
+    private static final String EVALUATING_SET = "gremlin.VaqueroVertexProgram.evaluatingSet";
+    private static final String EVALUATING_STATS = "gremlin.VaqueroVertexProgram.evaluatingStats";
+    private static final String EVALUATING_STATS_ORIGINAL = "gremlin.VaqueroVertexProgram.evaluatingStatsOriginal";
     private static final long RANDOM_SEED = 123456L;
     private Random random = new Random(RANDOM_SEED);
 
-    private long maxIterations = 30L;
+    private Graph graph;
+    private long maxIterations = 100L;
     private long vertexCount = 0L;
     private int clusterCount = 16;
+    double initialTemperature = 2D;//TODO
+    double temperature = initialTemperature;//TODO
+    double coolingFactor = .95D;//TODO
+    Set<Long> evaluatingSet = new HashSet<>();
+    Pair<Long, Long> evaluatingStatsOriginal;
     //custer label -> (capacity, usage) TODO check if properly stored in memory by CLUSTERS key
     private Map<Long, Pair<Long, Long>> initialClusters = null;
     private Map<Pair<Long, Long>, Long> initialClusterUpperBoundSpace = null;
@@ -80,7 +90,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
             MemoryComputeKey.of(VOTE_TO_HALT, Operator.and, false, true),
             MemoryComputeKey.of(CLUSTERS, HelperOperator.incrementPairMap, true, false),
             MemoryComputeKey.of(CLUSTER_UPPER_BOUND_SPACE, HelperOperator.sumMap, true, false),
-            MemoryComputeKey.of(CLUSTER_LOWER_BOUND_SPACE, HelperOperator.sumMap, true, false)
+            MemoryComputeKey.of(CLUSTER_LOWER_BOUND_SPACE, HelperOperator.sumMap, true, false),
+            MemoryComputeKey.of(EVALUATING_STATS, HelperOperator.sumPair, false, false)
     ));
     private static final Set<VertexComputeKey> VERTEX_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             VertexComputeKey.of(LABEL, false) //TODO check if the values are not overwritten
@@ -96,6 +107,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
         return VERTEX_COMPUTE_KEYS;
     }
 
+
     private VaqueroVertexProgram() {
     }
 
@@ -106,7 +118,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
             memory.set(CLUSTERS, initialClusters);
             memory.set(CLUSTER_UPPER_BOUND_SPACE, initialClusterUpperBoundSpace);
             memory.set(CLUSTER_LOWER_BOUND_SPACE, initialClusterLowerBoundSpace);
-            System.out.println("Clusters INIT Lower Bound: "+Arrays.toString(initialClusterLowerBoundSpace.entrySet().toArray()));
+            memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L));
+            System.out.println("Clusters INIT Lower Bound: " + Arrays.toString(initialClusterLowerBoundSpace.entrySet().toArray()));
         }
 
     }
@@ -114,32 +127,38 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     @Override
     public void execute(Vertex vertex, Messenger<Triplet<Serializable, Long, Long>> messenger, Memory memory) {
         if (memory.isInitialIteration()) {
+            this.graph = vertex.graph();
             if (areMockedPartitions)
                 vertex.property(VertexProperty.Cardinality.single, LABEL, (long) random.nextInt(clusterCount));
             else {
                 vertex.property(VertexProperty.Cardinality.single, LABEL, clusterMapper.map((Long) vertex.id()));
             }
-            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), 1L));
+            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), -1L));
         } else {
+            final long VID = (Long) vertex.id();
             final long oldPID = vertex.<Long>value(LABEL);
             final Map<Long, Long> labels = new HashMap<>();
+            final Map<Long, Long> evalLabels = new HashMap<>();
             Iterator<Triplet<Serializable, Long, Long>> rcvMsgs = messenger.receiveMessages();
-            if (random.nextDouble() > 1 - acquireLabelProbability) {
-                //count label frequency
-                rcvMsgs.forEachRemaining(msg -> {
-//                    AtomicReference<Edge> edge = new AtomicReference<>();
-//                    vertex.edges(Direction.BOTH, EDGE_LABEL).forEachRemaining((e) -> {
-//                        AtomicBoolean thatEdge = new AtomicBoolean(false);
-//                        e.bothVertices().forEachRemaining(vertex1 -> thatEdge.set(vertex1.id().equals(msg.getValue0())));
-//                        if (thatEdge.get()) edge.set(e);
-//                    });
-//                    MapHelper.incr(labels, msg.getValue1(), edge.get().<Long>value("times"));
-                    MapHelper.incr(labels, msg.getValue1(), msg.getValue2());
-                });
-                //get most frequent label
-                Long mfLabel;
+            //count label frequency
+            rcvMsgs.forEachRemaining(msg -> {
+                MapHelper.incr(labels, msg.getValue1(), Math.abs(msg.getValue2()));
+                MapHelper.incr(evalLabels, msg.getValue1(), (msg.getValue2() < 0) ? 1L : 0L);
+            });
+            //get most frequent label
+            Long mfLabel;
+            if (evaluatingSet.contains(VID)) {//Update evaluation metrics
+                memory.add(EVALUATING_STATS, evaluateVertexCrossQuery(oldPID, evalLabels));
+            }
+            if (random.nextDouble() < getLabelSwitchProbability()) {
                 if (labels.size() > 0) {
-                    mfLabel = Collections.max(labels.entrySet(), Comparator.comparingLong(Map.Entry::getValue)).getKey();
+                    final LinkedHashMap<Long, Long> sortedByCount = labels.entrySet()
+                            .stream()
+                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+                    int index = (int) Math.floor(random.nextDouble() * (temperature / initialTemperature) * (labels.size() - 1));
+                    mfLabel = (Long) sortedByCount.keySet().toArray()[index];
+//                    mfLabel = Collections.max(labels.entrySet(), Comparator.comparingLong(Map.Entry::getValue)).getKey(); //the old way
                 } else {
                     mfLabel = oldPID;
                 }
@@ -148,27 +167,39 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
                 } else {// acquiring new most frequent label - voting to continue the program
                     boolean acquired = acquireNewLabel(oldPID, mfLabel, memory, vertex);
                     memory.add(VOTE_TO_HALT, !acquired);//vote according to the result of acquireNewLabel()
-
                 }
             } else {
                 memory.add(VOTE_TO_HALT, true);// Not acquiring label so voting to halt the program
             }
             //sending the label to neighbours
-            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), 0L));
+            messenger.sendMessage(voteScope, new Triplet<>((Serializable) vertex.id(), vertex.<Long>value(LABEL), -1L));
         }
     }
 
     @Override
     public boolean terminate(Memory memory) {
-        System.out.printf("End of Vacquero iteration: %d\n", memory.getIteration());
-        final boolean voteToHalt = memory.<Boolean>get(VOTE_TO_HALT) || memory.getIteration() >= this.maxIterations;
+        int iteration = memory.getIteration();
+        Pair<Long, Long> cStats = memory.get(EVALUATING_STATS);
+        double tRatio = temperature / initialTemperature;
+        if (evaluatingSet.size() > 0) {
+            double improvement = (evaluatingStatsOriginal.getValue1() - cStats.getValue1()) / (double) evaluatingStatsOriginal.getValue1();
+            if (memory.isInitialIteration()) {
+                System.out.println("It.\tTemp\ttRatio\tImpr.\tpSwitch\tGood\tCross\t Sum");
+            } else {
+                System.out.printf("%d\t%.3f\t%.2f\t%.3f\t%.2f\t%d\t%d\t%d\n", iteration, temperature, tRatio, improvement, getLabelSwitchProbability(), cStats.getValue0(), cStats.getValue1(), cStats.getValue0() + cStats.getValue1());
+            }
+        } else {
+            System.out.printf("End of Vaquero iteration: %d\t Temp: %.4f, tRatio: %.3f \n", iteration, temperature, tRatio);
+        }
+        final boolean voteToHalt = memory.<Boolean>get(VOTE_TO_HALT) || iteration >= this.maxIterations;
         if (voteToHalt) {
-            System.out.printf("Terminated Vacquero algorithm at iteration: %d\n", memory.getIteration());
+            System.out.printf("Terminated Vaquero algorithm at iteration: %d\n", iteration);
             return true;
         } else {
-            if (memory.getIteration() > 1)
-                memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the second and later iterations because of the binary AND operator
+            memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the second and later iterations because of the binary AND operator
             memory.set(CLUSTER_UPPER_BOUND_SPACE, computeNewClusterUpperBoundSpace(memory.get(CLUSTERS))); // compute new cluster available space for next iteration
+            memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L)); //reset the counter for good and cross-cluster queries for evaluation
+            temperature = getTemperature(iteration);
             return false;
         }
     }
@@ -198,8 +229,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     @Override
     public void loadState(final Graph graph, final Configuration configuration) {
         this.vertexCount = graph.traversal().V().count().next();
-
-        this.maxIterations = configuration.getInt(MAX_ITERATIONS, 30);
+        this.maxIterations = configuration.getInt(MAX_ITERATIONS, 100);
         this.clusterCount = configuration.getInt(CLUSTER_COUNT, 16);
         this.acquireLabelProbability = configuration.getDouble(ACQUIRE_LABEL_PROBABILITY, 0.5);
         this.imbalanceFactor = configuration.getDouble(IMBALANCE_FACTOR, 0.9);
@@ -208,6 +238,9 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
         this.clusterMapper = (ClusterMapper) configuration.getProperty(CLUSTER_MAPPER);
         this.initialClusterUpperBoundSpace = computeNewClusterUpperBoundSpace(initialClusters);
         this.initialClusterLowerBoundSpace = computeClusterLowerBoundSpace(initialClusters);
+        this.evaluatingStatsOriginal = Pair.fromIterable((Iterable<Long>) configuration.getProperty(EVALUATING_STATS_ORIGINAL));
+        this.evaluatingSet = Collections.synchronizedSet(new HashSet<Long>((Collection<? extends Long>) configuration.getProperty(EVALUATING_SET)));
+        this.graph = graph;
     }
 
     @Override
@@ -219,6 +252,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
         configuration.setProperty(CLUSTERS, this.initialClusters);
         configuration.setProperty(ARE_MOCKED_PARTITIONS, this.areMockedPartitions);
         configuration.setProperty(CLUSTER_MAPPER, this.clusterMapper);
+        configuration.setProperty(EVALUATING_STATS_ORIGINAL, this.evaluatingStatsOriginal);
     }
 
 
@@ -266,12 +300,12 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     }
 
     private Map<Long, Long> computeClusterLowerBoundSpace(Map<Long, Pair<Long, Long>> cls) {
-        long sumCapacity = cls.values().stream().mapToLong(Pair::getValue0).reduce(0,(left, right) -> left+right);
+        long sumCapacity = cls.values().stream().mapToLong(Pair::getValue0).reduce(0, (left, right) -> left + right);
         return
                 Collections.synchronizedMap(new HashMap<Long, Long>() {
                     {
                         for (Map.Entry<Long, Pair<Long, Long>> entry : cls.entrySet()) {
-                                put(entry.getKey(), getClusterLowerBoundSpace(entry.getValue(),sumCapacity,vertexCount));
+                            put(entry.getKey(), getClusterLowerBoundSpace(entry.getValue(), sumCapacity, vertexCount));
                         }
                     }
                 });
@@ -280,8 +314,29 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
     private long getClusterUpperBoundSpace(Pair<Long, Long> capUsage) {
         return (capUsage.getValue0() - capUsage.getValue1()) / (clusterCount - 1);
     }
-    private long getClusterLowerBoundSpace(Pair<Long,Long> cluster, long sumCapacity, long vertexCount) {
-        return (long) (cluster.getValue1() - (imbalanceFactor*vertexCount*(cluster.getValue0()/(double)sumCapacity)));
+
+    private long getClusterLowerBoundSpace(Pair<Long, Long> cluster, long sumCapacity, long vertexCount) {
+        return (long) (cluster.getValue1() - (imbalanceFactor * vertexCount * (cluster.getValue0() / (double) sumCapacity)));
+    }
+
+    private double getTemperature(int iteration) {
+        return initialTemperature * Math.pow(coolingFactor, iteration);
+    }
+
+    private Pair<Long, Long> evaluateVertexCrossQuery(long PID, Map<Long, Long> labels) {
+        long crossQuerries = 0;
+        long goodQuerries = 0;
+        for (Map.Entry<Long, Long> entry : labels.entrySet()) {
+            if (entry.getKey().equals(PID))
+                goodQuerries += entry.getValue();
+            else
+                crossQuerries += entry.getValue();
+        }
+        return new Pair<>(goodQuerries, crossQuerries);
+    }
+
+    private double getLabelSwitchProbability() {
+        return acquireLabelProbability + (acquireLabelProbability * temperature / initialTemperature);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -324,6 +379,16 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Triplet<Serializab
 
         public VaqueroVertexProgram.Builder imbalanceFactor(final double factor) {
             this.configuration.setProperty(IMBALANCE_FACTOR, factor);
+            return this;
+        }
+
+        public VaqueroVertexProgram.Builder evaluatingSet(List<Long> evaluatingSet) {
+            this.configuration.setProperty(EVALUATING_SET, evaluatingSet);
+            return this;
+        }
+
+        public VaqueroVertexProgram.Builder evaluatingStatsOriginal(Pair<Long, Long> evaluatingStats) {
+            this.configuration.setProperty(EVALUATING_STATS_ORIGINAL, evaluatingStats);
             return this;
         }
 

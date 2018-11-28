@@ -58,7 +58,7 @@ public class GRM2 {
 //        logLoader.removeSchema(grm.graph); //TODO remove schema has some issues while iterating the traversals later
 //        grm.connectToGraph();
         grm.injectLogToGraph(logLoader);
-        grm.runPartitioningAlgorithm(clusterMapper);
+        grm.runPartitioningAlgorithm(clusterMapper,twitter);
         grm.evaluatePartitioningAlgorithm(twitter);
         grm.closeGraph();
         System.exit(0);
@@ -100,8 +100,8 @@ public class GRM2 {
         System.out.println("Cleared the graph");
     }
 
-    private void runPartitioningAlgorithm(ClusterMapper cm) throws ExecutionException, InterruptedException {
-        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).create(graph);
+    private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
+        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).evaluatingSet(runner.evaluatingSet()).evaluatingStatsOriginal(runner.evaluatingStats()).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
         System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
 //        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
