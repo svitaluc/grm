@@ -15,7 +15,10 @@ import partitioningAlgorithms.VaqueroVertexProgram;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -38,28 +41,37 @@ public class GRM2 {
         this.logFile = config.getString("log.logFile", "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\processedLog");
     }
 
-    public void initialize() throws IOException, ConfigurationException {
+    public void initialize() throws ConfigurationException {
         if (config.getBoolean("log.readLog", true))
             connectToGraph();
     }
 
     public static void main(String[] args) throws Exception {
+        long time = System.currentTimeMillis();
+        System.out.println("Started: "+new SimpleDateFormat().format(new Date(time)));
         GRM2 grm = new GRM2();
         TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
-        ClusterMapper clusterMapper = new ClusterMapper() {
-        };
+        ClusterMapper clusterMapper = new DefaultClusterMapper(3);
 
-//        grm.clearGraph();
+        //dataset part
+        grm.clearGraph();
         grm.connectToGraph();
-//        grm.loadDataset(twitter, clusterMapper);
-        grm.runTestQueries(twitter, clusterMapper,false);
-//        grm.loadLog(grm.logFile);
-//        logLoader.removeSchema(grm.graph); //TODO remove schema has some issues while iterating the traversals later
-//        grm.connectToGraph();
-//        grm.injectLogToGraph(logLoader);
-//        grm.runPartitioningAlgorithm(clusterMapper, twitter);
+        grm.loadDataset(twitter, clusterMapper);
+        grm.runTestQueries(twitter, clusterMapper, true);
+
+        //log part
+        grm.loadLog(grm.logFile);
+        grm.injectLogToGraph(logLoader);
+        grm.runPartitioningAlgorithm(clusterMapper, twitter);
         grm.evaluatePartitioningAlgorithm(twitter);
+
+        //validation part
+        System.out.println("Running validating evaluation");
+        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
+        grm.runTestQueries(twitterValidate, clusterMapper, false);
+        grm.evaluatePartitioningAlgorithm(twitterValidate);
+        System.out.printf("Total runtime: %.2fs\n", (System.currentTimeMillis() - time) / 1000D);
         grm.closeGraph();
         System.exit(0);
     }
@@ -75,7 +87,7 @@ public class GRM2 {
 
     }
 
-    private void injectLogToGraph(LogToGraphLoader loader) throws IOException {
+    private void injectLogToGraph(LogToGraphLoader loader) {
         loader.addSchema(graph);
         loader.loadLogToGraph(graph, log);
     }
@@ -90,8 +102,8 @@ public class GRM2 {
         clusters = loader.loadDatasetToGraph(graph, clusterMapper);
     }
 
-    private void runTestQueries(DatasetQueryRunner runner, ClusterMapper clusterMapper,boolean log) {
-        runner.runQueries(graph, clusterMapper,log);
+    private void runTestQueries(DatasetQueryRunner runner, ClusterMapper clusterMapper, boolean log) {
+        runner.runQueries(graph, clusterMapper, log);
     }
 
     private void clearGraph() throws BackendException, ConfigurationException {
@@ -101,10 +113,8 @@ public class GRM2 {
     }
 
     private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
-        vertexProgram = VaqueroVertexProgram.build().clusters(clusters).clusterMapper(cm).acquireLabelProbability(0.5).evaluatingMap(runner.evaluatingMap()).evaluatingStatsOriginal(runner.evaluatingStats()).maxIterations(200).create(graph);
+        vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5).imbalanceFactor(0.9).coolingFactor(0.95).evaluatingMap(runner.evaluatingMap()).evaluatingStatsOriginal(runner.evaluatingStats()).maxIterations(200).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
-        System.out.println("Partition result: " + algorithmResult.graph().traversal().V().valueMap().next());
-//        algorithmResult.graph().traversal().V().limit(20).forEachRemaining(vertex -> vertex.properties().forEachRemaining(objectVertexProperty -> System.out.println((vertex.id() + ": O-" + cm.map((Long) vertex.id()) + ": N-" + objectVertexProperty.value()))));
         System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
         System.out.println("Clusters Lower Bound: " + Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
         System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());

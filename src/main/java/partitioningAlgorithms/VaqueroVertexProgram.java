@@ -20,11 +20,13 @@ package partitioningAlgorithms;
 
 import helpers.ClusterMapper;
 import helpers.HelperOperator;
+import helpers.TwitterDatasetLoaderQueryRunner;
 import org.apache.commons.configuration.Configuration;
 import org.apache.tinkerpop.gremlin.process.computer.*;
 import org.apache.tinkerpop.gremlin.process.computer.util.AbstractVertexProgramBuilder;
 import org.apache.tinkerpop.gremlin.process.computer.util.StaticVertexProgram;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
 import org.apache.tinkerpop.gremlin.structure.Direction;
@@ -60,6 +62,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     public static final String IMBALANCE_FACTOR = "gremlin.VaqueroVertexProgram.imbalanceFactor";
     private static final String VOTE_TO_HALT = "gremlin.VaqueroVertexProgram.voteToHalt";
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
+    private static final String COOLING_FACTOR = "gremlin.VaqueroVertexProgram.coolingFactor";
     private static final String EDGE_PROPERTY = "times";
     private static final String CLUSTER_MAPPER = "gremlin.VaqueroVertexProgram.clusterMapper";
     private static final String EVALUATING_MAP = "gremlin.VaqueroVertexProgram.evaluatingMap";
@@ -236,16 +239,22 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     public void loadState(final Graph graph, final Configuration configuration) {
         this.vertexCount = graph.traversal().V().count().next();
         this.maxIterations = configuration.getInt(MAX_ITERATIONS, 100);
-        this.clusterCount = configuration.getInt(CLUSTER_COUNT, 16);
         this.acquireLabelProbability = configuration.getDouble(ACQUIRE_LABEL_PROBABILITY, 0.5);
         this.imbalanceFactor = configuration.getDouble(IMBALANCE_FACTOR, 0.9);
-        this.initialClusters = Collections.synchronizedMap((Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS));
+        this.coolingFactor = configuration.getDouble(COOLING_FACTOR, 0.98);
+//        this.initialClusters = Collections.synchronizedMap((Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS));
         this.areMockedPartitions = configuration.getBoolean(ARE_MOCKED_PARTITIONS, false);
         this.clusterMapper = (ClusterMapper) configuration.getProperty(CLUSTER_MAPPER);
-        this.initialClusterUpperBoundSpace = computeNewClusterUpperBoundSpace(initialClusters);
-        this.initialClusterLowerBoundSpace = computeClusterLowerBoundSpace(initialClusters);
         this.evaluatingStatsOriginal = Pair.fromIterable((Iterable<Long>) configuration.getProperty(EVALUATING_STATS_ORIGINAL));
         this.evaluatingMap = Collections.synchronizedMap((Map<Long, Long>) configuration.getProperty(EVALUATING_MAP));
+        this.initialClusters = Collections.synchronizedMap(new HashMap<>());
+        for (GraphTraversal<Vertex, Vertex> it = graph.traversal().V(); it.hasNext(); ) {
+            Vertex v = it.next();
+            TwitterDatasetLoaderQueryRunner.computeClusterHelper(initialClusters,clusterMapper,(Long)v.id());
+        }
+        this.clusterCount = initialClusters.size();
+        this.initialClusterUpperBoundSpace = computeNewClusterUpperBoundSpace(initialClusters);
+        this.initialClusterLowerBoundSpace = computeClusterLowerBoundSpace(initialClusters);
     }
 
     @Override
@@ -257,6 +266,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         configuration.setProperty(CLUSTERS, this.initialClusters);
         configuration.setProperty(ARE_MOCKED_PARTITIONS, this.areMockedPartitions);
         configuration.setProperty(CLUSTER_MAPPER, this.clusterMapper);
+        configuration.setProperty(COOLING_FACTOR, this.coolingFactor);
+        configuration.setProperty(IMBALANCE_FACTOR, this.imbalanceFactor);
         configuration.setProperty(EVALUATING_STATS_ORIGINAL, this.evaluatingStatsOriginal);
     }
 
@@ -364,13 +375,6 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             return this;
         }
 
-        //injects map of cluster to capacity and usage
-        public VaqueroVertexProgram.Builder clusters(Map<Long, Pair<Long, Long>> clusters) {
-            this.configuration.setProperty(CLUSTERS, clusters);
-            this.configuration.setProperty(CLUSTER_COUNT, clusters.size());
-            return this;
-        }
-
         //injects clusterMapper
         public VaqueroVertexProgram.Builder clusterMapper(ClusterMapper clusterMapper) {
             this.configuration.setProperty(CLUSTER_MAPPER, clusterMapper);
@@ -395,6 +399,11 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
         public VaqueroVertexProgram.Builder evaluatingStatsOriginal(Pair<Long, Long> evaluatingStats) {
             this.configuration.setProperty(EVALUATING_STATS_ORIGINAL, evaluatingStats);
+            return this;
+        }
+
+        public VaqueroVertexProgram.Builder coolingFactor(double coolingFactor) {
+            this.configuration.setProperty(COOLING_FACTOR, coolingFactor);
             return this;
         }
 

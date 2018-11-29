@@ -78,12 +78,14 @@ public class DefaultLogToGraphLoader implements LogToGraphLoader {
                         edgeMap.put(p, newEdge);
                         edgeMap.put(pr, newEdge);
                     } else {
-                        Edge e = g.V(path.results.get(f).id).addE(EDGE_LABEL)
-                                .property("times", 1)
-                                .property("lastUpdate", System.currentTimeMillis())
-                                .to(g.V(path.results.get(s).id)).next();
-                        edgeMap.put(p, e);
-                        edgeMap.put(pr, e);
+                        try {
+                            Edge e = g.V(path.results.get(f).id).addE(EDGE_LABEL)
+                                    .property("times", 1)
+                                    .property("lastUpdate", System.currentTimeMillis())
+                                    .to(g.V(path.results.get(s).id)).next();
+                            edgeMap.put(p, e);
+                            edgeMap.put(pr, e);
+                        }catch (Exception ignored){}
                     }
                 }
             }
