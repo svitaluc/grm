@@ -5,7 +5,7 @@ public class DefaultClusterMapper implements ClusterMapper {
 
     @Override
     public long map(long vertexId) {
-        return vertexId % numClusters;
+        return Math.abs(Long.hashCode(vertexId) % numClusters);
     }
 
     public DefaultClusterMapper(int numClusters) {

@@ -15,16 +15,17 @@ import org.janusgraph.core.schema.JanusGraphManagement;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.janusgraph.graphdb.idmanagement.IDManager;
 import org.javatuples.Pair;
+import org.javatuples.Quartet;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.BiFunction;
+
+import static helpers.LogToGraphLoader.EDGE_PROPERTY;
 
 
 public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
@@ -32,7 +33,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     private final Map<Long, Long> vertexIdsDegrees = new HashMap<>();
     private final Set<Long> vertexIdsExpanded = new HashSet<>();
     private final List<Long> tweetsReaders = new ArrayList<>();
-    private final Map<Long,Long> allTweetsReaders = new HashMap<>();
+    private final Map<Long, Long> allTweetsReaders = new HashMap<>();
     private long maxDegree = 0;
     private double avgDegree = 0;
     private long originalCrossNodeQueries = 0;
@@ -52,7 +53,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     }
 
     public TwitterDatasetLoaderQueryRunner(String path) {
-        this(RANDOM_SEED_ORIGINAl,path);
+        this(RANDOM_SEED_ORIGINAl, path);
     }
 
     private boolean createSchemaQuery(StandardJanusGraph graph) {
@@ -170,11 +171,12 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         }
         long vertexCount = vertexIdsDegrees.size();
 //        long queryLimit = 50; // testing limit
-        long queryLimit = vertexCount / 16;
+        long queryLimit = vertexCount / 8;
+        long secondExpandCount = 0;
         avgDegree /= vertexCount;
 
         System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree, avgDegree);
-        List<Map.Entry<Long,Long>> vertexIdsDegreesList = new ArrayList<>(vertexIdsDegrees.entrySet());
+        List<Map.Entry<Long, Long>> vertexIdsDegreesList = new ArrayList<>(vertexIdsDegrees.entrySet());
         while (tweetsReaders.size() < queryLimit) {
             Map.Entry<Long, Long> pair = vertexIdsDegreesList.get(random.nextInt(Math.toIntExact(vertexCount)));
             if (pair.getValue() / 1D / vertexCount > random.nextDouble()) {
@@ -183,20 +185,21 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         }
         random = new Random(RANDOM_SEED);
         if (log)
-        g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
+            g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
         else
             g = graph.traversal(); // disabled logging
 
         for (Long vid : tweetsReaders) {
-            MapHelper.incr(allTweetsReaders,vid,1L);
+            MapHelper.incr(allTweetsReaders, vid, 1L);
             for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
                 if (clusterMapper.map(vid) != clusterMapper.map((Long) vertex.id()))
                     originalCrossNodeQueries++;
                 else
                     originalNodeQueries++;
-                if (random.nextDouble() < avgDegree/(vertexIdsDegrees.get(vid)+avgDegree)) { //probability of expanding another twitterUser
-                    MapHelper.incr(allTweetsReaders,(Long) vertex.id(),1L);
+                if (secondExpandCount < queryLimit && random.nextDouble() < avgDegree / (vertexIdsDegrees.get(vid) + avgDegree)) {//probability of expanding another twitterUser
+                    secondExpandCount++;
+                    MapHelper.incr(allTweetsReaders, (Long) vertex.id(), 1L);
                     for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
                         Vertex otherVertex = it1.next();
                         vertexIdsExpanded.add((Long) otherVertex.id());
@@ -230,9 +233,10 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     public double evaluateQueries(Graph graph, String label) throws Exception {
         if (tweetsReaders.size() == 0 || vertexIdsDegrees.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
-        GraphTraversalSource g = graph.traversal();
 
-        for (Map.Entry<Long,Long> entry : allTweetsReaders.entrySet()) {
+        GraphTraversalSource g = graph.traversal();
+        System.out.println("Number of all to be expanded nodes: " + allTweetsReaders.size());
+        for (Map.Entry<Long, Long> entry : allTweetsReaders.entrySet()) {
             long vid = entry.getKey();
             long times = entry.getValue();
             for (int i = 0; i < times; i++) {
@@ -257,4 +261,12 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         );
         return improvement;
     }
+
+    public static BiFunction<Quartet<Serializable, Long, Long, Long>, Edge, Quartet<Serializable, Long, Long, Long>> edgeFunction = (m, edge) -> {
+        try {
+            return m.setAt2(edge.<Long>value(EDGE_PROPERTY)).setAt3(-1L);
+        } catch (Exception e) {
+            return m.setAt2(-1L).setAt3(edge.vertices(Direction.OUT).hasNext() ? (Long) edge.vertices(Direction.OUT).next().id() : -1);
+        }
+    };
 }

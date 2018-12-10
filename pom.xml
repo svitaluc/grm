@@ -7,6 +7,7 @@
     <groupId>cz.cvut.fit.svitaluc</groupId>
     <artifactId>grm</artifactId>
     <version>1.0</version>
+    <name>Graph Redistribution Manager</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <janusgraph.version>0.3.0</janusgraph.version>
@@ -26,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
-            <artifactId>processedResultLogging-gremlin</artifactId>
+            <artifactId>gremlin-processedResultLogging</artifactId>
             <version>${tinkerpop.version}</version>
         </dependency>
         <dependency>

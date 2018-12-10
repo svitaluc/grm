@@ -14,6 +14,7 @@ import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.javatuples.Pair;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class DefaultLogToGraphLoader implements LogToGraphLoader {
@@ -60,10 +61,15 @@ public class DefaultLogToGraphLoader implements LogToGraphLoader {
     }
 
     @Override
-    public void loadLogToGraph(StandardJanusGraph graph, MyLog log) {
+    public void loadLogToGraph(StandardJanusGraph graph, Iterator<LogRecord> logRecords) {
+        System.out.println("Loading the log to graph");
         GraphTraversalSource g = graph.traversal();
         Map<Pair<Long, Long>, Edge> edgeMap = new HashMap<>();
-        for (LogRecord lr : log.logRecords) {
+        long i = 0;
+        for (; logRecords.hasNext(); ) {
+            LogRecord lr = logRecords.next();
+            i++;
+//            if(i % 100 == 0 )  System.out.printf("%.2f%%\t\n", i / (double)log.logRecords.size() * 100);
             for (Path path : lr.results) {
                 for (int s = 1; s < path.results.size(); s++) {
                     int f = s - 1;

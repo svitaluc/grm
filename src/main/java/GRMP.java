@@ -1,4 +1,3 @@
-import com.google.common.collect.Iterators;
 import helpers.*;
 import logHandling.LogFileLoader;
 import logHandling.LogRecord;
@@ -10,7 +9,6 @@ import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.computer.util.StaticVertexProgram;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
-import org.apache.tinkerpop.gremlin.structure.Direction;
 import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.janusgraph.diskstorage.BackendException;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
@@ -28,7 +26,7 @@ import java.util.concurrent.ExecutionException;
 import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTERS;
 import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER_LOWER_BOUND_SPACE;
 
-public class GRM2 {
+public class GRMP {
     private PropertiesConfiguration config;
     private Iterator<LogRecord> logRecordIterator;
     private String graphPropFile, logFile;
@@ -38,7 +36,7 @@ public class GRM2 {
     private ComputerResult algorithmResult;
     private StaticVertexProgram<Pair<Serializable, Long>> vertexProgram;
 
-    public GRM2() throws ConfigurationException {
+    public GRMP() throws ConfigurationException {
         this.config = new PropertiesConfiguration("config.properties");
         this.graphPropFile = config.getString("graph.propFile");
         this.logFile = config.getString("log.logFile", "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\processedLog");
@@ -52,8 +50,7 @@ public class GRM2 {
     public static void main(String[] args) throws Exception {
         long time = System.currentTimeMillis();
         System.out.println("Started: " + new SimpleDateFormat().format(new Date(time)));
-        GRM2 grm = new GRM2();
-        TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
+        GRMP grm = new GRMP();
         PenssylvaniaDatasetLoaderQueryRunner pens = new PenssylvaniaDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
         ClusterMapper clusterMapper = new DefaultClusterMapper(3);
@@ -61,21 +58,21 @@ public class GRM2 {
         //dataset part
         grm.clearGraph();
         grm.connectToGraph();
-        grm.loadDataset(twitter, clusterMapper);
+        grm.loadDataset(pens, clusterMapper);
 //        grm.printVertexDegrees();
-        grm.runTestQueries(twitter, clusterMapper, false); // not needed when the log is already created
+        grm.runTestQueries(pens, clusterMapper, true); // not needed when the log is already created
 
         //log part
         grm.loadLog(grm.logFile);
         grm.injectLogToGraph(logLoader);
-        grm.runPartitioningAlgorithm(clusterMapper, twitter);
-        grm.evaluatePartitioningAlgorithm(twitter);
+        grm.runPartitioningAlgorithm(clusterMapper, pens);
+        grm.evaluatePartitioningAlgorithm(pens);
 
         //validation part
         System.out.println("Running validating evaluation");
-        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
-        grm.runTestQueries(twitterValidate, clusterMapper, false);
-        grm.evaluatePartitioningAlgorithm(twitterValidate);
+        PenssylvaniaDatasetLoaderQueryRunner pensValidate = new PenssylvaniaDatasetLoaderQueryRunner(2L,"C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
+        grm.runTestQueries(pensValidate, clusterMapper, false);
+        grm.evaluatePartitioningAlgorithm(pensValidate);
 
         System.out.printf("Total runtime: %.2fs\n", (System.currentTimeMillis() - time) / 1000D);
         Toolkit.getDefaultToolkit().beep();
@@ -120,7 +117,7 @@ public class GRM2 {
         System.out.println("Cleared the graph");
     }
 
-    private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
+    private void runPartitioningAlgorithm(ClusterMapper cm, PenssylvaniaDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
         vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5)
                 .imbalanceFactor(0.90)
                 .coolingFactor(0.98)
