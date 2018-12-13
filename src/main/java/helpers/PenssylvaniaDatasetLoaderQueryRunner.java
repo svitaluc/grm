@@ -31,7 +31,7 @@ import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.*;
 public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
     private Path datasetPath;
     private final Map<Long, Long> vertexIdsDegrees = Collections.synchronizedMap(new HashMap<>());
-    private final List<Long> citiesToQuery = new ArrayList<>();
+    private final List<Long> citiesToQuery = Collections.synchronizedList(new ArrayList<>());
     private final Set<Long> setCitiesToQuery = new HashSet<>();
     private final Map<Long, Long> allExpandedVertices = Collections.synchronizedMap(new HashMap<>());
     private AtomicLong maxDegree = new AtomicLong(0);
@@ -91,7 +91,6 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         System.out.println("Loading dataset to DB");
         AtomicLong edgeCount = new AtomicLong();
         try (BufferedReader reader = new BufferedReader(new FileReader(datasetPath.toFile()))) {
-            String line;
             AtomicLong i = new AtomicLong();
             final JanusGraphTransaction threadedTx = graph.newTransaction();
             reader.lines().parallel().forEach(s -> {
@@ -228,6 +227,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         System.out.println("Number of queries: " + citiesToQuery.size());
         AtomicInteger noTargetCount = new AtomicInteger();
         final Random finalRandom = random;
+
         citiesToQuery.parallelStream().forEach(sourceId -> {
             int walkDistance = Math.min(randomWalkDistanceLimit, randomWalkDistanceLow + finalRandom.nextInt(randomWalkDistanceLimit));
 //            System.out.println("walk distance: " + walkDistance);
@@ -243,12 +243,17 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
             queryData.put(new Pair<>(sourceId, targetId), (long) walkDistance);
             // get the shortest path between source and target
 //            if (i % 10 == 0) System.out.printf("%.1f%%\n", i / (double) citiesToQuery.size() * 100);
+        });
 
-            GraphTraversalSource gt = graph.traversal();
-            gt = log ? gt.withStrategies(ProcessedResultLoggingStrategy.instance()) : gt;
+
+        queryData.entrySet().parallelStream().forEach(entry -> {
+            long sourceId = entry.getKey().getValue0();
+            long targetId = entry.getKey().getValue1();
+            long walkDistance = entry.getValue();
+            final GraphTraversalSource gt = log ? graph.traversal().withStrategies(ProcessedResultLoggingStrategy.instance()) : graph.traversal();
             gt.V(sourceId).
                     until(or(loops().is(walkDistance), hasId(targetId))).
-                    repeat(out().simplePath()).hasId(targetId).path().limit(10).toStream().forEach(p -> {
+                    repeat(out().simplePath()).hasId(targetId).path().limit(10).toStream().forEachOrdered(p -> {
 //                System.out.println(Arrays.toString(p.objects().toArray()));
                 Vertex previousO = null;
                 for (Object o : p.objects()) {
@@ -323,7 +328,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         return improvement;
     }
 
-    public Map<Long, Long> evaluatingMap() {
+    public Map<Long, Long> evaluatingMap() { //TODO
         return allExpandedVertices;
     }
 

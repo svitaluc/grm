@@ -126,7 +126,7 @@ public class GRMP {
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
-        algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
+        algorithmResult = graph.compute().program(vertexProgram).workers(20).submit().get();
         System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
         System.out.println("Clusters Lower Bound: " + Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
         System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());

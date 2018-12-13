@@ -15,7 +15,8 @@ public class LogRecord {
         @Override
         public LogRecord deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
             final JsonObject jsonObject = jsonElement.getAsJsonObject();
-            String query = jsonObject.get("Q").getAsString();
+            JsonElement q = jsonObject.get("Q");
+            String query = q == null ? null : q.getAsString();
             List<Path> results = new ArrayList<>();
             JsonArray paths = jsonObject.get("R").getAsJsonArray();
             for (JsonElement path : paths) {
@@ -34,7 +35,7 @@ public class LogRecord {
                 results.add(new Path(lPath));
 
             }
-            return new LogRecord(query,results);
+            return new LogRecord(query, results);
         }
     }
 
