@@ -52,6 +52,8 @@ public class GRMP {
         System.out.println("Started: " + new SimpleDateFormat().format(new Date(time)));
         GRMP grm = new GRMP();
         PenssylvaniaDatasetLoaderQueryRunner pens = new PenssylvaniaDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
+//        PenssylvaniaDatasetLoaderQueryRunner pens = new PenssylvaniaDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-CA.txt");
+
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
         ClusterMapper clusterMapper = new DefaultClusterMapper(3);
 

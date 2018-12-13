@@ -5,7 +5,7 @@ import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
-import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
+import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.ProcessedResultLoggingStrategy;
 import org.apache.tinkerpop.gremlin.structure.*;
 import org.janusgraph.core.JanusGraphVertex;
 import org.janusgraph.core.Multiplicity;
@@ -185,7 +185,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         }
         random = new Random(RANDOM_SEED);
         if (log)
-            g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
+            g = graph.traversal().withStrategies(ProcessedResultLoggingStrategy.instance()); // enable the logging strategy
         else
             g = graph.traversal(); // disabled logging
 

@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class LogFileLoader {
@@ -40,9 +37,13 @@ public class LogFileLoader {
             String line = null;
 
             @Override
-            public boolean hasNext() {
+            public synchronized boolean hasNext() {
+                if (next != null) return true;
                 try {
-                    if ((line = buffer.readLine()) == null) return false;
+                    if ((line = buffer.readLine()) == null) {
+                        buffer.close();
+                        return false;
+                    }
                 } catch (IOException e) {
                     return false;
                 }
@@ -51,8 +52,13 @@ public class LogFileLoader {
             }
 
             @Override
-            public LogRecord next() {
-                return hasNext() ? next : null;
+            public synchronized LogRecord next() {
+                if (next != null || hasNext()) {
+                    LogRecord tmp = next;
+                    next = null;
+                    return tmp;
+                }
+                throw new NoSuchElementException("no next");
             }
         };
 

@@ -54,7 +54,6 @@ public class GRM2 {
         System.out.println("Started: " + new SimpleDateFormat().format(new Date(time)));
         GRM2 grm = new GRM2();
         TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
-        PenssylvaniaDatasetLoaderQueryRunner pens = new PenssylvaniaDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
         ClusterMapper clusterMapper = new DefaultClusterMapper(3);
 
@@ -63,7 +62,7 @@ public class GRM2 {
         grm.connectToGraph();
         grm.loadDataset(twitter, clusterMapper);
 //        grm.printVertexDegrees();
-        grm.runTestQueries(twitter, clusterMapper, false); // not needed when the log is already created
+        grm.runTestQueries(twitter, clusterMapper, true); // not needed when the log is already created
 
         //log part
         grm.loadLog(grm.logFile);
@@ -122,7 +121,7 @@ public class GRM2 {
 
     private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
         vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5)
-                .imbalanceFactor(0.90)
+                .imbalanceFactor(0.95)
                 .coolingFactor(0.98)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())

@@ -1,17 +1,17 @@
 package helpers;
 
-import com.google.common.collect.Iterators;
+import com.google.common.util.concurrent.AtomicDouble;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
-import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.LogPathStrategy;
-import org.apache.tinkerpop.gremlin.structure.*;
-import org.janusgraph.core.JanusGraphVertex;
-import org.janusgraph.core.Multiplicity;
-import org.janusgraph.core.RelationType;
-import org.janusgraph.core.SchemaViolationException;
+import org.apache.tinkerpop.gremlin.process.traversal.strategy.finalization.ProcessedResultLoggingStrategy;
+import org.apache.tinkerpop.gremlin.structure.Edge;
+import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.apache.tinkerpop.gremlin.structure.T;
+import org.apache.tinkerpop.gremlin.structure.Vertex;
+import org.janusgraph.core.*;
 import org.janusgraph.core.schema.JanusGraphManagement;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.janusgraph.graphdb.idmanagement.IDManager;
@@ -23,17 +23,19 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.*;
 
 public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
     private Path datasetPath;
-    private final Map<Long, Long> vertexIdsDegrees = new HashMap<>();
+    private final Map<Long, Long> vertexIdsDegrees = Collections.synchronizedMap(new HashMap<>());
     private final List<Long> citiesToQuery = new ArrayList<>();
     private final Set<Long> setCitiesToQuery = new HashSet<>();
-    private final Map<Long, Long> allExpandedVertices = new HashMap<>();
-    private long maxDegree = 0;
-    private double avgDegree = 0;
+    private final Map<Long, Long> allExpandedVertices = Collections.synchronizedMap(new HashMap<>());
+    private AtomicLong maxDegree = new AtomicLong(0);
+    private AtomicDouble avgDegree = new AtomicDouble(0);
     private long originalCrossNodeQueries = 0;
     private long originalNodeQueries = 0;
     private long repartitionedCrossNodeQueries = 0;
@@ -41,7 +43,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     private static final long datasetLines = 3083800;
     private static final int randomWalkDistanceLimit = 10;
     private static final int randomWalkDistanceLow = 5;
-    private Map<Pair<Long, Long>, Long> queryData = new HashMap<>();
+    private Map<Pair<Long, Long>, Long> queryData = Collections.synchronizedMap(new HashMap<>());
     private static final long diameter = 786;
 
 
@@ -82,47 +84,85 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
 
     @Override
     public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, ClusterMapper clusterMapper) throws IOException {
-        Map<Long, Pair<Long, Long>> clusters = new HashMap<>();
+        Map<Long, Pair<Long, Long>> clusters = Collections.synchronizedMap(new HashMap<>());
         createSchemaQuery(graph);
-        GraphTraversalSource g = graph.traversal();
-        g.tx().open();
+
         IDManager iDmanager = graph.getIDManager();
         System.out.println("Loading dataset to DB");
-        long edgeCount = 0;
+        AtomicLong edgeCount = new AtomicLong();
         try (BufferedReader reader = new BufferedReader(new FileReader(datasetPath.toFile()))) {
             String line;
-            long i = 0;
-            while ((line = reader.readLine()) != null) {
-//                if (i > 100000) break;  // testing limit
-                if (line.startsWith("#")) continue;
-                if (++i % 100000 == 1) {
-                    System.out.printf("%.2f%%\n", i / (double) datasetLines * 100);
-                }
-                String[] splits = line.split("\\s+");
-                if (splits[0].equals(splits[1])) continue; //we don't allow self cycles
+            AtomicLong i = new AtomicLong();
+            final JanusGraphTransaction threadedTx = graph.newTransaction();
+            reader.lines().parallel().forEach(s -> {
+                i.getAndIncrement();
+                if (s.startsWith("#")) return;
+                String[] splits = s.split("\\s+");
+                if (splits[0].equals(splits[1])) return; //we don't allow self cycles
                 Long id1 = iDmanager.toVertexId(1 + Long.decode(splits[0]));
                 Long id2 = iDmanager.toVertexId(1 + Long.decode(splits[1]));
-
-                JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
+                JanusGraphVertex a, b;
+                a = (JanusGraphVertex) threadedTx.traversal().V(id1).tryNext().orElse(null);
                 if (a == null) {
-                    a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
-                    computeClusterHelper(clusters, clusterMapper, id1);
+                    try {
+                        a = threadedTx.addVertex(T.label, VERTEX_LABEL, T.id, id1);
+                        computeClusterHelper(clusters, clusterMapper, id1);
+                    } catch (IllegalArgumentException ex) {
+                        a = (JanusGraphVertex) threadedTx.traversal().V(id1).next();
+                    }
                 }
-                JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
+                b = (JanusGraphVertex) threadedTx.traversal().V(id2).tryNext().orElse(null);
                 if (b == null) {
-                    b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
-                    computeClusterHelper(clusters, clusterMapper, id2);
+                    try {
+                        b = threadedTx.addVertex(T.label, VERTEX_LABEL, T.id, id2);
+                        computeClusterHelper(clusters, clusterMapper, id2);
+                    } catch (IllegalArgumentException ex) {
+                        b = (JanusGraphVertex) threadedTx.traversal().V(id2).next();
+                    }
                 }
                 try {
                     a.addEdge(EDGE_LABEL, b);
-                    edgeCount++;
+                    edgeCount.getAndIncrement();
                 } catch (SchemaViolationException ignored) {
                 }
-            }
+            });
+            threadedTx.commit();
+
+
+//            while ((line = reader.readLine()) != null) {
+//                if (i.get() / (double) datasetLines > 0.2) break;  // testing limit
+//                if (line.startsWith("#")) continue;
+//                if (i.incrementAndGet() % 100000 == 1) {
+//                    System.out.printf("%.2f%%\n", i.get() / (double) datasetLines * 100);
+//                }
+//                String[] splits = line.split("\\s+");
+//                if (splits[0].equals(splits[1])) continue; //we don't allow self cycles
+//                Long id1 = iDmanager.toVertexId(1 + Long.decode(splits[0]));
+//                Long id2 = iDmanager.toVertexId(1 + Long.decode(splits[1]));
+//
+//                JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
+//                if (a == null) {
+//                    a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
+//                    computeClusterHelper(clusters, clusterMapper, id1);
+//                }
+//                JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
+//                if (b == null) {
+//                    b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
+//                    computeClusterHelper(clusters, clusterMapper, id2);
+//                }
+//                try {
+//                    a.addEdge(EDGE_LABEL, b);
+//                    edgeCount.getAndIncrement();
+//                } catch (SchemaViolationException ignored) {
+//                }
+//            }
             System.out.println();
         }
 
-        g.tx().commit();
+        GraphTraversalSource g = graph.traversal();
+        long vCount = g.V().count().next();
+
+        System.out.println("VCount: " + vCount);
         System.out.println("Clusters populated to vertex count of: " + clusters.values().stream().mapToLong(Pair::getValue1).reduce(0, (left, right) -> left + right));
         System.out.println("Edge count: " + edgeCount);
         System.out.println("Clusters: " + Arrays.toString(clusters.entrySet().toArray()));
@@ -141,66 +181,74 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     @Override
     public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper, boolean log) {
         System.out.println("Running test queries");
-        Random random = new Random(RANDOM_SEED);
-        GraphTraversalSource g = graph.traversal();
+        Random random = new Random(RANDOM_SEED) {
+            @Override
+            public synchronized boolean nextBoolean() {
+                return super.nextBoolean();
+            }
 
+            @Override
+            public synchronized double nextDouble() {
+                return super.nextDouble();
+            }
+        };
+        GraphTraversalSource g = graph.traversal();
+        final GraphTraversalSource gg = g;
 
 //        for (GraphTraversal<Vertex, Vertex> it = g.V().limit(500); it.hasNext(); ) { // TODO testing limit
-        for (GraphTraversal<Vertex, Vertex> it = g.V(); it.hasNext(); ) {
-            Vertex vertex = it.next();
-            long degree = Iterators.size(vertex.edges(Direction.BOTH));
-            avgDegree += degree;
+
+        g.V().toStream().parallel().forEach(vertex -> {
+            long degree = graph.traversal().V(vertex.id()).outE().count().next();
+            avgDegree.getAndAdd(degree);
             vertexIdsDegrees.put((Long) vertex.id(), degree);
-            if (degree > maxDegree) maxDegree = degree;
-        }
+            synchronized (gg) {
+                if (degree > maxDegree.get()) maxDegree.set(degree);
+            }
+        });
+
         long vertexCount = vertexIdsDegrees.size();
 //        long queryLimit = 50; // testing limit
-        long queryLimit = vertexCount / 1000;
-        avgDegree /= vertexCount;
-        System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree, avgDegree);
+        long queryLimit = vertexCount / 2000;
+        avgDegree.set(avgDegree.get() / vertexCount);
+        System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree.get(), avgDegree.get());
 
         List<Map.Entry<Long, Long>> vertexIdsDegreesList = new ArrayList<>(vertexIdsDegrees.entrySet());
 
         while (citiesToQuery.size() < queryLimit) {
             Map.Entry<Long, Long> pair = vertexIdsDegreesList.get(random.nextInt(Math.toIntExact(vertexCount)));
-            if (Math.log(1 + pair.getValue()) / Math.log(1 + maxDegree) > random.nextDouble() && !setCitiesToQuery.contains(pair.getKey())) {
+            if (Math.log(1 + pair.getValue()) / Math.log(1 + maxDegree.get()) > random.nextDouble() && !setCitiesToQuery.contains(pair.getKey())) {
                 citiesToQuery.add(pair.getKey()); //add the vertex id to the list provided the probability
                 setCitiesToQuery.add(pair.getKey());
             }
         }
+        vertexIdsDegreesList.clear();
+        vertexIdsDegrees.clear();
         random = new Random(RANDOM_SEED);
         GraphTraversalSource gn = graph.traversal();
-        if (log)
-            g = graph.traversal().withStrategies(LogPathStrategy.instance()); // enable the logging strategy
-        else
-            g = gn; // disabled logging
-
         System.out.println("Number of queries: " + citiesToQuery.size());
-        int noTargetCount = 0;
-        for (int i = 0; i < citiesToQuery.size(); i++) {
-            long sourceId = citiesToQuery.get(i);
-            int walkDistance = Math.min(randomWalkDistanceLimit, randomWalkDistanceLow + random.nextInt(randomWalkDistanceLimit));
+        AtomicInteger noTargetCount = new AtomicInteger();
+        final Random finalRandom = random;
+        citiesToQuery.parallelStream().forEach(sourceId -> {
+            int walkDistance = Math.min(randomWalkDistanceLimit, randomWalkDistanceLow + finalRandom.nextInt(randomWalkDistanceLimit));
 //            System.out.println("walk distance: " + walkDistance);
-            Optional<Vertex> target = gn.V(sourceId).repeat(__.both().simplePath().order().by(new ShuffleComparator<>(random)).limit(5)).times(walkDistance).limit(1)
+            Optional<Vertex> target = gn.V(sourceId).repeat(__.both().simplePath().order().by(new ShuffleComparator<>(finalRandom)).limit(5)).times(walkDistance).limit(1)
                     .tryNext();
 
             if (!target.isPresent()) {
 //                System.out.println("no target");
-                noTargetCount++;
-                continue;
+                noTargetCount.getAndIncrement();
+                return;
             }
             long targetId = (long) target.get().id();
             queryData.put(new Pair<>(sourceId, targetId), (long) walkDistance);
             // get the shortest path between source and target
-            if (i % 10 == 0) System.out.printf("%.1f%%\n", i / (double) citiesToQuery.size() * 100);
-//            System.out.println(citiesToQuery.get(i) + " " + targetId);
+//            if (i % 10 == 0) System.out.printf("%.1f%%\n", i / (double) citiesToQuery.size() * 100);
 
-            for (GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path>
-                 it = g.V(sourceId).
+            GraphTraversalSource gt = graph.traversal();
+            gt = log ? gt.withStrategies(ProcessedResultLoggingStrategy.instance()) : gt;
+            gt.V(sourceId).
                     until(or(loops().is(walkDistance), hasId(targetId))).
-                    repeat(out().simplePath()).hasId(targetId).path().limit(10); it.hasNext();
-                    ) {
-                org.apache.tinkerpop.gremlin.process.traversal.Path p = it.next();
+                    repeat(out().simplePath()).hasId(targetId).path().limit(10).toStream().forEach(p -> {
 //                System.out.println(Arrays.toString(p.objects().toArray()));
                 Vertex previousO = null;
                 for (Object o : p.objects()) {
@@ -218,8 +266,8 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                     }
 
                 }
-            }
-        }
+            });
+        });
         System.out.println("No target count: " + noTargetCount);
     }
 
