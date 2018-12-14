@@ -1,6 +1,7 @@
 package helpers;
 
 import com.google.common.collect.Iterators;
+import logHandling.LogRecord;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
@@ -269,4 +270,9 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             return m.setAt2(-1L).setAt3(edge.vertices(Direction.OUT).hasNext() ? (Long) edge.vertices(Direction.OUT).next().id() : -1);
         }
     };
+
+    @Override
+    public double evaluateQueries(Graph graph, String label, Iterator<LogRecord> log) throws Exception {
+        return 0;
+    }
 }

@@ -1,7 +1,6 @@
 import helpers.*;
 import logHandling.LogFileLoader;
 import logHandling.LogRecord;
-import logHandling.MyLog;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -61,7 +60,8 @@ public class GRMP {
         grm.clearGraph();
         grm.connectToGraph();
         grm.loadDataset(pens, clusterMapper);
-//        grm.printVertexDegrees();
+        grm.printVertexDegrees();
+        System.exit(0);
         grm.runTestQueries(pens, clusterMapper, true); // not needed when the log is already created
 
         //log part
@@ -72,7 +72,7 @@ public class GRMP {
 
         //validation part
         System.out.println("Running validating evaluation");
-        PenssylvaniaDatasetLoaderQueryRunner pensValidate = new PenssylvaniaDatasetLoaderQueryRunner(2L,"C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
+        PenssylvaniaDatasetLoaderQueryRunner pensValidate = new PenssylvaniaDatasetLoaderQueryRunner(2L, "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-PA.txt");
         grm.runTestQueries(pensValidate, clusterMapper, false);
         grm.evaluatePartitioningAlgorithm(pensValidate);
 
@@ -135,7 +135,7 @@ public class GRMP {
     }
 
     private void evaluatePartitioningAlgorithm(DatasetQueryRunner runner) throws Exception {
-        runner.evaluateQueries(graph, VaqueroVertexProgram.LABEL);
+        runner.evaluateQueries(graph, VaqueroVertexProgram.LABEL, LogFileLoader.loadIterator(new File(logFile)));
     }
 
     private void printVertexDegrees() {

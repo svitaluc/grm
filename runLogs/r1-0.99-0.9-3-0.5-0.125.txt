@@ -1108,3 +1108,7 @@ Good before/after Queries:  559556 / 1434620
 Total runtime: 1545.51s
 
 R2 - Before/After Cross Node Queries: 1113470 / 298030, Improvement: 73.23%
+
+R3 - Before/After Cross Node Queries: 1023563 / 294460, Improvement: 71.23%
+R4 - Before/After Cross Node Queries: 1023563 / 369298, Improvement: 63.92%
+R5 - Before/After Cross Node Queries: 1023563 / 360589, Improvement: 64.77%

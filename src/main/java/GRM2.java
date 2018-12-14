@@ -121,8 +121,8 @@ public class GRM2 {
 
     private void runPartitioningAlgorithm(ClusterMapper cm, TwitterDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
         vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5)
-                .imbalanceFactor(0.95)
-                .coolingFactor(0.98)
+                .imbalanceFactor(0.90)
+                .coolingFactor(0.99)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);

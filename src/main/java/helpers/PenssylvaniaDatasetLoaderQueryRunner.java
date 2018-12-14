@@ -1,6 +1,8 @@
 package helpers;
 
 import com.google.common.util.concurrent.AtomicDouble;
+import logHandling.LogRecord;
+import logHandling.MyElement;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
@@ -286,36 +288,32 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     }
 
     @Override
-    public double evaluateQueries(Graph graph, String label) throws Exception {
+    public double evaluateQueries(Graph graph, String label, Iterator<LogRecord> log) throws Exception {
         if (queryData.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
-//TODO make same as runQueries
-        GraphTraversalSource g = graph.traversal();
-        for (Map.Entry<Pair<Long, Long>, Long> query : queryData.entrySet()) {
-            long sourceId = query.getKey().getValue0();
-            long targetId = query.getKey().getValue1();
-            long walkDistance = query.getKey().getValue1();
-            for (GraphTraversal<Vertex, org.apache.tinkerpop.gremlin.process.traversal.Path>
-                 it = g.V(sourceId).
-                    until(__.hasId(targetId).or().loops().is(walkDistance)).
-                    repeat(__.out().simplePath()).hasId(targetId).path(); it.hasNext(); ) {
-                org.apache.tinkerpop.gremlin.process.traversal.Path p = it.next();
-                Vertex previousO = null;
-                for (Object o : p.objects()) {
-                    if (previousO == null && o instanceof Vertex) {
-                        previousO = (Vertex) o;
-                    } else if (o instanceof Vertex) {
-                        if (!previousO.value(label).equals(((Vertex) o).value(label)))
-                            repartitionedCrossNodeQueries++;
-                        else
+        log.forEachRemaining(logRecord -> {
+            logRecord.results.parallelStream().forEach(path -> {
+                for (int i = 0; i+1 < path.results.size(); i++) {
+                    MyElement e1,e2;
+                    e1=path.results.get(i);
+                    e2=path.results.get(i+1);
+                    if (!e1.type.equals(e2.type) || !e1.type.equals("v")) throw new IllegalArgumentException("Elements are not of the same type: Vertex");
+                    Vertex prev = null;
+                    for (GraphTraversal<Vertex, Vertex> it = graph.traversal().V(e1.id, e2.id).limit(2); it.hasNext(); ) {
+                        Vertex v = it.next();
+                        if(prev ==null) {
+                            prev = v;
+                            continue;
+                        }
+                        if(v.value(label).equals(prev.value(label)))
                             repartitionedNodeQueries++;
-                        previousO = (Vertex) o;
+                        else
+                            repartitionedCrossNodeQueries++;
                     }
-
                 }
-            }
-        }
 
+            });
+        });
         double improvement = (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries;
         System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%" +
                         "\nGood before/after Queries:  %d / %d\n"
@@ -326,6 +324,12 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                 , repartitionedNodeQueries
         );
         return improvement;
+    }
+
+    @Override
+    @Deprecated
+    public double evaluateQueries(Graph graph, String label) throws Exception {
+        return Double.NaN;
     }
 
     public Map<Long, Long> evaluatingMap() { //TODO
