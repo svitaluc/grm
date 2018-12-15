@@ -124,7 +124,7 @@ public class GRM2 {
                 .clusterMapper(cm)
                 .acquireLabelProbability(0.5)
                 .imbalanceFactor(0.9)
-                .coolingFactor(0.98)
+                .coolingFactor(0.97)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
