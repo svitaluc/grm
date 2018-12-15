@@ -1,0 +1,78 @@
+= Graph Redistribution Manager
+
+GRM is a proof of concept solution to redistribute data in distributed graph database systems.
+The process of redistribution starts with loading a dataset to JanusGraph database. Then a set of generated queries is
+ran against the database generating a processed result log via the custom Processed Result Logging module of the Tinkerpop project.
+The paths from the log are added to the database. Finally a partitioning algorithm is ran and new partitions for each vertex are proposed.
+
+== VaqueroVertexProgram
+
+VaqueroVertexProgram is the Vaquero algorithm implemented in the Tinkerpop VertexProgram framework which is bases on PREGL computation mode.
+This program is works in iterations. After initial setup the ```execute``` method is ran for each vertex of the graph.
+In this method there is communication between selected vertices which are chosen via MessageScope. These iterations are ran
+in parallel manner so after each iteration there is a synchronization barrier and the ```terminate``` method is called which
+determines whether the algorithm should continue into the next iteration or whether it should halt the program. After the end of the run
+each vertex has been assigned new partition ID which can be accessed via the ```vertex.value(LABEL)``` methon where ```LABEL```
+is a constant with the key of the property of the new parition ID.
+
+=== Iteration process
+In each iteration vertices communicate with each other via messages. Every vertex sends it's PID to all of it's neighbours.
+The partition ID of the vertex is determined by the frequency of different parttion IDs(PIDs) of the Vertex's neighbours. The more the PID is represented among the neighbours the bigger is the chance that it will be acquired. However there are more conditions which determine whether the new PID will be acquired. One of which is the current balance of the partitions. The ```imbalanceFactor``` sets the lower bound of how much the partitions can be imbalanced in terms of their current capacity usage and upper bounds of each partition is determined by the maximum capacity of the partitions. The second condition is just a coin toss which solves an oscillation problem where two or more vertices would change it's PID back and forth between.
+
+== Datasets
+
+The current implementation supports two datasets for testing the Vaquero algorithm.
+
+  . Twitter ego dataset, TODO link
+  . Pennsylvania road network dataset, TODO link
+
+Loading and query testing is implemented via two classes: ```PenssylvaniaDatasetLoaderQueryRunner``` and ```TwitterDatasetLoaderQueryRunner```.
+
+=== Configuration and usage
+VaqueroVertexProgram can be build using the ```VaqueroVertexProgram.Builder``` which enables configuration of the algorithm.
+[source,java]
+----
+ vertexProgram = VaqueroVertexProgram.build()
+                .clusterMapper(cm)
+                .acquireLabelProbability(0.5)
+                .imbalanceFactor(0.9)
+                .coolingFactor(0.96)
+                .evaluatingMap(runner.evaluatingMap())
+                .maxIterations(200)
+                .create(graph);
+ algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
+----
+In the code snippet above an instance of VaqueroVertexProgram is created using the ```VaqueroVertexProgram.Builder``` and then it is submitted to the graph computer.
+
+Configuration::
+  * ```clusterMapper```:
+    This method will set the provided ```ClusterMapper``` to be used to determine the original partition
+    ID from a vertex ID
+  * ```acquireLabelProbability```: This sets the probability for vertices to acquire new label.
+  * ```imbalanceFactor```: This sets the imbalance factor which determines how much the partitions can be imbalanced.
+  * ```coolingFactor```: Simulated annealing is used when executing the program.
+  The cooling factor determines how quickly the temperature is going to drop affecting the probability of vertices to acquire new labels.
+  * ```evaluatingMap```: Provides a map of vertices to number of appearances the vertices had in the query set. Used for evaluating the improvement of the partitioning between iterations.
+  * ```maxIterations```: Sets the maximum number of iterations before the program halts.
+
+Project structure::
+    logHandling:::
+      * ```LogFileLoader```: Loads the log fle to the memory or provides ```Iterator<LogRecord>``` of the log file.
+      * ```LogRecord```:  Represents one record of the MyLog.
+      * ```MyElement```:  TODO rename Represents Edge or Vertex element of the graph and stores only the ID of the element.
+      * ```MyLog```: TODO rename Represents the log file when loaded to the memory.
+      * ```Path```: TODO rename List of ```MyElement``` representing the Traverser path that was walked when running the queries.
+      * ```LogToGraphLoader```: This interface describes operations necessary to load the log to the graph  which are ```addSchema```, ```removeSchema``` and ```loadLogToGraph```. The default implementation is ```DefaultLogToGraphLoader```
+    dataset:::
+      * ```DatasetQueryRunner```: Defines the interface to run a set of queries against database.
+      * ```DatasetLoader```: Defines the interface to load a dataset into the graph database.
+
+      * ```PenssylvaniaDatasetLoaderQueryRunner```:
+
+      * ```TwitterDatasetLoaderQueryRunner```:
+    cluster:::
+      * ```PartitionIDGetter```: TODO rename Interface to get the real partition of a Vertex
+      * ```ClusterMapper```: TODO rename and unite?  This interface defines the method ```map(vertexID)``` to get the partition ID from ```vertexID```. This is different form ```PartitionIDGetter``` in a way that the ```map``` method does't have to return the real partition ID of the Vertex. This is useful when simulating different conditions. The default implementation is ```DefaultClusterMapper``` which uses modulo division of the hash of```vertexID``` to get the partition ID.
+    helpers:::
+      * ```HelperOperator```: Set of binary operators to use when reducing data in ```VaqueroVertexProgram```.
+      * ```ShuffleComparator```: A random comparator which is used for traversal ordering when implementing random walk on the graph.

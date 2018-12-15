@@ -1055,3 +1055,13 @@ Number of all to be expanded nodes: 12804
 Before/After Cross Node Queries: 1113470 / 363161, Improvement: 67.38%
 Good before/after Queries:  559556 / 1309865
 Total runtime: 900.57s
+
+R2 Before/After Cross Node Queries: 1023563 / 424204, Improvement: 58.56%   28 iterations
+R3 Before/After Cross Node Queries: 1023563 / 402067, Improvement: 60.72%   36 iterations
+R4 Before/After Cross Node Queries: 1023563 / 420623, Improvement: 58.91%   37 iterations
+R5 Before/After Cross Node Queries: 1023563 / 448434, Improvement: 56.19%   31 iterations
+R6 Before/After Cross Node Queries: 1023563 / 414458, Improvement: 59.51%   37 iterations
+R7 Before/After Cross Node Queries: 1023563 / 414725, Improvement: 59.48%   33 iterations
+R8 Before/After Cross Node Queries: 1023563 / 444952, Improvement: 56.53%   33 iterations
+R9 Before/After Cross Node Queries: 1023563 / 433674, Improvement: 57.63%   30 iterations
+R10 Before/After Cross Node Queries: 1023563 / 431123, Improvement: 57.88%  39 iterations
