@@ -209,7 +209,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
 
         long vertexCount = vertexIdsDegrees.size();
 //        long queryLimit = 50; // testing limit
-        long queryLimit = vertexCount / 2000;
+        long queryLimit = vertexCount / 100;
         avgDegree.set(avgDegree.get() / vertexCount);
         System.out.printf("Vertex count: %d, Max degree: %d, Avg. degree: %.2f\n", vertexCount, maxDegree.get(), avgDegree.get());
 
@@ -247,7 +247,8 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
 //            if (i % 10 == 0) System.out.printf("%.1f%%\n", i / (double) citiesToQuery.size() * 100);
         });
 
-
+        AtomicLong nq = new AtomicLong(0);
+        AtomicLong cnq = new AtomicLong(0);
         queryData.entrySet().parallelStream().forEach(entry -> {
             long sourceId = entry.getKey().getValue0();
             long targetId = entry.getKey().getValue1();
@@ -255,7 +256,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
             final GraphTraversalSource gt = log ? graph.traversal().withStrategies(ProcessedResultLoggingStrategy.instance()) : graph.traversal();
             gt.V(sourceId).
                     until(or(loops().is(walkDistance), hasId(targetId))).
-                    repeat(out().simplePath()).hasId(targetId).path().limit(10).toStream().forEachOrdered(p -> {
+                    repeat(out().simplePath()).hasId(targetId).path().limit(15).toStream().forEachOrdered(p -> {
 //                System.out.println(Arrays.toString(p.objects().toArray()));
                 Vertex previousO = null;
                 for (Object o : p.objects()) {
@@ -265,9 +266,9 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                     } else if (o instanceof Vertex) {
                         MapHelper.incr(allExpandedVertices, (Long) ((Vertex) o).id(), 1L);
                         if (clusterMapper.map((Long) previousO.id()) != clusterMapper.map((Long) ((Vertex) o).id()))
-                            originalCrossNodeQueries++;
+                            cnq.incrementAndGet();
                         else
-                            originalNodeQueries++;
+                            nq.incrementAndGet();
                         previousO = (Vertex) o;
 //                        System.out.println(originalCrossNodeQueries);
                     }
@@ -275,6 +276,8 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                 }
             });
         });
+        originalNodeQueries = nq.get();
+        originalCrossNodeQueries = cnq.get();
         System.out.println("No target count: " + noTargetCount);
     }
 
@@ -291,6 +294,8 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     public double evaluateQueries(Graph graph, String label, Iterator<LogRecord> log) throws Exception {
         if (queryData.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
+        AtomicLong rnq = new AtomicLong(0);
+        AtomicLong rcnq = new AtomicLong(0);
         log.forEachRemaining(logRecord -> {
             logRecord.results.parallelStream().forEach(path -> {
                 for (int i = 0; i+1 < path.results.size(); i++) {
@@ -306,14 +311,16 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                             continue;
                         }
                         if(v.value(label).equals(prev.value(label)))
-                            repartitionedNodeQueries++;
+                            rnq.incrementAndGet();
                         else
-                            repartitionedCrossNodeQueries++;
+                            rcnq.incrementAndGet();
                     }
                 }
 
             });
         });
+        repartitionedCrossNodeQueries = rcnq.get();
+        repartitionedNodeQueries = rnq.get();
         double improvement = (originalCrossNodeQueries - repartitionedCrossNodeQueries) / (double) originalCrossNodeQueries;
         System.out.printf("Before/After Cross Node Queries: %d / %d, Improvement: %.2f%%" +
                         "\nGood before/after Queries:  %d / %d\n"
