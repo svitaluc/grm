@@ -41,7 +41,7 @@ public class GRM2 {
     public GRM2() throws ConfigurationException {
         this.config = new PropertiesConfiguration("config.properties");
         this.graphPropFile = config.getString("graph.propFile");
-        this.logFile = config.getString("log.logFile", "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\processedLog");
+        this.logFile = config.getString("log.logFile", "C:\\Users\\Martin\\IdeaProjects\\grm\\processedLog");
     }
 
     public void initialize() throws ConfigurationException {
@@ -53,7 +53,7 @@ public class GRM2 {
         long time = System.currentTimeMillis();
         System.out.println("Started: " + new SimpleDateFormat().format(new Date(time)));
         GRM2 grm = new GRM2();
-        TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
+        TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("C:\\Users\\Martin\\IdeaProjects\\grm\\src\\main\\resources\\datasets\\twitter");
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
         ClusterMapper clusterMapper = new DefaultClusterMapper(3);
 
@@ -72,7 +72,7 @@ public class GRM2 {
 
         //validation part
         System.out.println("Running validating evaluation");
-        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\twitter");
+        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\Martin\\IdeaProjects\\grm\\src\\main\\resources\\datasets\\twitter ");
         grm.runTestQueries(twitterValidate, clusterMapper, false);
         grm.evaluatePartitioningAlgorithm(twitterValidate);
 
@@ -123,8 +123,8 @@ public class GRM2 {
         vertexProgram = VaqueroVertexProgram.build()
                 .clusterMapper(cm)
                 .acquireLabelProbability(0.5)
-                .imbalanceFactor(0.9)
-                .coolingFactor(0.999)
+                .imbalanceFactor(0.85)
+                .coolingFactor(0.99)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
