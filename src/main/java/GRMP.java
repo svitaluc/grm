@@ -60,8 +60,8 @@ public class GRMP {
         grm.clearGraph();
         grm.connectToGraph();
         grm.loadDataset(pens, clusterMapper);
-        grm.printVertexDegrees();
-        System.exit(0);
+//        grm.printVertexDegrees();
+//        System.exit(0);
         grm.runTestQueries(pens, clusterMapper, true); // not needed when the log is already created
 
         //log part
@@ -122,7 +122,7 @@ public class GRMP {
     private void runPartitioningAlgorithm(ClusterMapper cm, PenssylvaniaDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
         vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5)
                 .imbalanceFactor(0.90)
-                .coolingFactor(0.98)
+                .coolingFactor(0.995)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
