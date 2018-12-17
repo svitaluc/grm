@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
 //TODO check WorkerExecutor
 public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializable, Long, Long, Long>> {
 
-    private MessageScope.Local<Quartet<Serializable, Long, Long, Long>> voteScope = MessageScope.Local.of(() -> __.outE() // __.bothE(EDGE_LABEL)
+    private MessageScope.Local<Quartet<Serializable, Long, Long, Long>> voteScope = MessageScope.Local.of(() -> __.bothE() // __.bothE(EDGE_LABEL)
             , (m, edge) -> {
                 try {
                     return new Quartet<>(m.getValue0(), m.getValue1(), edge.<Long>value(EDGE_PROPERTY), -1L);
@@ -151,9 +151,9 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             //count label frequency
             rcvMsgs.forEachRemaining(msg -> {
                 MapHelper.incr(labels, msg.getValue1(), Math.abs(msg.getValue2()));
-//                MapHelper.incr(evalLabels, msg.getValue1(), (msg.getValue2() < 0 && msg.getValue3().equals(VID)) ? 1L : 0L); // Twitter
-                if(evaluatingMap.containsKey(msg.getValue3()))
-                    MapHelper.incr(evalLabels, msg.getValue1(), (msg.getValue2() < 0 && msg.getValue3().equals(VID)) ? 1L : 0L); //Pennsylvania
+                MapHelper.incr(evalLabels, msg.getValue1(), (msg.getValue2() < 0 && msg.getValue3().equals(VID)) ? 1L : 0L); // Twitter
+//                if(evaluatingMap.containsKey(msg.getValue3()))
+//                    MapHelper.incr(evalLabels, msg.getValue1(), (msg.getValue2() < 0 && msg.getValue3().equals(VID)) ? 1L : 0L); //Pennsylvania
             });
             //get most frequent label
             Long mfLabel;

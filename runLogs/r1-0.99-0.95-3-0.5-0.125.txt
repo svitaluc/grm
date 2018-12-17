@@ -1,20 +1,20 @@
-"C:\Program Files\Java\jdk1.8.0_191\bin\java.exe" -Xms7000m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\lib\idea_rt.jar=61474:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;C:\Users\Martin\IdeaProjects\grm\target\classes;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-core\0.3.0\janusgraph-core-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-core\3.3.3\gremlin-core-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-shaded\3.3.3\gremlin-shaded-3.3.3.jar;C:\Users\Martin\.m2\repository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;C:\Users\Martin\.m2\repository\org\javatuples\javatuples\1.2\javatuples-1.2.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-manifests\1.1\jcabi-manifests-1.1.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-log\0.14\jcabi-log-0.14.jar;C:\Users\Martin\.m2\repository\com\squareup\javapoet\1.8.0\javapoet-1.8.0.jar;C:\Users\Martin\.m2\repository\net\objecthunter\exp4j\0.4.8\exp4j-0.4.8.jar;C:\Users\Martin\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-groovy\3.3.3\gremlin-groovy-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\ivy\ivy\2.3.0\ivy-2.3.0.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-groovysh\2.4.15\groovy-groovysh-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-console\2.4.15\groovy-console-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-swing\2.4.15\groovy-swing-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-templates\2.4.15\groovy-templates-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.15\groovy-xml-2.4.15.jar;C:\Users\Martin\.m2\repository\jline\jline\2.12\jline-2.12.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-json\2.4.15\groovy-json-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-jsr223\2.4.15\groovy-jsr223-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-lang3\3.3.1\commons-lang3-3.3.1.jar;C:\Users\Martin\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\Martin\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.3.1\caffeine-2.3.1.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\tinkergraph-gremlin\3.3.3\tinkergraph-gremlin-3.3.3.jar;C:\Users\Martin\.m2\repository\org\glassfish\javax.json\1.0\javax.json-1.0.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-core\3.0.1\metrics-core-3.0.1.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-ganglia\3.0.1\metrics-ganglia-3.0.1.jar;C:\Users\Martin\.m2\repository\info\ganglia\gmetric4j\gmetric4j\1.0.3\gmetric4j-1.0.3.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-graphite\3.0.1\metrics-graphite-3.0.1.jar;C:\Users\Martin\.m2\repository\org\reflections\reflections\0.9.9-RC1\reflections-0.9.9-RC1.jar;C:\Users\Martin\.m2\repository\org\javassist\javassist\3.16.1-GA\javassist-3.16.1-GA.jar;C:\Users\Martin\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\Martin\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\Martin\.m2\repository\org\locationtech\spatial4j\spatial4j\0.7\spatial4j-0.7.jar;C:\Users\Martin\.m2\repository\org\locationtech\jts\jts-core\1.15.0\jts-core-1.15.0.jar;C:\Users\Martin\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\Martin\.m2\repository\commons-configuration\commons-configuration\1.10\commons-configuration-1.10.jar;C:\Users\Martin\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\Martin\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\Martin\.m2\repository\commons-io\commons-io\2.3\commons-io-2.3.jar;C:\Users\Martin\.m2\repository\commons-codec\commons-codec\1.7\commons-codec-1.7.jar;C:\Users\Martin\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\Martin\.m2\repository\com\carrotsearch\hppc\0.7.1\hppc-0.7.1.jar;C:\Users\Martin\.m2\repository\com\github\stephenc\high-scale-lib\high-scale-lib\1.1.4\high-scale-lib-1.1.4.jar;C:\Users\Martin\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\Martin\.m2\repository\org\noggit\noggit\0.6\noggit-0.6.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-text\1.0\commons-text-1.0.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-processedResultLogging\3.3.3\gremlin-processedResultLogging-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-server\3.3.3\gremlin-server-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-driver\3.3.3\gremlin-driver-3.3.3.jar;C:\Users\Martin\.m2\repository\io\netty\netty-all\4.0.56.Final\netty-all-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-sql\2.4.15\groovy-sql-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-simple\1.7.25\slf4j-simple-1.7.25.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cql\0.3.0\janusgraph-cql-0.3.0.jar;C:\Users\Martin\.m2\repository\com\datastax\cassandra\cassandra-driver-core\3.3.2\cassandra-driver-core-3.3.2.jar;C:\Users\Martin\.m2\repository\io\dropwizard\metrics\metrics-core\3.2.2\metrics-core-3.2.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-ffi\2.0.7\jnr-ffi-2.0.7.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10-native.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-posix\3.0.27\jnr-posix-3.0.27.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-constants\0.9.0\jnr-constants-0.9.0.jar;C:\Users\Martin\.m2\repository\io\netty\netty-handler\4.0.56.Final\netty-handler-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-buffer\4.0.56.Final\netty-buffer-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-common\4.0.56.Final\netty-common-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-transport\4.0.56.Final\netty-transport-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-codec\4.0.56.Final\netty-codec-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr\0.9.0\vavr-0.9.0.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr-match\0.9.0\vavr-match-0.9.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-es\0.3.0\janusgraph-es-0.3.0.jar;C:\Users\Martin\.m2\repository\org\elasticsearch\client\elasticsearch-rest-client\6.0.1\elasticsearch-rest-client-6.0.1.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore\4.4.5\httpcore-4.4.5.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.2\httpasyncclient-4.1.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.5\httpcore-nio-4.4.5.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr-runtime\3.2\antlr-runtime-3.2.jar;C:\Users\Martin\.m2\repository\org\antlr\stringtemplate\3.2\stringtemplate-3.2.jar;C:\Users\Martin\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-classic\1.1.2\logback-classic-1.1.2.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-core\1.1.2\logback-core-1.1.2.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cassandra\0.3.0\janusgraph-cassandra-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-all\2.1.20\cassandra-all-2.1.20.jar;C:\Users\Martin\.m2\repository\com\ning\compress-lzf\0.8.4\compress-lzf-0.8.4.jar;C:\Users\Martin\.m2\repository\commons-cli\commons-cli\1.1\commons-cli-1.1.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3\concurrentlinkedhashmap-lru-1.3.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr\3.5.2\antlr-3.5.2.jar;C:\Users\Martin\.m2\repository\org\antlr\ST4\4.0.8\ST4-4.0.8.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.9.2\jackson-core-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.9.2\jackson-mapper-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\Martin\.m2\repository\com\boundary\high-scale-lib\1.0.6\high-scale-lib-1.0.6.jar;C:\Users\Martin\.m2\repository\com\yammer\metrics\metrics-core\2.2.0\metrics-core-2.2.0.jar;C:\Users\Martin\.m2\repository\com\addthis\metrics\reporter-config\2.1.0\reporter-config-2.1.0.jar;C:\Users\Martin\.m2\repository\org\hibernate\hibernate-validator\4.3.0.Final\hibernate-validator-4.3.0.Final.jar;C:\Users\Martin\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.CR2\jboss-logging-3.1.0.CR2.jar;C:\Users\Martin\.m2\repository\com\thinkaurelius\thrift\thrift-server\0.3.7\thrift-server-0.3.7.jar;C:\Users\Martin\.m2\repository\com\lmax\disruptor\3.0.1\disruptor-3.0.1.jar;C:\Users\Martin\.m2\repository\com\clearspring\analytics\stream\2.5.2\stream-2.5.2.jar;C:\Users\Martin\.m2\repository\it\unimi\dsi\fastutil\6.5.7\fastutil-6.5.7.jar;C:\Users\Martin\.m2\repository\net\sf\supercsv\super-csv\2.1.0\super-csv-2.1.0.jar;C:\Users\Martin\.m2\repository\org\apache\thrift\libthrift\0.9.2\libthrift-0.9.2.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-thrift\2.1.20\cassandra-thrift-2.1.20.jar;C:\Users\Martin\.m2\repository\net\java\dev\jna\jna\4.0.0\jna-4.0.0.jar;C:\Users\Martin\.m2\repository\com\github\jbellis\jamm\0.3.0\jamm-0.3.0.jar;C:\Users\Martin\.m2\repository\commons-pool\commons-pool\1.6\commons-pool-1.6.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-core\3.8.0\astyanax-core-3.8.0.jar;C:\Users\Martin\.m2\repository\joda-time\joda-time\1.6.2\joda-time-1.6.2.jar;C:\Users\Martin\.m2\repository\com\eaio\uuid\uuid\3.2\uuid-3.2.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-thrift\3.8.0\astyanax-thrift-3.8.0.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-cassandra\3.8.0\astyanax-cassandra-3.8.0.jar;C:\Users\Martin\.m2\repository\org\apache\servicemix\bundles\org.apache.servicemix.bundles.commons-csv\1.0-r706900_3\org.apache.servicemix.bundles.commons-csv-1.0-r706900_3.jar;C:\Users\Martin\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\Martin\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-recipes\3.8.0\astyanax-recipes-3.8.0.jar;C:\Users\Martin\.m2\repository\org\xerial\snappy\snappy-java\1.0.5-M3\snappy-java-1.0.5-M3.jar;C:\Users\Martin\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\Martin\.m2\repository\net\jpountz\lz4\lz4\1.3.0\lz4-1.3.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-berkeleyje\0.3.0\janusgraph-berkeleyje-0.3.0.jar;C:\Users\Martin\.m2\repository\com\sleepycat\je\7.4.5\je-7.4.5.jar;C:\Users\Martin\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar" GRM2
-Started: 16.12.18 11:48
+"C:\Program Files\Java\jdk1.8.0_191\bin\java.exe" -Xms7000m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\lib\idea_rt.jar=56160:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;C:\Users\Martin\IdeaProjects\grm\target\classes;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-core\0.3.0\janusgraph-core-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-core\3.3.3\gremlin-core-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-shaded\3.3.3\gremlin-shaded-3.3.3.jar;C:\Users\Martin\.m2\repository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;C:\Users\Martin\.m2\repository\org\javatuples\javatuples\1.2\javatuples-1.2.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-manifests\1.1\jcabi-manifests-1.1.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-log\0.14\jcabi-log-0.14.jar;C:\Users\Martin\.m2\repository\com\squareup\javapoet\1.8.0\javapoet-1.8.0.jar;C:\Users\Martin\.m2\repository\net\objecthunter\exp4j\0.4.8\exp4j-0.4.8.jar;C:\Users\Martin\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-groovy\3.3.3\gremlin-groovy-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\ivy\ivy\2.3.0\ivy-2.3.0.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-groovysh\2.4.15\groovy-groovysh-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-console\2.4.15\groovy-console-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-swing\2.4.15\groovy-swing-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-templates\2.4.15\groovy-templates-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.15\groovy-xml-2.4.15.jar;C:\Users\Martin\.m2\repository\jline\jline\2.12\jline-2.12.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-json\2.4.15\groovy-json-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-jsr223\2.4.15\groovy-jsr223-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-lang3\3.3.1\commons-lang3-3.3.1.jar;C:\Users\Martin\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\Martin\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.3.1\caffeine-2.3.1.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\tinkergraph-gremlin\3.3.3\tinkergraph-gremlin-3.3.3.jar;C:\Users\Martin\.m2\repository\org\glassfish\javax.json\1.0\javax.json-1.0.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-core\3.0.1\metrics-core-3.0.1.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-ganglia\3.0.1\metrics-ganglia-3.0.1.jar;C:\Users\Martin\.m2\repository\info\ganglia\gmetric4j\gmetric4j\1.0.3\gmetric4j-1.0.3.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-graphite\3.0.1\metrics-graphite-3.0.1.jar;C:\Users\Martin\.m2\repository\org\reflections\reflections\0.9.9-RC1\reflections-0.9.9-RC1.jar;C:\Users\Martin\.m2\repository\org\javassist\javassist\3.16.1-GA\javassist-3.16.1-GA.jar;C:\Users\Martin\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\Martin\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\Martin\.m2\repository\org\locationtech\spatial4j\spatial4j\0.7\spatial4j-0.7.jar;C:\Users\Martin\.m2\repository\org\locationtech\jts\jts-core\1.15.0\jts-core-1.15.0.jar;C:\Users\Martin\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\Martin\.m2\repository\commons-configuration\commons-configuration\1.10\commons-configuration-1.10.jar;C:\Users\Martin\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\Martin\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\Martin\.m2\repository\commons-io\commons-io\2.3\commons-io-2.3.jar;C:\Users\Martin\.m2\repository\commons-codec\commons-codec\1.7\commons-codec-1.7.jar;C:\Users\Martin\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\Martin\.m2\repository\com\carrotsearch\hppc\0.7.1\hppc-0.7.1.jar;C:\Users\Martin\.m2\repository\com\github\stephenc\high-scale-lib\high-scale-lib\1.1.4\high-scale-lib-1.1.4.jar;C:\Users\Martin\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\Martin\.m2\repository\org\noggit\noggit\0.6\noggit-0.6.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-text\1.0\commons-text-1.0.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-processedResultLogging\3.3.3\gremlin-processedResultLogging-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-server\3.3.3\gremlin-server-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-driver\3.3.3\gremlin-driver-3.3.3.jar;C:\Users\Martin\.m2\repository\io\netty\netty-all\4.0.56.Final\netty-all-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-sql\2.4.15\groovy-sql-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-simple\1.7.25\slf4j-simple-1.7.25.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cql\0.3.0\janusgraph-cql-0.3.0.jar;C:\Users\Martin\.m2\repository\com\datastax\cassandra\cassandra-driver-core\3.3.2\cassandra-driver-core-3.3.2.jar;C:\Users\Martin\.m2\repository\io\dropwizard\metrics\metrics-core\3.2.2\metrics-core-3.2.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-ffi\2.0.7\jnr-ffi-2.0.7.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10-native.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-posix\3.0.27\jnr-posix-3.0.27.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-constants\0.9.0\jnr-constants-0.9.0.jar;C:\Users\Martin\.m2\repository\io\netty\netty-handler\4.0.56.Final\netty-handler-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-buffer\4.0.56.Final\netty-buffer-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-common\4.0.56.Final\netty-common-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-transport\4.0.56.Final\netty-transport-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-codec\4.0.56.Final\netty-codec-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr\0.9.0\vavr-0.9.0.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr-match\0.9.0\vavr-match-0.9.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-es\0.3.0\janusgraph-es-0.3.0.jar;C:\Users\Martin\.m2\repository\org\elasticsearch\client\elasticsearch-rest-client\6.0.1\elasticsearch-rest-client-6.0.1.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore\4.4.5\httpcore-4.4.5.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.2\httpasyncclient-4.1.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.5\httpcore-nio-4.4.5.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr-runtime\3.2\antlr-runtime-3.2.jar;C:\Users\Martin\.m2\repository\org\antlr\stringtemplate\3.2\stringtemplate-3.2.jar;C:\Users\Martin\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-classic\1.1.2\logback-classic-1.1.2.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-core\1.1.2\logback-core-1.1.2.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cassandra\0.3.0\janusgraph-cassandra-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-all\2.1.20\cassandra-all-2.1.20.jar;C:\Users\Martin\.m2\repository\com\ning\compress-lzf\0.8.4\compress-lzf-0.8.4.jar;C:\Users\Martin\.m2\repository\commons-cli\commons-cli\1.1\commons-cli-1.1.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3\concurrentlinkedhashmap-lru-1.3.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr\3.5.2\antlr-3.5.2.jar;C:\Users\Martin\.m2\repository\org\antlr\ST4\4.0.8\ST4-4.0.8.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.9.2\jackson-core-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.9.2\jackson-mapper-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\Martin\.m2\repository\com\boundary\high-scale-lib\1.0.6\high-scale-lib-1.0.6.jar;C:\Users\Martin\.m2\repository\com\yammer\metrics\metrics-core\2.2.0\metrics-core-2.2.0.jar;C:\Users\Martin\.m2\repository\com\addthis\metrics\reporter-config\2.1.0\reporter-config-2.1.0.jar;C:\Users\Martin\.m2\repository\org\hibernate\hibernate-validator\4.3.0.Final\hibernate-validator-4.3.0.Final.jar;C:\Users\Martin\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.CR2\jboss-logging-3.1.0.CR2.jar;C:\Users\Martin\.m2\repository\com\thinkaurelius\thrift\thrift-server\0.3.7\thrift-server-0.3.7.jar;C:\Users\Martin\.m2\repository\com\lmax\disruptor\3.0.1\disruptor-3.0.1.jar;C:\Users\Martin\.m2\repository\com\clearspring\analytics\stream\2.5.2\stream-2.5.2.jar;C:\Users\Martin\.m2\repository\it\unimi\dsi\fastutil\6.5.7\fastutil-6.5.7.jar;C:\Users\Martin\.m2\repository\net\sf\supercsv\super-csv\2.1.0\super-csv-2.1.0.jar;C:\Users\Martin\.m2\repository\org\apache\thrift\libthrift\0.9.2\libthrift-0.9.2.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-thrift\2.1.20\cassandra-thrift-2.1.20.jar;C:\Users\Martin\.m2\repository\net\java\dev\jna\jna\4.0.0\jna-4.0.0.jar;C:\Users\Martin\.m2\repository\com\github\jbellis\jamm\0.3.0\jamm-0.3.0.jar;C:\Users\Martin\.m2\repository\commons-pool\commons-pool\1.6\commons-pool-1.6.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-core\3.8.0\astyanax-core-3.8.0.jar;C:\Users\Martin\.m2\repository\joda-time\joda-time\1.6.2\joda-time-1.6.2.jar;C:\Users\Martin\.m2\repository\com\eaio\uuid\uuid\3.2\uuid-3.2.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-thrift\3.8.0\astyanax-thrift-3.8.0.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-cassandra\3.8.0\astyanax-cassandra-3.8.0.jar;C:\Users\Martin\.m2\repository\org\apache\servicemix\bundles\org.apache.servicemix.bundles.commons-csv\1.0-r706900_3\org.apache.servicemix.bundles.commons-csv-1.0-r706900_3.jar;C:\Users\Martin\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\Martin\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-recipes\3.8.0\astyanax-recipes-3.8.0.jar;C:\Users\Martin\.m2\repository\org\xerial\snappy\snappy-java\1.0.5-M3\snappy-java-1.0.5-M3.jar;C:\Users\Martin\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\Martin\.m2\repository\net\jpountz\lz4\lz4\1.3.0\lz4-1.3.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-berkeleyje\0.3.0\janusgraph-berkeleyje-0.3.0.jar;C:\Users\Martin\.m2\repository\com\sleepycat\je\7.4.5\je-7.4.5.jar;C:\Users\Martin\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar" GRM2
+Started: 17.12.18 13:13
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/C:/Users/Martin/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/C:/Users/Martin/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
-[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e5436-Maho-PC1
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e10564-Maho-PC1
 [main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
 [main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 8
-[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-16T10:48:16.022Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@655ef322
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-17T12:13:20.162Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@73173f63
 Cleared the graph
 [main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Set default timestamp provider MICRO
-[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e5436-Maho-PC2
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e10564-Maho-PC2
 [main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
 [main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 8
-[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-16T10:48:16.321Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@19553973
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-17T12:13:20.475Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@f478a81
 Successfully created the graph schema
 0,10%	100318079.edges
 0,21%	10146102.edges
@@ -1001,119 +1001,113 @@ Edges added: 1256422
 Edges overall: 2403874
 [main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
 [main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
-Staring Vaquero partitioning - cF=0,990, iF=0,850, nClusters=3, aProb=0,50
-Clusters INIT Lower Bound: [0=3720, 1=3964, 2=3754]
+Staring Vaquero partitioning - cF=0,990, iF=0,950, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=1178, 1=1422, 2=1212]
 Cooling factor: 0,990
 It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
-1		2,000		1,00		0,000		1,00		510713		1023563		1534276		50404		18,94s
-2		1,980		0,99		0,039		1,00		550337		983939		1534276		46345		17,29s
-3		1,960		0,98		0,099		0,99		611738		922538		1534276		49326		22,56s
-4		1,941		0,97		0,148		0,99		662694		871582		1534276		49029		17,34s
-5		1,921		0,96		0,193		0,98		707910		826366		1534276		49420		23,26s
-6		1,902		0,95		0,208		0,98		723486		810790		1534276		49566		17,69s
-7		1,883		0,94		0,214		0,97		729347		804929		1534276		49802		21,59s
-8		1,864		0,93		0,238		0,97		753861		780415		1534276		49741		17,78s
-9		1,845		0,92		0,242		0,96		758612		775664		1534276		49869		23,28s
-10		1,827		0,91		0,255		0,96		771327		762949		1534276		50023		18,65s
-11		1,809		0,90		0,283		0,95		800879		733397		1534276		50008		22,32s
-12		1,791		0,90		0,267		0,95		784191		750085		1534276		49930		17,39s
-13		1,773		0,89		0,286		0,94		803717		730559		1534276		50105		21,39s
-14		1,755		0,88		0,288		0,94		805622		728654		1534276		50110		17,46s
-15		1,737		0,87		0,282		0,93		799756		734520		1534276		50179		21,44s
-16		1,720		0,86		0,303		0,93		820536		713740		1534276		50154		17,61s
-17		1,703		0,85		0,323		0,93		841299		692977		1534276		50195		22,18s
-18		1,686		0,84		0,301		0,92		818872		715404		1534276		50067		18,16s
-19		1,669		0,83		0,310		0,92		828250		706026		1534276		50151		21,91s
-20		1,652		0,83		0,329		0,91		847429		686847		1534276		50230		18,43s
-21		1,636		0,82		0,345		0,91		863594		670682		1534276		50133		22,02s
-22		1,619		0,81		0,318		0,90		835861		698415		1534276		50226		17,86s
-23		1,603		0,80		0,334		0,90		852433		681843		1534276		50254		21,18s
-24		1,587		0,79		0,333		0,90		851855		682421		1534276		50273		18,49s
-25		1,571		0,79		0,343		0,89		861298		672978		1534276		50343		21,69s
-26		1,556		0,78		0,362		0,89		880945		653331		1534276		50235		17,87s
-27		1,540		0,77		0,373		0,89		892099		642177		1534276		50207		21,65s
-28		1,525		0,76		0,377		0,88		896163		638113		1534276		50351		17,88s
-29		1,509		0,75		0,382		0,88		901998		632278		1534276		50337		22,87s
-30		1,494		0,75		0,383		0,87		903060		631216		1534276		50385		18,31s
-31		1,479		0,74		0,399		0,87		919490		614786		1534276		50302		23,13s
-32		1,465		0,73		0,407		0,87		927791		606485		1534276		50446		17,91s
-33		1,450		0,72		0,398		0,86		917893		616383		1534276		50372		21,70s
-34		1,435		0,72		0,401		0,86		921163		613113		1534276		50281		17,96s
-35		1,421		0,71		0,418		0,86		938630		595646		1534276		50200		22,78s
-36		1,407		0,70		0,401		0,85		921625		612651		1534276		50324		17,56s
-37		1,393		0,70		0,416		0,85		936549		597727		1534276		50363		22,54s
-38		1,379		0,69		0,437		0,84		958483		575793		1534276		50381		17,68s
-39		1,365		0,68		0,410		0,84		930077		604199		1534276		50292		20,72s
-40		1,351		0,68		0,449		0,84		970365		563911		1534276		50490		18,27s
-41		1,338		0,67		0,460		0,83		981988		552288		1534276		50386		23,21s
-42		1,325		0,66		0,458		0,83		979203		555073		1534276		50398		18,10s
-43		1,311		0,66		0,447		0,83		968201		566075		1534276		50318		23,31s
-44		1,298		0,65		0,462		0,82		983948		550328		1534276		50449		18,43s
-45		1,285		0,64		0,482		0,82		1004140		530136		1534276		50367		21,78s
-46		1,272		0,64		0,485		0,82		1007432		526844		1534276		50278		18,42s
-47		1,260		0,63		0,485		0,81		1007588		526688		1534276		50383		23,80s
-48		1,247		0,62		0,496		0,81		1017960		516316		1534276		50408		18,20s
-49		1,235		0,62		0,511		0,81		1033815		500461		1534276		50421		23,08s
-50		1,222		0,61		0,503		0,81		1025163		509113		1534276		50418		18,00s
-51		1,210		0,61		0,511		0,80		1033448		500828		1534276		50368		23,82s
-52		1,198		0,60		0,521		0,80		1044056		490220		1534276		50425		17,97s
-53		1,186		0,59		0,538		0,80		1061604		472672		1534276		50494		21,93s
-54		1,174		0,59		0,540		0,79		1063022		471254		1534276		50392		18,18s
-55		1,162		0,58		0,567		0,79		1090573		443703		1534276		50370		23,21s
-56		1,151		0,58		0,563		0,79		1087243		447033		1534276		50364		17,64s
-57		1,139		0,57		0,582		0,78		1106180		428096		1534276		50452		21,98s
-58		1,128		0,56		0,600		0,78		1124860		409416		1534276		50428		18,60s
-59		1,117		0,56		0,608		0,78		1132829		401447		1534276		50409		21,05s
-60		1,105		0,55		0,618		0,78		1143550		390726		1534276		50436		18,41s
-61		1,094		0,55		0,636		0,77		1161343		372933		1534276		50447		23,39s
-62		1,083		0,54		0,637		0,77		1163120		371156		1534276		50394		18,25s
-63		1,073		0,54		0,649		0,77		1174530		359746		1534276		50386		22,25s
-64		1,062		0,53		0,645		0,77		1170554		363722		1534276		50347		18,15s
-65		1,051		0,53		0,632		0,76		1158100		376176		1534276		50378		20,47s
-66		1,041		0,52		0,642		0,76		1167608		366668		1534276		50378		18,27s
-67		1,030		0,52		0,662		0,76		1187843		346433		1534276		50398		22,83s
-68		1,020		0,51		0,665		0,75		1191688		342588		1534276		50442		17,65s
-69		1,010		0,50		0,672		0,75		1198934		335342		1534276		50436		20,68s
-70		1,000		0,50		0,676		0,75		1203053		331223		1534276		50432		17,88s
-71		0,990		0,49		0,680		0,75		1206897		327379		1534276		50437		22,73s
-72		0,980		0,49		0,684		0,74		1211103		323173		1534276		50436		18,37s
-73		0,970		0,48		0,685		0,74		1211453		322823		1534276		50433		20,98s
-74		0,960		0,48		0,686		0,74		1212511		321765		1534276		50427		18,76s
-75		0,951		0,48		0,686		0,74		1213371		320905		1534276		50425		20,71s
-76		0,941		0,47		0,688		0,74		1214760		319516		1534276		50429		18,40s
-77		0,932		0,47		0,688		0,73		1215312		318964		1534276		50431		23,40s
-78		0,922		0,46		0,689		0,73		1215480		318796		1534276		50437		17,85s
-79		0,913		0,46		0,689		0,73		1215506		318770		1534276		50436		22,69s
-80		0,904		0,45		0,690		0,73		1216601		317675		1534276		50432		18,39s
-81		0,895		0,45		0,690		0,72		1216633		317643		1534276		50431		22,19s
-82		0,886		0,44		0,690		0,72		1216776		317500		1534276		50431		17,72s
-83		0,877		0,44		0,690		0,72		1216816		317460		1534276		50433		22,72s
-84		0,868		0,43		0,690		0,72		1217230		317046		1534276		50438		17,56s
-85		0,860		0,43		0,690		0,71		1217321		316955		1534276		50444		21,81s
-86		0,851		0,43		0,692		0,71		1218651		315625		1534276		50446		17,94s
-87		0,843		0,42		0,692		0,71		1218763		315513		1534276		50450		23,41s
-88		0,834		0,42		0,692		0,71		1218861		315415		1534276		50447		17,62s
-89		0,826		0,41		0,692		0,71		1218903		315373		1534276		50446		22,53s
-90		0,818		0,41		0,692		0,70		1219144		315132		1534276		50446		17,36s
-91		0,809		0,40		0,692		0,70		1219249		315027		1534276		50443		21,58s
-92		0,801		0,40		0,692		0,70		1219250		315026		1534276		50443		17,87s
-Terminated Vaquero algorithm at iteration: 92, Runtime: 1853,87
+1		2,000		1,00		0,000		1,00		510713		1023563		1534276		47990		17,97s
+2		1,980		0,99		0,038		1,00		549239		985037		1534276		45950		15,90s
+3		1,960		0,98		0,094		0,99		606751		927525		1534276		49283		19,64s
+4		1,941		0,97		0,150		0,99		664039		870237		1534276		49037		16,34s
+5		1,921		0,96		0,184		0,98		698977		835299		1534276		49613		20,32s
+6		1,902		0,95		0,213		0,98		729012		805264		1534276		49622		16,28s
+7		1,883		0,94		0,220		0,97		736131		798145		1534276		49867		21,42s
+8		1,864		0,93		0,226		0,97		742383		791893		1534276		49822		16,59s
+9		1,845		0,92		0,260		0,96		777207		757069		1534276		49958		21,14s
+10		1,827		0,91		0,294		0,96		811621		722655		1534276		49809		16,53s
+11		1,809		0,90		0,295		0,95		812418		721858		1534276		50068		19,42s
+12		1,791		0,90		0,312		0,95		829740		704536		1534276		49941		16,50s
+13		1,773		0,89		0,311		0,94		829419		704857		1534276		50067		19,59s
+14		1,755		0,88		0,305		0,94		823295		710981		1534276		49944		17,11s
+15		1,737		0,87		0,305		0,93		823351		710925		1534276		49983		20,46s
+16		1,720		0,86		0,322		0,93		839836		694440		1534276		49974		17,19s
+17		1,703		0,85		0,331		0,93		850002		684274		1534276		50163		20,59s
+18		1,686		0,84		0,331		0,92		849858		684418		1534276		49890		16,77s
+19		1,669		0,83		0,342		0,92		860539		673737		1534276		49992		19,10s
+20		1,652		0,83		0,354		0,91		873524		660752		1534276		50081		16,84s
+21		1,636		0,82		0,345		0,91		863629		670647		1534276		50001		19,56s
+22		1,619		0,81		0,343		0,90		861439		672837		1534276		50155		16,83s
+23		1,603		0,80		0,342		0,90		860355		673921		1534276		50263		21,94s
+24		1,587		0,79		0,361		0,90		880341		653935		1534276		50175		17,06s
+25		1,571		0,79		0,368		0,89		887238		647038		1534276		50129		19,82s
+26		1,556		0,78		0,370		0,89		889191		645085		1534276		50204		16,66s
+27		1,540		0,77		0,393		0,89		912950		621326		1534276		50235		20,64s
+28		1,525		0,76		0,392		0,88		911981		622295		1534276		50137		16,63s
+29		1,509		0,75		0,374		0,88		893378		640898		1534276		50202		21,48s
+30		1,494		0,75		0,386		0,87		906192		628084		1534276		50202		16,42s
+31		1,479		0,74		0,408		0,87		928682		605594		1534276		50202		19,62s
+32		1,465		0,73		0,405		0,87		925648		608628		1534276		50294		16,71s
+33		1,450		0,72		0,419		0,86		939805		594471		1534276		50393		19,43s
+34		1,435		0,72		0,412		0,86		932727		601549		1534276		50157		16,87s
+35		1,421		0,71		0,400		0,86		919628		614648		1534276		50256		20,23s
+36		1,407		0,70		0,418		0,85		938239		596037		1534276		50312		18,06s
+37		1,393		0,70		0,405		0,85		925553		608723		1534276		50316		19,87s
+38		1,379		0,69		0,416		0,84		936135		598141		1534276		50199		16,73s
+39		1,365		0,68		0,435		0,84		956403		577873		1534276		50219		20,31s
+40		1,351		0,68		0,459		0,84		980367		553909		1534276		50274		16,56s
+41		1,338		0,67		0,462		0,83		984063		550213		1534276		50265		19,56s
+42		1,325		0,66		0,472		0,83		993405		540871		1534276		50135		16,42s
+43		1,311		0,66		0,460		0,83		981969		552307		1534276		50197		19,97s
+44		1,298		0,65		0,483		0,82		1004663		529613		1534276		50186		16,32s
+45		1,285		0,64		0,503		0,82		1025494		508782		1534276		50177		20,87s
+46		1,272		0,64		0,485		0,82		1007193		527083		1534276		50234		16,75s
+47		1,260		0,63		0,486		0,81		1008124		526152		1534276		50161		20,58s
+48		1,247		0,62		0,509		0,81		1031342		502934		1534276		50182		16,35s
+49		1,235		0,62		0,509		0,81		1031880		502396		1534276		50257		20,12s
+50		1,222		0,61		0,517		0,81		1039783		494493		1534276		50225		16,99s
+51		1,210		0,61		0,509		0,80		1031645		502631		1534276		50186		20,67s
+52		1,198		0,60		0,535		0,80		1058082		476194		1534276		50208		16,84s
+53		1,186		0,59		0,533		0,80		1056337		477939		1534276		50215		22,03s
+54		1,174		0,59		0,556		0,79		1079791		454485		1534276		50205		17,03s
+55		1,162		0,58		0,574		0,79		1098238		436038		1534276		50211		19,66s
+56		1,151		0,58		0,578		0,79		1102602		431674		1534276		50267		17,30s
+57		1,139		0,57		0,571		0,78		1095269		439007		1534276		50347		20,72s
+58		1,128		0,56		0,576		0,78		1100243		434033		1534276		50337		17,04s
+59		1,117		0,56		0,579		0,78		1103026		431250		1534276		50323		21,60s
+60		1,105		0,55		0,598		0,78		1122391		411885		1534276		50309		16,80s
+61		1,094		0,55		0,603		0,77		1128285		405991		1534276		50182		19,54s
+62		1,083		0,54		0,630		0,77		1155613		378663		1534276		50223		17,08s
+63		1,073		0,54		0,625		0,77		1150760		383516		1534276		50299		20,16s
+64		1,062		0,53		0,631		0,77		1156792		377484		1534276		50243		16,87s
+65		1,051		0,53		0,639		0,76		1164936		369340		1534276		50274		19,28s
+66		1,041		0,52		0,649		0,76		1175170		359106		1534276		50301		17,21s
+67		1,030		0,52		0,654		0,76		1179625		354651		1534276		50313		21,35s
+68		1,020		0,51		0,667		0,75		1193582		340694		1534276		50290		16,25s
+69		1,010		0,50		0,672		0,75		1198297		335979		1534276		50239		21,35s
+70		1,000		0,50		0,678		0,75		1205010		329266		1534276		50215		16,64s
+71		0,990		0,49		0,684		0,75		1210994		323282		1534276		50213		19,24s
+72		0,980		0,49		0,686		0,74		1212577		321699		1534276		50219		16,58s
+73		0,970		0,48		0,686		0,74		1212580		321696		1534276		50218		21,42s
+74		0,960		0,48		0,686		0,74		1212577		321699		1534276		50217		16,43s
+75		0,951		0,48		0,686		0,74		1212581		321695		1534276		50215		21,99s
+76		0,941		0,47		0,686		0,74		1212584		321692		1534276		50215		16,78s
+Terminated Vaquero algorithm at iteration: 76, Runtime: 1413,75
 [ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.label] is not part of the schema and will be created. It is advised to initialize all keys.
-Clusters capacity/usage: [0=[20000000, 21610], 1=[20000000, 33048], 2=[20000000, 21610]]
-Clusters Lower Bound: [0=0, 1=11438, 2=0]
+Clusters capacity/usage: [0=[20000000, 24152], 1=[20000000, 27964], 2=[20000000, 24152]]
+Clusters Lower Bound: [0=0, 1=3812, 2=0]
 Clusters added together count: 76268
 [main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
 Vertex count: 76268
 Number of all to be expanded nodes: 13366
-Before/After Cross Node Queries: 1023563 / 315026, Improvement: 69,22%
-Good before/after Queries:  510713 / 1219250
+Before/After Cross Node Queries: 1023563 / 321692, Improvement: 68,57%
+Good before/after Queries:  510713 / 1212584
+Running validating evaluation
+Exception in thread "main" java.nio.file.InvalidPathException: Trailing char < > at index 68: C:\Users\Martin\IdeaProjects\grm\src\main\resources\datasets\twitter
+	at sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:191)
+	at sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+	at sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at sun.nio.fs.WindowsPath.parse(WindowsPath.java:94)
+	at sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:255)
+	at java.nio.file.Paths.get(Paths.java:84)
+	at helpers.TwitterDatasetLoaderQueryRunner.<init>(TwitterDatasetLoaderQueryRunner.java:53)
+	at GRM2.main(GRM2.java:75)
 
-R2 Before/After Cross Node Queries: 1023563 / 162179, Improvement: 84,16% It:91
-R3 Before/After Cross Node Queries: 1023563 / 274505, Improvement: 73,18% It:79
-R4 Before/After Cross Node Queries: 1023563 / 244294, Improvement: 76,13% It:83
-R5 Before/After Cross Node Queries: 1023563 / 340671, Improvement: 66,72% It:87
-R6 Before/After Cross Node Queries: 1023563 / 314536, Improvement: 69,27% It:77
-R7 Before/After Cross Node Queries: 1023563 / 367457, Improvement: 64,10% It:78
-R8 Before/After Cross Node Queries: 1023563 / 312823, Improvement: 69,44% It:83
-R9 Before/After Cross Node Queries: 1023563 / 208697, Improvement: 79,61% It:75
-R10 Before/After Cross Node Queries: 1023563 / 324834, Improvement: 68,26% It:84
+R2 Before/After Cross Node Queries: 1023563 / 320332, Improvement: 68,70% It:78
+R3 Before/After Cross Node Queries: 1023563 / 230386, Improvement: 77,49% It:86
+R4 Before/After Cross Node Queries: 1023563 / 324751, Improvement: 68,27% It:83
+R5 Before/After Cross Node Queries: 1023563 / 324907, Improvement: 68,26% It:80
+R6 Before/After Cross Node Queries: 1023563 / 268926, Improvement: 73,73% It:79
+R7 Before/After Cross Node Queries: 1115580 / 323782, Improvement: 70,98% It:77
+R8 Before/After Cross Node Queries: 1115580 / 391654, Improvement: 64,89% It:86
+R9 Before/After Cross Node Queries: 1023563 / 353633, Improvement: 65,45% It:75
+R10 Before/After Cross Node Queries: 1115580 / 391235, Improvement: 64,93% It:74
