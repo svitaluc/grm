@@ -72,7 +72,7 @@ public class GRM2 {
 
         //validation part
         System.out.println("Running validating evaluation");
-        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\Martin\\IdeaProjects\\grm\\src\\main\\resources\\datasets\\twitter ");
+        TwitterDatasetLoaderQueryRunner twitterValidate = new TwitterDatasetLoaderQueryRunner(2L, "C:\\Users\\Martin\\IdeaProjects\\grm\\src\\main\\resources\\datasets\\twitter");
         grm.runTestQueries(twitterValidate, clusterMapper, false);
         grm.evaluatePartitioningAlgorithm(twitterValidate);
 
@@ -123,7 +123,7 @@ public class GRM2 {
         vertexProgram = VaqueroVertexProgram.build()
                 .clusterMapper(cm)
                 .acquireLabelProbability(0.5)
-                .imbalanceFactor(0.85)
+                .imbalanceFactor(0.95)
                 .coolingFactor(0.99)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
