@@ -54,11 +54,11 @@ public class GRMP {
 //        PenssylvaniaDatasetLoaderQueryRunner pens = new PenssylvaniaDatasetLoaderQueryRunner("C:\\Users\\black\\OneDrive\\Dokumenty\\programLucka\\src\\main\\resources\\datasets\\pennsylvania\\roadNet-CA.txt");
 
         LogToGraphLoader logLoader = new DefaultLogToGraphLoader();
-        ClusterMapper clusterMapper = new DefaultClusterMapper(3);
 
         //dataset part
         grm.clearGraph();
         grm.connectToGraph();
+        ClusterMapper clusterMapper = new DefaultClusterMapper(7, grm.graph.getIDManager());
         grm.loadDataset(pens, clusterMapper);
 //        grm.printVertexDegrees();
 //        System.exit(0);
@@ -121,7 +121,7 @@ public class GRMP {
 
     private void runPartitioningAlgorithm(ClusterMapper cm, PenssylvaniaDatasetLoaderQueryRunner runner) throws ExecutionException, InterruptedException {
         vertexProgram = VaqueroVertexProgram.build().clusterMapper(cm).acquireLabelProbability(0.5)
-                .imbalanceFactor(0.50)
+                .imbalanceFactor(0.90)
                 .coolingFactor(0.99)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluatingStatsOriginal(runner.evaluatingStats())
