@@ -1,0 +1,1102 @@
+"C:\Program Files\Java\jdk1.8.0_191\bin\java.exe" -Xms7000m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\lib\idea_rt.jar=61016:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.1\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;C:\Users\Martin\IdeaProjects\grm\target\classes;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-core\0.3.0\janusgraph-core-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-core\3.3.3\gremlin-core-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-shaded\3.3.3\gremlin-shaded-3.3.3.jar;C:\Users\Martin\.m2\repository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;C:\Users\Martin\.m2\repository\org\javatuples\javatuples\1.2\javatuples-1.2.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-manifests\1.1\jcabi-manifests-1.1.jar;C:\Users\Martin\.m2\repository\com\jcabi\jcabi-log\0.14\jcabi-log-0.14.jar;C:\Users\Martin\.m2\repository\com\squareup\javapoet\1.8.0\javapoet-1.8.0.jar;C:\Users\Martin\.m2\repository\net\objecthunter\exp4j\0.4.8\exp4j-0.4.8.jar;C:\Users\Martin\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-groovy\3.3.3\gremlin-groovy-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\ivy\ivy\2.3.0\ivy-2.3.0.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-groovysh\2.4.15\groovy-groovysh-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-console\2.4.15\groovy-console-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-swing\2.4.15\groovy-swing-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-templates\2.4.15\groovy-templates-2.4.15.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.15\groovy-xml-2.4.15.jar;C:\Users\Martin\.m2\repository\jline\jline\2.12\jline-2.12.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-json\2.4.15\groovy-json-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-jsr223\2.4.15\groovy-jsr223-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-lang3\3.3.1\commons-lang3-3.3.1.jar;C:\Users\Martin\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\Martin\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.3.1\caffeine-2.3.1.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\tinkergraph-gremlin\3.3.3\tinkergraph-gremlin-3.3.3.jar;C:\Users\Martin\.m2\repository\org\glassfish\javax.json\1.0\javax.json-1.0.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-core\3.0.1\metrics-core-3.0.1.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-ganglia\3.0.1\metrics-ganglia-3.0.1.jar;C:\Users\Martin\.m2\repository\info\ganglia\gmetric4j\gmetric4j\1.0.3\gmetric4j-1.0.3.jar;C:\Users\Martin\.m2\repository\com\codahale\metrics\metrics-graphite\3.0.1\metrics-graphite-3.0.1.jar;C:\Users\Martin\.m2\repository\org\reflections\reflections\0.9.9-RC1\reflections-0.9.9-RC1.jar;C:\Users\Martin\.m2\repository\org\javassist\javassist\3.16.1-GA\javassist-3.16.1-GA.jar;C:\Users\Martin\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\Martin\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\Martin\.m2\repository\org\locationtech\spatial4j\spatial4j\0.7\spatial4j-0.7.jar;C:\Users\Martin\.m2\repository\org\locationtech\jts\jts-core\1.15.0\jts-core-1.15.0.jar;C:\Users\Martin\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\Martin\.m2\repository\commons-configuration\commons-configuration\1.10\commons-configuration-1.10.jar;C:\Users\Martin\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\Martin\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\Martin\.m2\repository\commons-io\commons-io\2.3\commons-io-2.3.jar;C:\Users\Martin\.m2\repository\commons-codec\commons-codec\1.7\commons-codec-1.7.jar;C:\Users\Martin\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\Martin\.m2\repository\com\carrotsearch\hppc\0.7.1\hppc-0.7.1.jar;C:\Users\Martin\.m2\repository\com\github\stephenc\high-scale-lib\high-scale-lib\1.1.4\high-scale-lib-1.1.4.jar;C:\Users\Martin\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\Martin\.m2\repository\org\noggit\noggit\0.6\noggit-0.6.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-text\1.0\commons-text-1.0.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-processedResultLogging\3.3.3\gremlin-processedResultLogging-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-server\3.3.3\gremlin-server-3.3.3.jar;C:\Users\Martin\.m2\repository\org\apache\tinkerpop\gremlin-driver\3.3.3\gremlin-driver-3.3.3.jar;C:\Users\Martin\.m2\repository\io\netty\netty-all\4.0.56.Final\netty-all-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\org\codehaus\groovy\groovy-sql\2.4.15\groovy-sql-2.4.15-indy.jar;C:\Users\Martin\.m2\repository\org\slf4j\slf4j-simple\1.7.25\slf4j-simple-1.7.25.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cql\0.3.0\janusgraph-cql-0.3.0.jar;C:\Users\Martin\.m2\repository\com\datastax\cassandra\cassandra-driver-core\3.3.2\cassandra-driver-core-3.3.2.jar;C:\Users\Martin\.m2\repository\io\dropwizard\metrics\metrics-core\3.2.2\metrics-core-3.2.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-ffi\2.0.7\jnr-ffi-2.0.7.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10-native.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\Martin\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-posix\3.0.27\jnr-posix-3.0.27.jar;C:\Users\Martin\.m2\repository\com\github\jnr\jnr-constants\0.9.0\jnr-constants-0.9.0.jar;C:\Users\Martin\.m2\repository\io\netty\netty-handler\4.0.56.Final\netty-handler-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-buffer\4.0.56.Final\netty-buffer-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-common\4.0.56.Final\netty-common-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-transport\4.0.56.Final\netty-transport-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\netty\netty-codec\4.0.56.Final\netty-codec-4.0.56.Final.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr\0.9.0\vavr-0.9.0.jar;C:\Users\Martin\.m2\repository\io\vavr\vavr-match\0.9.0\vavr-match-0.9.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-es\0.3.0\janusgraph-es-0.3.0.jar;C:\Users\Martin\.m2\repository\org\elasticsearch\client\elasticsearch-rest-client\6.0.1\elasticsearch-rest-client-6.0.1.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore\4.4.5\httpcore-4.4.5.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.2\httpasyncclient-4.1.2.jar;C:\Users\Martin\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.5\httpcore-nio-4.4.5.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr-runtime\3.2\antlr-runtime-3.2.jar;C:\Users\Martin\.m2\repository\org\antlr\stringtemplate\3.2\stringtemplate-3.2.jar;C:\Users\Martin\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-classic\1.1.2\logback-classic-1.1.2.jar;C:\Users\Martin\.m2\repository\ch\qos\logback\logback-core\1.1.2\logback-core-1.1.2.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-cassandra\0.3.0\janusgraph-cassandra-0.3.0.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-all\2.1.20\cassandra-all-2.1.20.jar;C:\Users\Martin\.m2\repository\com\ning\compress-lzf\0.8.4\compress-lzf-0.8.4.jar;C:\Users\Martin\.m2\repository\commons-cli\commons-cli\1.1\commons-cli-1.1.jar;C:\Users\Martin\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3\concurrentlinkedhashmap-lru-1.3.jar;C:\Users\Martin\.m2\repository\org\antlr\antlr\3.5.2\antlr-3.5.2.jar;C:\Users\Martin\.m2\repository\org\antlr\ST4\4.0.8\ST4-4.0.8.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.9.2\jackson-core-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.9.2\jackson-mapper-asl-1.9.2.jar;C:\Users\Martin\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\Martin\.m2\repository\com\boundary\high-scale-lib\1.0.6\high-scale-lib-1.0.6.jar;C:\Users\Martin\.m2\repository\com\yammer\metrics\metrics-core\2.2.0\metrics-core-2.2.0.jar;C:\Users\Martin\.m2\repository\com\addthis\metrics\reporter-config\2.1.0\reporter-config-2.1.0.jar;C:\Users\Martin\.m2\repository\org\hibernate\hibernate-validator\4.3.0.Final\hibernate-validator-4.3.0.Final.jar;C:\Users\Martin\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.CR2\jboss-logging-3.1.0.CR2.jar;C:\Users\Martin\.m2\repository\com\thinkaurelius\thrift\thrift-server\0.3.7\thrift-server-0.3.7.jar;C:\Users\Martin\.m2\repository\com\lmax\disruptor\3.0.1\disruptor-3.0.1.jar;C:\Users\Martin\.m2\repository\com\clearspring\analytics\stream\2.5.2\stream-2.5.2.jar;C:\Users\Martin\.m2\repository\it\unimi\dsi\fastutil\6.5.7\fastutil-6.5.7.jar;C:\Users\Martin\.m2\repository\net\sf\supercsv\super-csv\2.1.0\super-csv-2.1.0.jar;C:\Users\Martin\.m2\repository\org\apache\thrift\libthrift\0.9.2\libthrift-0.9.2.jar;C:\Users\Martin\.m2\repository\org\apache\cassandra\cassandra-thrift\2.1.20\cassandra-thrift-2.1.20.jar;C:\Users\Martin\.m2\repository\net\java\dev\jna\jna\4.0.0\jna-4.0.0.jar;C:\Users\Martin\.m2\repository\com\github\jbellis\jamm\0.3.0\jamm-0.3.0.jar;C:\Users\Martin\.m2\repository\commons-pool\commons-pool\1.6\commons-pool-1.6.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-core\3.8.0\astyanax-core-3.8.0.jar;C:\Users\Martin\.m2\repository\joda-time\joda-time\1.6.2\joda-time-1.6.2.jar;C:\Users\Martin\.m2\repository\com\eaio\uuid\uuid\3.2\uuid-3.2.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-thrift\3.8.0\astyanax-thrift-3.8.0.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-cassandra\3.8.0\astyanax-cassandra-3.8.0.jar;C:\Users\Martin\.m2\repository\org\apache\servicemix\bundles\org.apache.servicemix.bundles.commons-csv\1.0-r706900_3\org.apache.servicemix.bundles.commons-csv-1.0-r706900_3.jar;C:\Users\Martin\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\Martin\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\Martin\.m2\repository\com\netflix\astyanax\astyanax-recipes\3.8.0\astyanax-recipes-3.8.0.jar;C:\Users\Martin\.m2\repository\org\xerial\snappy\snappy-java\1.0.5-M3\snappy-java-1.0.5-M3.jar;C:\Users\Martin\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\Martin\.m2\repository\net\jpountz\lz4\lz4\1.3.0\lz4-1.3.0.jar;C:\Users\Martin\.m2\repository\org\janusgraph\janusgraph-berkeleyje\0.3.0\janusgraph-berkeleyje-0.3.0.jar;C:\Users\Martin\.m2\repository\com\sleepycat\je\7.4.5\je-7.4.5.jar;C:\Users\Martin\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar" GRM2
+Started: 18.12.18 20:29
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/Martin/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/Martin/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e15032-Maho-PC1
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 8
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-18T19:29:32.721Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@7e276594
+Cleared the graph
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Set default timestamp provider MICRO
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=c0a8016e15032-Maho-PC2
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 8
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-18T19:29:33.002Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@19553973
+Successfully created the graph schema
+0,10%	100318079.edges
+0,21%	10146102.edges
+0,31%	101859065.edges
+0,41%	101903164.edges
+0,51%	102765423.edges
+0,62%	102903198.edges
+0,72%	103431502.edges
+0,82%	103865085.edges
+0,92%	103991905.edges
+1,03%	104324908.edges
+1,13%	104615636.edges
+1,23%	1046661.edges
+1,34%	104991493.edges
+1,44%	105150583.edges
+1,54%	105398724.edges
+1,64%	105918870.edges
+1,75%	107172099.edges
+1,85%	107418464.edges
+1,95%	107511013.edges
+2,06%	107512718.edges
+2,16%	107516840.edges
+2,26%	10798802.edges
+2,36%	108159877.edges
+2,47%	108205076.edges
+2,57%	10985532.edges
+2,67%	11027262.edges
+2,77%	110536616.edges
+2,88%	110755733.edges
+2,98%	111045742.edges
+3,08%	11136132.edges
+3,19%	111374622.edges
+3,29%	112628165.edges
+3,39%	113196940.edges
+3,49%	11348282.edges
+3,60%	11348722.edges
+3,70%	113509970.edges
+3,80%	114115460.edges
+3,91%	114885421.edges
+4,01%	115221382.edges
+4,11%	115911638.edges
+4,21%	116388817.edges
+4,32%	116798290.edges
+4,42%	116808228.edges
+4,52%	11681802.edges
+4,62%	117029850.edges
+4,73%	117671022.edges
+4,83%	117800618.edges
+4,93%	117809922.edges
+5,04%	11784842.edges
+5,14%	11828432.edges
+5,24%	11928542.edges
+5,34%	119897041.edges
+5,45%	120157205.edges
+5,55%	120459837.edges
+5,65%	120679977.edges
+5,76%	12069912.edges
+5,86%	120971873.edges
+5,96%	121202578.edges
+6,06%	121258930.edges
+6,17%	12152402.edges
+6,27%	121569946.edges
+6,37%	121685268.edges
+6,47%	122216533.edges
+6,58%	123287376.edges
+6,68%	123684709.edges
+6,78%	1239671.edges
+6,89%	12415722.edges
+6,99%	124296976.edges
+7,09%	124474025.edges
+7,19%	125098615.edges
+7,30%	12570812.edges
+7,40%	126067398.edges
+7,50%	1271901.edges
+7,61%	12771872.edges
+7,71%	127912925.edges
+7,81%	128135741.edges
+7,91%	12831.edges
+8,02%	129093262.edges
+8,12%	129984134.edges
+8,22%	130734452.edges
+8,32%	13179562.edges
+8,43%	13212502.edges
+8,53%	132519763.edges
+8,63%	13274152.edges
+8,74%	13275962.edges
+8,84%	13317162.edges
+8,94%	133663120.edges
+9,04%	134208594.edges
+9,15%	13460312.edges
+9,25%	134943586.edges
+9,35%	135397331.edges
+9,46%	135605269.edges
+9,56%	135704499.edges
+9,66%	135895585.edges
+9,76%	136341512.edges
+9,87%	13649212.edges
+9,97%	1367531.edges
+10,07%	137046366.edges
+10,17%	13747362.edges
+10,28%	137527381.edges
+10,38%	13809612.edges
+10,48%	13811562.edges
+10,59%	13837812.edges
+10,69%	13872872.edges
+10,79%	14045302.edges
+10,89%	14058831.edges
+11,00%	14060856.edges
+11,10%	14077024.edges
+11,20%	14120151.edges
+11,31%	14120253.edges
+11,41%	14129601.edges
+11,51%	141341662.edges
+11,61%	14134942.edges
+11,72%	14147754.edges
+11,82%	141488457.edges
+11,92%	14150874.edges
+12,02%	14191254.edges
+12,13%	14199378.edges
+12,23%	14203895.edges
+12,33%	1422311.edges
+12,44%	14256927.edges
+12,54%	14313005.edges
+12,64%	143172151.edges
+12,74%	14327149.edges
+12,85%	14332288.edges
+12,95%	143344048.edges
+13,05%	14338082.edges
+13,16%	14353392.edges
+13,26%	1435461.edges
+13,36%	14365883.edges
+13,46%	143661263.edges
+13,57%	14371740.edges
+13,67%	14372486.edges
+13,77%	14372763.edges
+13,87%	14404235.edges
+13,98%	144211337.edges
+14,08%	14422788.edges
+14,18%	14426892.edges
+14,29%	144723379.edges
+14,39%	14505838.edges
+14,49%	14521330.edges
+14,59%	14528221.edges
+14,70%	14550962.edges
+14,80%	14555534.edges
+14,90%	145573135.edges
+15,01%	14618160.edges
+15,11%	14630490.edges
+15,21%	14677919.edges
+15,31%	14711172.edges
+15,42%	14719129.edges
+15,52%	14755105.edges
+15,62%	14791232.edges
+15,72%	14794851.edges
+15,83%	14807093.edges
+15,93%	14827526.edges
+16,03%	14836915.edges
+16,14%	14838506.edges
+16,24%	14840869.edges
+16,34%	14843763.edges
+16,44%	14848513.edges
+16,55%	14849487.edges
+16,65%	148519842.edges
+16,75%	14869783.edges
+16,86%	14893314.edges
+16,96%	14917050.edges
+17,06%	14922225.edges
+17,16%	14936377.edges
+17,27%	14957252.edges
+17,37%	14984096.edges
+17,47%	15001424.edges
+17,57%	15012486.edges
+17,68%	150402542.edges
+17,78%	15053535.edges
+17,88%	15070932.edges
+17,99%	15099384.edges
+18,09%	151175266.edges
+18,19%	151246522.edges
+18,29%	15129912.edges
+18,40%	151495845.edges
+18,50%	15164892.edges
+18,60%	152062126.edges
+18,71%	15208246.edges
+18,81%	152388029.edges
+18,91%	152435436.edges
+19,01%	15292446.edges
+19,12%	153245741.edges
+19,22%	15329577.edges
+19,32%	15331855.edges
+19,42%	15335809.edges
+19,53%	15347317.edges
+19,63%	15419775.edges
+19,73%	15420650.edges
+19,84%	15445811.edges
+19,94%	154648125.edges
+20,04%	154701532.edges
+20,14%	15473958.edges
+20,25%	15477120.edges
+20,35%	15481789.edges
+20,45%	1548841.edges
+20,55%	15507297.edges
+20,66%	15527013.edges
+20,76%	15533771.edges
+20,86%	155661154.edges
+20,97%	155689319.edges
+21,07%	15589323.edges
+21,17%	155976326.edges
+21,27%	15642031.edges
+21,38%	15647676.edges
+21,48%	15665127.edges
+21,58%	15706128.edges
+21,69%	15741636.edges
+21,79%	157488488.edges
+21,89%	15797184.edges
+21,99%	158414847.edges
+22,10%	158419434.edges
+22,20%	15849055.edges
+22,30%	15859268.edges
+22,40%	15864197.edges
+22,51%	158874150.edges
+22,61%	15924858.edges
+22,71%	15938936.edges
+22,82%	15944663.edges
+22,92%	15947217.edges
+23,02%	159588456.edges
+23,12%	159629146.edges
+23,23%	15977848.edges
+23,33%	15989218.edges
+23,43%	160237722.edges
+23,54%	16027078.edges
+23,64%	160839015.edges
+23,74%	1608991.edges
+23,84%	16105942.edges
+23,95%	16183380.edges
+24,05%	16193542.edges
+24,15%	16212913.edges
+24,25%	16234125.edges
+24,36%	16247469.edges
+24,46%	16263665.edges
+24,56%	16279105.edges
+24,67%	16285517.edges
+24,77%	16297193.edges
+24,87%	16305227.edges
+24,97%	163374693.edges
+25,08%	163491360.edges
+25,18%	163629705.edges
+25,28%	163674521.edges
+25,39%	16421962.edges
+25,49%	16437633.edges
+25,59%	16465113.edges
+25,69%	16476088.edges
+25,80%	16505296.edges
+25,90%	165580617.edges
+26,00%	165598423.edges
+26,10%	165786567.edges
+26,21%	16591188.edges
+26,31%	16606585.edges
+26,41%	16610683.edges
+26,52%	16613128.edges
+26,62%	16616109.edges
+26,72%	166214735.edges
+26,82%	166252256.edges
+26,93%	16652550.edges
+27,03%	16674149.edges
+27,13%	16685316.edges
+27,24%	16726878.edges
+27,34%	16734718.edges
+27,44%	16790036.edges
+27,54%	167901620.edges
+27,65%	16809036.edges
+27,75%	168224294.edges
+27,85%	16824073.edges
+27,95%	16834201.edges
+28,06%	16840742.edges
+28,16%	168537920.edges
+28,26%	16869298.edges
+28,37%	16878507.edges
+28,47%	169216507.edges
+28,57%	169780164.edges
+28,67%	16987303.edges
+28,78%	170167167.edges
+28,88%	17022544.edges
+28,98%	17045060.edges
+29,09%	170729553.edges
+29,19%	17111909.edges
+29,29%	171202083.edges
+29,39%	17135931.edges
+29,50%	17137927.edges
+29,60%	171536167.edges
+29,70%	17384099.edges
+29,80%	17396702.edges
+29,91%	17403755.edges
+30,01%	17421011.edges
+30,11%	174285878.edges
+30,22%	17503591.edges
+30,32%	175529494.edges
+30,42%	175553601.edges
+30,52%	17561785.edges
+30,63%	17600223.edges
+30,73%	17602896.edges
+30,83%	17627996.edges
+30,94%	176310143.edges
+31,04%	17636894.edges
+31,14%	17658786.edges
+31,24%	176589903.edges
+31,35%	176872879.edges
+31,45%	176936249.edges
+31,55%	17714569.edges
+31,65%	17723880.edges
+31,76%	1775731.edges
+31,86%	17767841.edges
+31,96%	17770689.edges
+32,07%	17787399.edges
+32,17%	17797990.edges
+32,27%	17822419.edges
+32,37%	17866414.edges
+32,48%	17874544.edges
+32,58%	179065820.edges
+32,68%	17912917.edges
+32,79%	179138862.edges
+32,89%	17918629.edges
+32,99%	17922109.edges
+33,09%	180540375.edges
+33,20%	18068719.edges
+33,30%	18069824.edges
+33,40%	18119683.edges
+33,50%	18135029.edges
+33,61%	18191231.edges
+33,71%	18201401.edges
+33,81%	18226205.edges
+33,92%	18252740.edges
+34,02%	182609394.edges
+34,12%	18270489.edges
+34,22%	18278524.edges
+34,33%	18338485.edges
+34,43%	18374320.edges
+34,53%	183786731.edges
+34,64%	184391654.edges
+34,74%	184594566.edges
+34,84%	18470775.edges
+34,94%	18472735.edges
+35,05%	184755890.edges
+35,15%	18481292.edges
+35,25%	18483115.edges
+35,35%	18486243.edges
+35,46%	18486881.edges
+35,56%	18496986.edges
+35,66%	18534908.edges
+35,77%	185512077.edges
+35,87%	18558612.edges
+35,97%	18571832.edges
+36,07%	18594420.edges
+36,18%	18630326.edges
+36,28%	186354564.edges
+36,38%	18665800.edges
+36,49%	18681592.edges
+36,59%	18687625.edges
+36,69%	18690700.edges
+36,79%	186909156.edges
+36,90%	18718580.edges
+37,00%	18731347.edges
+37,10%	18734310.edges
+37,20%	187569483.edges
+37,31%	187744415.edges
+37,41%	187773078.edges
+37,51%	18788502.edges
+37,62%	188102842.edges
+37,72%	18836167.edges
+37,82%	18846990.edges
+37,92%	18886852.edges
+38,03%	18895362.edges
+38,13%	189111957.edges
+38,23%	18917716.edges
+38,34%	18923866.edges
+38,44%	189253902.edges
+38,54%	18951737.edges
+38,64%	18957524.edges
+38,75%	189592841.edges
+38,85%	189875309.edges
+38,95%	18988524.edges
+39,05%	18996905.edges
+39,16%	190138306.edges
+39,26%	19064433.edges
+39,36%	190696559.edges
+39,47%	19110632.edges
+39,57%	19136295.edges
+39,67%	191896931.edges
+39,77%	191916463.edges
+39,88%	191924526.edges
+39,98%	19208450.edges
+40,08%	19213083.edges
+40,18%	19225156.edges
+40,29%	19283723.edges
+40,39%	19299909.edges
+40,49%	19380307.edges
+40,60%	19454519.edges
+40,70%	19492215.edges
+40,80%	195475105.edges
+40,90%	19563357.edges
+41,01%	19658936.edges
+41,11%	19668026.edges
+41,21%	196926575.edges
+41,32%	19725644.edges
+41,42%	197577781.edges
+41,52%	197602850.edges
+41,62%	19760380.edges
+41,73%	197731654.edges
+41,83%	197903282.edges
+41,93%	198327282.edges
+42,03%	198370650.edges
+42,14%	198628427.edges
+42,24%	198941747.edges
+42,34%	19898730.edges
+42,45%	199039532.edges
+42,55%	19933035.edges
+42,65%	19948202.edges
+42,75%	199483163.edges
+42,86%	19976791.edges
+42,96%	200214366.edges
+43,06%	200494218.edges
+43,17%	20060293.edges
+43,27%	20119746.edges
+43,37%	20179628.edges
+43,47%	202114894.edges
+43,58%	202195505.edges
+43,68%	202346485.edges
+43,78%	2029971.edges
+43,88%	20319646.edges
+43,99%	20347014.edges
+44,09%	203868162.edges
+44,19%	204145356.edges
+44,30%	20436059.edges
+44,40%	20446839.edges
+44,50%	204646586.edges
+44,60%	20495756.edges
+44,71%	20561154.edges
+44,81%	20689206.edges
+44,91%	206923844.edges
+45,02%	20758393.edges
+45,12%	207594668.edges
+45,22%	207936757.edges
+45,32%	20950208.edges
+45,43%	2097571.edges
+45,53%	20999409.edges
+45,63%	21028234.edges
+45,73%	21061498.edges
+45,84%	21077642.edges
+45,94%	21094279.edges
+46,04%	21132431.edges
+46,15%	211547273.edges
+46,25%	211933541.edges
+46,35%	21222922.edges
+46,45%	212642904.edges
+46,56%	212718048.edges
+46,66%	21318259.edges
+46,76%	21337501.edges
+46,87%	21339164.edges
+46,97%	21363077.edges
+47,07%	21364753.edges
+47,17%	21391704.edges
+47,28%	21415375.edges
+47,38%	21420959.edges
+47,48%	21437537.edges
+47,58%	215328630.edges
+47,69%	21578499.edges
+47,79%	215824411.edges
+47,89%	21648994.edges
+48,00%	216843160.edges
+48,10%	21731779.edges
+48,20%	21735280.edges
+48,30%	217796457.edges
+48,41%	21816783.edges
+48,51%	219365298.edges
+48,61%	22106463.edges
+48,72%	22121627.edges
+48,82%	222090651.edges
+48,92%	22252971.edges
+49,02%	224581852.edges
+49,13%	225302763.edges
+49,23%	2257971.edges
+49,33%	22745706.edges
+49,43%	22751884.edges
+49,54%	227650565.edges
+49,64%	227785045.edges
+49,74%	228270980.edges
+49,85%	22863638.edges
+49,95%	22879382.edges
+50,05%	22915745.edges
+50,15%	229425177.edges
+50,26%	22954430.edges
+50,36%	22958268.edges
+50,46%	22970486.edges
+50,57%	229741646.edges
+50,67%	22977196.edges
+50,77%	229969377.edges
+50,87%	230601773.edges
+50,98%	230880104.edges
+51,08%	232006900.edges
+51,18%	232706326.edges
+51,28%	23334169.edges
+51,39%	233598791.edges
+51,49%	234169190.edges
+51,59%	23469247.edges
+51,70%	23503181.edges
+51,80%	235219400.edges
+51,90%	2363991.edges
+52,00%	237019614.edges
+52,11%	237049769.edges
+52,21%	23742633.edges
+52,31%	23759573.edges
+52,42%	237845487.edges
+52,52%	23790454.edges
+52,62%	238264600.edges
+52,72%	23889102.edges
+52,83%	239141315.edges
+52,93%	239434259.edges
+53,03%	240740059.edges
+53,13%	24117694.edges
+53,24%	241635675.edges
+53,34%	242013901.edges
+53,44%	242024994.edges
+53,55%	242073660.edges
+53,65%	242479442.edges
+53,75%	243267948.edges
+53,85%	24479656.edges
+53,96%	24541192.edges
+54,06%	24542441.edges
+54,16%	245639401.edges
+54,27%	24636631.edges
+54,37%	24815332.edges
+54,47%	248224845.edges
+54,57%	248523038.edges
+54,68%	248883350.edges
+54,78%	248916246.edges
+54,88%	24903302.edges
+54,98%	24907197.edges
+55,09%	249829509.edges
+55,19%	249831237.edges
+55,29%	250340951.edges
+55,40%	250447400.edges
+55,50%	250900294.edges
+55,60%	25179170.edges
+55,70%	252415267.edges
+55,81%	253360762.edges
+55,91%	25344777.edges
+56,01%	253751053.edges
+56,12%	253863144.edges
+56,22%	254883790.edges
+56,32%	255790981.edges
+56,42%	25649234.edges
+56,53%	256497288.edges
+56,63%	25650268.edges
+56,73%	25755158.edges
+56,83%	2576401.edges
+56,94%	258145892.edges
+57,04%	258447233.edges
+57,14%	2589521.edges
+57,25%	258955239.edges
+57,35%	259288589.edges
+57,45%	259365099.edges
+57,55%	259884200.edges
+57,66%	26083291.edges
+57,76%	26103051.edges
+57,86%	261973875.edges
+57,97%	262310943.edges
+58,07%	26234692.edges
+58,17%	26286713.edges
+58,27%	263224927.edges
+58,38%	26335321.edges
+58,48%	26346966.edges
+58,58%	265077741.edges
+58,68%	26585095.edges
+58,79%	26604704.edges
+58,89%	266464616.edges
+58,99%	267383914.edges
+59,10%	268425888.edges
+59,20%	269485905.edges
+59,30%	269559495.edges
+59,40%	26961048.edges
+59,51%	275686563.edges
+59,61%	27595997.edges
+59,71%	276128869.edges
+59,82%	276843589.edges
+59,92%	278181157.edges
+60,02%	278311152.edges
+60,12%	27853708.edges
+60,23%	279854450.edges
+60,33%	280329780.edges
+60,43%	28205087.edges
+60,53%	283732062.edges
+60,64%	2841151.edges
+60,74%	28490110.edges
+60,84%	285287229.edges
+60,95%	28628055.edges
+61,05%	287519521.edges
+61,15%	2890961.edges
+61,25%	289738351.edges
+61,36%	290092792.edges
+61,46%	29016037.edges
+61,56%	29034979.edges
+61,66%	291403100.edges
+61,77%	292560337.edges
+61,87%	29357507.edges
+61,97%	29514951.edges
+62,08%	296218728.edges
+62,18%	297985585.edges
+62,28%	298038575.edges
+62,38%	30031265.edges
+62,49%	300842571.edges
+62,59%	30096240.edges
+62,69%	301297627.edges
+62,80%	30207757.edges
+62,90%	30310904.edges
+63,00%	30313925.edges
+63,10%	30345417.edges
+63,21%	303886358.edges
+63,31%	30393917.edges
+63,41%	306445007.edges
+63,51%	307458983.edges
+63,62%	307478701.edges
+63,72%	308220010.edges
+63,82%	30824363.edges
+63,93%	309096216.edges
+64,03%	30970675.edges
+64,13%	311227912.edges
+64,23%	31153819.edges
+64,34%	31179985.edges
+64,44%	312284236.edges
+64,54%	31246395.edges
+64,65%	312805417.edges
+64,75%	31313454.edges
+64,85%	31317273.edges
+64,95%	313359626.edges
+65,06%	314038032.edges
+65,16%	314316607.edges
+65,26%	31457243.edges
+65,36%	31464977.edges
+65,47%	31477674.edges
+65,57%	315418321.edges
+65,67%	31610343.edges
+65,78%	31631020.edges
+65,88%	317313520.edges
+65,98%	318760490.edges
+66,08%	31949053.edges
+66,19%	320527944.edges
+66,29%	321620987.edges
+66,39%	321652589.edges
+66,50%	32289713.edges
+66,60%	324201646.edges
+66,70%	3245291.edges
+66,80%	324544865.edges
+66,91%	3253671.edges
+67,01%	32547856.edges
+67,11%	32574761.edges
+67,21%	326259198.edges
+67,32%	33060624.edges
+67,42%	33080832.edges
+67,52%	33097148.edges
+67,63%	333021748.edges
+67,73%	3338681.edges
+67,83%	333881828.edges
+67,93%	333966373.edges
+68,04%	33511585.edges
+68,14%	33612973.edges
+68,24%	33617320.edges
+68,35%	336463060.edges
+68,45%	33794839.edges
+68,55%	338017544.edges
+68,65%	33806113.edges
+68,76%	33868543.edges
+68,86%	34242979.edges
+68,96%	34416153.edges
+69,06%	344966590.edges
+69,17%	345569115.edges
+69,27%	34805698.edges
+69,37%	348851602.edges
+69,48%	35012277.edges
+69,58%	35012599.edges
+69,68%	351092905.edges
+69,78%	35166642.edges
+69,89%	353767514.edges
+69,99%	35432497.edges
+70,09%	355823615.edges
+70,20%	356897757.edges
+70,30%	356963.edges
+70,40%	35726059.edges
+70,50%	358845982.edges
+70,61%	35926608.edges
+70,71%	359791673.edges
+70,81%	360025190.edges
+70,91%	360210947.edges
+71,02%	364664695.edges
+71,12%	36475508.edges
+71,22%	36544954.edges
+71,33%	36618690.edges
+71,43%	36629388.edges
+71,53%	368018677.edges
+71,63%	36836787.edges
+71,74%	36953510.edges
+71,84%	37103386.edges
+71,94%	37112942.edges
+72,05%	37170886.edges
+72,15%	37201612.edges
+72,25%	372765570.edges
+72,35%	374007416.edges
+72,46%	37723441.edges
+72,56%	377662213.edges
+72,66%	37792861.edges
+72,76%	378494343.edges
+72,87%	37899473.edges
+72,97%	37977732.edges
+73,07%	37992666.edges
+73,18%	38108292.edges
+73,28%	381688396.edges
+73,38%	382110320.edges
+73,48%	384685422.edges
+73,59%	384761809.edges
+73,69%	38703025.edges
+73,79%	38761811.edges
+73,90%	39070445.edges
+74,00%	39157827.edges
+74,10%	39322973.edges
+74,20%	396721965.edges
+74,31%	39695043.edges
+74,41%	397688944.edges
+74,51%	398994309.edges
+74,61%	40022380.edges
+74,72%	400867704.edges
+74,82%	402970625.edges
+74,92%	40564708.edges
+75,03%	40580577.edges
+75,13%	40705032.edges
+75,23%	407769660.edges
+75,33%	40777046.edges
+75,44%	40813518.edges
+75,54%	40818894.edges
+75,64%	40981798.edges
+75,75%	414334713.edges
+75,85%	41945050.edges
+75,95%	42098834.edges
+76,05%	423567032.edges
+76,16%	42522911.edges
+76,26%	4258591.edges
+76,36%	42676302.edges
+76,46%	428333.edges
+76,57%	42912024.edges
+76,67%	43003845.edges
+76,77%	430313102.edges
+76,88%	43194901.edges
+76,98%	434433610.edges
+77,08%	43540843.edges
+77,18%	437300342.edges
+77,29%	43858661.edges
+77,39%	4387041.edges
+77,49%	441252694.edges
+77,60%	44130462.edges
+77,70%	44257374.edges
+77,80%	44394333.edges
+77,90%	44524106.edges
+78,01%	44666348.edges
+78,11%	45145944.edges
+78,21%	45310286.edges
+78,31%	45333725.edges
+78,42%	45690012.edges
+78,52%	45753733.edges
+78,62%	45857296.edges
+78,73%	46160500.edges
+78,83%	46533358.edges
+78,93%	47359057.edges
+79,03%	47673661.edges
+79,14%	477094958.edges
+79,24%	47854857.edges
+79,34%	48132655.edges
+79,45%	48436259.edges
+79,55%	484991854.edges
+79,65%	48730516.edges
+79,75%	49098552.edges
+79,86%	49253437.edges
+79,96%	493138720.edges
+80,06%	49414491.edges
+80,16%	494538543.edges
+80,27%	49536244.edges
+80,37%	50145896.edges
+80,47%	50189671.edges
+80,58%	51694885.edges
+80,68%	51775432.edges
+80,78%	521489919.edges
+80,88%	52330027.edges
+80,99%	52405864.edges
+81,09%	52442002.edges
+81,19%	52498113.edges
+81,29%	52772629.edges
+81,40%	528575851.edges
+81,50%	53235381.edges
+81,60%	532617990.edges
+81,71%	53685618.edges
+81,81%	54107218.edges
+81,91%	54168315.edges
+82,01%	54178513.edges
+82,12%	54226675.edges
+82,22%	54331626.edges
+82,32%	54460963.edges
+82,43%	54695584.edges
+82,53%	5471892.edges
+82,63%	54791004.edges
+82,73%	549089429.edges
+82,84%	55019615.edges
+82,94%	5506012.edges
+83,04%	5539522.edges
+83,14%	55928029.edges
+83,25%	5747502.edges
+83,35%	5773532.edges
+83,45%	5774432.edges
+83,56%	57828817.edges
+83,66%	58427526.edges
+83,76%	58525541.edges
+83,86%	58641627.edges
+83,97%	5868402.edges
+84,07%	58930815.edges
+84,17%	59359628.edges
+84,28%	59588845.edges
+84,38%	59676554.edges
+84,48%	6018292.edges
+84,58%	61086747.edges
+84,69%	61158706.edges
+84,79%	612473.edges
+84,89%	61311054.edges
+84,99%	613313.edges
+85,10%	6165372.edges
+85,20%	61781462.edges
+85,30%	61890555.edges
+85,41%	623623.edges
+85,51%	6253282.edges
+85,61%	62609430.edges
+85,71%	62740714.edges
+85,82%	62759402.edges
+85,92%	6297852.edges
+86,02%	62985251.edges
+86,13%	629863.edges
+86,23%	63084853.edges
+86,33%	63207451.edges
+86,43%	6351572.edges
+86,54%	63787760.edges
+86,64%	6408382.edges
+86,74%	64253854.edges
+86,84%	64441390.edges
+86,95%	64496469.edges
+87,05%	64508047.edges
+87,15%	64619842.edges
+87,26%	64931560.edges
+87,36%	65185224.edges
+87,46%	65357070.edges
+87,56%	65360846.edges
+87,67%	66100530.edges
+87,77%	66136244.edges
+87,87%	66185823.edges
+87,98%	6650612.edges
+88,08%	66761133.edges
+88,18%	66804457.edges
+88,28%	66841215.edges
+88,39%	67378554.edges
+88,49%	68179571.edges
+88,59%	68257605.edges
+88,69%	68480165.edges
+88,80%	68732646.edges
+88,90%	69049114.edges
+89,00%	69193714.edges
+89,11%	69548480.edges
+89,21%	69624952.edges
+89,31%	70123665.edges
+89,41%	70160230.edges
+89,52%	70492333.edges
+89,62%	70620846.edges
+89,72%	7098022.edges
+89,83%	71091272.edges
+89,93%	7144422.edges
+90,03%	72339761.edges
+90,13%	73024519.edges
+90,24%	73025843.edges
+90,34%	73298877.edges
+90,44%	73443014.edges
+90,54%	734493.edges
+90,65%	73707412.edges
+90,75%	73738774.edges
+90,85%	742143.edges
+90,96%	7424642.edges
+91,06%	74264908.edges
+91,16%	745823.edges
+91,26%	74651704.edges
+91,37%	7517222.edges
+91,47%	75321229.edges
+91,57%	75343905.edges
+91,68%	75370828.edges
+91,78%	759679.edges
+91,88%	7668362.edges
+91,98%	7670202.edges
+92,09%	7682452.edges
+92,19%	77404713.edges
+92,29%	77843323.edges
+92,39%	778446.edges
+92,50%	779715.edges
+92,60%	78138151.edges
+92,70%	78391198.edges
+92,81%	7861312.edges
+92,91%	7875912.edges
+93,01%	78813.edges
+93,11%	7888452.edges
+93,22%	7890392.edges
+93,32%	789071.edges
+93,42%	78944566.edges
+93,53%	790205.edges
+93,63%	79797834.edges
+93,73%	80297299.edges
+93,83%	80317145.edges
+93,94%	80479756.edges
+94,04%	80660928.edges
+94,14%	80681990.edges
+94,24%	80688804.edges
+94,35%	8079892.edges
+94,45%	809864.edges
+94,55%	81938351.edges
+94,66%	819800.edges
+94,76%	82726142.edges
+94,86%	83048001.edges
+94,96%	83285096.edges
+95,07%	83478370.edges
+95,17%	83883736.edges
+95,27%	84114921.edges
+95,38%	84473837.edges
+95,48%	85432934.edges
+95,58%	85716069.edges
+95,68%	86560711.edges
+95,79%	86664924.edges
+95,89%	86775971.edges
+95,99%	86799233.edges
+96,09%	87004822.edges
+96,20%	87114066.edges
+96,30%	87525002.edges
+96,40%	8768832.edges
+96,51%	87771546.edges
+96,61%	87798068.edges
+96,71%	88456842.edges
+96,81%	88639412.edges
+96,92%	88931752.edges
+97,02%	89032548.edges
+97,12%	8914942.edges
+97,23%	89826562.edges
+97,33%	90072587.edges
+97,43%	90880254.edges
+97,53%	90998968.edges
+97,64%	91067832.edges
+97,74%	9215692.edges
+97,84%	9254272.edges
+97,94%	926981.edges
+98,05%	92715435.edges
+98,15%	9298152.edges
+98,25%	93006320.edges
+98,36%	93787797.edges
+98,46%	93906304.edges
+98,56%	93998005.edges
+98,66%	94147192.edges
+98,77%	94480069.edges
+98,87%	9460682.edges
+98,97%	94915681.edges
+99,08%	9524062.edges
+99,18%	96483973.edges
+99,28%	96545499.edges
+99,38%	96843721.edges
+99,49%	96907622.edges
+99,59%	98345808.edges
+99,69%	9855382.edges
+99,79%	98633794.edges
+99,90%	98801140.edges
+100,00%	99841247.edges
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 25330], 1=[20000000, 25574], 2=[20000000, 25364]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23,28
+Successfully added the log graph schema
+Loading the log to graph
+Edges added: 1256422
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Edges overall: 2403874
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0,990, iF=0,600, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=10076, 1=10320, 2=10110]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,000		1,00		510713		1023563		1534276		50661		17,61s
+2		1,980		0,99		0,037		1,00		548083		986193		1534276		46238		15,83s
+3		1,960		0,98		0,108		0,99		621598		912678		1534276		49502		20,03s
+4		1,941		0,97		0,162		0,99		676433		857843		1534276		49097		16,51s
+5		1,921		0,96		0,204		0,98		719872		814404		1534276		49775		20,15s
+6		1,902		0,95		0,251		0,98		767829		766447		1534276		49454		16,42s
+7		1,883		0,94		0,271		0,97		787818		746458		1534276		49963		20,40s
+8		1,864		0,93		0,279		0,97		796291		737985		1534276		49828		17,15s
+9		1,845		0,92		0,316		0,96		833684		700592		1534276		50009		20,78s
+10		1,827		0,91		0,349		0,96		867604		666672		1534276		49984		16,54s
+11		1,809		0,90		0,352		0,95		871090		663186		1534276		50077		20,79s
+12		1,791		0,90		0,359		0,95		877768		656508		1534276		49994		16,17s
+13		1,773		0,89		0,359		0,94		878384		655892		1534276		50141		21,14s
+14		1,755		0,88		0,370		0,94		889425		644851		1534276		49974		17,25s
+15		1,737		0,87		0,381		0,93		900841		633435		1534276		50080		20,54s
+16		1,720		0,86		0,390		0,93		909563		624713		1534276		49938		16,65s
+17		1,703		0,85		0,415		0,93		935662		598614		1534276		50262		19,46s
+18		1,686		0,84		0,391		0,92		910918		623358		1534276		50037		16,12s
+19		1,669		0,83		0,417		0,92		937874		596402		1534276		50202		20,12s
+20		1,652		0,83		0,404		0,91		923750		610526		1534276		50094		16,53s
+21		1,636		0,82		0,412		0,91		932026		602250		1534276		50172		20,71s
+22		1,619		0,81		0,406		0,90		926380		607896		1534276		50266		17,93s
+23		1,603		0,80		0,438		0,90		958883		575393		1534276		50305		19,82s
+24		1,587		0,79		0,414		0,90		934687		599589		1534276		50256		16,34s
+25		1,571		0,79		0,439		0,89		960353		573923		1534276		50202		21,06s
+26		1,556		0,78		0,436		0,89		957449		576827		1534276		50246		17,32s
+27		1,540		0,77		0,437		0,89		958060		576216		1534276		50345		19,81s
+28		1,525		0,76		0,447		0,88		968291		565985		1534276		50202		16,23s
+29		1,509		0,75		0,451		0,88		971940		562336		1534276		50115		19,78s
+30		1,494		0,75		0,422		0,87		942528		591748		1534276		50155		16,07s
+31		1,479		0,74		0,493		0,87		1015259		519017		1534276		50318		20,45s
+32		1,465		0,73		0,480		0,87		1002178		532098		1534276		50377		17,22s
+33		1,450		0,72		0,481		0,86		1002948		531328		1534276		50388		19,51s
+34		1,435		0,72		0,492		0,86		1013857		520419		1534276		50311		16,29s
+35		1,421		0,71		0,476		0,86		998231		536045		1534276		50314		19,56s
+36		1,407		0,70		0,492		0,85		1014620		519656		1534276		50254		16,03s
+37		1,393		0,70		0,469		0,85		990265		544011		1534276		50233		20,70s
+38		1,379		0,69		0,501		0,84		1023679		510597		1534276		50257		16,95s
+39		1,365		0,68		0,528		0,84		1051466		482810		1534276		50392		20,53s
+40		1,351		0,68		0,511		0,84		1033961		500315		1534276		50478		17,12s
+41		1,338		0,67		0,526		0,83		1048992		485284		1534276		50513		19,50s
+42		1,325		0,66		0,516		0,83		1039226		495050		1534276		50431		16,20s
+43		1,311		0,66		0,509		0,83		1031582		502694		1534276		50428		19,37s
+44		1,298		0,65		0,547		0,82		1070788		463488		1534276		50311		16,22s
+45		1,285		0,64		0,516		0,82		1039236		495040		1534276		50321		20,87s
+46		1,272		0,64		0,541		0,82		1064847		469429		1534276		50233		16,37s
+47		1,260		0,63		0,558		0,81		1081813		452463		1534276		50244		21,36s
+48		1,247		0,62		0,530		0,81		1053502		480774		1534276		50338		16,21s
+49		1,235		0,62		0,542		0,81		1065744		468532		1534276		50217		19,73s
+50		1,222		0,61		0,537		0,81		1060316		473960		1534276		50278		16,25s
+51		1,210		0,61		0,562		0,80		1086424		447852		1534276		50319		19,42s
+52		1,198		0,60		0,562		0,80		1085631		448645		1534276		50236		16,43s
+53		1,186		0,59		0,571		0,80		1095364		438912		1534276		50298		19,42s
+54		1,174		0,59		0,592		0,79		1116946		417330		1534276		50336		16,34s
+55		1,162		0,58		0,613		0,79		1138580		395696		1534276		50338		20,56s
+56		1,151		0,58		0,603		0,79		1127937		406339		1534276		50417		16,65s
+57		1,139		0,57		0,612		0,78		1137559		396717		1534276		50378		19,37s
+58		1,128		0,56		0,608		0,78		1133433		400843		1534276		50349		16,22s
+59		1,117		0,56		0,623		0,78		1148365		385911		1534276		50391		19,76s
+60		1,105		0,55		0,616		0,78		1140780		393496		1534276		50349		16,81s
+61		1,094		0,55		0,627		0,77		1152684		381592		1534276		50355		19,48s
+62		1,083		0,54		0,629		0,77		1154126		380150		1534276		50336		16,23s
+63		1,073		0,54		0,648		0,77		1174230		360046		1534276		50340		19,81s
+64		1,062		0,53		0,647		0,77		1172627		361649		1534276		50318		16,11s
+65		1,051		0,53		0,647		0,76		1173181		361095		1534276		50327		20,46s
+66		1,041		0,52		0,650		0,76		1176304		357972		1534276		50329		17,51s
+67		1,030		0,52		0,657		0,76		1182874		351402		1534276		50333		21,00s
+68		1,020		0,51		0,652		0,75		1177691		356585		1534276		50341		16,97s
+69		1,010		0,50		0,656		0,75		1182005		352271		1534276		50344		19,51s
+70		1,000		0,50		0,654		0,75		1180046		354230		1534276		50343		16,23s
+71		0,990		0,49		0,659		0,75		1185571		348705		1534276		50341		19,37s
+72		0,980		0,49		0,660		0,74		1186289		347987		1534276		50340		16,14s
+73		0,970		0,48		0,661		0,74		1187370		346906		1534276		50340		19,71s
+74		0,960		0,48		0,661		0,74		1187431		346845		1534276		50338		16,17s
+75		0,951		0,48		0,661		0,74		1187697		346579		1534276		50338		20,42s
+Terminated Vaquero algorithm at iteration: 75, Runtime: 1378,67
+[ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.label] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 45760], 1=[20000000, 15254], 2=[20000000, 15254]]
+Clusters Lower Bound: [0=30506, 1=0, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 13366
+Before/After Cross Node Queries: 1023563 / 346579, Improvement: 66,14%
+Good before/after Queries:  510713 / 1187697
+
+R2 Before/After Cross Node Queries: 1023563 / 171355, Improvement: 83,26%, It: 94
+R3 Before/After Cross Node Queries: 1023563 / 121869, Improvement: 88,09%, It: 104 [0=[20000000, 43547], 1=[20000000, 16935], 2=[20000000, 15786]]
+R4 Before/After Cross Node Queries: 1023563 / 198274, Improvement: 80,63%, It: 78
+R5 Before/After Cross Node Queries: 1023563 / 167395, Improvement: 83,65%, It: 109 [0=[20000000, 38250], 1=[20000000, 22725], 2=[20000000, 15293]]
+R6 Before/After Cross Node Queries: 1023563 / 256873, Improvement: 74,90%, It: 84
+R7 Before/After Cross Node Queries: 1023563 / 242562, Improvement: 76,30%, It: 81 [0=[20000000, 45760], 1=[20000000, 15254], 2=[20000000, 15254]]
+R8 Before/After Cross Node Queries: 1023563 / 118526, Improvement: 88,42%, It: 92
+R9 Before/After Cross Node Queries: 1023563 / 135088, Improvement: 86,80%, It: 93 [0=[20000000, 19344], 1=[20000000, 40498], 2=[20000000, 16426]]
+R10 Before/After Cross Node Queries: 1023563 / 135088, Improvement: 85,02%
