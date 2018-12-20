@@ -1,0 +1,390 @@
+"C:\Program Files\Java\jdk1.8.0_161\bin\java.exe" -Dvisualvm.id=110363053644913 -Xmx10000m -Xms2048m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3\lib\idea_rt.jar=14341:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_161\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\rt.jar;C:\Users\black\OneDrive\Dokumenty\programLucka\target\classes;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-core\0.3.0\janusgraph-core-0.3.0.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-core\3.3.3\gremlin-core-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-shaded\3.3.3\gremlin-shaded-3.3.3.jar;C:\Users\black\.m2\repository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;C:\Users\black\.m2\repository\org\javatuples\javatuples\1.2\javatuples-1.2.jar;C:\Users\black\.m2\repository\com\jcabi\jcabi-manifests\1.1\jcabi-manifests-1.1.jar;C:\Users\black\.m2\repository\com\jcabi\jcabi-log\0.14\jcabi-log-0.14.jar;C:\Users\black\.m2\repository\com\squareup\javapoet\1.8.0\javapoet-1.8.0.jar;C:\Users\black\.m2\repository\net\objecthunter\exp4j\0.4.8\exp4j-0.4.8.jar;C:\Users\black\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-groovy\3.3.3\gremlin-groovy-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\ivy\ivy\2.3.0\ivy-2.3.0.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-groovysh\2.4.15\groovy-groovysh-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-console\2.4.15\groovy-console-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-swing\2.4.15\groovy-swing-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-templates\2.4.15\groovy-templates-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.15\groovy-xml-2.4.15.jar;C:\Users\black\.m2\repository\jline\jline\2.12\jline-2.12.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-json\2.4.15\groovy-json-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-jsr223\2.4.15\groovy-jsr223-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-lang3\3.3.1\commons-lang3-3.3.1.jar;C:\Users\black\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\black\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.3.1\caffeine-2.3.1.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\tinkergraph-gremlin\3.3.3\tinkergraph-gremlin-3.3.3.jar;C:\Users\black\.m2\repository\org\glassfish\javax.json\1.0\javax.json-1.0.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-core\3.0.1\metrics-core-3.0.1.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-ganglia\3.0.1\metrics-ganglia-3.0.1.jar;C:\Users\black\.m2\repository\info\ganglia\gmetric4j\gmetric4j\1.0.3\gmetric4j-1.0.3.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-graphite\3.0.1\metrics-graphite-3.0.1.jar;C:\Users\black\.m2\repository\org\reflections\reflections\0.9.9-RC1\reflections-0.9.9-RC1.jar;C:\Users\black\.m2\repository\org\javassist\javassist\3.16.1-GA\javassist-3.16.1-GA.jar;C:\Users\black\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\black\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\black\.m2\repository\org\locationtech\spatial4j\spatial4j\0.7\spatial4j-0.7.jar;C:\Users\black\.m2\repository\org\locationtech\jts\jts-core\1.15.0\jts-core-1.15.0.jar;C:\Users\black\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\black\.m2\repository\commons-configuration\commons-configuration\1.10\commons-configuration-1.10.jar;C:\Users\black\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\black\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\black\.m2\repository\commons-io\commons-io\2.3\commons-io-2.3.jar;C:\Users\black\.m2\repository\commons-codec\commons-codec\1.7\commons-codec-1.7.jar;C:\Users\black\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\black\.m2\repository\com\carrotsearch\hppc\0.7.1\hppc-0.7.1.jar;C:\Users\black\.m2\repository\com\github\stephenc\high-scale-lib\high-scale-lib\1.1.4\high-scale-lib-1.1.4.jar;C:\Users\black\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\black\.m2\repository\org\noggit\noggit\0.6\noggit-0.6.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-text\1.0\commons-text-1.0.jar;C:\Users\black\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\repartitioning-gremlin\3.3.3\repartitioning-gremlin-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-processedResultLogging\3.3.3\gremlin-processedResultLogging-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-server\3.3.3\gremlin-server-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-driver\3.3.3\gremlin-driver-3.3.3.jar;C:\Users\black\.m2\repository\io\netty\netty-all\4.0.56.Final\netty-all-4.0.56.Final.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-sql\2.4.15\groovy-sql-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\slf4j\slf4j-simple\1.7.25\slf4j-simple-1.7.25.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-cql\0.3.0\janusgraph-cql-0.3.0.jar;C:\Users\black\.m2\repository\com\datastax\cassandra\cassandra-driver-core\3.3.2\cassandra-driver-core-3.3.2.jar;C:\Users\black\.m2\repository\io\dropwizard\metrics\metrics-core\3.2.2\metrics-core-3.2.2.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-ffi\2.0.7\jnr-ffi-2.0.7.jar;C:\Users\black\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10.jar;C:\Users\black\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10-native.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-posix\3.0.27\jnr-posix-3.0.27.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-constants\0.9.0\jnr-constants-0.9.0.jar;C:\Users\black\.m2\repository\io\netty\netty-handler\4.0.56.Final\netty-handler-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-buffer\4.0.56.Final\netty-buffer-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-common\4.0.56.Final\netty-common-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-transport\4.0.56.Final\netty-transport-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-codec\4.0.56.Final\netty-codec-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\vavr\vavr\0.9.0\vavr-0.9.0.jar;C:\Users\black\.m2\repository\io\vavr\vavr-match\0.9.0\vavr-match-0.9.0.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-es\0.3.0\janusgraph-es-0.3.0.jar;C:\Users\black\.m2\repository\org\elasticsearch\client\elasticsearch-rest-client\6.0.1\elasticsearch-rest-client-6.0.1.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpcore\4.4.5\httpcore-4.4.5.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.2\httpasyncclient-4.1.2.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.5\httpcore-nio-4.4.5.jar;C:\Users\black\.m2\repository\org\antlr\antlr-runtime\3.2\antlr-runtime-3.2.jar;C:\Users\black\.m2\repository\org\antlr\stringtemplate\3.2\stringtemplate-3.2.jar;C:\Users\black\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\black\.m2\repository\ch\qos\logback\logback-classic\1.1.2\logback-classic-1.1.2.jar;C:\Users\black\.m2\repository\ch\qos\logback\logback-core\1.1.2\logback-core-1.1.2.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-cassandra\0.3.0\janusgraph-cassandra-0.3.0.jar;C:\Users\black\.m2\repository\org\apache\cassandra\cassandra-all\2.1.20\cassandra-all-2.1.20.jar;C:\Users\black\.m2\repository\com\ning\compress-lzf\0.8.4\compress-lzf-0.8.4.jar;C:\Users\black\.m2\repository\commons-cli\commons-cli\1.1\commons-cli-1.1.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\black\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3\concurrentlinkedhashmap-lru-1.3.jar;C:\Users\black\.m2\repository\org\antlr\antlr\3.5.2\antlr-3.5.2.jar;C:\Users\black\.m2\repository\org\antlr\ST4\4.0.8\ST4-4.0.8.jar;C:\Users\black\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.9.2\jackson-core-asl-1.9.2.jar;C:\Users\black\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.9.2\jackson-mapper-asl-1.9.2.jar;C:\Users\black\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\black\.m2\repository\com\boundary\high-scale-lib\1.0.6\high-scale-lib-1.0.6.jar;C:\Users\black\.m2\repository\com\yammer\metrics\metrics-core\2.2.0\metrics-core-2.2.0.jar;C:\Users\black\.m2\repository\com\addthis\metrics\reporter-config\2.1.0\reporter-config-2.1.0.jar;C:\Users\black\.m2\repository\org\hibernate\hibernate-validator\4.3.0.Final\hibernate-validator-4.3.0.Final.jar;C:\Users\black\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.CR2\jboss-logging-3.1.0.CR2.jar;C:\Users\black\.m2\repository\com\thinkaurelius\thrift\thrift-server\0.3.7\thrift-server-0.3.7.jar;C:\Users\black\.m2\repository\com\lmax\disruptor\3.0.1\disruptor-3.0.1.jar;C:\Users\black\.m2\repository\com\clearspring\analytics\stream\2.5.2\stream-2.5.2.jar;C:\Users\black\.m2\repository\it\unimi\dsi\fastutil\6.5.7\fastutil-6.5.7.jar;C:\Users\black\.m2\repository\net\sf\supercsv\super-csv\2.1.0\super-csv-2.1.0.jar;C:\Users\black\.m2\repository\org\apache\thrift\libthrift\0.9.2\libthrift-0.9.2.jar;C:\Users\black\.m2\repository\org\apache\cassandra\cassandra-thrift\2.1.20\cassandra-thrift-2.1.20.jar;C:\Users\black\.m2\repository\net\java\dev\jna\jna\4.0.0\jna-4.0.0.jar;C:\Users\black\.m2\repository\com\github\jbellis\jamm\0.3.0\jamm-0.3.0.jar;C:\Users\black\.m2\repository\commons-pool\commons-pool\1.6\commons-pool-1.6.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-core\3.8.0\astyanax-core-3.8.0.jar;C:\Users\black\.m2\repository\joda-time\joda-time\1.6.2\joda-time-1.6.2.jar;C:\Users\black\.m2\repository\com\eaio\uuid\uuid\3.2\uuid-3.2.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-thrift\3.8.0\astyanax-thrift-3.8.0.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-cassandra\3.8.0\astyanax-cassandra-3.8.0.jar;C:\Users\black\.m2\repository\org\apache\servicemix\bundles\org.apache.servicemix.bundles.commons-csv\1.0-r706900_3\org.apache.servicemix.bundles.commons-csv-1.0-r706900_3.jar;C:\Users\black\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\black\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-recipes\3.8.0\astyanax-recipes-3.8.0.jar;C:\Users\black\.m2\repository\org\xerial\snappy\snappy-java\1.0.5-M3\snappy-java-1.0.5-M3.jar;C:\Users\black\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\black\.m2\repository\net\jpountz\lz4\lz4\1.3.0\lz4-1.3.0.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-berkeleyje\0.3.0\janusgraph-berkeleyje-0.3.0.jar;C:\Users\black\.m2\repository\com\sleepycat\je\7.4.5\je-7.4.5.jar;C:\Users\black\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar" GRMP
+Started: 19.12.18 17:06
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/black/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/black/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[main] INFO org.janusgraph.diskstorage.cassandra.utils.CassandraDaemonWrapper - Starting cassandra with cassandra.yaml
+[main] WARN org.apache.cassandra.utils.CLibrary - JNA link failure, one or more native method will be unavailable.
+[main] WARN org.apache.cassandra.service.CassandraDaemon - JMX is not enabled to receive remote connections. Please see cassandra-env.sh for more info.
+[main] ERROR org.apache.cassandra.service.CassandraDaemon - cassandra.jmx.local.port missing from cassandra-env.sh, unable to start local JMX service.null
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=ac1df00122912-Taip-Ryzen1
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 24
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring total store cache size: 1687129294
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-19T16:06:30.019Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@7b2ffe88
+Cleared the graph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created keyspace janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF system_properties in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF system_properties in KS janusgraph succeeded
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Set default timestamp provider MICRO
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=ac1df00122912-Taip-Ryzen2
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 24
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF janusgraph_ids in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF janusgraph_ids in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF edgestore in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF edgestore in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF edgestore_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF edgestore_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF graphindex in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF graphindex in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF graphindex_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF graphindex_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring total store cache size: 1784104146
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF txlog in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF txlog in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF systemlog in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF systemlog in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF system_properties_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF system_properties_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-19T16:06:33.926Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@2b38ee7f
+Successfully created the graph schema
+Loading dataset to DB
+[BatchlogTasks:1] WARN org.apache.cassandra.db.BatchlogManager - Skipped batch replay of 79c938d0-039d-11e9-8ec7-25b8c50d9417 due to org.apache.cassandra.db.UnknownColumnFamilyException: Couldn't find cfId=5028a2e0-039d-11e9-8ec7-25b8c50d9417
+[BatchlogTasks:1] WARN org.apache.cassandra.db.BatchlogManager - Skipped batch replay of 79c986f0-039d-11e9-8ec7-25b8c50d9417 due to org.apache.cassandra.db.UnknownColumnFamilyException: Couldn't find cfId=5028a2e0-039d-11e9-8ec7-25b8c50d9417
+[main] INFO org.janusgraph.diskstorage.util.BackendOperation - Temporary exception during backend operation [CacheMutation]. Attempting backoff retry.
+org.janusgraph.diskstorage.TemporaryBackendException: Temporary failure in storage backend
+	at org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager.mutate(CassandraEmbeddedStoreManager.java:227)
+	at org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager.mutateMany(CassandraEmbeddedStoreManager.java:211)
+	at org.janusgraph.diskstorage.locking.consistentkey.ExpectedValueCheckingStoreManager.mutateMany(ExpectedValueCheckingStoreManager.java:79)
+	at org.janusgraph.diskstorage.keycolumnvalue.cache.CacheTransaction$1.call(CacheTransaction.java:94)
+	at org.janusgraph.diskstorage.keycolumnvalue.cache.CacheTransaction$1.call(CacheTransaction.java:91)
+	at org.janusgraph.diskstorage.util.BackendOperation.executeDirect(BackendOperation.java:68)
+	at org.janusgraph.diskstorage.util.BackendOperation.execute(BackendOperation.java:54)
+	at org.janusgraph.diskstorage.keycolumnvalue.cache.CacheTransaction.persist(CacheTransaction.java:91)
+	at org.janusgraph.diskstorage.keycolumnvalue.cache.CacheTransaction.flushInternal(CacheTransaction.java:133)
+	at org.janusgraph.diskstorage.keycolumnvalue.cache.CacheTransaction.commit(CacheTransaction.java:196)
+	at org.janusgraph.diskstorage.BackendTransaction.commitStorage(BackendTransaction.java:134)
+	at org.janusgraph.graphdb.database.StandardJanusGraph.commit(StandardJanusGraph.java:733)
+	at org.janusgraph.graphdb.transaction.StandardJanusGraphTx.commit(StandardJanusGraphTx.java:1379)
+	at helpers.PenssylvaniaDatasetLoaderQueryRunner.loadDatasetToGraph(PenssylvaniaDatasetLoaderQueryRunner.java:130)
+	at GRMP.loadDataset(GRMP.java:112)
+	at GRMP.main(GRMP.java:62)
+Caused by: org.apache.cassandra.exceptions.WriteTimeoutException: Operation timed out - received only 0 responses.
+	at org.apache.cassandra.service.AbstractWriteResponseHandler.get(AbstractWriteResponseHandler.java:92)
+	at org.apache.cassandra.service.StorageProxy.syncWriteToBatchlog(StorageProxy.java:750)
+	at org.apache.cassandra.service.StorageProxy.mutateAtomically(StorageProxy.java:689)
+	at org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager.mutate(CassandraEmbeddedStoreManager.java:222)
+	... 15 more
+
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+VCount: 1088092
+Clusters populated to vertex count of: 1088095
+Edge count: 3083796
+Clusters: [0=[20000000, 272040], 1=[20000000, 272003], 2=[20000000, 272040], 3=[20000000, 272012]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 1088092, Max degree: 9, Avg. degree: 2.83
+Number of queries: 10880
+No target count: 3038
+Successfully added the log graph schema
+Loading the log to graph
+Edges added: 304674
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Edges overall: 3236133
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.900, nClusters=4, aProb=0.50
+Clusters INIT Lower Bound: [0=27216, 1=27182, 2=27219, 3=27191]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2.000		1.00		1.000		1.00		0		0		0		818120		22.01s		 
+2		1.980		0.99		1.000		1.00		0		0		0		513365		21.25s		 
+3		1.960		0.98		1.000		0.99		0		0		0		762257		21.02s		 
+4		1.941		0.97		1.000		0.99		0		0		0		603564		20.19s		 
+5		1.921		0.96		1.000		0.98		0		0		0		740931		20.29s		 
+6		1.902		0.95		1.000		0.98		0		0		0		648377		20.49s		 
+7		1.883		0.94		1.000		0.97		0		0		0		725049		20.73s		 
+8		1.864		0.93		1.000		0.97		0		0		0		671867		21.47s		 
+9		1.845		0.92		1.000		0.96		0		0		0		716844		21.10s		 
+10		1.827		0.91		1.000		0.96		0		0		0		685135		20.60s		 
+11		1.809		0.90		1.000		0.95		0		0		0		711591		20.45s		 
+12		1.791		0.90		1.000		0.95		0		0		0		693157		20.31s		 
+13		1.773		0.89		1.000		0.94		0		0		0		708796		20.52s		 
+14		1.755		0.88		1.000		0.94		0		0		0		698425		20.41s		 
+15		1.737		0.87		1.000		0.93		0		0		0		706972		20.01s		 
+16		1.720		0.86		1.000		0.93		0		0		0		702005		20.99s		 
+17		1.703		0.85		1.000		0.93		0		0		0		706147		20.27s		 
+18		1.686		0.84		1.000		0.92		0		0		0		703907		21.07s		 
+19		1.669		0.83		1.000		0.92		0		0		0		706080		19.91s		 
+20		1.652		0.83		1.000		0.91		0		0		0		705100		20.35s		 
+21		1.636		0.82		1.000		0.91		0		0		0		706104		19.71s		 
+22		1.619		0.81		1.000		0.90		0		0		0		705906		20.20s		 
+23		1.603		0.80		1.000		0.90		0		0		0		706261		19.64s		 
+24		1.587		0.79		1.000		0.90		0		0		0		706308		20.13s		 
+25		1.571		0.79		1.000		0.89		0		0		0		706684		19.70s		 
+26		1.556		0.78		1.000		0.89		0		0		0		706631		20.08s		 
+27		1.540		0.77		1.000		0.89		0		0		0		706833		20.22s		 
+28		1.525		0.76		1.000		0.88		0		0		0		707022		19.85s		 
+29		1.509		0.75		1.000		0.88		0		0		0		707109		20.46s		 
+30		1.494		0.75		1.000		0.87		0		0		0		707133		19.88s		 
+31		1.479		0.74		1.000		0.87		0		0		0		707113		20.92s		 
+32		1.465		0.73		1.000		0.87		0		0		0		707249		20.00s		 
+33		1.450		0.72		1.000		0.86		0		0		0		707331		19.61s		 
+34		1.435		0.72		1.000		0.86		0		0		0		707480		20.34s		 
+35		1.421		0.71		1.000		0.86		0		0		0		707510		22.52s		 
+36		1.407		0.70		1.000		0.85		0		0		0		707601		20.05s		 
+37		1.393		0.70		1.000		0.85		0		0		0		707683		21.40s		 
+38		1.379		0.69		1.000		0.84		0		0		0		707690		19.94s		 
+39		1.365		0.68		1.000		0.84		0		0		0		707814		20.03s		 
+40		1.351		0.68		1.000		0.84		0		0		0		707875		19.80s		 
+41		1.338		0.67		1.000		0.83		0		0		0		707863		19.75s		 
+42		1.325		0.66		1.000		0.83		0		0		0		707897		19.91s		 
+43		1.311		0.66		1.000		0.83		0		0		0		707854		19.46s		 
+44		1.298		0.65		1.000		0.82		0		0		0		707903		19.89s		 
+45		1.285		0.64		1.000		0.82		0		0		0		707763		19.63s		 
+46		1.272		0.64		1.000		0.82		0		0		0		707829		20.14s		 
+47		1.260		0.63		1.000		0.81		0		0		0		707862		19.58s		 
+48		1.247		0.62		1.000		0.81		0		0		0		708007		19.61s		 
+49		1.235		0.62		1.000		0.81		0		0		0		707964		20.02s		 
+50		1.222		0.61		1.000		0.81		0		0		0		707879		19.82s		 
+51		1.210		0.61		1.000		0.80		0		0		0		707930		20.03s		 
+52		1.198		0.60		1.000		0.80		0		0		0		707966		19.67s		 
+53		1.186		0.59		1.000		0.80		0		0		0		707982		19.83s		 
+54		1.174		0.59		1.000		0.79		0		0		0		708046		20.30s		 
+55		1.162		0.58		1.000		0.79		0		0		0		708059		20.00s		 
+56		1.151		0.58		1.000		0.79		0		0		0		708081		20.98s		 
+57		1.139		0.57		1.000		0.78		0		0		0		708071		19.74s		 
+58		1.128		0.56		1.000		0.78		0		0		0		708029		19.97s		 
+59		1.117		0.56		1.000		0.78		0		0		0		708016		21.30s		 
+60		1.105		0.55		1.000		0.78		0		0		0		708011		19.77s		 
+61		1.094		0.55		1.000		0.77		0		0		0		708013		19.58s		 
+62		1.083		0.54		1.000		0.77		0		0		0		707996		20.97s		 
+63		1.073		0.54		1.000		0.77		0		0		0		707960		19.63s		 
+64		1.062		0.53		1.000		0.77		0		0		0		707956		19.58s		 
+65		1.051		0.53		1.000		0.76		0		0		0		707955		19.88s		 
+66		1.041		0.52		1.000		0.76		0		0		0		707973		19.66s		 
+67		1.030		0.52		1.000		0.76		0		0		0		707956		19.63s		 
+68		1.020		0.51		1.000		0.75		0		0		0		707972		20.15s		 
+69		1.010		0.50		1.000		0.75		0		0		0		707976		20.47s		 
+70		1.000		0.50		1.000		0.75		0		0		0		707971		20.92s		 
+71		0.990		0.49		1.000		0.75		0		0		0		707972		20.40s		 
+72		0.980		0.49		1.000		0.74		0		0		0		707967		19.46s		 
+73		0.970		0.48		1.000		0.74		0		0		0		707978		19.80s		 
+74		0.960		0.48		1.000		0.74		0		0		0		707982		19.56s		 
+75		0.951		0.48		1.000		0.74		0		0		0		707981		19.67s		 
+76		0.941		0.47		1.000		0.74		0		0		0		707982		19.59s		 
+77		0.932		0.47		1.000		0.73		0		0		0		707983		19.89s		 
+78		0.922		0.46		1.000		0.73		0		0		0		707982		19.60s		 
+79		0.913		0.46		1.000		0.73		0		0		0		707981		19.77s		 
+80		0.904		0.45		1.000		0.73		0		0		0		707980		19.77s		 
+81		0.895		0.45		1.000		0.72		0		0		0		707979		19.30s		 
+82		0.886		0.44		1.000		0.72		0		0		0		707979		21.22s		 
+83		0.877		0.44		1.000		0.72		0		0		0		707980		19.75s		 
+84		0.868		0.43		1.000		0.72		0		0		0		707982		19.66s		 
+85		0.860		0.43		1.000		0.71		0		0		0		707982		20.88s		 
+86		0.851		0.43		1.000		0.71		0		0		0		707982		20.55s		 
+Terminated Vaquero algorithm at iteration: 86, Runtime: 1750.73
+[ForkJoinPool.commonPool-worker-2] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.label] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 353629], 1=[20000000, 244821], 2=[20000000, 244821], 3=[20000000, 244821]]
+Clusters Lower Bound: [0=108808, 1=0, 2=0, 3=0]
+Clusters added together count: 1088092
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 1088092
+Before/After Cross Node Queries: 450708 / 126132, Improvement: 72.01%
+Good before/after Queries:  91173 / 415749
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.900, nClusters=4, aProb=0.50
+Clusters INIT Lower Bound: [0=27216, 1=27182, 2=27219, 3=27191]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2.000		1.00		1.000		1.00		0		0		0		818044		22.65s		 
+2		1.980		0.99		1.000		1.00		0		0		0		513308		23.41s		 
+3		1.960		0.98		1.000		0.99		0		0		0		762017		22.40s		 
+4		1.941		0.97		1.000		0.99		0		0		0		603418		22.83s		 
+5		1.921		0.96		1.000		0.98		0		0		0		741273		22.33s		 
+6		1.902		0.95		1.000		0.98		0		0		0		648292		22.66s		 
+7		1.883		0.94		1.000		0.97		0		0		0		725466		22.35s		 
+8		1.864		0.93		1.000		0.97		0		0		0		671052		24.54s		 
+9		1.845		0.92		1.000		0.96		0		0		0		716589		21.88s		 
+10		1.827		0.91		1.000		0.96		0		0		0		684305		22.87s		 
+11		1.809		0.90		1.000		0.95		0		0		0		711614		22.14s		 
+12		1.791		0.90		1.000		0.95		0		0		0		692580		22.25s		 
+13		1.773		0.89		1.000		0.94		0		0		0		708638		21.44s		 
+14		1.755		0.88		1.000		0.94		0		0		0		697730		21.56s		 
+15		1.737		0.87		1.000		0.93		0		0		0		706882		22.20s		 
+16		1.720		0.86		1.000		0.93		0		0		0		701538		22.16s		 
+17		1.703		0.85		1.000		0.93		0		0		0		706198		22.20s		 
+18		1.686		0.84		1.000		0.92		0		0		0		703617		22.06s		 
+19		1.669		0.83		1.000		0.92		0		0		0		705997		22.51s		 
+20		1.652		0.83		1.000		0.91		0		0		0		704772		22.71s		 
+21		1.636		0.82		1.000		0.91		0		0		0		706026		22.66s		 
+22		1.619		0.81		1.000		0.90		0		0		0		705644		21.98s		 
+23		1.603		0.80		1.000		0.90		0		0		0		706135		21.57s		 
+24		1.587		0.79		1.000		0.90		0		0		0		706126		22.79s		 
+25		1.571		0.79		1.000		0.89		0		0		0		706349		22.18s		 
+26		1.556		0.78		1.000		0.89		0		0		0		706483		22.01s		 
+27		1.540		0.77		1.000		0.89		0		0		0		706624		22.44s		 
+28		1.525		0.76		1.000		0.88		0		0		0		706701		21.93s		 
+29		1.509		0.75		1.000		0.88		0		0		0		706888		22.34s		 
+30		1.494		0.75		1.000		0.87		0		0		0		706721		22.68s		 
+31		1.479		0.74		1.000		0.87		0		0		0		706783		22.53s		 
+32		1.465		0.73		1.000		0.87		0		0		0		706880		21.99s		 
+33		1.450		0.72		1.000		0.86		0		0		0		707112		23.14s		 
+34		1.435		0.72		1.000		0.86		0		0		0		707099		24.18s		 
+35		1.421		0.71		1.000		0.86		0		0		0		707168		22.39s		 
+36		1.407		0.70		1.000		0.85		0		0		0		707238		23.72s		 
+37		1.393		0.70		1.000		0.85		0		0		0		707173		22.31s		 
+38		1.379		0.69		1.000		0.84		0		0		0		707164		21.84s		 
+39		1.365		0.68		1.000		0.84		0		0		0		707308		21.86s		 
+40		1.351		0.68		1.000		0.84		0		0		0		707201		22.77s		 
+41		1.338		0.67		1.000		0.83		0		0		0		707329		21.90s		 
+42		1.325		0.66		1.000		0.83		0		0		0		707411		22.00s		 
+43		1.311		0.66		1.000		0.83		0		0		0		707494		22.37s		 
+44		1.298		0.65		1.000		0.82		0		0		0		707527		22.18s		 
+45		1.285		0.64		1.000		0.82		0		0		0		707579		22.98s		 
+46		1.272		0.64		1.000		0.82		0		0		0		707593		22.71s		 
+47		1.260		0.63		1.000		0.81		0		0		0		707539		22.73s		 
+48		1.247		0.62		1.000		0.81		0		0		0		707574		21.85s		 
+49		1.235		0.62		1.000		0.81		0		0		0		707533		22.01s		 
+50		1.222		0.61		1.000		0.81		0		0		0		707544		21.99s		 
+51		1.210		0.61		1.000		0.80		0		0		0		707592		22.30s		 
+52		1.198		0.60		1.000		0.80		0		0		0		707586		22.42s		 
+53		1.186		0.59		1.000		0.80		0		0		0		707569		22.56s		 
+54		1.174		0.59		1.000		0.79		0		0		0		707534		22.57s		 
+55		1.162		0.58		1.000		0.79		0		0		0		707552		22.12s		 
+56		1.151		0.58		1.000		0.79		0		0		0		707663		22.53s		 
+57		1.139		0.57		1.000		0.78		0		0		0		707618		22.58s		 
+58		1.128		0.56		1.000		0.78		0		0		0		707667		21.97s		 
+59		1.117		0.56		1.000		0.78		0		0		0		707666		22.10s		 
+60		1.105		0.55		1.000		0.78		0		0		0		707637		21.98s		 
+61		1.094		0.55		1.000		0.77		0		0		0		707640		22.58s		 
+62		1.083		0.54		1.000		0.77		0		0		0		707650		22.35s		 
+63		1.073		0.54		1.000		0.77		0		0		0		707599		22.31s		 
+64		1.062		0.53		1.000		0.77		0		0		0		707587		23.04s		 
+65		1.051		0.53		1.000		0.76		0		0		0		707568		21.84s		 
+66		1.041		0.52		1.000		0.76		0		0		0		707537		23.34s		 
+67		1.030		0.52		1.000		0.76		0		0		0		707542		22.08s		 
+68		1.020		0.51		1.000		0.75		0		0		0		707538		22.46s		 
+69		1.010		0.50		1.000		0.75		0		0		0		707544		21.80s		 
+70		1.000		0.50		1.000		0.75		0		0		0		707535		23.64s		 
+71		0.990		0.49		1.000		0.75		0		0		0		707534		22.38s		 
+72		0.980		0.49		1.000		0.74		0		0		0		707535		22.75s		 
+73		0.970		0.48		1.000		0.74		0		0		0		707540		22.17s		 
+74		0.960		0.48		1.000		0.74		0		0		0		707541		22.21s		 
+75		0.951		0.48		1.000		0.74		0		0		0		707541		21.90s		 
+76		0.941		0.47		1.000		0.74		0		0		0		707538		21.67s		 
+77		0.932		0.47		1.000		0.73		0		0		0		707539		22.19s		 
+78		0.922		0.46		1.000		0.73		0		0		0		707541		22.72s		 
+79		0.913		0.46		1.000		0.73		0		0		0		707544		22.27s		 
+80		0.904		0.45		1.000		0.73		0		0		0		707545		22.10s		 
+81		0.895		0.45		1.000		0.72		0		0		0		707545		21.70s		 
+82		0.886		0.44		1.000		0.72		0		0		0		707545		22.12s		 
+Terminated Vaquero algorithm at iteration: 82, Runtime: 1850.11
+Clusters capacity/usage: [0=[20000000, 353629], 1=[20000000, 244821], 2=[20000000, 244821], 3=[20000000, 244821]]
+Clusters Lower Bound: [0=108808, 1=0, 2=0, 3=0]
+Clusters added together count: 1088092
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 1088092
+Before/After Cross Node Queries: 450708 / 127705, Improvement: 71.67%
+Good before/after Queries:  91173 / 414176
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.900, nClusters=4, aProb=0.50
+Clusters INIT Lower Bound: [0=27216, 1=27182, 2=27219, 3=27191]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2.000		1.00		1.000		1.00		0		0		0		817985		24.80s		 
+2		1.980		0.99		1.000		1.00		0		0		0		514249		22.70s		 
+3		1.960		0.98		1.000		0.99		0		0		0		762177		22.41s		 
+4		1.941		0.97		1.000		0.99		0		0		0		603976		22.63s		 
+5		1.921		0.96		1.000		0.98		0		0		0		740408		22.33s		 
+6		1.902		0.95		1.000		0.98		0		0		0		648503		22.37s		 
+7		1.883		0.94		1.000		0.97		0		0		0		724754		22.96s		 
+8		1.864		0.93		1.000		0.97		0		0		0		671882		22.84s		 
+9		1.845		0.92		1.000		0.96		0		0		0		716597		22.31s		 
+10		1.827		0.91		1.000		0.96		0		0		0		685334		23.36s		 
+11		1.809		0.90		1.000		0.95		0		0		0		711750		25.46s		 
+12		1.791		0.90		1.000		0.95		0		0		0		693758		24.87s		 
+13		1.773		0.89		1.000		0.94		0		0		0		708743		23.03s		 
+14		1.755		0.88		1.000		0.94		0		0		0		698707		23.25s		 
+15		1.737		0.87		1.000		0.93		0		0		0		707167		23.55s		 
+16		1.720		0.86		1.000		0.93		0		0		0		701908		23.58s		 
+17		1.703		0.85		1.000		0.93		0		0		0		706384		23.49s		 
+18		1.686		0.84		1.000		0.92		0		0		0		703942		22.97s		 
+19		1.669		0.83		1.000		0.92		0		0		0		706119		22.50s		 
+20		1.652		0.83		1.000		0.91		0		0		0		705162		22.62s		 
+21		1.636		0.82		1.000		0.91		0		0		0		706027		23.53s		 
+22		1.619		0.81		1.000		0.90		0		0		0		705765		22.34s		 
+23		1.603		0.80		1.000		0.90		0		0		0		706206		23.74s		 
+24		1.587		0.79		1.000		0.90		0		0		0		706286		24.70s		 
+25		1.571		0.79		1.000		0.89		0		0		0		706575		23.15s		 
+26		1.556		0.78		1.000		0.89		0		0		0		706514		24.70s		 
+27		1.540		0.77		1.000		0.89		0		0		0		706709		23.31s		 
+28		1.525		0.76		1.000		0.88		0		0		0		706785		23.20s		 
+29		1.509		0.75		1.000		0.88		0		0		0		706909		22.92s		 
+30		1.494		0.75		1.000		0.87		0		0		0		706882		23.35s		 
+31		1.479		0.74		1.000		0.87		0		0		0		707011		23.13s		 
+32		1.465		0.73		1.000		0.87		0		0		0		707178		23.45s		 
+33		1.450		0.72		1.000		0.86		0		0		0		707258		25.76s		 
+34		1.435		0.72		1.000		0.86		0		0		0		707292		22.85s		 
+35		1.421		0.71		1.000		0.86		0		0		0		707391		23.00s		 
+36		1.407		0.70		1.000		0.85		0		0		0		707335		23.28s		 
+37		1.393		0.70		1.000		0.85		0		0		0		707340		22.69s		 
+38		1.379		0.69		1.000		0.84		0		0		0		707341		22.87s		 
+39		1.365		0.68		1.000		0.84		0		0		0		707429		23.31s		 
+40		1.351		0.68		1.000		0.84		0		0		0		707485		23.00s		 
+41		1.338		0.67		1.000		0.83		0		0		0		707496		22.46s		 
+42		1.325		0.66		1.000		0.83		0		0		0		707442		22.55s		 
+43		1.311		0.66		1.000		0.83		0		0		0		707539		22.48s		 
+44		1.298		0.65		1.000		0.82		0		0		0		707671		22.67s		 
+45		1.285		0.64		1.000		0.82		0		0		0		707684		22.96s		 
+46		1.272		0.64		1.000		0.82		0		0		0		707665		22.97s		 
+47		1.260		0.63		1.000		0.81		0		0		0		707769		23.08s		 
+48		1.247		0.62		1.000		0.81		0		0		0		707743		22.92s		 
+49		1.235		0.62		1.000		0.81		0		0		0		707780		22.73s		 
+50		1.222		0.61		1.000		0.81		0		0		0		707818		22.65s		 
+51		1.210		0.61		1.000		0.80		0		0		0		707853		22.99s		 
+52		1.198		0.60		1.000		0.80		0		0		0		707913		23.63s		 
+53		1.186		0.59		1.000		0.80		0		0		0		707939		23.05s		 
+54		1.174		0.59		1.000		0.79		0		0		0		707924		23.12s		 
+55		1.162		0.58		1.000		0.79		0		0		0		707947		22.85s		 
+56		1.151		0.58		1.000		0.79		0		0		0		707921		23.31s		 
+57		1.139		0.57		1.000		0.78		0		0		0		707974		23.09s		 
+58		1.128		0.56		1.000		0.78		0		0		0		707979		23.09s		 
+59		1.117		0.56		1.000		0.78		0		0		0		707968		22.42s		 
+60		1.105		0.55		1.000		0.78		0		0		0		708009		22.28s		 
+61		1.094		0.55		1.000		0.77		0		0		0		707972		23.15s		 
+62		1.083		0.54		1.000		0.77		0		0		0		707974		23.14s		 
+63		1.073		0.54		1.000		0.77		0		0		0		707970		22.66s		 
+64		1.062		0.53		1.000		0.77		0		0		0		708000		22.68s		 
+65		1.051		0.53		1.000		0.76		0		0		0		707993		22.46s		 
+66		1.041		0.52		1.000		0.76		0		0		0		707997		23.70s		 
+67		1.030		0.52		1.000		0.76		0		0		0		707989		23.75s		 
+68		1.020		0.51		1.000		0.75		0		0		0		707982		23.14s		 
+69		1.010		0.50		1.000		0.75		0		0		0		707977		22.93s		 
+70		1.000		0.50		1.000		0.75		0		0		0		707986		22.48s		 
+71		0.990		0.49		1.000		0.75		0		0		0		708000		22.94s		 
+72		0.980		0.49		1.000		0.74		0		0		0		708008		22.37s		 
+73		0.970		0.48		1.000		0.74		0		0		0		708010		22.26s		 
+74		0.960		0.48		1.000		0.74		0		0		0		708010		23.21s		 
+75		0.951		0.48		1.000		0.74		0		0		0		708008		22.74s		 
+76		0.941		0.47		1.000		0.74		0		0		0		708007		23.20s		 
+77		0.932		0.47		1.000		0.73		0		0		0		708003		22.76s		 
+78		0.922		0.46		1.000		0.73		0		0		0		708003		23.33s		 
+79		0.913		0.46		1.000		0.73		0		0		0		708000		22.80s		 
+80		0.904		0.45		1.000		0.73		0		0		0		708000		22.94s		 
+81		0.895		0.45		1.000		0.72		0		0		0		708000		22.85s		 
+82		0.886		0.44		1.000		0.72		0		0		0		708000		22.90s		 
+Terminated Vaquero algorithm at iteration: 82, Runtime: 1908.93
+Clusters capacity/usage: [0=[20000000, 353629], 1=[20000000, 244821], 2=[20000000, 244821], 3=[20000000, 244821]]
+Clusters Lower Bound: [0=108808, 1=0, 2=0, 3=0]
+Clusters added together count: 1088092
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 1088092
+Before/After Cross Node Queries: 450708 / 127292, Improvement: 71.76%
+Good before/after Queries:  91173 / 414589
+Running validating evaluation
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 1088092, Max degree: 13, Avg. degree: 2.97
+Number of queries: 10880
+No target count: 3065
+Before/After Cross Node Queries: 470499 / 126808, Improvement: 73.05%
+Good before/after Queries:  94350 / 415073
+Total runtime: 6690.50s
+
+Process finished with exit code 0
