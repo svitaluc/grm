@@ -1651,3 +1651,6 @@ Clusters added together count: 76268
 Vertex count: 76268
 Number of all to be expanded nodes: 13366
 Before/After Cross Node Queries: 1023563 / 709524, Improvement: 30.68%
+
+R2 Before/After Cross Node Queries: 1023563 / 613907, Improvement: 40,02% It:200
+R3 Before/After Cross Node Queries: 1023563 / 613907, Improvement: 30,34% It:200
