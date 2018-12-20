@@ -1164,3 +1164,10 @@ Good before/after Queries:  510713 / 1238489
 
 R2 Before/After Cross Node Queries: 1023563 / 332475, Improvement: 67,52% It:143
 R3 Before/After Cross Node Queries: 1023563 / 293788, Improvement: 71,30% It:144
+R4 Before/After Cross Node Queries: 1023563 / 304702, Improvement: 70,23% It:145
+R5 Before/After Cross Node Queries: 1023563 / 304702, Improvement: 67,66% It:151
+R6 Before/After Cross Node Queries: 1023563 / 315065, Improvement: 69,22% It:148
+R7 Before/After Cross Node Queries: 1023563 / 358937, Improvement: 64,93% It:142
+R8 Before/After Cross Node Queries: 1023563 / 312786, Improvement: 69,44% It:148
+R9 Before/After Cross Node Queries: 1023563 / 210133, Improvement: 79,47% It:153
+R10 Before/After Cross Node Queries: 1023563 / 303395, Improvement: 70,36% It:147
