@@ -1113,3 +1113,10 @@ Total runtime: 1600.23s
 
 R2 Before/After Cross Node Queries: 1023563 / 172269, Improvement: 83.17% It:92 [0=[20000000, 38666], 1=[20000000, 23726], 2=[20000000, 13876]]
 R3 Before/After Cross Node Queries: 1023563 / 178247, Improvement: 82.59% It:97
+R4 Before/After Cross Node Queries: 1023563 / 175459, Improvement: 82,86% It:85 [0=[20000000, 40916], 1=[20000000, 21577], 2=[20000000, 13775]]
+R5 Before/After Cross Node Queries: 1023563 / 175459, Improvement: 81,92% It:95
+R6 Before/After Cross Node Queries: 1023563 / 135377, Improvement: 86,77% It:92 [0=[20000000, 46111], 1=[20000000, 16327], 2=[20000000, 13830]]
+R7 Before/After Cross Node Queries: 1023563 / 175459, Improvement: 78,41% It:76
+R8 Before/After Cross Node Queries: 1023563 / 306763, Improvement: 70,03% It:75 [0=[20000000, 50733], 1=[20000000, 12712], 2=[20000000, 12823]]
+R9 Before/After Cross Node Queries: 1023563 / 306763, Improvement: 80,01% It:91
+R10 Before/After Cross Node Queries: 1023563 / 166107, Improvement: 83,77% It:82 [0=[20000000, 45097], 1=[20000000, 17520], 2=[20000000, 13651]]
