@@ -180,6 +180,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         List<Map.Entry<Long, Long>> vertexIdsDegreesList = new ArrayList<>(vertexIdsDegrees.entrySet());
         while (tweetsReaders.size() < queryLimit) {
             Map.Entry<Long, Long> pair = vertexIdsDegreesList.get(random.nextInt(Math.toIntExact(vertexCount)));
+            // TODO podminka ma byt log(min{2;outDegree})/log(maxDegree)
             if (pair.getValue() / 1D / vertexCount > random.nextDouble()) {
                 tweetsReaders.add(pair.getKey()); //add the vertex id to the list provided the probability
             }
