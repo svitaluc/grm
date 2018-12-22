@@ -1,0 +1,59 @@
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 38417], 1=[20000000, 37851]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23,28
+Successfully added the log graph schema
+Loading the log to graph
+Edges added: 1256422
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Edges overall: 2403874
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0,990, iF=0,900, nClusters=2, aProb=0,50
+Clusters INIT Lower Bound: [0=4096, 1=3530]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,000		1,00		824067		710209		1534276		31966		18,31s
+2		1,980		0,99		0,389		1,00		1100592		433684		1534276		29274		16,72s
+3		1,960		0,98		0,657		0,99		1290889		243387		1534276		33221		20,11s
+4		1,941		0,97		0,732		0,99		1343878		190398		1534276		32765		16,83s
+5		1,921		0,96		0,749		0,98		1356042		178234		1534276		33632		20,55s
+6		1,902		0,95		0,757		0,98		1361812		172464		1534276		33369		16,80s
+7		1,883		0,94		0,765		0,97		1367335		166941		1534276		33776		20,26s
+8		1,864		0,93		0,769		0,97		1370044		164232		1534276		33497		16,69s
+9		1,845		0,92		0,769		0,96		1370511		163765		1534276		33803		20,78s
+10		1,827		0,91		0,771		0,96		1371715		162561		1534276		33633		17,19s
+11		1,809		0,90		0,772		0,95		1372305		161971		1534276		33712		21,52s
+12		1,791		0,90		0,773		0,95		1373061		161215		1534276		33676		17,02s
+13		1,773		0,89		0,774		0,94		1373462		160814		1534276		33684		20,22s
+14		1,755		0,88		0,774		0,94		1373506		160770		1534276		33689		17,16s
+15		1,737		0,87		0,774		0,93		1373496		160780		1534276		33686		21,47s
+16		1,720		0,86		0,774		0,93		1373527		160749		1534276		33696		16,88s
+17		1,703		0,85		0,774		0,93		1373555		160721		1534276		33700		21,38s
+18		1,686		0,84		0,774		0,92		1373559		160717		1534276		33702		17,65s
+19		1,669		0,83		0,774		0,92		1373567		160709		1534276		33702		20,37s
+20		1,652		0,83		0,774		0,91		1373582		160694		1534276		33709		17,21s
+21		1,636		0,82		0,774		0,91		1373651		160625		1534276		33702		20,38s
+22		1,619		0,81		0,774		0,90		1373688		160588		1534276		33702		16,80s
+Terminated Vaquero algorithm at iteration: 22, Runtime: 417,61
+[ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.label] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 41947], 1=[20000000, 34321]]
+Clusters Lower Bound: [0=7626, 1=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 13366
+Before/After Cross Node Queries: 710209 / 160588, Improvement: 77,39%
+Good before/after Queries:  824067 / 1373688
+
+
+R2 Before/After Cross Node Queries: 710209 / 159918, Improvement: 77,48%, It:24
+R3 Before/After Cross Node Queries: 710209 / 160374, Improvement: 77,42%, It:22 [0=[20000000, 41947], 1=[20000000, 34321]]
+R4 Before/After Cross Node Queries: 710209 / 160915, Improvement: 77,34%, It:20
+R5 Before/After Cross Node Queries: 710209 / 160032, Improvement: 77,47%, It:23 [0=[20000000, 41947], 1=[20000000, 34321]]
+R6 Before/After Cross Node Queries: 710209 / 160454, Improvement: 77,41%, It:22
+R7 Before/After Cross Node Queries: 710209 / 159818, Improvement: 77,50%, It:21 [0=[20000000, 41947], 1=[20000000, 34321]]
+R8 Before/After Cross Node Queries: 710209 / 160535, Improvement: 77,40%, It:23
+R9 Before/After Cross Node Queries: 710209 / 159777, Improvement: 77,50%, It:22 [0=[20000000, 41947], 1=[20000000, 34321]]
+R10 Before/After Cross Node Queries: 710209 / 159696, Improvement: 77,51%, It:23
