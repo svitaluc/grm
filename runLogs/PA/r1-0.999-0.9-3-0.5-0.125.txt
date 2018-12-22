@@ -1898,3 +1898,1154 @@ Before/After Cross Node Queries: 410684 / 95423, Improvement: 76,76%
 Good before/after Queries:  130906 / 446167
 
 
+Staring Vaquero partitioning - cF=0,999, iF=0,900, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=36289, 1=36270, 2=36249]
+Cooling factor: 0,999
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		1,000		1,00		0		0		0		786368		40,33s
+2		1,998		1,00		1,000		1,00		0		0		0		441259		39,30s
+3		1,996		1,00		1,000		1,00		0		0		0		716410		35,90s
+4		1,994		1,00		1,000		1,00		0		0		0		542675		34,68s
+5		1,992		1,00		1,000		1,00		0		0		0		686691		34,42s
+6		1,990		1,00		1,000		1,00		0		0		0		580985		34,58s
+7		1,988		0,99		1,000		1,00		0		0		0		673459		35,88s
+8		1,986		0,99		1,000		1,00		0		0		0		599196		34,57s
+9		1,984		0,99		1,000		1,00		0		0		0		666209		34,37s
+10		1,982		0,99		1,000		1,00		0		0		0		609727		34,46s
+11		1,980		0,99		1,000		1,00		0		0		0		662064		34,42s
+12		1,978		0,99		1,000		0,99		0		0		0		616406		34,45s
+13		1,976		0,99		1,000		0,99		0		0		0		659166		34,37s
+14		1,974		0,99		1,000		0,99		0		0		0		620925		35,72s
+15		1,972		0,99		1,000		0,99		0		0		0		656938		34,81s
+16		1,970		0,99		1,000		0,99		0		0		0		624643		34,87s
+17		1,968		0,98		1,000		0,99		0		0		0		655199		34,67s
+18		1,966		0,98		1,000		0,99		0		0		0		627306		34,76s
+19		1,964		0,98		1,000		0,99		0		0		0		653779		34,35s
+20		1,962		0,98		1,000		0,99		0		0		0		629438		34,59s
+21		1,960		0,98		1,000		0,99		0		0		0		652192		34,41s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131047 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@915637942(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-161-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768395, position=5481449)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 3652 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1384 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1180420833(0,323KiB serialized bytes, 92 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-160-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768395, position=5481449)
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@195781006(0,278KiB serialized bytes, 10 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-116-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768395, position=5481449)
+22		1,958		0,98		1,000		0,99		0		0		0		631156		34,69s
+23		1,956		0,98		1,000		0,99		0		0		0		651290		34,45s
+24		1,955		0,98		1,000		0,99		0		0		0		632661		34,39s
+25		1,953		0,98		1,000		0,99		0		0		0		650312		34,36s
+26		1,951		0,98		1,000		0,99		0		0		0		634102		34,67s
+27		1,949		0,97		1,000		0,99		0		0		0		649394		35,29s
+28		1,947		0,97		1,000		0,99		0		0		0		635392		34,64s
+29		1,945		0,97		1,000		0,99		0		0		0		648409		34,53s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1597ms.  PS Old Gen: 5591039064 -> 938463080; PS Survivor Space: 3932160 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        3619096         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         3         0       11467545         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           3355         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            283         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856024                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore          232052,75184848
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            86,16138
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               154,49355
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity                6,1192
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+30		1,943		0,97		1,000		0,99		0		0		0		636408		35,67s
+31		1,941		0,97		1,000		0,99		0		0		0		647634		34,01s
+32		1,939		0,97		1,000		0,98		0		0		0		637370		34,04s
+33		1,937		0,97		1,000		0,98		0		0		0		647142		34,17s
+34		1,935		0,97		1,000		0,98		0		0		0		638263		33,98s
+35		1,933		0,97		1,000		0,98		0		0		0		646601		34,16s
+36		1,931		0,97		1,000		0,98		0		0		0		638994		34,15s
+37		1,929		0,96		1,000		0,98		0		0		0		646251		34,16s
+38		1,927		0,96		1,000		0,98		0		0		0		639713		34,15s
+39		1,925		0,96		1,000		0,98		0		0		0		645591		34,12s
+40		1,923		0,96		1,000		0,98		0		0		0		640282		34,14s
+41		1,922		0,96		1,000		0,98		0		0		0		645031		34,11s
+42		1,920		0,96		1,000		0,98		0		0		0		640684		34,16s
+43		1,918		0,96		1,000		0,98		0		0		0		644826		34,18s
+44		1,916		0,96		1,000		0,98		0		0		0		641196		34,14s
+45		1,914		0,96		1,000		0,98		0		0		0		644662		34,07s
+46		1,912		0,96		1,000		0,98		0		0		0		641585		34,10s
+47		1,910		0,96		1,000		0,98		0		0		0		644274		34,26s
+48		1,908		0,95		1,000		0,98		0		0		0		641950		34,17s
+49		1,906		0,95		1,000		0,98		0		0		0		643883		34,18s
+50		1,904		0,95		1,000		0,98		0		0		0		642067		34,15s
+51		1,902		0,95		1,000		0,98		0		0		0		643884		34,28s
+52		1,901		0,95		1,000		0,98		0		0		0		642364		34,14s
+53		1,899		0,95		1,000		0,97		0		0		0		643780		35,27s
+54		1,897		0,95		1,000		0,97		0		0		0		642509		34,83s
+55		1,895		0,95		1,000		0,97		0		0		0		643668		34,29s
+56		1,893		0,95		1,000		0,97		0		0		0		642701		34,28s
+57		1,891		0,95		1,000		0,97		0		0		0		643553		34,19s
+58		1,889		0,94		1,000		0,97		0		0		0		642800		34,17s
+59		1,887		0,94		1,000		0,97		0		0		0		643413		34,47s
+60		1,885		0,94		1,000		0,97		0		0		0		642838		34,41s
+61		1,883		0,94		1,000		0,97		0		0		0		643387		34,31s
+62		1,882		0,94		1,000		0,97		0		0		0		642965		34,43s
+63		1,880		0,94		1,000		0,97		0		0		0		643278		34,39s
+64		1,878		0,94		1,000		0,97		0		0		0		643089		34,26s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1180ms.  Compressed Class Space: 5439024 -> 5437936; Metaspace: 47358456 -> 47355936; PS Old Gen: 5591378240 -> 944766736; PS Survivor Space: 4622112 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        3619096         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         0       12618440         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           3895         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            303         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856024                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore          232052,75184848
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            86,16138
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               770,78995
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               42,1964
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+65		1,876		0,94		1,000		0,97		0		0		0		643377		35,16s
+66		1,874		0,94		1,000		0,97		0		0		0		643149		34,02s
+67		1,872		0,94		1,000		0,97		0		0		0		643207		34,01s
+68		1,870		0,94		1,000		0,97		0		0		0		643120		34,19s
+69		1,868		0,93		1,000		0,97		0		0		0		643337		34,35s
+70		1,867		0,93		1,000		0,97		0		0		0		643175		34,36s
+71		1,865		0,93		1,000		0,97		0		0		0		643361		34,35s
+72		1,863		0,93		1,000		0,97		0		0		0		643241		34,42s
+73		1,861		0,93		1,000		0,97		0		0		0		643307		34,44s
+74		1,859		0,93		1,000		0,96		0		0		0		643280		34,28s
+75		1,857		0,93		1,000		0,96		0		0		0		643311		34,16s
+76		1,855		0,93		1,000		0,96		0		0		0		643188		34,65s
+77		1,854		0,93		1,000		0,96		0		0		0		643353		34,14s
+78		1,852		0,93		1,000		0,96		0		0		0		643377		34,24s
+79		1,850		0,92		1,000		0,96		0		0		0		643296		34,27s
+80		1,848		0,92		1,000		0,96		0		0		0		643364		34,30s
+81		1,846		0,92		1,000		0,96		0		0		0		643388		34,19s
+82		1,844		0,92		1,000		0,96		0		0		0		643390		34,28s
+83		1,842		0,92		1,000		0,96		0		0		0		643252		34,07s
+84		1,841		0,92		1,000		0,96		0		0		0		643251		35,34s
+85		1,839		0,92		1,000		0,96		0		0		0		643304		34,81s
+86		1,837		0,92		1,000		0,96		0		0		0		643325		34,33s
+87		1,835		0,92		1,000		0,96		0		0		0		643359		34,32s
+88		1,833		0,92		1,000		0,96		0		0		0		643313		34,49s
+89		1,831		0,92		1,000		0,96		0		0		0		643328		34,35s
+90		1,830		0,91		1,000		0,96		0		0		0		643327		34,39s
+91		1,828		0,91		1,000		0,96		0		0		0		643282		34,19s
+92		1,826		0,91		1,000		0,96		0		0		0		643290		34,31s
+93		1,824		0,91		1,000		0,96		0		0		0		643380		34,30s
+94		1,822		0,91		1,000		0,96		0		0		0		643275		34,32s
+95		1,820		0,91		1,000		0,96		0		0		0		643349		34,51s
+96		1,819		0,91		1,000		0,95		0		0		0		643393		34,34s
+97		1,817		0,91		1,000		0,95		0		0		0		643354		34,30s
+98		1,815		0,91		1,000		0,95		0		0		0		643387		34,26s
+99		1,813		0,91		1,000		0,95		0		0		0		643365		34,43s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1096ms.  PS Old Gen: 5588980232 -> 938372672; PS Survivor Space: 3899392 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        3619096         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         0       13766552         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           4435         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            323         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            110         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856024                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore          232052,75184848
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            86,16138
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates             1386,108739
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               78,2156
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+100		1,811		0,91		1,000		0,95		0		0		0		643331		34,94s
+101		1,810		0,90		1,000		0,95		0		0		0		643360		33,96s
+102		1,808		0,90		1,000		0,95		0		0		0		643411		33,99s
+103		1,806		0,90		1,000		0,95		0		0		0		643366		33,87s
+104		1,804		0,90		1,000		0,95		0		0		0		643421		34,01s
+105		1,802		0,90		1,000		0,95		0		0		0		643280		35,01s
+106		1,801		0,90		1,000		0,95		0		0		0		643477		34,71s
+107		1,799		0,90		1,000		0,95		0		0		0		643352		34,18s
+108		1,797		0,90		1,000		0,95		0		0		0		643490		34,06s
+109		1,795		0,90		1,000		0,95		0		0		0		643420		33,95s
+110		1,793		0,90		1,000		0,95		0		0		0		643473		34,14s
+111		1,792		0,90		1,000		0,95		0		0		0		643400		34,22s
+112		1,790		0,89		1,000		0,95		0		0		0		643334		34,08s
+113		1,788		0,89		1,000		0,95		0		0		0		643363		34,18s
+114		1,786		0,89		1,000		0,95		0		0		0		643339		34,08s
+115		1,784		0,89		1,000		0,95		0		0		0		643374		34,04s
+116		1,783		0,89		1,000		0,95		0		0		0		643347		34,12s
+117		1,781		0,89		1,000		0,95		0		0		0		643407		34,14s
+118		1,779		0,89		1,000		0,94		0		0		0		643418		34,24s
+119		1,777		0,89		1,000		0,94		0		0		0		643416		34,14s
+120		1,776		0,89		1,000		0,94		0		0		0		643523		34,28s
+121		1,774		0,89		1,000		0,94		0		0		0		643521		34,17s
+122		1,772		0,89		1,000		0,94		0		0		0		643496		34,37s
+123		1,770		0,89		1,000		0,94		0		0		0		643398		34,27s
+124		1,768		0,88		1,000		0,94		0		0		0		643284		34,14s
+125		1,767		0,88		1,000		0,94		0		0		0		643458		34,39s
+126		1,765		0,88		1,000		0,94		0		0		0		643452		34,11s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131047 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@1683203881(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-162-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768395, position=5654165)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 2316 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1330929158(0,261KiB serialized bytes, 108 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-161-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768395, position=5654165)
+[CompactionExecutor:29] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-159-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-158-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-160-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-161-Data.db')]
+[CompactionExecutor:29] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-162,].  2 183 bytes to 221 (~10% of original) in 1 121ms = 0,000188MB/s.  73 total partitions merged to 3.  Partition merge counts were {1:65, 2:1, 3:2, }
+127		1,763		0,88		1,000		0,94		0		0		0		643545		34,13s
+128		1,761		0,88		1,000		0,94		0		0		0		643431		34,34s
+129		1,760		0,88		1,000		0,94		0		0		0		643362		34,36s
+130		1,758		0,88		1,000		0,94		0		0		0		643442		34,26s
+131		1,756		0,88		1,000		0,94		0		0		0		643313		34,65s
+132		1,754		0,88		1,000		0,94		0		0		0		643400		35,14s
+133		1,753		0,88		1,000		0,94		0		0		0		643460		34,27s
+134		1,751		0,88		1,000		0,94		0		0		0		643510		33,98s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1066ms.  PS Old Gen: 5590879408 -> 944359296; PS Survivor Space: 3866624 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        3619096         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         2       14916576         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           4978         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            345         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore          232052,75184848
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            86,16138
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history             11,1582
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               154,49355
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               10,1924
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+135		1,749		0,87		1,000		0,94		0		0		0		643486		34,75s
+136		1,747		0,87		1,000		0,94		0		0		0		643406		33,96s
+137		1,746		0,87		1,000		0,94		0		0		0		643495		33,86s
+138		1,744		0,87		1,000		0,94		0		0		0		643473		33,99s
+139		1,742		0,87		1,000		0,94		0		0		0		643422		33,91s
+140		1,740		0,87		1,000		0,94		0		0		0		643454		33,79s
+141		1,739		0,87		1,000		0,93		0		0		0		643450		33,93s
+142		1,737		0,87		1,000		0,93		0		0		0		643518		33,94s
+143		1,735		0,87		1,000		0,93		0		0		0		643361		33,89s
+144		1,733		0,87		1,000		0,93		0		0		0		643440		33,97s
+145		1,732		0,87		1,000		0,93		0		0		0		643500		33,98s
+146		1,730		0,86		1,000		0,93		0		0		0		643536		33,99s
+147		1,728		0,86		1,000		0,93		0		0		0		643449		34,00s
+148		1,726		0,86		1,000		0,93		0		0		0		643542		34,07s
+149		1,725		0,86		1,000		0,93		0		0		0		643422		33,95s
+150		1,723		0,86		1,000		0,93		0		0		0		643479		33,94s
+151		1,721		0,86		1,000		0,93		0		0		0		643447		34,06s
+152		1,720		0,86		1,000		0,93		0		0		0		643531		34,15s
+153		1,718		0,86		1,000		0,93		0		0		0		643384		34,03s
+154		1,716		0,86		1,000		0,93		0		0		0		643517		34,10s
+155		1,714		0,86		1,000		0,93		0		0		0		643517		33,97s
+156		1,713		0,86		1,000		0,93		0		0		0		643547		34,15s
+157		1,711		0,86		1,000		0,93		0		0		0		643510		33,96s
+158		1,709		0,85		1,000		0,93		0		0		0		643544		35,14s
+159		1,708		0,85		1,000		0,93		0		0		0		643552		34,40s
+160		1,706		0,85		1,000		0,93		0		0		0		643418		34,21s
+161		1,704		0,85		1,000		0,93		0		0		0		643449		34,09s
+162		1,702		0,85		1,000		0,93		0		0		0		643546		34,08s
+163		1,701		0,85		1,000		0,93		0		0		0		643488		34,13s
+164		1,699		0,85		1,000		0,92		0		0		0		643603		34,14s
+165		1,697		0,85		1,000		0,92		0		0		0		643495		34,09s
+166		1,696		0,85		1,000		0,92		0		0		0		643580		34,21s
+167		1,694		0,85		1,000		0,92		0		0		0		643559		34,16s
+168		1,692		0,85		1,000		0,92		0		0		0		643575		34,23s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1451ms.  PS Old Gen: 5590784992 -> 1077307984; PS Survivor Space: 3866624 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        3619096         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         2       16066708         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           5518         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            365         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore          232052,75184848
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            86,16138
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history             11,1582
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               770,78995
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               46,2696
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+169		1,691		0,85		1,000		0,92		0		0		0		643509		35,64s
+170		1,689		0,84		1,000		0,92		0		0		0		643597		34,05s
+171		1,687		0,84		1,000		0,92		0		0		0		643463		33,88s
+172		1,685		0,84		1,000		0,92		0		0		0		643476		34,14s
+173		1,684		0,84		1,000		0,92		0		0		0		643438		33,92s
+174		1,682		0,84		1,000		0,92		0		0		0		643540		33,84s
+175		1,680		0,84		1,000		0,92		0		0		0		643415		33,92s
+176		1,679		0,84		1,000		0,92		0		0		0		643516		33,92s
+177		1,677		0,84		1,000		0,92		0		0		0		643452		33,92s
+178		1,675		0,84		1,000		0,92		0		0		0		643469		33,96s
+179		1,674		0,84		1,000		0,92		0		0		0		643508		33,84s
+180		1,672		0,84		1,000		0,92		0		0		0		643565		34,02s
+181		1,670		0,84		1,000		0,92		0		0		0		643558		35,25s
+182		1,669		0,83		1,000		0,92		0		0		0		643624		34,42s
+183		1,667		0,83		1,000		0,92		0		0		0		643528		33,98s
+184		1,665		0,83		1,000		0,92		0		0		0		643596		34,07s
+185		1,664		0,83		1,000		0,92		0		0		0		643545		34,10s
+186		1,662		0,83		1,000		0,92		0		0		0		643503		34,11s
+187		1,660		0,83		1,000		0,92		0		0		0		643392		34,06s
+188		1,659		0,83		1,000		0,91		0		0		0		643521		34,15s
+189		1,657		0,83		1,000		0,91		0		0		0		643537		34,17s
+190		1,655		0,83		1,000		0,91		0		0		0		643474		34,06s
+191		1,654		0,83		1,000		0,91		0		0		0		643477		33,99s
+192		1,652		0,83		1,000		0,91		0		0		0		643434		34,05s
+193		1,650		0,83		1,000		0,91		0		0		0		643421		34,08s
+194		1,649		0,82		1,000		0,91		0		0		0		643418		34,15s
+195		1,647		0,82		1,000		0,91		0		0		0		643478		34,15s
+196		1,646		0,82		1,000		0,91		0		0		0		643403		34,00s
+197		1,644		0,82		1,000		0,91		0		0		0		643560		34,14s
+198		1,642		0,82		1,000		0,91		0		0		0		643584		34,03s
+199		1,641		0,82		1,000		0,91		0		0		0		643616		34,09s
+200		1,639		0,82		1,000		0,91		0		0		0		643537		34,16s
+Terminated Vaquero algorithm at iteration: 200, Runtime: 6890,48
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1471ms.  Compressed Class Space: 5439376 -> 5438808; Metaspace: 47409112 -> 47405288; PS Old Gen: 5499916184 -> 1251693912; PS Survivor Space: 46629072 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                    17         1        4102216         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         0         0       17114182         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           6004         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            383         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            112         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore         714320,231439704
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids            92,17272
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history             11,1582
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates             1386,108739
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               76,2856
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                 2409,40564670
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+Clusters capacity/usage: [0=[20000000, 435236], 1=[20000000, 326428], 2=[20000000, 326428]]
+Clusters Lower Bound: [0=108808, 1=0, 2=0]
+Clusters added together count: 1088092
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 89987502 (4%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@376977986(85,171MiB serialized bytes, 5385 ops, 4%/0% of on/off-heap limit)
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-13-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545425768400, position=29789807)
+Vertex count: 1088092
+Before/After Cross Node Queries: 410684 / 95573, Improvement: 76,73%
+Good before/after Queries:  130906 / 446017
+
+Staring Vaquero partitioning - cF=0,999, iF=0,900, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=36289, 1=36270, 2=36249]
+Cooling factor: 0,999
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		1,000		1,00		0		0		0		786138		36,19s
+2		1,998		1,00		1,000		1,00		0		0		0		441739		36,35s
+3		1,996		1,00		1,000		1,00		0		0		0		715492		36,45s
+4		1,994		1,00		1,000		1,00		0		0		0		542961		36,17s
+5		1,992		1,00		1,000		1,00		0		0		0		686313		35,75s
+6		1,990		1,00		1,000		1,00		0		0		0		580662		35,60s
+7		1,988		0,99		1,000		1,00		0		0		0		673781		35,70s
+8		1,986		0,99		1,000		1,00		0		0		0		599167		35,70s
+9		1,984		0,99		1,000		1,00		0		0		0		666839		35,55s
+10		1,982		0,99		1,000		1,00		0		0		0		609898		35,51s
+11		1,980		0,99		1,000		1,00		0		0		0		662555		35,66s
+12		1,978		0,99		1,000		0,99		0		0		0		616196		35,58s
+13		1,976		0,99		1,000		0,99		0		0		0		659691		35,80s
+14		1,974		0,99		1,000		0,99		0		0		0		620658		35,33s
+15		1,972		0,99		1,000		0,99		0		0		0		657552		35,50s
+16		1,970		0,99		1,000		0,99		0		0		0		624190		35,61s
+17		1,968		0,98		1,000		0,99		0		0		0		655526		35,62s
+18		1,966		0,98		1,000		0,99		0		0		0		626898		35,48s
+19		1,964		0,98		1,000		0,99		0		0		0		653903		35,47s
+20		1,962		0,98		1,000		0,99		0		0		0		629008		35,68s
+21		1,960		0,98		1,000		0,99		0		0		0		652798		35,65s
+22		1,958		0,98		1,000		0,99		0		0		0		630947		35,52s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 2348ms.  PS Old Gen: 5591525816 -> 1422854160; PS Survivor Space: 3833856 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         2         2       18148772         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           6463         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            113         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            400         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            113         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history             11,1582
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates             1848,131047
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity              109,3032
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+23		1,956		0,98		1,000		0,99		0		0		0		651630		37,73s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131047 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@1477316588(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-163-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=29833604)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 3048 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1582 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1225841525(0,292KiB serialized bytes, 112 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-163-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=29833604)
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@516144568(0,318KiB serialized bytes, 11 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-117-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=29833604)
+[CompactionExecutor:40] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-162-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-160-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-163-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-161-Data.db')]
+[CompactionExecutor:40] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-164,].  7 397 bytes to 1 631 (~22% of original) in 752ms = 0,002068MB/s.  8 total partitions merged to 2.  Partition merge counts were {4:2, }
+24		1,955		0,98		1,000		0,99		0		0		0		632508		34,95s
+25		1,953		0,98		1,000		0,99		0		0		0		650436		34,90s
+26		1,951		0,98		1,000		0,99		0		0		0		634078		34,86s
+27		1,949		0,97		1,000		0,99		0		0		0		649569		34,69s
+28		1,947		0,97		1,000		0,99		0		0		0		635316		34,73s
+29		1,945		0,97		1,000		0,99		0		0		0		648959		36,10s
+30		1,943		0,97		1,000		0,99		0		0		0		636308		34,76s
+31		1,941		0,97		1,000		0,99		0		0		0		648188		34,84s
+32		1,939		0,97		1,000		0,98		0		0		0		637253		34,94s
+33		1,937		0,97		1,000		0,98		0		0		0		647521		34,87s
+34		1,935		0,97		1,000		0,98		0		0		0		638327		34,87s
+35		1,933		0,97		1,000		0,98		0		0		0		646774		34,96s
+36		1,931		0,97		1,000		0,98		0		0		0		638812		34,88s
+37		1,929		0,96		1,000		0,98		0		0		0		646329		34,74s
+[CompactionExecutor:39] INFO org.apache.cassandra.cache.AutoSavingCache - Saved KeyCache (970220 items) in 496334 ms
+38		1,927		0,96		1,000		0,98		0		0		0		639408		34,75s
+39		1,925		0,96		1,000		0,98		0		0		0		646090		35,03s
+40		1,923		0,96		1,000		0,98		0		0		0		640134		35,02s
+41		1,922		0,96		1,000		0,98		0		0		0		645650		35,11s
+42		1,920		0,96		1,000		0,98		0		0		0		640577		35,13s
+43		1,918		0,96		1,000		0,98		0		0		0		645165		35,10s
+44		1,916		0,96		1,000		0,98		0		0		0		640972		34,93s
+45		1,914		0,96		1,000		0,98		0		0		0		645071		35,10s
+46		1,912		0,96		1,000		0,98		0		0		0		641391		35,16s
+47		1,910		0,96		1,000		0,98		0		0		0		644831		35,07s
+48		1,908		0,95		1,000		0,98		0		0		0		641703		35,09s
+49		1,906		0,95		1,000		0,98		0		0		0		644433		35,00s
+50		1,904		0,95		1,000		0,98		0		0		0		642163		35,06s
+51		1,902		0,95		1,000		0,98		0		0		0		644204		35,14s
+52		1,901		0,95		1,000		0,98		0		0		0		642310		35,03s
+53		1,899		0,95		1,000		0,97		0		0		0		644066		34,95s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1734ms.  PS Old Gen: 5589944872 -> 1466523776; PS Survivor Space: 4490184 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         0       19176756         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           6955         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            421         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history              9,1196
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               616,71559
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               31,2608
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+54		1,897		0,95		1,000		0,97		0		0		0		642441		37,38s
+55		1,895		0,95		1,000		0,97		0		0		0		643950		35,48s
+56		1,893		0,95		1,000		0,97		0		0		0		642805		34,91s
+57		1,891		0,95		1,000		0,97		0		0		0		643760		34,85s
+58		1,889		0,94		1,000		0,97		0		0		0		642796		34,82s
+59		1,887		0,94		1,000		0,97		0		0		0		643745		34,94s
+60		1,885		0,94		1,000		0,97		0		0		0		642867		34,98s
+61		1,883		0,94		1,000		0,97		0		0		0		643544		34,80s
+62		1,882		0,94		1,000		0,97		0		0		0		642908		34,97s
+63		1,880		0,94		1,000		0,97		0		0		0		643559		34,90s
+64		1,878		0,94		1,000		0,97		0		0		0		643128		34,91s
+65		1,876		0,94		1,000		0,97		0		0		0		643464		34,84s
+66		1,874		0,94		1,000		0,97		0		0		0		643076		34,94s
+67		1,872		0,94		1,000		0,97		0		0		0		643377		34,95s
+68		1,870		0,94		1,000		0,97		0		0		0		643188		35,02s
+69		1,868		0,93		1,000		0,97		0		0		0		643460		34,89s
+70		1,867		0,93		1,000		0,97		0		0		0		643260		35,02s
+71		1,865		0,93		1,000		0,97		0		0		0		643397		35,00s
+72		1,863		0,93		1,000		0,97		0		0		0		643316		34,98s
+73		1,861		0,93		1,000		0,97		0		0		0		643476		35,02s
+74		1,859		0,93		1,000		0,96		0		0		0		643360		35,04s
+75		1,857		0,93		1,000		0,96		0		0		0		643550		34,97s
+76		1,855		0,93		1,000		0,96		0		0		0		643316		34,97s
+77		1,854		0,93		1,000		0,96		0		0		0		643413		35,01s
+78		1,852		0,93		1,000		0,96		0		0		0		643465		34,99s
+79		1,850		0,92		1,000		0,96		0		0		0		643514		34,94s
+80		1,848		0,92		1,000		0,96		0		0		0		643480		36,08s
+81		1,846		0,92		1,000		0,96		0		0		0		643514		35,45s
+82		1,844		0,92		1,000		0,96		0		0		0		643486		35,15s
+83		1,842		0,92		1,000		0,96		0		0		0		643469		35,11s
+84		1,841		0,92		1,000		0,96		0		0		0		643439		35,04s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1632ms.  PS Old Gen: 5590094832 -> 1470619792; PS Survivor Space: 3866624 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         2       20196079         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           7441         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            439         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history              9,1196
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates              1078,93867
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               67,2800
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+85		1,839		0,92		1,000		0,96		0		0		0		643449		36,49s
+86		1,837		0,92		1,000		0,96		0		0		0		643421		34,63s
+87		1,835		0,92		1,000		0,96		0		0		0		643452		35,03s
+88		1,833		0,92		1,000		0,96		0		0		0		643433		34,88s
+89		1,831		0,92		1,000		0,96		0		0		0		643516		34,85s
+90		1,830		0,91		1,000		0,96		0		0		0		643388		34,80s
+91		1,828		0,91		1,000		0,96		0		0		0		643460		34,89s
+92		1,826		0,91		1,000		0,96		0		0		0		643397		34,83s
+93		1,824		0,91		1,000		0,96		0		0		0		643447		34,90s
+94		1,822		0,91		1,000		0,96		0		0		0		643563		34,97s
+95		1,820		0,91		1,000		0,96		0		0		0		643448		34,84s
+96		1,819		0,91		1,000		0,95		0		0		0		643465		34,79s
+97		1,817		0,91		1,000		0,95		0		0		0		643420		34,87s
+98		1,815		0,91		1,000		0,95		0		0		0		643374		34,91s
+99		1,813		0,91		1,000		0,95		0		0		0		643492		34,99s
+100		1,811		0,91		1,000		0,95		0		0		0		643412		34,90s
+101		1,810		0,90		1,000		0,95		0		0		0		643480		34,98s
+102		1,808		0,90		1,000		0,95		0		0		0		643563		34,91s
+103		1,806		0,90		1,000		0,95		0		0		0		643641		35,81s
+104		1,804		0,90		1,000		0,95		0		0		0		643428		35,49s
+105		1,802		0,90		1,000		0,95		0		0		0		643338		35,29s
+106		1,801		0,90		1,000		0,95		0		0		0		643386		35,03s
+107		1,799		0,90		1,000		0,95		0		0		0		643513		35,02s
+108		1,797		0,90		1,000		0,95		0		0		0		643600		34,96s
+109		1,795		0,90		1,000		0,95		0		0		0		643473		35,10s
+110		1,793		0,90		1,000		0,95		0		0		0		643530		35,03s
+111		1,792		0,90		1,000		0,95		0		0		0		643527		35,10s
+112		1,790		0,89		1,000		0,95		0		0		0		643546		35,06s
+113		1,788		0,89		1,000		0,95		0		0		0		643464		35,12s
+114		1,786		0,89		1,000		0,95		0		0		0		643390		34,96s
+115		1,784		0,89		1,000		0,95		0		0		0		643456		35,09s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1636ms.  PS Old Gen: 5589421920 -> 1477923032; PS Survivor Space: 5507960 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         1         0       21215703         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           7927         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            458         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            116         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history              9,1196
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates             1694,123611
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity              100,2976
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+116		1,783		0,89		1,000		0,95		0		0		0		643477		36,54s
+117		1,781		0,89		1,000		0,95		0		0		0		643623		34,82s
+118		1,779		0,89		1,000		0,94		0		0		0		643579		34,88s
+119		1,777		0,89		1,000		0,94		0		0		0		643626		34,69s
+120		1,776		0,89		1,000		0,94		0		0		0		643621		34,80s
+121		1,774		0,89		1,000		0,94		0		0		0		643542		35,01s
+122		1,772		0,89		1,000		0,94		0		0		0		643605		34,89s
+123		1,770		0,89		1,000		0,94		0		0		0		643567		35,11s
+124		1,768		0,88		1,000		0,94		0		0		0		643508		34,90s
+125		1,767		0,88		1,000		0,94		0		0		0		643521		35,25s
+126		1,765		0,88		1,000		0,94		0		0		0		643523		34,90s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131047 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@663243344(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-165-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=30007106)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 3040 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1196 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1190737532(0,292KiB serialized bytes, 112 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-164-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=30007106)
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@50110650(0,240KiB serialized bytes, 9 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-118-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545425768400, position=30007106)
+[CompactionExecutor:46] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-118-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-117-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-116-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-115-Data.db')]
+[CompactionExecutor:46] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-119,].  24 454 bytes to 23 953 (~97% of original) in 799ms = 0,028590MB/s.  267 total partitions merged to 267.  Partition merge counts were {1:267, }
+127		1,763		0,88		1,000		0,94		0		0		0		643634		35,03s
+128		1,761		0,88		1,000		0,94		0		0		0		643440		35,06s
+129		1,760		0,88		1,000		0,94		0		0		0		643519		34,87s
+130		1,758		0,88		1,000		0,94		0		0		0		643481		35,12s
+131		1,756		0,88		1,000		0,94		0		0		0		643443		36,17s
+132		1,754		0,88		1,000		0,94		0		0		0		643516		35,19s
+133		1,753		0,88		1,000		0,94		0		0		0		643583		35,02s
+134		1,751		0,88		1,000		0,94		0		0		0		643568		34,90s
+135		1,749		0,87		1,000		0,94		0		0		0		643505		34,90s
+136		1,747		0,87		1,000		0,94		0		0		0		643612		34,93s
+137		1,746		0,87		1,000		0,94		0		0		0		643539		34,86s
+138		1,744		0,87		1,000		0,94		0		0		0		643520		34,95s
+139		1,742		0,87		1,000		0,94		0		0		0		643511		34,82s
+140		1,740		0,87		1,000		0,94		0		0		0		643503		35,04s
+141		1,739		0,87		1,000		0,93		0		0		0		643401		35,04s
+142		1,737		0,87		1,000		0,93		0		0		0		643507		35,07s
+143		1,735		0,87		1,000		0,93		0		0		0		643513		35,12s
+144		1,733		0,87		1,000		0,93		0		0		0		643565		35,02s
+145		1,732		0,87		1,000		0,93		0		0		0		643593		34,93s
+146		1,730		0,86		1,000		0,93		0		0		0		643524		35,11s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 2309ms.  PS Old Gen: 5590579272 -> 1449304152; PS Survivor Space: 4391896 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         3         0       22231930         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           8417         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            119         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 1         1            478         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            119         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               462,64123
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               22,2576
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+147		1,728		0,86		1,000		0,93		0		0		0		643507		37,27s
+148		1,726		0,86		1,000		0,93		0		0		0		643611		34,88s
+149		1,725		0,86		1,000		0,93		0		0		0		643556		34,77s
+150		1,723		0,86		1,000		0,93		0		0		0		643507		34,87s
+151		1,721		0,86		1,000		0,93		0		0		0		643486		34,68s
+152		1,720		0,86		1,000		0,93		0		0		0		643543		34,83s
+153		1,718		0,86		1,000		0,93		0		0		0		643454		34,75s
+154		1,716		0,86		1,000		0,93		0		0		0		643513		34,72s
+155		1,714		0,86		1,000		0,93		0		0		0		643550		34,74s
+156		1,713		0,86		1,000		0,93		0		0		0		643490		34,77s
+157		1,711		0,86		1,000		0,93		0		0		0		643531		35,71s
+158		1,709		0,85		1,000		0,93		0		0		0		643636		35,64s
+159		1,708		0,85		1,000		0,93		0		0		0		643599		35,04s
+160		1,706		0,85		1,000		0,93		0		0		0		643508		34,73s
+161		1,704		0,85		1,000		0,93		0		0		0		643553		34,92s
+162		1,702		0,85		1,000		0,93		0		0		0		643547		34,97s
+163		1,701		0,85		1,000		0,93		0		0		0		643529		34,83s
+164		1,699		0,85		1,000		0,92		0		0		0		643540		34,90s
+165		1,697		0,85		1,000		0,92		0		0		0		643524		35,08s
+166		1,696		0,85		1,000		0,92		0		0		0		643527		34,85s
+167		1,694		0,85		1,000		0,92		0		0		0		643541		34,97s
+168		1,692		0,85		1,000		0,92		0		0		0		643571		34,99s
+169		1,691		0,85		1,000		0,92		0		0		0		643629		34,85s
+170		1,689		0,84		1,000		0,92		0		0		0		643497		34,83s
+171		1,687		0,84		1,000		0,92		0		0		0		643464		35,05s
+172		1,685		0,84		1,000		0,92		0		0		0		643525		35,00s
+173		1,684		0,84		1,000		0,92		0		0		0		643585		34,97s
+174		1,682		0,84		1,000		0,92		0		0		0		643438		35,14s
+175		1,680		0,84		1,000		0,92		0		0		0		643595		34,99s
+176		1,679		0,84		1,000		0,92		0		0		0		643469		35,16s
+177		1,677		0,84		1,000		0,92		0		0		0		643556		35,19s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 1614ms.  PS Old Gen: 5592361712 -> 1478934688; PS Survivor Space: 3833856 -> 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Pool Name                    Active   Pending      Completed   Blocked  All Time Blocked
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MutationStage                     0         0        4709356         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RequestResponseStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadRepairStage                   0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CounterMutationStage              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ReadStage                         3         0       23257766         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MiscStage                         0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - HintedHandoff                     0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - GossipStage                       0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CacheCleanupExecutor              0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - InternalResponseStage             0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CommitLogArchiver                 0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionExecutor                0         0           8903         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ValidationExecutor                0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MigrationStage                    0         0             11         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - AntiEntropyStage                  0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - PendingRangeCalculator            0         0              1         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Sampler                           0         0              0         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableFlushWriter               0         0            119         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtablePostFlush                 0         0            497         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MemtableReclaimMemory             0         0            119         0                 0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - CompactionManager                 0         0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - MessagingService                n/a       0/0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - Cache Type                     Size                 Capacity               KeysToSave
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - KeyCache                   69856128                104857600                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - RowCache                          0                        0                      all
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - ColumnFamily                Memtable ops,data
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties             12,2280
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.edgestore        1320144,356254640
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.txlog                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex_lock_             12,2336
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.janusgraph_ids           100,18752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.graphindex                 12,3331
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.system_properties_lock_                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - janusgraph.systemlog                      0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compaction_history                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.hints                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.IndexInfo                          0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columnfamilies                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_triggers                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.size_estimates               924,86431
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.paxos                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peer_events                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.range_xfers                        0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.compactions_in_progress                 0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.peers                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_keyspaces                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_usertypes                   0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.local                              0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.sstable_activity               55,2752
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.schema_columns                     0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system.batchlog                           0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.sessions                    0,0
+[Service Thread] INFO org.apache.cassandra.utils.StatusLogger - system_traces.events                      0,0
+178		1,675		0,84		1,000		0,92		0		0		0		643429		36,46s
+179		1,674		0,84		1,000		0,92		0		0		0		643581		34,74s
+180		1,672		0,84		1,000		0,92		0		0		0		643549		34,75s
+181		1,670		0,84		1,000		0,92		0		0		0		643614		34,68s
+182		1,669		0,83		1,000		0,92		0		0		0		643588		34,79s
+183		1,667		0,83		1,000		0,92		0		0		0		643464		35,83s
+184		1,665		0,83		1,000		0,92		0		0		0		643498		35,65s
+185		1,664		0,83		1,000		0,92		0		0		0		643515		34,84s
+186		1,662		0,83		1,000		0,92		0		0		0		643536		34,87s
+187		1,660		0,83		1,000		0,92		0		0		0		643560		34,79s
+188		1,659		0,83		1,000		0,91		0		0		0		643607		34,98s
+189		1,657		0,83		1,000		0,91		0		0		0		643576		34,72s
+190		1,655		0,83		1,000		0,91		0		0		0		643502		34,75s
+191		1,654		0,83		1,000		0,91		0		0		0		643530		34,89s
+192		1,652		0,83		1,000		0,91		0		0		0		643512		35,03s
+193		1,650		0,83		1,000		0,91		0		0		0		643526		34,88s
+194		1,649		0,82		1,000		0,91		0		0		0		643544		34,95s
+195		1,647		0,82		1,000		0,91		0		0		0		643507		34,86s
+196		1,646		0,82		1,000		0,91		0		0		0		643501		35,03s
+197		1,644		0,82		1,000		0,91		0		0		0		643461		34,90s
+198		1,642		0,82		1,000		0,91		0		0		0		643586		34,81s
+199		1,641		0,82		1,000		0,91		0		0		0		643642		34,90s
+200		1,639		0,82		1,000		0,91		0		0		0		643597		34,91s
+Terminated Vaquero algorithm at iteration: 200, Runtime: 7048,30
+Clusters capacity/usage: [0=[20000000, 435236], 1=[20000000, 326428], 2=[20000000, 326428]]
+Clusters Lower Bound: [0=108808, 1=0, 2=0]
+Clusters added together count: 1088092
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 89986691 (4%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@653494370(85,170MiB serialized bytes, 5380 ops, 4%/0% of on/off-heap limit)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-14-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545425768406, position=20693393)
+Vertex count: 1088092
+Before/After Cross Node Queries: 410684 / 95107, Improvement: 76,84%
+Good before/after Queries:  130906 / 446483
+[StorageServiceShutdownHook] INFO org.apache.cassandra.thrift.ThriftServer - Stop listening to thrift clients
+[StorageServiceShutdownHook] INFO org.apache.cassandra.transport.Server - Stop listening for CQL clients
+[StorageServiceShutdownHook] INFO org.apache.cassandra.gms.Gossiper - Announcing shutdown
+[StorageServiceShutdownHook] INFO org.apache.cassandra.service.StorageService - Node localhost/127.0.0.1 state jump to shutdown
+[StorageServiceShutdownHook] INFO org.apache.cassandra.net.MessagingService - Waiting for messaging service to quiesce
+[ACCEPT-localhost/127.0.0.1] INFO org.apache.cassandra.net.MessagingService - MessagingService has terminated the accept() thread
+
+Process finished with exit code 0
