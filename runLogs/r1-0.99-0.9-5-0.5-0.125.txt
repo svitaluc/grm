@@ -168,3 +168,13 @@ Vertex count: 76268
 Number of all to be expanded nodes: 13366
 Before/After Cross Node Queries: 1221139 / 348776, Improvement: 71,44%
 Good before/after Queries:  313137 / 1185500
+
+R2 Before/After Cross Node Queries: 1221139 / 309354, Improvement: 74,67%, It:149 [0=[20000000, 13729], 1=[20000000, 20349], 2=[20000000, 13729], 3=[20000000, 14318], 4=[20000000, 14143]]
+R3 Before/After Cross Node Queries: 1221139 / 306283, Improvement: 74,92%, It:146
+R4 Before/After Cross Node Queries: 1221139 / 318098, Improvement: 73,95%, It:146 [0=[20000000, 13729], 1=[20000000, 21352], 2=[20000000, 13729], 3=[20000000, 13729], 4=[20000000, 13729]]
+R5 Before/After Cross Node Queries: 1221139 / 307711, Improvement: 74,80%, It:144
+R6 Before/After Cross Node Queries: 1221139 / 245060, Improvement: 79,93%, It:153 [0=[20000000, 13729], 1=[20000000, 18547], 2=[20000000, 14135], 3=[20000000, 16128], 4=[20000000, 13729]]
+R7 Before/After Cross Node Queries: 1221139 / 282455, Improvement: 76,87%, It:153
+R8 Before/After Cross Node Queries: 1221139 / 392278, Improvement: 67,88%, It:149 [0=[20000000, 14254], 1=[20000000, 20117], 2=[20000000, 13729], 3=[20000000, 14439], 4=[20000000, 13729]]
+R9 Before/After Cross Node Queries: 1221139 / 295142, Improvement: 75,83%, It:178
+R10 Before/After Cross Node Queries: 1221139 / 293916, Improvement: 75,93%, It:145 [0=[20000000, 15740], 1=[20000000, 19341], 2=[20000000, 13729], 3=[20000000, 13729], 4=[20000000, 13729]]
