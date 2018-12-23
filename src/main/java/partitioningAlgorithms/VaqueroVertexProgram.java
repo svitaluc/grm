@@ -47,14 +47,7 @@ import static dataset.DatasetLoader.computeClusterHelper;
  */
 public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializable, Long, Long, Long>> {
 
-    private MessageScope.Local<Quartet<Serializable, Long, Long, Long>> voteScope; /*= MessageScope.Local.of(() -> __.bothE()
-            , (m, edge) -> {
-                try {
-                    return new Quartet<>(m.getValue0(), m.getValue1(), edge.<Long>value(EDGE_PROPERTY), -1L);
-                } catch (Exception e) {
-                    return new Quartet<>(m.getValue0(), m.getValue1(), -1L, edge.vertices(Direction.OUT).hasNext() ? (Long) edge.vertices(Direction.OUT).next().id() : -1);
-                }
-            });;*/
+    private MessageScope.Local<Quartet<Serializable, Long, Long, Long>> voteScope;
 
     public static final String PARTITION = "gremlin.VaqueroVertexProgram.partition";
     public static final String ARE_MOCKED_PARTITIONS = "gremlin.VaqueroVertexProgram.areMockedPartitions";
@@ -148,10 +141,16 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         if (memory.isInitialIteration()) {
             if (areMockedPartitions)
                 vertex.property(VertexProperty.Cardinality.single, PARTITION, (long) random.nextInt(clusterCount));
-            else {
-                vertex.property(VertexProperty.Cardinality.single, PARTITION, clusterMapper.map((Long) vertex.id()));
+            long PID;
+            try {
+                PID = vertex.<Long>value(PARTITION);
+            } catch (IllegalStateException | NoSuchElementException e) {
+                PID = clusterMapper.map((Long) vertex.id());
+                vertex.property(VertexProperty.Cardinality.single, PARTITION, PID);
+
             }
-            messenger.sendMessage(voteScope, new Quartet<>((Serializable) vertex.id(), vertex.<Long>value(PARTITION), -1L, -1L));
+            messenger.sendMessage(voteScope, new Quartet<>((Serializable) vertex.id(), PID, -1L, -1L));
+
         } else {
             final long VID = (Long) vertex.id();
             final long oldPID = vertex.<Long>value(PARTITION);
@@ -263,7 +262,6 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         this.imbalanceFactor = configuration.getDouble(IMBALANCE_FACTOR, 0.9);
         this.coolingFactor = configuration.getDouble(COOLING_FACTOR, 0.98);
         this.adoptionFactor = configuration.getDouble(ADOPTION_FACTOR, 1D);
-//        this.initialClusters = Collections.synchronizedMap((Map<Long, Pair<Long, Long>>) configuration.getProperty(CLUSTERS));
         this.areMockedPartitions = configuration.getBoolean(ARE_MOCKED_PARTITIONS, false);
         this.evaluateCrossCommunication = configuration.getBoolean(EVALUATE_CROSS_COMMUNICATION, false);
         this.clusterMapper = (PartitionMapper) configuration.getProperty(CLUSTER_MAPPER);
@@ -275,13 +273,18 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         this.initialClusters = Collections.synchronizedMap(new HashMap<>());
         for (GraphTraversal<Vertex, Vertex> it = graph.traversal().V(); it.hasNext(); ) {
             Vertex v = it.next();
-            computeClusterHelper(initialClusters, clusterMapper, (Long) v.id());
+            try {
+                long PID = v.value(PARTITION);
+                computeClusterHelper(initialClusters, PID);
+            } catch (Exception e) {
+                computeClusterHelper(initialClusters, clusterMapper, (Long) v.id());
+            }
         }
         this.clusterCount = initialClusters.size();
         this.initialClusterUpperBoundSpace = computeNewClusterUpperBoundSpace(initialClusters);
         this.initialClusterLowerBoundSpace = computeClusterLowerBoundSpace(initialClusters);
         this.incidentTraversal = (Supplier<Traversal<Vertex, Edge>>) configuration.getProperty(INCIDENT_TRAVERSAL);
-        if (this.incidentTraversal == null) this.incidentTraversal = ()-> __.bothE();
+        if (this.incidentTraversal == null) this.incidentTraversal = () -> __.bothE();
         this.voteScope = MessageScope.Local.of(() -> this.incidentTraversal.get()
                 , (m, edge) -> {
                     try {
@@ -315,8 +318,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
      *
      * @param oldPartitionId
      * @param newPartitionId
-     * @param memory Memory of the computer
-     * @param vertex the given vertex
+     * @param memory         Memory of the computer
+     * @param vertex         the given vertex
      * @return true of if the new newPartitionId was acquired, else otherwise
      */
     private boolean acquireNewPartition(long oldPartitionId, long newPartitionId, Memory memory, Vertex vertex) {
@@ -350,6 +353,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     /**
      * Computes the upper bound capacity limit of each partition for each other partition in the cluster.
      * This is the limit for one iteration.
+     *
      * @param cls the cluster with partitions
      * @return Map of the partition upper bound capacity limit for each other partition
      */
@@ -370,6 +374,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     /**
      * Computes the lower bound capacity limit for each partition. This is computed only at the start of the partitions
      * and the returned values is updated when vertices acquire new partitionId.
+     *
      * @param cls cluster's partitions capacity/usage values
      * @return
      */
@@ -387,6 +392,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     /**
      * Helper to get the available space of given partition.
+     *
      * @param capUsage capacity and its usage.
      * @return the calculated space
      */
@@ -396,7 +402,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     /**
      * Helper to get the limit of minimum usage for each parition of the cluster
-     * @param cluster the cluster
+     *
+     * @param cluster     the cluster
      * @param sumCapacity cluster capacity sum
      * @param vertexCount count of every vertex of the graph
      * @return the number of vertices that can leave given partitons
@@ -415,9 +422,10 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     /**
      * Helper to calculate cross node communication of vertices.
-     * @param PID partition ID
+     *
+     * @param PID        partition ID
      * @param partitions map of vertex ID to its partition ID
-     * @param times factor of communication frequency
+     * @param times      factor of communication frequency
      * @return the updated statistics (not cross, cross) pair
      */
     private Pair<Long, Long> evaluateVertexCrossQuery(long PID, Map<Long, Long> partitions, long times) {
@@ -494,6 +502,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             this.configuration.setProperty(COOLING_FACTOR, coolingFactor);
             return this;
         }
+
         public VaqueroVertexProgram.Builder adoptionFactor(double adoptionFactor) {
             this.configuration.setProperty(ADOPTION_FACTOR, adoptionFactor);
             return this;

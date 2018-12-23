@@ -31,4 +31,18 @@ public interface DatasetLoader {
                 return new Pair<>(20000000L, v.getValue1() + 1);
         });
     }
+
+    /**
+     * Increment the cluster partition usage.
+     * @param cluster the map to be filled.
+     * @param PID the ID of the partition which usage should be incremented
+     */
+    static void computeClusterHelper(Map<Long, Pair<Long, Long>> cluster, long PID) {
+        cluster.compute(PID, (k, v) -> {
+            if (v == null) {
+                return new Pair<>(20000000L, 1L);
+            } else
+                return new Pair<>(20000000L, v.getValue1() + 1);
+        });
+    }
 }
