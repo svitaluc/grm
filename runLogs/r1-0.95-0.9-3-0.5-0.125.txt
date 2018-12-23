@@ -1100,3 +1100,60 @@ R7 Before/After Cross Node Queries: 1115580 / 404589, Improvement: 63.73%   34 i
 R8 Before/After Cross Node Queries: 1023563 / 392093, Improvement: 61.69%   29 iterations
 R9 Before/After Cross Node Queries: 1023563 / 352535, Improvement: 65.56%   30 iterations
 R10 Before/After Cross Node Queries: 1023563 / 424316, Improvement: 58.55%   29 iterations
+
+
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 25330], 1=[20000000, 25574], 2=[20000000, 25364]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23,28
+Successfully added the log graph schema
+Loading the log to graph
+Edges added: 1256422
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Edges overall: 2403874
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0,950, iF=0,900, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=2449, 1=2693, 2=2483]
+Cooling factor: 0,950
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,000		1,00		510713		1023563		1534276		48960		18,81s
+2		1,900		0,95		0,038		0,98		549909		984367		1534276		46229		16,54s
+3		1,805		0,90		0,092		0,95		605365		928911		1534276		48675		24,61s
+4		1,715		0,86		0,148		0,93		662302		871974		1534276		48935		16,61s
+5		1,629		0,81		0,192		0,91		707000		827276		1534276		49480		20,72s
+6		1,548		0,77		0,227		0,89		742731		791545		1534276		49257		17,08s
+7		1,470		0,74		0,280		0,87		797780		736496		1534276		49733		19,63s
+8		1,397		0,70		0,294		0,85		812062		722214		1534276		49829		17,86s
+9		1,327		0,66		0,333		0,83		851082		683194		1534276		49825		21,90s
+10		1,260		0,63		0,366		0,82		885841		648435		1534276		49951		17,35s
+11		1,197		0,60		0,394		0,80		913587		620689		1534276		49868		21,66s
+12		1,138		0,57		0,434		0,78		954518		579758		1534276		49883		16,67s
+13		1,081		0,54		0,498		0,77		1020412		513864		1534276		49872		21,21s
+14		1,027		0,51		0,513		0,76		1035634		498642		1534276		49857		16,98s
+15		0,975		0,49		0,538		0,74		1061049		473227		1534276		49860		20,16s
+16		0,927		0,46		0,557		0,73		1081241		453035		1534276		49880		17,62s
+17		0,880		0,44		0,570		0,72		1094583		439693		1534276		49894		20,41s
+18		0,836		0,42		0,574		0,71		1097922		436354		1534276		49882		17,35s
+19		0,794		0,40		0,576		0,70		1099954		434322		1534276		49885		21,45s
+20		0,755		0,38		0,576		0,69		1100660		433616		1534276		49883		17,34s
+21		0,717		0,36		0,577		0,68		1101365		432911		1534276		49884		22,07s
+22		0,681		0,34		0,578		0,67		1102119		432157		1534276		49886		16,60s
+23		0,647		0,32		0,578		0,66		1102631		431645		1534276		49893		21,19s
+24		0,615		0,31		0,579		0,65		1103087		431189		1534276		49893		17,24s
+25		0,584		0,29		0,579		0,65		1103248		431028		1534276		49888		19,88s
+26		0,555		0,28		0,579		0,64		1103250		431026		1534276		49887		17,39s
+27		0,527		0,26		0,579		0,63		1103156		431120		1534276		49884		21,70s
+28		0,501		0,25		0,579		0,63		1103160		431116		1534276		49882		17,39s
+29		0,476		0,24		0,579		0,62		1103153		431123		1534276		49882		21,12s
+Terminated Vaquero algorithm at iteration: 29, Runtime: 561,65
+[ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.label] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 22881], 1=[20000000, 30506], 2=[20000000, 22881]]
+Clusters Lower Bound: [0=0, 1=7625, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 13366
+Before/After Cross Node Queries: 1023563 / 431123, Improvement: 57,88%
+Good before/after Queries:  510713 / 1103153
