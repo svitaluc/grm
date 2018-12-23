@@ -187,3 +187,5 @@ R5 Before/After Cross Node Queries: 1259758 / 337703, Improvement: 73.19%, It:16
 R6 Before/After Cross Node Queries: 1259758 / 344034, Improvement: 72.69%, It:166
 R7 Before/After Cross Node Queries: 1259758 / 332906, Improvement: 73.57%, It:169 [0=[20000000, 11441], 1=[20000000, 11441], 2=[20000000, 14482], 3=[20000000, 12468], 4=[20000000, 11441], 5=[20000000, 14995]]
 R8 Before/After Cross Node Queries: 1259758 / 371324, Improvement: 70.52%, It:168
+R9 Before/After Cross Node Queries: 1259758 / 250214, Improvement: 80.14%, It:189
+R10 Before/After Cross Node Queries: 1259758 / 356847, Improvement: 71.67%, It:166
