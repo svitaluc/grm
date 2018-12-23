@@ -1,9 +1,5 @@
-package helpers;
+package logHandling;
 
-import com.google.common.collect.Iterators;
-import logHandling.LogRecord;
-import logHandling.MyLog;
-import logHandling.Path;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.janusgraph.core.Cardinality;
@@ -17,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class DefaultLogToGraphLoader implements LogToGraphLoader {
+public class DefaultPRLogToGraphLoader implements PRLogToGraphLoader {
     @Override
     public boolean addSchema(StandardJanusGraph graph) {
         JanusGraphManagement management = graph.openManagement();
@@ -61,16 +57,16 @@ public class DefaultLogToGraphLoader implements LogToGraphLoader {
     }
 
     @Override
-    public void loadLogToGraph(StandardJanusGraph graph, Iterator<LogRecord> logRecords) {
+    public void loadLogToGraph(StandardJanusGraph graph, Iterator<PRLogRecord> logRecords) {
         System.out.println("Loading the log to graph");
         GraphTraversalSource g = graph.traversal();
         Map<Pair<Long, Long>, Edge> edgeMap = new HashMap<>();
         long i = 0;
         for (; logRecords.hasNext(); ) {
-            LogRecord lr = logRecords.next();
+            PRLogRecord lr = logRecords.next();
             i++;
 //            if(i % 100 == 0 )  System.out.printf("%.2f%%\t\n", i / (double)log.logRecords.size() * 100);
-            for (Path path : lr.results) {
+            for (PRPath path : lr.results) {
                 for (int s = 1; s < path.results.size(); s++) {
                     int f = s - 1;
                     Pair<Long, Long> p = new Pair<>(path.results.get(f).id, path.results.get(s).id);
@@ -91,14 +87,15 @@ public class DefaultLogToGraphLoader implements LogToGraphLoader {
                                     .to(g.V(path.results.get(s).id)).next();
                             edgeMap.put(p, e);
                             edgeMap.put(pr, e);
-                        }catch (Exception ignored){}
+                        } catch (Exception ignored) {
+                        }
                     }
                 }
             }
         }
         graph.tx().commit();
 //        System.out.println(Iterators.size(g.E().hasLabel(EDGE_LABEL)));
-        System.out.println("Edges added: "+edgeMap.size());
-        System.out.println("Edges overall: "+g.E().count().next());
+        System.out.println("Edges added: " + edgeMap.size());
+        System.out.println("Edges overall: " + g.E().count().next());
     }
 }

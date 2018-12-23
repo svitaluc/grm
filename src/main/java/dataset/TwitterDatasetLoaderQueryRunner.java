@@ -1,7 +1,8 @@
-package helpers;
+package dataset;
 
+import cluster.PartitionMapper;
 import com.google.common.collect.Iterators;
-import logHandling.LogRecord;
+import logHandling.PRLogRecord;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
@@ -26,7 +27,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.BiFunction;
 
-import static helpers.LogToGraphLoader.EDGE_PROPERTY;
+import static logHandling.PRLogToGraphLoader.EDGE_PROPERTY;
 
 
 public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
@@ -50,7 +51,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 
     public TwitterDatasetLoaderQueryRunner(long seed, String path) {
         this.RANDOM_SEED = seed;
-        this.datasetPath = Paths.get(path);
+        this.datasetPath = Paths.get("").toAbsolutePath().resolve(Paths.get(path));
     }
 
     public TwitterDatasetLoaderQueryRunner(String path) {
@@ -79,7 +80,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 
 
     @Override
-    public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, ClusterMapper clusterMapper) throws IOException {
+    public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, PartitionMapper partitionMapper) throws IOException {
         Map<Long, Pair<Long, Long>> clusters = new HashMap<>();
         createSchemaQuery(graph);
         GraphTraversalSource g = graph.traversal();
@@ -96,14 +97,14 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         double i = 0;
         for (File file : filesToScan) {
             i++;
-//            if (i / filesToScan.size() > 0.8) break; //TODO remove this limit
+            if(i > 10) break;
             System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 JanusGraphVertex ego = (JanusGraphVertex) g.V(id).tryNext().orElse(null);
                 if (ego == null) {
                     ego = graph.addVertex(T.label, VERTEX_LABEL, T.id, id);
-                    computeClusterHelper(clusters, clusterMapper, id);
+                    DatasetLoader.computeClusterHelper(clusters, partitionMapper, id);
                 }
 
                 String line;
@@ -116,13 +117,13 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                     JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
                     if (a == null) {
                         a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
-                        computeClusterHelper(clusters, clusterMapper, id1);
+                        DatasetLoader.computeClusterHelper(clusters, partitionMapper, id1);
                     }
 
                     JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
                     if (b == null) {
                         b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
-                        computeClusterHelper(clusters, clusterMapper, id2);
+                        DatasetLoader.computeClusterHelper(clusters, partitionMapper, id2);
                     }
 
 //                    System.out.println("\t\t" + id1 + "\t" + id2);
@@ -148,17 +149,10 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         return clusters;
     }
 
-    public static void computeClusterHelper(Map<Long, Pair<Long, Long>> clusters, ClusterMapper clusterMapper, long id) {
-        clusters.compute(clusterMapper.map(id), (k, v) -> {
-            if (v == null) {
-                return new Pair<>(20000000L, 1L);
-            } else
-                return new Pair<>(20000000L, v.getValue1() + 1);
-        });
-    }
+
 
     @Override
-    public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper, boolean log) {
+    public void runQueries(StandardJanusGraph graph, PartitionMapper partitionMapper, boolean log) {
         System.out.println("Running test queries");
         Random random = new Random(RANDOM_SEED);
         GraphTraversalSource g = graph.traversal();
@@ -180,8 +174,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         List<Map.Entry<Long, Long>> vertexIdsDegreesList = new ArrayList<>(vertexIdsDegrees.entrySet());
         while (tweetsReaders.size() < queryLimit) {
             Map.Entry<Long, Long> pair = vertexIdsDegreesList.get(random.nextInt(Math.toIntExact(vertexCount)));
-            // TODO podminka ma byt log(min{2;outDegree})/log(maxDegree)
-            if (pair.getValue() / 1D / vertexCount > random.nextDouble()) {
+            if (Math.log(Math.max(2, pair.getValue())) / Math.log(maxDegree) > random.nextDouble()) {
                 tweetsReaders.add(pair.getKey()); //add the vertex id to the list provided the probability
             }
         }
@@ -195,7 +188,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
             MapHelper.incr(allTweetsReaders, vid, 1L);
             for (GraphTraversal<Vertex, Vertex> it = g.V(vid).out(EDGE_LABEL); it.hasNext(); ) {
                 Vertex vertex = it.next();
-                if (clusterMapper.map(vid) != clusterMapper.map((Long) vertex.id()))
+                if (partitionMapper.map(vid) != partitionMapper.map((Long) vertex.id()))
                     originalCrossNodeQueries++;
                 else
                     originalNodeQueries++;
@@ -205,7 +198,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
                     for (GraphTraversal<Vertex, Vertex> it1 = g.V(vertex.id()).out(EDGE_LABEL); it1.hasNext(); ) {
                         Vertex otherVertex = it1.next();
                         vertexIdsExpanded.add((Long) otherVertex.id());
-                        if (clusterMapper.map((Long) otherVertex.id()) != clusterMapper.map((Long) vertex.id()))
+                        if (partitionMapper.map((Long) otherVertex.id()) != partitionMapper.map((Long) vertex.id()))
                             originalCrossNodeQueries++;
                         else
                             originalNodeQueries++;
@@ -273,7 +266,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     };
 
     @Override
-    public double evaluateQueries(Graph graph, String label, Iterator<LogRecord> log) throws Exception {
+    public double evaluateQueries(Graph graph, String label, Iterator<PRLogRecord> log) throws Exception {
         return 0;
     }
 }

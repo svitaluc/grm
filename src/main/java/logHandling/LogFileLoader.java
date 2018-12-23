@@ -8,32 +8,32 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class LogFileLoader {
-    public static MyLog load(File f) throws IOException {
+    public static PRLog load(File f) throws IOException {
         FileReader fileReader = new FileReader(f);
         BufferedReader buffer = new BufferedReader(fileReader);
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(LogRecord.class, new LogRecord.LogRecordDeserializer());
+        gsonBuilder.registerTypeAdapter(PRLogRecord.class, new PRLogRecord.LogRecordDeserializer());
         Gson gson = gsonBuilder.create();
-        ArrayList<LogRecord> records = new ArrayList<>();
-        Set<MyElement> elements = new HashSet<>();
+        ArrayList<PRLogRecord> records = new ArrayList<>();
+        Set<PRElement> elements = new HashSet<>();
         String line;
         while ((line = buffer.readLine()) != null) {
-            LogRecord rec = gson.fromJson(line, LogRecord.class);
+            PRLogRecord rec = gson.fromJson(line, PRLogRecord.class);
             records.add(rec);
             elements.addAll(rec.results.stream().flatMap(path -> path.results.stream()).collect(Collectors.toList()));
         }
-        return new MyLog(elements, records);
+        return new PRLog(elements, records);
     }
 
-    public static Iterator<LogRecord> loadIterator(File f) throws FileNotFoundException {
+    public static Iterator<PRLogRecord> loadIterator(File f) throws FileNotFoundException {
         final FileReader fileReader = new FileReader(f);
         final BufferedReader buffer = new BufferedReader(fileReader);
         final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(LogRecord.class, new LogRecord.LogRecordDeserializer());
+        gsonBuilder.registerTypeAdapter(PRLogRecord.class, new PRLogRecord.LogRecordDeserializer());
         final Gson gson = gsonBuilder.create();
 
-        return new Iterator<LogRecord>() {
-            LogRecord next = null;
+        return new Iterator<PRLogRecord>() {
+            PRLogRecord next = null;
             String line = null;
 
             @Override
@@ -47,14 +47,14 @@ public class LogFileLoader {
                 } catch (IOException e) {
                     return false;
                 }
-                next = gson.fromJson(line, LogRecord.class);
+                next = gson.fromJson(line, PRLogRecord.class);
                 return true;
             }
 
             @Override
-            public synchronized LogRecord next() {
+            public synchronized PRLogRecord next() {
                 if (next != null || hasNext()) {
-                    LogRecord tmp = next;
+                    PRLogRecord tmp = next;
                     next = null;
                     return tmp;
                 }

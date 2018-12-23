@@ -1,8 +1,8 @@
-package helpers;
+package cluster;
 
 import org.janusgraph.graphdb.idmanagement.IDManager;
 
-public class DefaultClusterMapper implements ClusterMapper {
+public class DefaultPartitionMapper implements PartitionMapper {
     private int numClusters;
     private IDManager idManager;
 
@@ -14,11 +14,11 @@ public class DefaultClusterMapper implements ClusterMapper {
 //        return Math.abs(vertexId % numClusters);
     }
 
-    public DefaultClusterMapper(int numClusters) {
+    public DefaultPartitionMapper(int numClusters) {
         this.numClusters = numClusters;
     }
 
-    public DefaultClusterMapper(int numClusters, IDManager idManager) {
+    public DefaultPartitionMapper(int numClusters, IDManager idManager) {
         this.numClusters = numClusters;
         this.idManager = idManager;
     }

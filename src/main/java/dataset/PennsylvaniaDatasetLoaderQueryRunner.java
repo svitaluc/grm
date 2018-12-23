@@ -1,8 +1,10 @@
-package helpers;
+package dataset;
 
+import cluster.PartitionMapper;
 import com.google.common.util.concurrent.AtomicDouble;
-import logHandling.LogRecord;
-import logHandling.MyElement;
+import helpers.ShuffleComparator;
+import logHandling.PRElement;
+import logHandling.PRLogRecord;
 import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
@@ -30,7 +32,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.*;
 
-public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
+public class PennsylvaniaDatasetLoaderQueryRunner implements DatasetLoader, DatasetQueryRunner {
     private Path datasetPath;
     private final Map<Long, Long> vertexIdsDegrees = Collections.synchronizedMap(new HashMap<>());
     private final List<Long> citiesToQuery = Collections.synchronizedList(new ArrayList<>());
@@ -54,12 +56,12 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     private static final String VERTEX_LABEL = "city";
     private static final String EDGE_LABEL = "roadTo";
 
-    public PenssylvaniaDatasetLoaderQueryRunner(long seed, String path) {
+    public PennsylvaniaDatasetLoaderQueryRunner(long seed, String path) {
         this.RANDOM_SEED = seed;
         this.datasetPath = Paths.get(path);
     }
 
-    public PenssylvaniaDatasetLoaderQueryRunner(String path) {
+    public PennsylvaniaDatasetLoaderQueryRunner(String path) {
         this(RANDOM_SEED_ORIGINAl, path);
     }
 
@@ -85,7 +87,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
 
 
     @Override
-    public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, ClusterMapper clusterMapper) throws IOException {
+    public Map<Long, Pair<Long, Long>> loadDatasetToGraph(StandardJanusGraph graph, PartitionMapper partitionMapper) throws IOException {
         Map<Long, Pair<Long, Long>> clusters = Collections.synchronizedMap(new HashMap<>());
         createSchemaQuery(graph);
 
@@ -107,7 +109,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                 if (a == null) {
                     try {
                         a = threadedTx.addVertex(T.label, VERTEX_LABEL, T.id, id1);
-                        computeClusterHelper(clusters, clusterMapper, id1);
+                        DatasetLoader.computeClusterHelper(clusters, partitionMapper, id1);
                     } catch (IllegalArgumentException ex) {
                         a = (JanusGraphVertex) threadedTx.traversal().V(id1).next();
                     }
@@ -116,7 +118,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                 if (b == null) {
                     try {
                         b = threadedTx.addVertex(T.label, VERTEX_LABEL, T.id, id2);
-                        computeClusterHelper(clusters, clusterMapper, id2);
+                        DatasetLoader.computeClusterHelper(clusters, partitionMapper, id2);
                     } catch (IllegalArgumentException ex) {
                         b = (JanusGraphVertex) threadedTx.traversal().V(id2).next();
                     }
@@ -129,34 +131,6 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
             });
             threadedTx.commit();
 
-
-//            while ((line = reader.readLine()) != null) {
-//                if (i.get() / (double) datasetLines > 0.2) break;  // testing limit
-//                if (line.startsWith("#")) continue;
-//                if (i.incrementAndGet() % 100000 == 1) {
-//                    System.out.printf("%.2f%%\n", i.get() / (double) datasetLines * 100);
-//                }
-//                String[] splits = line.split("\\s+");
-//                if (splits[0].equals(splits[1])) continue; //we don't allow self cycles
-//                Long id1 = iDmanager.toVertexId(1 + Long.decode(splits[0]));
-//                Long id2 = iDmanager.toVertexId(1 + Long.decode(splits[1]));
-//
-//                JanusGraphVertex a = (JanusGraphVertex) g.V(id1).tryNext().orElse(null);
-//                if (a == null) {
-//                    a = graph.addVertex(T.label, VERTEX_LABEL, T.id, id1);
-//                    computeClusterHelper(clusters, clusterMapper, id1);
-//                }
-//                JanusGraphVertex b = (JanusGraphVertex) g.V(id2).tryNext().orElse(null);
-//                if (b == null) {
-//                    b = graph.addVertex(T.label, VERTEX_LABEL, T.id, id2);
-//                    computeClusterHelper(clusters, clusterMapper, id2);
-//                }
-//                try {
-//                    a.addEdge(EDGE_LABEL, b);
-//                    edgeCount.getAndIncrement();
-//                } catch (SchemaViolationException ignored) {
-//                }
-//            }
             System.out.println();
         }
 
@@ -170,17 +144,8 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         return clusters;
     }
 
-    public static void computeClusterHelper(Map<Long, Pair<Long, Long>> clusters, ClusterMapper clusterMapper, long id) {
-        clusters.compute(clusterMapper.map(id), (k, v) -> {
-            if (v == null) {
-                return new Pair<>(20000000L, 1L);
-            } else
-                return new Pair<>(20000000L, v.getValue1() + 1);
-        });
-    }
-
     @Override
-    public void runQueries(StandardJanusGraph graph, ClusterMapper clusterMapper, boolean log) {
+    public void runQueries(StandardJanusGraph graph, PartitionMapper partitionMapper, boolean log) {
         System.out.println("Running test queries");
         Random random = new Random(RANDOM_SEED) {
             @Override
@@ -196,7 +161,6 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         GraphTraversalSource g = graph.traversal();
         final GraphTraversalSource gg = g;
 
-//        for (GraphTraversal<Vertex, Vertex> it = g.V().limit(500); it.hasNext(); ) { // TODO testing limit
 
         g.V().toStream().parallel().forEach(vertex -> {
             long degree = graph.traversal().V(vertex.id()).outE().count().next();
@@ -217,7 +181,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
 
         while (citiesToQuery.size() < queryLimit) {
             Map.Entry<Long, Long> pair = vertexIdsDegreesList.get(random.nextInt(Math.toIntExact(vertexCount)));
-            if (Math.log(1 + pair.getValue()) / Math.log(1 + maxDegree.get()) > random.nextDouble() && !setCitiesToQuery.contains(pair.getKey())) {
+            if (Math.log(Math.max(2, pair.getValue())) / Math.log(maxDegree.get()) > random.nextDouble() && !setCitiesToQuery.contains(pair.getKey())) {
                 citiesToQuery.add(pair.getKey()); //add the vertex id to the list provided the probability
                 setCitiesToQuery.add(pair.getKey());
             }
@@ -265,7 +229,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
                         previousO = (Vertex) o;
                     } else if (o instanceof Vertex) {
                         MapHelper.incr(allExpandedVertices, (Long) ((Vertex) o).id(), 1L);
-                        if (clusterMapper.map((Long) previousO.id()) != clusterMapper.map((Long) ((Vertex) o).id()))
+                        if (partitionMapper.map((Long) previousO.id()) != partitionMapper.map((Long) ((Vertex) o).id()))
                             cnq.incrementAndGet();
                         else
                             nq.incrementAndGet();
@@ -291,26 +255,27 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
     }
 
     @Override
-    public double evaluateQueries(Graph graph, String label, Iterator<LogRecord> log) throws Exception {
+    public double evaluateQueries(Graph graph, String label, Iterator<PRLogRecord> log) throws Exception {
         if (queryData.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
         AtomicLong rnq = new AtomicLong(0);
         AtomicLong rcnq = new AtomicLong(0);
         log.forEachRemaining(logRecord -> {
             logRecord.results.parallelStream().forEach(path -> {
-                for (int i = 0; i+1 < path.results.size(); i++) {
-                    MyElement e1,e2;
-                    e1=path.results.get(i);
-                    e2=path.results.get(i+1);
-                    if (!e1.type.equals(e2.type) || !e1.type.equals("v")) throw new IllegalArgumentException("Elements are not of the same type: Vertex");
+                for (int i = 0; i + 1 < path.results.size(); i++) {
+                    PRElement e1, e2;
+                    e1 = path.results.get(i);
+                    e2 = path.results.get(i + 1);
+                    if (!e1.type.equals(e2.type) || !e1.type.equals("v"))
+                        throw new IllegalArgumentException("Elements are not of the same type: Vertex");
                     Vertex prev = null;
                     for (GraphTraversal<Vertex, Vertex> it = graph.traversal().V(e1.id, e2.id).limit(2); it.hasNext(); ) {
                         Vertex v = it.next();
-                        if(prev ==null) {
+                        if (prev == null) {
                             prev = v;
                             continue;
                         }
-                        if(v.value(label).equals(prev.value(label)))
+                        if (v.value(label).equals(prev.value(label)))
                             rnq.incrementAndGet();
                         else
                             rcnq.incrementAndGet();
@@ -339,7 +304,7 @@ public class PenssylvaniaDatasetLoaderQueryRunner implements DatasetLoader, Data
         return Double.NaN;
     }
 
-    public Map<Long, Long> evaluatingMap() { //TODO
+    public Map<Long, Long> evaluatingMap() { //this is redundant since it is impossible to evaluate the improvement in each iteration for this dataset
         return allExpandedVertices;
     }
 
