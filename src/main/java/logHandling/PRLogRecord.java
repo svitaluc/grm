@@ -6,22 +6,22 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LogRecord {
+public class PRLogRecord {
     public String query;
-    public List<Path> results;
+    public List<PRPath> results;
 
-    public static final class LogRecordDeserializer implements JsonDeserializer<LogRecord> {
+    public static final class LogRecordDeserializer implements JsonDeserializer<PRLogRecord> {
 
         @Override
-        public LogRecord deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        public PRLogRecord deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
             final JsonObject jsonObject = jsonElement.getAsJsonObject();
             JsonElement q = jsonObject.get("Q");
             String query = q == null ? null : q.getAsString();
-            List<Path> results = new ArrayList<>();
+            List<PRPath> results = new ArrayList<>();
             JsonArray paths = jsonObject.get("R").getAsJsonArray();
             for (JsonElement path : paths) {
                 JsonArray elements = path.getAsJsonArray();
-                List<MyElement> lPath = new ArrayList<>();
+                List<PRElement> lPath = new ArrayList<>();
                 for (JsonElement el : elements) {
                     JsonElement value = el.getAsJsonObject().get("v");
                     String lType = "v";
@@ -30,16 +30,16 @@ public class LogRecord {
                         lType = "e";
                     }
                     final long lId = value.getAsLong();
-                    lPath.add(new MyElement(lId, lType));
+                    lPath.add(new PRElement(lId, lType));
                 }
-                results.add(new Path(lPath));
+                results.add(new PRPath(lPath));
 
             }
-            return new LogRecord(query, results);
+            return new PRLogRecord(query, results);
         }
     }
 
-    public LogRecord(String query, List<Path> results) {
+    public PRLogRecord(String query, List<PRPath> results) {
         this.query = query;
         this.results = results;
     }

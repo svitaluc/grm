@@ -6,6 +6,9 @@ import org.javatuples.Pair;
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
+/**
+ * Adds more operators to be used for binary reduction used in the memory of {@link partitioningAlgorithms.VaqueroVertexProgram}
+ */
 public enum HelperOperator implements BinaryOperator<Object> {
     /**
      * This operator will increment the value of every key in Map a that is present in map b by the the value of that key in map b.

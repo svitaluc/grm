@@ -2,12 +2,12 @@ package logHandling;
 
 import java.util.List;
 
-public class MyElement {
+public class PRElement {
     public final long id;
     public List<Long> physicalNodes;
     public final String type;
 
-    public MyElement(long id, String type) {
+    public PRElement(long id, String type) {
         this.id = id;
         this.type = type;
     }
