@@ -227,3 +227,4 @@ Good before/after Queries:  510713 / 1191841
 
 R2 Before/After Cross Node Queries: 1023563 / 306518, Improvement: 70,05% It:200
 
+R3
