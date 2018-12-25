@@ -1,0 +1,1230 @@
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 25330], 1=[20000000, 25574], 2=[20000000, 25364]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[MemtableFlushWriter:10] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\janusgraph\edgestore-0f7e823007cd11e988897f2699e18dd9\janusgraph-edgestore-tmp-ka-1-Data.db (37,930MiB) for commitlog position ReplayPosition(segmentId=1545691285661, position=30755943)
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 107324037 (5%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:11] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@335718398(100,363MiB serialized bytes, 16530 ops, 5%/0% of on/off-heap limit)
+[MemtableFlushWriter:11] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-10-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10515094)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 261ms.  PS Eden Space: 1493696512 -> 0; PS Old Gen: 1527690440 -> 1535204504; PS Survivor Space: 218641808 -> 322415536
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 301ms.  PS Eden Space: 1574961152 -> 0; PS Old Gen: 1535204504 -> 1543922496; PS Survivor Space: 322415536 -> 432925488
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23,28
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 372ms.  PS Eden Space: 1574961152 -> 0; PS Old Gen: 1543922496 -> 1553396152; PS Survivor Space: 432925488 -> 507841712
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 315ms.  PS Eden Space: 1408761856 -> 0; PS Old Gen: 1553396152 -> 1561784760; PS Survivor Space: 507841712 -> 525261312
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 331ms.  PS Eden Space: 1408761856 -> 0; PS Old Gen: 1561784760 -> 1580822808; PS Survivor Space: 525261312 -> 528404752
+Successfully added the log graph schema
+Loading the log to graph
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 7146 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1022281255(2,665KiB serialized bytes, 35 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-11-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10535388)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 370ms.  PS Eden Space: 1238892544 -> 0; PS Old Gen: 1580822808 -> 1657787368; PS Survivor Space: 528404752 -> 485103072
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 306ms.  PS Eden Space: 1238892544 -> 0; PS Old Gen: 1657787368 -> 1850436152; PS Survivor Space: 485103072 -> 324173376
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1046576340(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-12-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10535865)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 264ms.  PS Eden Space: 1255669760 -> 0; PS Old Gen: 1850436152 -> 2065515664; PS Survivor Space: 324173376 -> 139921800
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1906214257(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-13-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10536548)
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@654922842(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-14-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10550800)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 242ms.  PS Eden Space: 1512046592 -> 0; PS Old Gen: 2091998504 -> 2092006696; PS Survivor Space: 252406128 -> 281094496
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 269ms.  PS Eden Space: 1512046592 -> 0; PS Old Gen: 2092006696 -> 2092014888; PS Survivor Space: 281094496 -> 308424760
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 272ms.  PS Eden Space: 1630535680 -> 0; PS Old Gen: 2092014888 -> 2092023080; PS Survivor Space: 308424760 -> 332597920
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@666848235(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-15-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10551475)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 299ms.  PS Eden Space: 1630535680 -> 0; PS Survivor Space: 332597920 -> 357973608
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 314ms.  PS Eden Space: 1669857280 -> 0; PS Survivor Space: 357973608 -> 382385768
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 300ms.  PS Eden Space: 1669857280 -> 0; PS Survivor Space: 382385768 -> 405290600
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 345ms.  PS Eden Space: 1634205696 -> 0; PS Old Gen: 2092023080 -> 2114681928; PS Survivor Space: 405290600 -> 406977544
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@2106893044(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-16-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10565735)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 381ms.  PS Eden Space: 1634205696 -> 0; PS Old Gen: 2114681928 -> 2142878608; PS Survivor Space: 406977544 -> 419560424
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 384ms.  PS Eden Space: 1597505536 -> 0; PS Old Gen: 2142878608 -> 2171748120; PS Survivor Space: 419560424 -> 426310632
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@659232076(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-17-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10566418)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 368ms.  PS Eden Space: 1597505536 -> 0; PS Old Gen: 2171748120 -> 2198893184; PS Survivor Space: 426310632 -> 434240488
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 382ms.  PS Eden Space: 1563951104 -> 0; PS Old Gen: 2198893184 -> 2226524800; PS Survivor Space: 434240488 -> 440007656
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 811 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@566227980(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-18-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285662, position=10580670)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 419ms.  PS Eden Space: 1563951104 -> 0; PS Old Gen: 2226524800 -> 2250683040; PS Survivor Space: 440007656 -> 448985176
+Edges added: 1101760
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 448ms.  PS Eden Space: 1536688128 -> 0; PS Old Gen: 2250683040 -> 2275517104; PS Survivor Space: 448985176 -> 552166176
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 689ms.  PS Eden Space: 1536688128 -> 0; PS Old Gen: 2275517104 -> 2360173296; PS Survivor Space: 552166176 -> 672104752
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 845ms.  PS Eden Space: 1234698240 -> 0; PS Old Gen: 2360173296 -> 2455343872; PS Survivor Space: 672104752 -> 780637544
+Edges overall: 2326543
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 748ms.  PS Eden Space: 1234698240 -> 0; PS Old Gen: 2455343872 -> 2498265920; PS Survivor Space: 780637544 -> 746061576
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 26308456 (1%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@397448526(24,782MiB serialized bytes, 2560 ops, 1%/0% of on/off-heap limit)
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-19-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285663, position=29225269)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 568ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2498265920 -> 2543399824; PS Survivor Space: 746061576 -> 672181272
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 562ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2543399824 -> 2582131600; PS Survivor Space: 672181272 -> 634903752
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 544ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2582131600 -> 2652234672; PS Survivor Space: 634903752 -> 567004840
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 432ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2652234672 -> 2710430640; PS Survivor Space: 567004840 -> 510908416
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 430ms.  PS Eden Space: 948436992 -> 0; PS Old Gen: 2710430640 -> 2863785544; PS Survivor Space: 510908416 -> 360101136
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 374ms.  PS Eden Space: 948436992 -> 0; PS Old Gen: 2863785544 -> 3086883280; PS Survivor Space: 360101136 -> 140481520
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 402ms.  PS Eden Space: 937951232 -> 0; PS Old Gen: 3086883280 -> 3215097744; PS Survivor Space: 140481520 -> 14680392
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=161, 1=405, 2=195]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,000		1,00		354435		708476		1062911		46906		13,83s
+2		1,980		0,99		0,039		1,00		381811		681100		1062911		46144		11,92s
+3		1,960		0,98		0,097		0,99		423498		639413		1062911		49309		11,98s
+4		1,941		0,97		0,153		0,99		462515		600396		1062911		49027		11,69s
+5		1,921		0,96		0,193		0,98		490825		572086		1062911		49526		11,57s
+6		1,902		0,95		0,219		0,98		509544		553367		1062911		49419		11,85s
+7		1,883		0,94		0,234		0,97		519921		542990		1062911		49811		11,88s
+8		1,864		0,93		0,247		0,97		529495		533416		1062911		49940		11,45s
+9		1,845		0,92		0,261		0,96		539670		523241		1062911		50035		11,88s
+10		1,827		0,91		0,269		0,96		545218		517693		1062911		50086		11,95s
+11		1,809		0,90		0,282		0,95		554453		508458		1062911		50143		11,59s
+12		1,791		0,90		0,282		0,95		554344		508567		1062911		50422		11,36s
+13		1,773		0,89		0,277		0,94		550511		512400		1062911		50057		11,40s
+14		1,755		0,88		0,278		0,94		551377		511534		1062911		50163		11,71s
+15		1,737		0,87		0,312		0,93		575170		487741		1062911		50114		11,91s
+16		1,720		0,86		0,305		0,93		570527		492384		1062911		50210		11,22s
+17		1,703		0,85		0,301		0,93		567552		495359		1062911		50302		11,59s
+18		1,686		0,84		0,311		0,92		575093		487818		1062911		50128		11,88s
+19		1,669		0,83		0,312		0,92		575534		487377		1062911		50252		11,99s
+20		1,652		0,83		0,309		0,91		573402		489509		1062911		50359		11,25s
+21		1,636		0,82		0,314		0,91		576890		486021		1062911		50354		11,12s
+22		1,619		0,81		0,320		0,90		581249		481662		1062911		50208		11,18s
+23		1,603		0,80		0,330		0,90		588008		474903		1062911		50362		11,00s
+24		1,587		0,79		0,334		0,90		590757		472154		1062911		50443		11,21s
+25		1,571		0,79		0,336		0,89		592837		470074		1062911		50185		11,21s
+26		1,556		0,78		0,349		0,89		602022		460889		1062911		50398		11,26s
+27		1,540		0,77		0,352		0,89		603667		459244		1062911		50493		11,26s
+28		1,525		0,76		0,363		0,88		611781		451130		1062911		50478		11,31s
+29		1,509		0,75		0,360		0,88		609221		453690		1062911		50421		11,23s
+30		1,494		0,75		0,366		0,87		613651		449260		1062911		50376		11,17s
+31		1,479		0,74		0,370		0,87		616416		446495		1062911		50372		11,19s
+32		1,465		0,73		0,376		0,87		620890		442021		1062911		50376		11,18s
+33		1,450		0,72		0,375		0,86		619983		442928		1062911		50371		11,32s
+34		1,435		0,72		0,381		0,86		624374		438537		1062911		50522		11,35s
+35		1,421		0,71		0,394		0,86		633879		429032		1062911		50367		11,65s
+36		1,407		0,70		0,384		0,85		626375		436536		1062911		50358		11,34s
+37		1,393		0,70		0,398		0,85		636067		426844		1062911		50276		11,23s
+38		1,379		0,69		0,400		0,84		637691		425220		1062911		50334		11,46s
+39		1,365		0,68		0,407		0,84		642854		420057		1062911		50337		11,27s
+40		1,351		0,68		0,404		0,84		640756		422155		1062911		50338		11,54s
+41		1,338		0,67		0,418		0,83		650530		412381		1062911		50442		11,44s
+42		1,325		0,66		0,423		0,83		654085		408826		1062911		50417		11,28s
+43		1,311		0,66		0,430		0,83		658931		403980		1062911		50314		11,14s
+44		1,298		0,65		0,460		0,82		679994		382917		1062911		50501		11,41s
+45		1,285		0,64		0,446		0,82		670124		392787		1062911		50474		11,51s
+46		1,272		0,64		0,445		0,82		669358		393553		1062911		50394		10,99s
+47		1,260		0,63		0,454		0,81		676059		386852		1062911		50373		11,57s
+48		1,247		0,62		0,458		0,81		678594		384317		1062911		50318		11,18s
+49		1,235		0,62		0,470		0,81		687448		375463		1062911		50430		11,21s
+50		1,222		0,61		0,492		0,81		703062		359849		1062911		50376		10,88s
+51		1,210		0,61		0,499		0,80		707616		355295		1062911		50400		11,05s
+52		1,198		0,60		0,506		0,80		712980		349931		1062911		50414		11,31s
+53		1,186		0,59		0,518		0,80		721343		341568		1062911		50479		11,02s
+54		1,174		0,59		0,522		0,79		724351		338560		1062911		50446		11,43s
+55		1,162		0,58		0,515		0,79		719132		343779		1062911		50401		11,17s
+56		1,151		0,58		0,526		0,79		727064		335847		1062911		50427		11,32s
+57		1,139		0,57		0,539		0,78		736641		326270		1062911		50375		11,16s
+58		1,128		0,56		0,540		0,78		737040		325871		1062911		50365		11,16s
+59		1,117		0,56		0,551		0,78		745034		317877		1062911		50360		11,40s
+60		1,105		0,55		0,567		0,78		756015		306896		1062911		50338		11,11s
+61		1,094		0,55		0,574		0,77		761320		301591		1062911		50315		11,41s
+62		1,083		0,54		0,580		0,77		765082		297829		1062911		50269		11,11s
+63		1,073		0,54		0,579		0,77		764854		298057		1062911		50339		11,20s
+64		1,062		0,53		0,593		0,77		774617		288294		1062911		50356		11,32s
+65		1,051		0,53		0,614		0,76		789258		273653		1062911		50318		11,51s
+66		1,041		0,52		0,623		0,76		795788		267123		1062911		50333		11,02s
+67		1,030		0,52		0,629		0,76		800117		262794		1062911		50361		11,19s
+68		1,020		0,51		0,635		0,75		804442		258469		1062911		50356		11,23s
+69		1,010		0,50		0,643		0,75		810222		252689		1062911		50356		11,34s
+70		1,000		0,50		0,648		0,75		813314		249597		1062911		50356		11,02s
+71		0,990		0,49		0,652		0,75		816103		246808		1062911		50340		11,28s
+72		0,980		0,49		0,655		0,74		818190		244721		1062911		50340		11,26s
+73		0,970		0,48		0,656		0,74		819226		243685		1062911		50336		11,60s
+74		0,960		0,48		0,656		0,74		819478		243433		1062911		50336		11,36s
+75		0,951		0,48		0,656		0,74		819485		243426		1062911		50336		11,83s
+76		0,941		0,47		0,657		0,74		819576		243335		1062911		50338		11,40s
+77		0,932		0,47		0,657		0,73		819577		243334		1062911		50338		11,25s
+Terminated Vaquero algorithm at iteration: 77, Runtime: 882,69
+[ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.partition] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25169], 2=[20000000, 25930]]
+Clusters Lower Bound: [0=0, 1=0, 2=761]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 6310863 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@771012728(5,971MiB serialized bytes, 395 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-20-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285664, position=9171802)
+Before/After Cross Node Queries: 708476 / 243334, Improvement: 65,65%
+Good before/after Queries:  354435 / 819577
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=0, 1=0, 2=761]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,657		1,00		819577		243334		1062911		50429		14,11s
+2		1,980		0,99		0,337		1,00		593307		469604		1062911		50722		14,15s
+3		1,960		0,98		0,281		0,99		553212		509699		1062911		50647		14,51s
+4		1,941		0,97		0,277		0,99		550544		512367		1062911		50475		14,76s
+5		1,921		0,96		0,290		0,98		559877		503034		1062911		50606		17,03s
+6		1,902		0,95		0,317		0,98		579009		483902		1062911		50439		13,75s
+7		1,883		0,94		0,323		0,97		582932		479979		1062911		50456		13,95s
+8		1,864		0,93		0,332		0,97		589476		473435		1062911		50561		13,92s
+9		1,845		0,92		0,337		0,96		593214		469697		1062911		50554		13,95s
+10		1,827		0,91		0,335		0,96		591770		471141		1062911		50514		13,84s
+11		1,809		0,90		0,338		0,95		593745		469166		1062911		50592		13,83s
+12		1,791		0,90		0,338		0,95		593921		468990		1062911		50547		13,80s
+13		1,773		0,89		0,337		0,94		593451		469460		1062911		50463		14,32s
+14		1,755		0,88		0,338		0,94		593959		468952		1062911		50637		13,68s
+15		1,737		0,87		0,344		0,93		598050		464861		1062911		50486		13,61s
+16		1,720		0,86		0,350		0,93		602474		460437		1062911		50610		13,80s
+17		1,703		0,85		0,362		0,93		610731		452180		1062911		50458		13,70s
+18		1,686		0,84		0,361		0,92		610330		452581		1062911		50609		13,83s
+19		1,669		0,83		0,364		0,92		612301		450610		1062911		50426		13,74s
+20		1,652		0,83		0,366		0,91		613629		449282		1062911		50428		13,84s
+21		1,636		0,82		0,358		0,91		607718		455193		1062911		50598		13,61s
+22		1,619		0,81		0,375		0,90		620448		442463		1062911		50564		13,78s
+23		1,603		0,80		0,387		0,90		628289		434622		1062911		50612		13,62s
+24		1,587		0,79		0,370		0,90		616505		446406		1062911		50760		13,64s
+25		1,571		0,79		0,370		0,89		616860		446051		1062911		50609		13,67s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of local: 593 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Writing Memtable-local@165274349(0,053KiB serialized bytes, 22 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-tmp-ka-18-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=9199970)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131055 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 16254 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@680842220(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-12-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=9199970)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@1860888905(3,285KiB serialized bytes, 118 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-8-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=9199970)
+[CompactionExecutor:20] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-9-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-10-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-12-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-11-Data.db')]
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 9902 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@161029581(0,478KiB serialized bytes, 83 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-11-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=9199970)
+[CompactionExecutor:18] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-6-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-5-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-7-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-8-Data.db')]
+[CompactionExecutor:20] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-13,].  2 074 bytes to 1 682 (~81% of original) in 249ms = 0,006442MB/s.  2 total partitions merged to 2.  Partition merge counts were {1:2, }
+[CompactionExecutor:18] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-9,].  3 053 bytes to 2 403 (~78% of original) in 206ms = 0,011125MB/s.  27 total partitions merged to 27.  Partition merge counts were {1:27, }
+26		1,556		0,78		0,368		0,89		615160		447751		1062911		50666		193,61s
+27		1,540		0,77		0,379		0,89		622597		440314		1062911		50517		13,96s
+ 28		1,525		0,76		0,392		0,88		632463		430448		1062911		50523		193,54s
+29		1,509		0,75		0,406		0,88		642000		420911		1062911		50566		14,33s
+30		1,494		0,75		0,399		0,87		637034		425877		1062911		50513		14,20s
+31		1,479		0,74		0,403		0,87		639907		423004		1062911		50529		193,91s
+32		1,465		0,73		0,411		0,87		645748		417163		1062911		50487		193,93s
+33		1,450		0,72		0,408		0,86		643842		419069		1062911		50498		14,11s
+34		1,435		0,72		0,415		0,86		648521		414390		1062911		50477		14,19s
+35		1,421		0,71		0,411		0,86		645844		417067		1062911		50437		14,12s
+36		1,407		0,70		0,427		0,85		657035		405876		1062911		50511		13,97s
+37		1,393		0,70		0,420		0,85		652175		410736		1062911		50610		14,08s
+38		1,379		0,69		0,445		0,84		669447		393464		1062911		50693		14,07s
+39		1,365		0,68		0,451		0,84		673760		389151		1062911		50561		14,51s
+40		1,351		0,68		0,444		0,84		669144		393767		1062911		50500		14,30s
+41		1,338		0,67		0,453		0,83		675238		387673		1062911		50497		14,58s
+42		1,325		0,66		0,460		0,83		680094		382817		1062911		50573		15,17s
+43		1,311		0,66		0,462		0,83		682087		380824		1062911		50410		14,16s
+44		1,298		0,65		0,466		0,82		684887		378024		1062911		50464		14,03s
+45		1,285		0,64		0,483		0,82		696277		366634		1062911		50513		14,14s
+46		1,272		0,64		0,484		0,82		697045		365866		1062911		50609		194,14s
+47		1,260		0,63		0,469		0,81		686536		376375		1062911		50651		14,54s
+48		1,247		0,62		0,483		0,81		696855		366056		1062911		50574		14,00s
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 2419ms.  Compressed Class Space: 5406984 -> 5402512; Metaspace: 46896824 -> 46884432; PS Old Gen: 5591915392 -> 673821344; PS Survivor Space: 2818048 -> 0
+49		1,235		0,62		0,503		0,81		710517		352394		1062911		50587		16,91s
+50		1,222		0,61		0,517		0,81		720661		342250		1062911		50647		13,73s
+51		1,210		0,61		0,516		0,80		720205		342706		1062911		50600		14,47s
+52		1,198		0,60		0,534		0,80		733068		329843		1062911		50525		14,75s
+53		1,186		0,59		0,527		0,80		727801		335110		1062911		50622		14,05s
+54		1,174		0,59		0,533		0,79		731986		330925		1062911		50482		14,59s
+55		1,162		0,58		0,547		0,79		741908		321003		1062911		50453		13,86s
+56		1,151		0,58		0,559		0,79		750523		312388		1062911		50506		13,78s
+57		1,139		0,57		0,566		0,78		755299		307612		1062911		50490		13,94s
+58		1,128		0,56		0,566		0,78		755640		307271		1062911		50496		14,02s
+59		1,117		0,56		0,579		0,78		764731		298180		1062911		50422		14,42s
+60		1,105		0,55		0,581		0,78		765844		297067		1062911		50393		13,68s
+61		1,094		0,55		0,587		0,77		770226		292685		1062911		50406		14,29s
+62		1,083		0,54		0,604		0,77		782401		280510		1062911		50415		13,97s
+63		1,073		0,54		0,619		0,77		792809		270102		1062911		50434		14,43s
+64		1,062		0,53		0,622		0,77		795312		267599		1062911		50386		14,33s
+65		1,051		0,53		0,630		0,76		800685		262226		1062911		50416		14,07s
+66		1,041		0,52		0,629		0,76		800079		262832		1062911		50353		14,53s
+67		1,030		0,52		0,638		0,76		806638		256273		1062911		50428		13,90s
+68		1,020		0,51		0,648		0,75		813413		249498		1062911		50363		193,67s
+69		1,010		0,50		0,659		0,75		821610		241301		1062911		50331		193,38s
+70		1,000		0,50		0,666		0,75		826168		236743		1062911		50339		14,19s
+71		0,990		0,49		0,671		0,75		829661		233250		1062911		50337		14,42s
+72		0,980		0,49		0,672		0,74		830773		232138		1062911		50338		14,22s
+73		0,970		0,48		0,675		0,74		832619		230292		1062911		50342		14,61s
+74		0,960		0,48		0,676		0,74		833516		229395		1062911		50348		13,70s
+75		0,951		0,48		0,677		0,74		833726		229185		1062911		50348		14,67s
+76		0,941		0,47		0,677		0,74		833733		229178		1062911		50347		14,81s
+77		0,932		0,47		0,677		0,73		833887		229024		1062911		50349		14,98s
+78		0,922		0,46		0,677		0,73		833973		228938		1062911		50349		14,24s
+79		0,913		0,46		0,677		0,73		834071		228840		1062911		50350		14,59s
+80		0,904		0,45		0,677		0,73		834062		228849		1062911		50347		14,44s
+81		0,895		0,45		0,677		0,72		834064		228847		1062911		50345		14,35s
+82		0,886		0,44		0,677		0,72		834093		228818		1062911		50344		13,92s
+83		0,877		0,44		0,677		0,72		834093		228818		1062911		50344		13,94s
+Terminated Vaquero algorithm at iteration: 83, Runtime: 2437,78
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25169], 2=[20000000, 25930]]
+Clusters Lower Bound: [0=0, 1=0, 2=761]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5362429 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:24] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1601829239(5,075MiB serialized bytes, 325 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:24] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-21-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285664, position=20725934)
+Before/After Cross Node Queries: 708476 / 228818, Improvement: 67,70%
+Good before/after Queries:  354435 / 1653670
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=0, 1=0, 2=761]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,677		1,00		834093		228818		1062911		50526		14,20s
+2		1,980		0,99		0,377		1,00		621508		441403		1062911		50528		13,95s
+3		1,960		0,98		0,298		0,99		565720		497191		1062911		50611		14,38s
+4		1,941		0,97		0,276		0,99		549743		513168		1062911		50744		194,09s
+5		1,921		0,96		0,293		0,98		561711		501200		1062911		50723		13,78s
+6		1,902		0,95		0,309		0,98		573453		489458		1062911		50530		13,67s
+7		1,883		0,94		0,311		0,97		574782		488129		1062911		50657		14,01s
+8		1,864		0,93		0,317		0,97		578976		483935		1062911		50660		13,96s
+9		1,845		0,92		0,319		0,96		580448		482463		1062911		50409		13,67s
+10		1,827		0,91		0,334		0,96		590820		472091		1062911		50575		14,00s
+11		1,809		0,90		0,336		0,95		592227		470684		1062911		50579		13,83s
+12		1,791		0,90		0,326		0,95		585379		477532		1062911		50708		13,96s
+13		1,773		0,89		0,340		0,94		595546		467365		1062911		50788		13,57s
+14		1,755		0,88		0,336		0,94		592135		470776		1062911		50728		13,67s
+15		1,737		0,87		0,340		0,93		595202		467709		1062911		50709		13,59s
+16		1,720		0,86		0,350		0,93		602268		460643		1062911		50810		13,72s
+17		1,703		0,85		0,345		0,93		598783		464128		1062911		50784		193,55s
+18		1,686		0,84		0,345		0,92		598959		463952		1062911		50676		13,85s
+19		1,669		0,83		0,356		0,92		606667		456244		1062911		50704		14,14s
+20		1,652		0,83		0,339		0,91		594463		468448		1062911		50622		14,21s
+21		1,636		0,82		0,372		0,91		617954		444957		1062911		50630		14,03s
+22		1,619		0,81		0,372		0,90		618321		444590		1062911		50643		13,77s
+23		1,603		0,80		0,376		0,90		621147		441764		1062911		50529		13,62s
+24		1,587		0,79		0,370		0,90		616914		445997		1062911		50587		13,56s
+25		1,571		0,79		0,381		0,89		624536		438375		1062911		50627		13,79s
+26		1,556		0,78		0,386		0,89		627876		435035		1062911		50804		14,27s
+27		1,540		0,77		0,376		0,89		620567		442344		1062911		50698		13,64s
+28		1,525		0,76		0,386		0,88		627597		435314		1062911		50522		13,55s
+29		1,509		0,75		0,382		0,88		624843		438068		1062911		50584		14,95s
+30		1,494		0,75		0,397		0,87		635880		427031		1062911		50554		14,18s
+31		1,479		0,74		0,392		0,87		632393		430518		1062911		50679		13,95s
+32		1,465		0,73		0,394		0,87		633921		428990		1062911		50737		14,06s
+33		1,450		0,72		0,402		0,86		639122		423789		1062911		50685		14,32s
+34		1,435		0,72		0,426		0,86		656403		406508		1062911		50589		14,15s
+35		1,421		0,71		0,418		0,86		650637		412274		1062911		50628		14,05s
+36		1,407		0,70		0,414		0,85		647731		415180		1062911		50575		13,79s
+37		1,393		0,70		0,421		0,85		652364		410547		1062911		50591		13,95s
+38		1,379		0,69		0,442		0,84		667433		395478		1062911		50636		194,21s
+39		1,365		0,68		0,438		0,84		664398		398513		1062911		50715		14,51s
+40		1,351		0,68		0,442		0,84		667752		395159		1062911		50629		14,20s
+41		1,338		0,67		0,441		0,83		666895		396016		1062911		50638		14,32s
+42		1,325		0,66		0,447		0,83		671129		391782		1062911		50766		14,34s
+[Thread-5801] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [1] did not terminate. Forcing termination
+[Thread-5801] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [2] did not terminate. Forcing termination
+43		1,311		0,66		0,444		0,83		668813		394098		1062911		50685		14,14s
+44		1,298		0,65		0,462		0,82		681722		381189		1062911		50691		194,23s
+45		1,285		0,64		0,440		0,82		666172		396739		1062911		50650		13,93s
+46		1,272		0,64		0,460		0,82		680523		382388		1062911		50632		13,95s
+47		1,260		0,63		0,494		0,81		704605		358306		1062911		50838		14,05s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131055 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1196 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@619349377(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:26] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@33071625(0,240KiB serialized bytes, 9 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-14-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=20796045)
+[MemtableFlushWriter:26] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-10-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=20796045)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 2236 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@124493170(0,149KiB serialized bytes, 44 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-12-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285664, position=20796045)
+[CompactionExecutor:62] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-9-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-10-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-12-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-11-Data.db')]
+[CompactionExecutor:62] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-13,].  1 491 bytes to 124 (~8% of original) in 125ms = 0,000946MB/s.  60 total partitions merged to 1.  Partition merge counts were {1:58, 2:1, }
+48		1,247		0,62		0,483		0,81		696563		366348		1062911		50678		193,56s
+49		1,235		0,62		0,497		0,81		706661		356250		1062911		50756		14,05s
+50		1,222		0,61		0,495		0,81		705216		357695		1062911		50614		14,00s
+51		1,210		0,61		0,517		0,80		720950		341961		1062911		50651		14,29s
+52		1,198		0,60		0,521		0,80		723741		339170		1062911		50592		14,08s
+53		1,186		0,59		0,507		0,80		713962		348949		1062911		50652		14,09s
+54		1,174		0,59		0,519		0,79		721870		341041		1062911		50570		13,78s
+55		1,162		0,58		0,538		0,79		735605		327306		1062911		50616		14,03s
+56		1,151		0,58		0,543		0,79		739009		323902		1062911		50618		13,87s
+57		1,139		0,57		0,556		0,78		748023		314888		1062911		50616		14,00s
+58		1,128		0,56		0,570		0,78		758580		304331		1062911		50560		14,38s
+59		1,117		0,56		0,566		0,78		755337		307574		1062911		50660		13,99s
+60		1,105		0,55		0,578		0,78		763852		299059		1062911		50663		13,58s
+61		1,094		0,55		0,584		0,77		768330		294581		1062911		50624		13,65s
+62		1,083		0,54		0,601		0,77		779929		282982		1062911		50647		13,79s
+63		1,073		0,54		0,601		0,77		780525		282386		1062911		50605		14,17s
+64		1,062		0,53		0,603		0,77		781912		280999		1062911		50657		14,30s
+65		1,051		0,53		0,615		0,76		790453		272458		1062911		50606		14,14s
+66		1,041		0,52		0,625		0,76		797302		265609		1062911		50577		13,86s
+67		1,030		0,52		0,636		0,76		804816		258095		1062911		50595		13,73s
+68		1,020		0,51		0,629		0,75		799790		263121		1062911		50596		14,25s
+69		1,010		0,50		0,637		0,75		805765		257146		1062911		50573		14,55s
+70		1,000		0,50		0,654		0,75		817432		245479		1062911		50593		14,30s
+71		0,990		0,49		0,658		0,75		820332		242579		1062911		50598		13,92s
+72		0,980		0,49		0,660		0,74		821749		241162		1062911		50590		14,11s
+73		0,970		0,48		0,660		0,74		821924		240987		1062911		50593		13,88s
+74		0,960		0,48		0,660		0,74		822329		240582		1062911		50592		13,77s
+75		0,951		0,48		0,660		0,74		822334		240577		1062911		50591		14,40s
+76		0,941		0,47		0,661		0,74		822606		240305		1062911		50591		14,53s
+Terminated Vaquero algorithm at iteration: 76, Runtime: 1966,12
+Clusters capacity/usage: [0=[20000000, 25729], 1=[20000000, 25169], 2=[20000000, 25370]]
+Clusters Lower Bound: [0=560, 1=0, 2=201]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5262674 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:27] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1803155828(4,981MiB serialized bytes, 315 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:27] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-22-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285664, position=32040230)
+Before/After Cross Node Queries: 708476 / 240305, Improvement: 66,08%
+Good before/after Queries:  354435 / 2476276
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=560, 1=0, 2=201]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,661		1,00		822606		240305		1062911		50609		14,35s
+2		1,980		0,99		0,356		1,00		606410		456501		1062911		50839		14,54s
+3		1,960		0,98		0,302		0,99		568381		494530		1062911		50720		14,75s
+4		1,941		0,97		0,288		0,99		558380		504531		1062911		50752		14,41s
+5		1,921		0,96		0,304		0,98		569731		493180		1062911		50831		13,97s
+6		1,902		0,95		0,327		0,98		585926		476985		1062911		50615		14,03s
+7		1,883		0,94		0,326		0,97		585320		477591		1062911		50686		194,06s
+8		1,864		0,93		0,318		0,97		579541		483370		1062911		50665		14,02s
+9		1,845		0,92		0,338		0,96		594079		468832		1062911		50655		13,95s
+10		1,827		0,91		0,345		0,96		598725		464186		1062911		50726		14,25s
+11		1,809		0,90		0,339		0,95		594308		468603		1062911		50640		14,47s
+12		1,791		0,90		0,343		0,95		597588		465323		1062911		50688		13,65s
+13		1,773		0,89		0,352		0,94		603837		459074		1062911		50688		13,75s
+14		1,755		0,88		0,345		0,94		598614		464297		1062911		50676		14,59s
+15		1,737		0,87		0,357		0,93		607400		455511		1062911		50538		194,05s
+[Thread-7227] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [1] did not terminate. Forcing termination
+16		1,720		0,86		0,369		0,93		616152		446759		1062911		50501		14,39s
+17		1,703		0,85		0,353		0,93		604800		458111		1062911		50569		14,67s
+18		1,686		0,84		0,367		0,92		614779		448132		1062911		50693		13,82s
+19		1,669		0,83		0,372		0,92		618083		444828		1062911		50827		14,59s
+20		1,652		0,83		0,376		0,91		621122		441789		1062911		50634		14,03s
+21		1,636		0,82		0,370		0,91		616676		446235		1062911		50692		13,91s
+22		1,619		0,81		0,388		0,90		629080		433831		1062911		50845		13,71s
+23		1,603		0,80		0,377		0,90		621290		441621		1062911		50776		13,90s
+24		1,587		0,79		0,369		0,90		616139		446772		1062911		50663		13,84s
+25		1,571		0,79		0,392		0,89		632310		430601		1062911		50589		13,70s
+26		1,556		0,78		0,403		0,89		639931		422980		1062911		50578		14,28s
+27		1,540		0,77		0,406		0,89		641895		421016		1062911		50570		14,02s
+28		1,525		0,76		0,397		0,88		635970		426941		1062911		50565		13,94s
+29		1,509		0,75		0,406		0,88		641885		421026		1062911		50700		14,60s
+30		1,494		0,75		0,414		0,87		647603		415308		1062911		50682		14,48s
+31		1,479		0,74		0,417		0,87		649711		413200		1062911		50549		13,89s
+32		1,465		0,73		0,415		0,87		648571		414340		1062911		50546		14,38s
+33		1,450		0,72		0,418		0,86		650867		412044		1062911		50550		14,23s
+34		1,435		0,72		0,416		0,86		649038		413873		1062911		50645		14,93s
+35		1,421		0,71		0,417		0,86		649548		413363		1062911		50722		14,81s
+36		1,407		0,70		0,428		0,85		657355		405556		1062911		50660		14,54s
+37		1,393		0,70		0,421		0,85		652649		410262		1062911		50788		14,41s
+38		1,379		0,69		0,448		0,84		671751		391160		1062911		50812		13,96s
+39		1,365		0,68		0,443		0,84		667995		394916		1062911		50724		13,86s
+40		1,351		0,68		0,443		0,84		668042		394869		1062911		50736		13,98s
+41		1,338		0,67		0,439		0,83		665506		397405		1062911		50659		14,16s
+42		1,325		0,66		0,443		0,83		668282		394629		1062911		50712		194,33s
+43		1,311		0,66		0,454		0,83		676157		386754		1062911		50822		13,85s
+44		1,298		0,65		0,464		0,82		683051		379860		1062911		50762		14,18s
+45		1,285		0,64		0,471		0,82		688058		374853		1062911		50717		193,69s
+46		1,272		0,64		0,476		0,82		691777		371134		1062911		50650		14,61s
+47		1,260		0,63		0,486		0,81		698948		363963		1062911		50677		14,29s
+48		1,247		0,62		0,497		0,81		706381		356530		1062911		50686		13,84s
+49		1,235		0,62		0,504		0,81		711414		351497		1062911		50678		13,88s
+50		1,222		0,61		0,503		0,81		711149		351762		1062911		50659		13,90s
+51		1,210		0,61		0,498		0,80		707533		355378		1062911		50712		13,72s
+52		1,198		0,60		0,514		0,80		718347		344564		1062911		50748		193,73s
+53		1,186		0,59		0,518		0,80		721369		341542		1062911		50660		14,18s
+54		1,174		0,59		0,518		0,79		721200		341711		1062911		50626		13,84s
+55		1,162		0,58		0,529		0,79		729339		333572		1062911		50687		14,03s
+56		1,151		0,58		0,551		0,79		744876		318035		1062911		50727		13,85s
+57		1,139		0,57		0,558		0,78		749431		313480		1062911		50768		13,82s
+58		1,128		0,56		0,564		0,78		754200		308711		1062911		50677		13,79s
+59		1,117		0,56		0,574		0,78		760837		302074		1062911		50712		14,17s
+60		1,105		0,55		0,566		0,78		755454		307457		1062911		50677		14,02s
+61		1,094		0,55		0,566		0,77		755386		307525		1062911		50729		13,66s
+62		1,083		0,54		0,583		0,77		767701		295210		1062911		50722		13,72s
+63		1,073		0,54		0,600		0,77		779671		283240		1062911		50664		13,67s
+64		1,062		0,53		0,611		0,77		787114		275797		1062911		50674		13,89s
+65		1,051		0,53		0,602		0,76		780940		281971		1062911		50692		13,92s
+66		1,041		0,52		0,609		0,76		786167		276744		1062911		50715		13,75s
+67		1,030		0,52		0,621		0,76		794287		268624		1062911		50681		15,37s
+68		1,020		0,51		0,625		0,75		797110		265801		1062911		50663		13,66s
+69		1,010		0,50		0,637		0,75		806061		256850		1062911		50686		194,07s
+70		1,000		0,50		0,646		0,75		812343		250568		1062911		50660		13,81s
+71		0,990		0,49		0,651		0,75		816001		246910		1062911		50651		13,76s
+72		0,980		0,49		0,652		0,74		816651		246260		1062911		50647		13,56s
+73		0,970		0,48		0,654		0,74		817769		245142		1062911		50645		14,44s
+74		0,960		0,48		0,654		0,74		817854		245057		1062911		50644		13,79s
+75		0,951		0,48		0,654		0,74		817897		245014		1062911		50642		13,67s
+76		0,941		0,47		0,654		0,74		817976		244935		1062911		50646		13,66s
+77		0,932		0,47		0,654		0,73		817991		244920		1062911		50646		13,77s
+78		0,922		0,46		0,655		0,73		818187		244724		1062911		50648		13,69s
+79		0,913		0,46		0,655		0,73		818230		244681		1062911		50647		13,60s
+80		0,904		0,45		0,656		0,73		818969		243942		1062911		50643		14,49s
+81		0,895		0,45		0,656		0,72		819276		243635		1062911		50646		14,59s
+82		0,886		0,44		0,657		0,72		819769		243142		1062911		50654		14,03s
+83		0,877		0,44		0,657		0,72		819946		242965		1062911		50652		14,35s
+84		0,868		0,43		0,657		0,72		819950		242961		1062911		50654		13,82s
+85		0,860		0,43		0,657		0,71		819961		242950		1062911		50656		193,84s
+86		0,851		0,43		0,657		0,71		820054		242857		1062911		50657		14,18s
+87		0,843		0,42		0,657		0,71		820054		242857		1062911		50657		14,46s
+Terminated Vaquero algorithm at iteration: 87, Runtime: 2486,47
+Clusters capacity/usage: [0=[20000000, 25689], 1=[20000000, 25169], 2=[20000000, 25410]]
+Clusters Lower Bound: [0=520, 1=0, 2=241]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5155223 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:28] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1144823441(4,879MiB serialized bytes, 310 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:28] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-23-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285665, position=9597919)
+Before/After Cross Node Queries: 708476 / 242857, Improvement: 65,72%
+Good before/after Queries:  354435 / 3296330
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=520, 1=0, 2=241]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,657		1,00		820054		242857		1062911		50634		14,13s
+[Thread-9325] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [0] did not terminate. Forcing termination
+[Thread-9325] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [1] did not terminate. Forcing termination
+2		1,980		0,99		0,375		1,00		619860		443051		1062911		50769		14,17s
+3		1,960		0,98		0,306		0,99		571242		491669		1062911		50593		193,97s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131055 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1386 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:29] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@1043359013(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:30] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@817836789(0,280KiB serialized bytes, 10 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:29] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-15-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=9612106)
+[MemtableFlushWriter:30] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-11-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=9612106)
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 1504 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:29] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1860059534(0,118KiB serialized bytes, 40 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:29] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-14-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=9612106)
+4		1,941		0,97		0,313		0,99		576029		486882		1062911		50667		193,87s
+5		1,921		0,96		0,305		0,98		570794		492117		1062911		50742		14,30s
+6		1,902		0,95		0,323		0,98		583456		479455		1062911		50784		14,20s
+7		1,883		0,94		0,337		0,97		593128		469783		1062911		50856		193,99s
+8		1,864		0,93		0,346		0,97		599343		463568		1062911		50718		14,82s
+9		1,845		0,92		0,346		0,96		599334		463577		1062911		50847		14,55s
+10		1,827		0,91		0,356		0,96		606644		456267		1062911		50692		14,49s
+11		1,809		0,90		0,352		0,95		604010		458901		1062911		50809		14,16s
+12		1,791		0,90		0,360		0,95		609676		453235		1062911		50709		14,93s
+13		1,773		0,89		0,357		0,94		607374		455537		1062911		50739		194,65s
+14		1,755		0,88		0,355		0,94		606132		456779		1062911		50658		14,00s
+15		1,737		0,87		0,361		0,93		609944		452967		1062911		50716		14,18s
+16		1,720		0,86		0,370		0,93		616236		446675		1062911		50800		13,85s
+17		1,703		0,85		0,371		0,93		617406		445505		1062911		50781		14,16s
+18		1,686		0,84		0,375		0,92		620326		442585		1062911		50720		13,94s
+19		1,669		0,83		0,366		0,92		613521		449390		1062911		50691		14,15s
+20		1,652		0,83		0,371		0,91		617377		445534		1062911		50767		14,20s
+21		1,636		0,82		0,368		0,91		615466		447445		1062911		50697		14,26s
+22		1,619		0,81		0,374		0,90		619462		443449		1062911		50775		14,10s
+23		1,603		0,80		0,385		0,90		627502		435409		1062911		50687		194,39s
+24		1,587		0,79		0,389		0,90		630110		432801		1062911		50714		14,14s
+25		1,571		0,79		0,409		0,89		643911		419000		1062911		50777		14,35s
+26		1,556		0,78		0,398		0,89		636670		426241		1062911		50821		14,17s
+27		1,540		0,77		0,410		0,89		644671		418240		1062911		50909		14,43s
+28		1,525		0,76		0,398		0,88		636538		426373		1062911		50808		14,21s
+29		1,509		0,75		0,410		0,88		645033		417878		1062911		50707		13,88s
+30		1,494		0,75		0,402		0,87		638933		423978		1062911		50733		14,49s
+31		1,479		0,74		0,391		0,87		631631		431280		1062911		50695		14,43s
+32		1,465		0,73		0,415		0,87		648516		414395		1062911		50770		14,15s
+33		1,450		0,72		0,424		0,86		654997		407914		1062911		50793		13,79s
+34		1,435		0,72		0,428		0,86		657949		404962		1062911		50761		14,57s
+35		1,421		0,71		0,439		0,86		665276		397635		1062911		50794		14,77s
+36		1,407		0,70		0,429		0,85		658470		404441		1062911		50816		14,32s
+37		1,393		0,70		0,411		0,85		645787		417124		1062911		50814		14,01s
+38		1,379		0,69		0,431		0,84		659447		403464		1062911		50767		14,08s
+39		1,365		0,68		0,435		0,84		662800		400111		1062911		50711		14,14s
+40		1,351		0,68		0,451		0,84		674160		388751		1062911		50744		194,58s
+41		1,338		0,67		0,454		0,83		675860		387051		1062911		50693		193,68s
+42		1,325		0,66		0,453		0,83		675663		387248		1062911		50755		14,28s
+43		1,311		0,66		0,467		0,83		684968		377943		1062911		50815		13,72s
+44		1,298		0,65		0,467		0,82		685519		377392		1062911		50733		14,45s
+45		1,285		0,64		0,478		0,82		693000		369911		1062911		50670		13,90s
+46		1,272		0,64		0,475		0,82		691245		371666		1062911		50697		13,56s
+47		1,260		0,63		0,489		0,81		700957		361954		1062911		50657		13,96s
+48		1,247		0,62		0,467		0,81		685634		377277		1062911		50720		193,99s
+49		1,235		0,62		0,501		0,81		709667		353244		1062911		50672		14,04s
+50		1,222		0,61		0,503		0,81		710648		352263		1062911		50729		14,07s
+51		1,210		0,61		0,506		0,80		713086		349825		1062911		50665		14,41s
+52		1,198		0,60		0,514		0,80		718713		344198		1062911		50712		14,11s
+53		1,186		0,59		0,524		0,80		725666		337245		1062911		50644		14,54s
+54		1,174		0,59		0,522		0,79		724559		338352		1062911		50684		13,84s
+55		1,162		0,58		0,527		0,79		728013		334898		1062911		50675		13,80s
+56		1,151		0,58		0,550		0,79		743938		318973		1062911		50688		13,76s
+57		1,139		0,57		0,550		0,78		744285		318626		1062911		50736		14,21s
+58		1,128		0,56		0,547		0,78		741805		321106		1062911		50736		14,55s
+59		1,117		0,56		0,562		0,78		752605		310306		1062911		50749		14,44s
+60		1,105		0,55		0,575		0,78		761746		301165		1062911		50766		14,36s
+61		1,094		0,55		0,571		0,77		759082		303829		1062911		50787		14,31s
+62		1,083		0,54		0,587		0,77		770038		292873		1062911		50767		13,89s
+63		1,073		0,54		0,595		0,77		775929		286982		1062911		50781		13,50s
+64		1,062		0,53		0,598		0,77		778191		284720		1062911		50707		14,13s
+65		1,051		0,53		0,598		0,76		777995		284916		1062911		50678		14,41s
+66		1,041		0,52		0,610		0,76		786814		276097		1062911		50711		14,03s
+67		1,030		0,52		0,620		0,76		793998		268913		1062911		50698		14,20s
+68		1,020		0,51		0,625		0,75		797355		265556		1062911		50705		14,30s
+69		1,010		0,50		0,626		0,75		798183		264728		1062911		50710		194,61s
+70		1,000		0,50		0,633		0,75		802748		260163		1062911		50732		194,14s
+71		0,990		0,49		0,638		0,75		806185		256726		1062911		50726		13,86s
+72		0,980		0,49		0,640		0,74		807679		255232		1062911		50721		14,00s
+73		0,970		0,48		0,640		0,74		807795		255116		1062911		50721		14,51s
+74		0,960		0,48		0,640		0,74		808067		254844		1062911		50723		14,64s
+75		0,951		0,48		0,640		0,74		808084		254827		1062911		50726		14,48s
+76		0,941		0,47		0,641		0,74		808350		254561		1062911		50724		14,21s
+77		0,932		0,47		0,641		0,73		808546		254365		1062911		50723		14,37s
+78		0,922		0,46		0,641		0,73		808546		254365		1062911		50722		14,46s
+79		0,913		0,46		0,641		0,73		808546		254365		1062911		50720		194,06s
+80		0,904		0,45		0,641		0,73		808563		254348		1062911		50719		14,11s
+81		0,895		0,45		0,641		0,72		808803		254108		1062911		50719		13,77s
+82		0,886		0,44		0,641		0,72		808812		254099		1062911		50719		193,69s
+Terminated Vaquero algorithm at iteration: 82, Runtime: 3325,15
+Clusters capacity/usage: [0=[20000000, 25202], 1=[20000000, 25169], 2=[20000000, 25897]]
+Clusters Lower Bound: [0=33, 1=0, 2=728]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 234ms.  PS Eden Space: 2774007808 -> 0; PS Old Gen: 4514388016 -> 4557001760; PS Survivor Space: 2326840 -> 10977296
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5124391 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:31] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1689994150(4,850MiB serialized bytes, 310 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:31] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-24-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285665, position=20671960)
+Before/After Cross Node Queries: 708476 / 254099, Improvement: 64,13%
+Good before/after Queries:  354435 / 4105142
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=33, 1=0, 2=728]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,641		1,00		808812		254099		1062911		50703		14,59s
+2		1,980		0,99		0,377		1,00		621728		441183		1062911		50633		194,67s
+3		1,960		0,98		0,319		0,99		580346		482565		1062911		50737		14,65s
+4		1,941		0,97		0,304		0,99		570122		492789		1062911		50893		14,44s
+5		1,921		0,96		0,308		0,98		572558		490353		1062911		50668		194,14s
+6		1,902		0,95		0,341		0,98		595827		467084		1062911		50899		14,75s
+7		1,883		0,94		0,346		0,97		599433		463478		1062911		50841		14,54s
+8		1,864		0,93		0,356		0,97		606675		456236		1062911		50774		14,24s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131055 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 772 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:32] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@760260304(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:32] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-16-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=20699922)
+[MemtableFlushWriter:33] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@1696798188(0,087KiB serialized bytes, 36 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:33] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-15-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=20699922)
+[CompactionExecutor:123] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-13-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-16-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-15-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-14-Data.db')]
+[CompactionExecutor:123] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-17,].  7 325 bytes to 1 655 (~22% of original) in 2 316ms = 0,000681MB/s.  8 total partitions merged to 2.  Partition merge counts were {4:2, }
+9		1,845		0,92		0,360		0,96		609782		453129		1062911		50909		14,35s
+10		1,827		0,91		0,353		0,96		604470		458441		1062911		50802		14,30s
+11		1,809		0,90		0,366		0,95		613481		449430		1062911		50734		14,69s
+[CompactionExecutor:122] INFO org.apache.cassandra.cache.AutoSavingCache - Saved KeyCache (71498 items) in 60207 ms
+12		1,791		0,90		0,368		0,95		614880		448031		1062911		50658		194,46s
+13		1,773		0,89		0,366		0,94		613717		449194		1062911		50673		194,37s
+14		1,755		0,88		0,367		0,94		614668		448243		1062911		50769		14,57s
+15		1,737		0,87		0,373		0,93		618671		444240		1062911		50842		14,03s
+16		1,720		0,86		0,369		0,93		615893		447018		1062911		50783		14,72s
+17		1,703		0,85		0,375		0,93		620295		442616		1062911		50746		14,80s
+18		1,686		0,84		0,376		0,92		620758		442153		1062911		50734		194,54s
+19		1,669		0,83		0,386		0,92		627730		435181		1062911		50756		14,07s
+20		1,652		0,83		0,386		0,91		628033		434878		1062911		50675		14,41s
+21		1,636		0,82		0,392		0,91		632332		430579		1062911		50806		194,27s
+22		1,619		0,81		0,388		0,90		629460		433451		1062911		50738		193,68s
+23		1,603		0,80		0,377		0,90		621729		441182		1062911		50821		14,23s
+24		1,587		0,79		0,379		0,90		622873		440038		1062911		50728		14,29s
+25		1,571		0,79		0,390		0,89		630969		431942		1062911		50820		13,64s
+26		1,556		0,78		0,411		0,89		645722		417189		1062911		50715		14,20s
+27		1,540		0,77		0,400		0,89		637962		424949		1062911		50740		194,19s
+28		1,525		0,76		0,410		0,88		645029		417882		1062911		50681		14,06s
+29		1,509		0,75		0,421		0,88		653055		409856		1062911		50704		13,99s
+30		1,494		0,75		0,412		0,87		646653		416258		1062911		50761		13,84s
+31		1,479		0,74		0,418		0,87		650288		412623		1062911		50659		14,15s
+32		1,465		0,73		0,434		0,87		661965		400946		1062911		50763		13,80s
+33		1,450		0,72		0,449		0,86		672464		390447		1062911		50760		14,19s
+34		1,435		0,72		0,447		0,86		671263		391648		1062911		50768		13,92s
+35		1,421		0,71		0,440		0,86		666023		396888		1062911		50785		14,02s
+36		1,407		0,70		0,443		0,85		668549		394362		1062911		50832		13,78s
+37		1,393		0,70		0,431		0,85		659646		403265		1062911		50727		14,39s
+38		1,379		0,69		0,457		0,84		678070		384841		1062911		50691		14,23s
+39		1,365		0,68		0,450		0,84		672969		389942		1062911		50697		13,90s
+40		1,351		0,68		0,450		0,84		673311		389600		1062911		50777		14,10s
+41		1,338		0,67		0,463		0,83		682391		380520		1062911		50687		14,06s
+42		1,325		0,66		0,453		0,83		675319		387592		1062911		50737		14,07s
+43		1,311		0,66		0,458		0,83		678693		384218		1062911		50736		14,10s
+44		1,298		0,65		0,473		0,82		689273		373638		1062911		50699		14,41s
+45		1,285		0,64		0,479		0,82		693570		369341		1062911		50698		13,91s
+46		1,272		0,64		0,490		0,82		701937		360974		1062911		50777		193,97s
+47		1,260		0,63		0,499		0,81		707615		355296		1062911		50722		14,08s
+48		1,247		0,62		0,493		0,81		703870		359041		1062911		50736		194,32s
+49		1,235		0,62		0,509		0,81		714977		347934		1062911		50763		14,12s
+50		1,222		0,61		0,520		0,81		722722		340189		1062911		50703		14,31s
+51		1,210		0,61		0,527		0,80		727784		335127		1062911		50652		14,16s
+52		1,198		0,60		0,529		0,80		729114		333797		1062911		50660		14,27s
+53		1,186		0,59		0,536		0,80		733853		329058		1062911		50706		14,03s
+54		1,174		0,59		0,529		0,79		729194		333717		1062911		50664		13,76s
+55		1,162		0,58		0,545		0,79		740602		322309		1062911		50712		13,58s
+56		1,151		0,58		0,545		0,79		740558		322353		1062911		50727		13,84s
+57		1,139		0,57		0,553		0,78		746457		316454		1062911		50787		13,94s
+58		1,128		0,56		0,564		0,78		753770		309141		1062911		50746		13,76s
+59		1,117		0,56		0,579		0,78		764728		298183		1062911		50774		13,50s
+60		1,105		0,55		0,596		0,78		776457		286454		1062911		50712		13,76s
+61		1,094		0,55		0,596		0,77		776485		286426		1062911		50756		13,54s
+62		1,083		0,54		0,606		0,77		783583		279328		1062911		50775		13,75s
+63		1,073		0,54		0,611		0,77		787051		275860		1062911		50762		13,67s
+64		1,062		0,53		0,621		0,77		794738		268173		1062911		50794		13,55s
+65		1,051		0,53		0,611		0,76		787565		275346		1062911		50738		13,83s
+66		1,041		0,52		0,627		0,76		798913		263998		1062911		50737		13,82s
+67		1,030		0,52		0,643		0,76		809977		252934		1062911		50698		13,94s
+68		1,020		0,51		0,650		0,75		815132		247779		1062911		50683		14,20s
+69		1,010		0,50		0,659		0,75		821334		241577		1062911		50707		14,27s
+70		1,000		0,50		0,665		0,75		825470		237441		1062911		50722		14,33s
+71		0,990		0,49		0,668		0,75		827882		235029		1062911		50712		14,04s
+72		0,980		0,49		0,670		0,74		828923		233988		1062911		50713		13,88s
+73		0,970		0,48		0,670		0,74		828967		233944		1062911		50712		14,67s
+74		0,960		0,48		0,670		0,74		829226		233685		1062911		50712		14,17s
+75		0,951		0,48		0,670		0,74		829363		233548		1062911		50712		14,22s
+Terminated Vaquero algorithm at iteration: 75, Runtime: 2862,00
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25169], 2=[20000000, 25930]]
+Clusters Lower Bound: [0=0, 1=0, 2=761]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5072187 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:34] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@128282928(4,801MiB serialized bytes, 305 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:34] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-25-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285665, position=31621821)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 658ms.  PS Old Gen: 5559540168 -> 5592575520;
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 850ms.  Compressed Class Space: 5407088 -> 5394192; Metaspace: 47105384 -> 47036792; PS Eden Space: 2776104960 -> 0; PS Old Gen: 5592575520 -> 675018272; PS Survivor Space: 9928736 -> 0
+Before/After Cross Node Queries: 708476 / 233548, Improvement: 67,04%
+Good before/after Queries:  354435 / 4934505
+
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=0, 1=0, 2=761]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,670		1,00		829363		233548		1062911		50737		14,48s
+2		1,980		0,99		0,395		1,00		634563		428348		1062911		50658		14,29s
+3		1,960		0,98		0,317		0,99		578950		483961		1062911		50665		14,99s
+4		1,941		0,97		0,307		0,99		571589		491322		1062911		50647		14,79s
+5		1,921		0,96		0,323		0,98		583383		479528		1062911		50802		14,92s
+6		1,902		0,95		0,326		0,98		585629		477282		1062911		50787		194,39s
+7		1,883		0,94		0,340		0,97		595265		467646		1062911		50544		14,84s
+8		1,864		0,93		0,352		0,97		603633		459278		1062911		50629		14,95s
+9		1,845		0,92		0,351		0,96		602833		460078		1062911		50682		14,55s
+10		1,827		0,91		0,362		0,96		610667		452244		1062911		50687		14,84s
+11		1,809		0,90		0,359		0,95		609085		453826		1062911		50715		14,56s
+12		1,791		0,90		0,368		0,95		614847		448064		1062911		50795		14,31s
+13		1,773		0,89		0,370		0,94		616825		446086		1062911		50873		14,23s
+14		1,755		0,88		0,370		0,94		616628		446283		1062911		50681		14,85s
+15		1,737		0,87		0,365		0,93		613137		449774		1062911		50558		14,68s
+16		1,720		0,86		0,379		0,93		623138		439773		1062911		50598		14,72s
+17		1,703		0,85		0,373		0,93		618877		444034		1062911		50720		194,55s
+18		1,686		0,84		0,363		0,92		611281		451630		1062911		50613		14,87s
+19		1,669		0,83		0,384		0,92		626678		436233		1062911		50534		194,71s
+20		1,652		0,83		0,392		0,91		631909		431002		1062911		50826		14,65s
+21		1,636		0,82		0,396		0,91		635008		427903		1062911		50599		14,28s
+22		1,619		0,81		0,406		0,90		641909		421002		1062911		50641		14,55s
+23		1,603		0,80		0,404		0,90		640452		422459		1062911		50728		14,56s
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131055 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1196 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 1496 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:35] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@2039712726(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:36] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@1046588531(0,240KiB serialized bytes, 9 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:36] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-12-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=31677745)
+[MemtableFlushWriter:35] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-18-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=31677745)
+[MemtableFlushWriter:35] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@996736986(0,118KiB serialized bytes, 40 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:35] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-16-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545691285665, position=31677745)
+[CompactionExecutor:154] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-11-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-12-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-10-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-9-Data.db')]
+[CompactionExecutor:155] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-13-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-16-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-15-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-14-Data.db')]
+[CompactionExecutor:154] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-13,].  3 157 bytes to 2 687 (~85% of original) in 139ms = 0,018435MB/s.  30 total partitions merged to 30.  Partition merge counts were {1:30, }
+[CompactionExecutor:155] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-ka-17,].  656 bytes to 124 (~18% of original) in 91ms = 0,001300MB/s.  12 total partitions merged to 1.  Partition merge counts were {1:8, 4:1, }
+24		1,587		0,79		0,390		0,90		630424		432487		1062911		50749		194,10s
+25		1,571		0,79		0,403		0,89		640270		422641		1062911		50774		14,44s
+26		1,556		0,78		0,412		0,89		646552		416359		1062911		50612		14,60s
+27		1,540		0,77		0,427		0,89		656715		406196		1062911		50709		15,25s
+28		1,525		0,76		0,426		0,88		656008		406903		1062911		50659		13,92s
+29		1,509		0,75		0,416		0,88		649111		413800		1062911		50577		14,15s
+30		1,494		0,75		0,421		0,87		652456		410455		1062911		50755		14,80s
+31		1,479		0,74		0,428		0,87		657661		405250		1062911		50687		14,93s
+32		1,465		0,73		0,425		0,87		655755		407156		1062911		50677		14,83s
+33		1,450		0,72		0,437		0,86		663699		399212		1062911		50834		15,11s
+34		1,435		0,72		0,460		0,86		680099		382812		1062911		50772		14,90s
+35		1,421		0,71		0,449		0,86		672420		390491		1062911		50636		14,94s
+36		1,407		0,70		0,449		0,85		672235		390676		1062911		50826		194,85s
+37		1,393		0,70		0,450		0,85		673094		389817		1062911		50664		14,80s
+[Thread-14837] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [2] did not terminate. Forcing termination
+38		1,379		0,69		0,458		0,84		679095		383816		1062911		50728		14,49s
+39		1,365		0,68		0,471		0,84		687907		375004		1062911		50853		14,47s
+40		1,351		0,68		0,456		0,84		677505		385406		1062911		50849		14,85s
+41		1,338		0,67		0,457		0,83		678268		384643		1062911		50698		14,33s
+42		1,325		0,66		0,458		0,83		678769		384142		1062911		50766		14,65s
+43		1,311		0,66		0,481		0,83		694902		368009		1062911		50760		14,46s
+44		1,298		0,65		0,497		0,82		706480		356431		1062911		50817		14,10s
+45		1,285		0,64		0,495		0,82		705159		357752		1062911		50906		14,21s
+46		1,272		0,64		0,489		0,82		700724		362187		1062911		50805		14,87s
+47		1,260		0,63		0,488		0,81		700470		362441		1062911		50848		14,59s
+48		1,247		0,62		0,495		0,81		705475		357436		1062911		50709		194,62s
+49		1,235		0,62		0,500		0,81		708767		354144		1062911		50743		14,75s
+50		1,222		0,61		0,515		0,81		719002		343909		1062911		50837		14,75s
+51		1,210		0,61		0,522		0,80		724199		338712		1062911		50664		14,65s
+52		1,198		0,60		0,522		0,80		723945		338966		1062911		50645		14,79s
+53		1,186		0,59		0,533		0,80		732168		330743		1062911		50713		14,69s
+54		1,174		0,59		0,548		0,79		742756		320155		1062911		50809		14,70s
+[Thread-15313] WARN org.janusgraph.diskstorage.keycolumnvalue.scan.StandardScannerExecutor - Data pulling thread [0] did not terminate. Forcing termination
+55		1,162		0,58		0,537		0,79		734789		328122		1062911		50779		14,87s
+56		1,151		0,58		0,558		0,79		749470		313441		1062911		50752		193,87s
+57		1,139		0,57		0,566		0,78		755186		307725		1062911		50730		14,48s
+58		1,128		0,56		0,577		0,78		763553		299358		1062911		50694		14,51s
+59		1,117		0,56		0,578		0,78		764138		298773		1062911		50696		14,58s
+60		1,105		0,55		0,584		0,78		768474		294437		1062911		50629		14,86s
+61		1,094		0,55		0,591		0,77		773332		289579		1062911		50761		15,36s
+62		1,083		0,54		0,594		0,77		775084		287827		1062911		50732		15,20s
+63		1,073		0,54		0,605		0,77		782936		279975		1062911		50719		15,24s
+64		1,062		0,53		0,609		0,77		785798		277113		1062911		50651		14,73s
+65		1,051		0,53		0,620		0,76		793600		269311		1062911		50678		15,14s
+66		1,041		0,52		0,627		0,76		798477		264434		1062911		50694		15,18s
+67		1,030		0,52		0,634		0,76		803567		259344		1062911		50695		194,78s
+68		1,020		0,51		0,636		0,75		805151		257760		1062911		50674		14,01s
+69		1,010		0,50		0,637		0,75		805811		257100		1062911		50674		13,62s
+70		1,000		0,50		0,644		0,75		810387		252524		1062911		50671		14,49s
+71		0,990		0,49		0,648		0,75		813485		249426		1062911		50679		14,74s
+72		0,980		0,49		0,651		0,74		815825		247086		1062911		50682		14,48s
+73		0,970		0,48		0,652		0,74		816396		246515		1062911		50685		14,80s
+74		0,960		0,48		0,652		0,74		816489		246422		1062911		50687		14,87s
+75		0,951		0,48		0,652		0,74		816516		246395		1062911		50687		194,71s
+76		0,941		0,47		0,652		0,74		816523		246388		1062911		50687		14,92s
+Terminated Vaquero algorithm at iteration: 76, Runtime: 2735,42
+Clusters capacity/usage: [0=[20000000, 25930], 1=[20000000, 25169], 2=[20000000, 25169]]
+Clusters Lower Bound: [0=761, 1=0, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5005038 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:37] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@156908275(4,737MiB serialized bytes, 300 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:37] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-26-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545691285666, position=8874691)
+Before/After Cross Node Queries: 708476 / 246388, Improvement: 65,22%
+Good before/after Queries:  354435 / 5751028
+
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 25330], 1=[20000000, 25574], 2=[20000000, 25364]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 543ms.  PS Eden Space: 2461532160 -> 0; PS Old Gen: 794118568 -> 1443083448; PS Survivor Space: 167232808 -> 167234040
+[MemtableFlushWriter:9] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\janusgraph\edgestore-3e574aa0081e11e9ab9a45a8c5447607\janusgraph-edgestore-tmp-ka-1-Data.db (37,936MiB) for commitlog position ReplayPosition(segmentId=1545726146408, position=30689746)
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 107328155 (5%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:10] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@797639479(100,363MiB serialized bytes, 16535 ops, 5%/0% of on/off-heap limit)
+[MemtableFlushWriter:10] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-10-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10515094)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 222ms.  PS Eden Space: 1584922624 -> 0; PS Old Gen: 1443083448 -> 1451836872; PS Survivor Space: 167234040 -> 254516368
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 243ms.  PS Eden Space: 1584922624 -> 0; PS Old Gen: 1451836872 -> 1460651504; PS Survivor Space: 254516368 -> 364673352
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 300ms.  PS Eden Space: 1617428480 -> 0; PS Old Gen: 1460651504 -> 1470701760; PS Survivor Space: 364673352 -> 476516104
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23,28
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 288ms.  PS Eden Space: 1617428480 -> 0; PS Old Gen: 1470701760 -> 1480523192; PS Survivor Space: 476516104 -> 519950152
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 276ms.  PS Eden Space: 1406664704 -> 0; PS Old Gen: 1480523192 -> 1489861800; PS Survivor Space: 519950152 -> 531785408
+Successfully added the log graph schema
+Loading the log to graph
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 290ms.  PS Eden Space: 1406664704 -> 0; PS Old Gen: 1489861800 -> 1511254752; PS Survivor Space: 531785408 -> 536082200
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 7153 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:11] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1942069790(2,665KiB serialized bytes, 35 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:11] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-11-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10521613)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 323ms.  PS Eden Space: 1236795392 -> 0; PS Old Gen: 1511254752 -> 1700153000; PS Survivor Space: 536082200 -> 381778944
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@54392396(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:12] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-12-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10535865)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 222ms.  PS Eden Space: 1236795392 -> 0; PS Old Gen: 1700153000 -> 1933180008; PS Survivor Space: 381778944 -> 179232832
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1834666604(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:13] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-13-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10536548)
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@685471145(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:14] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-14-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10550800)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 202ms.  PS Eden Space: 1537736704 -> 0; PS Survivor Space: 260145024 -> 286246616
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 201ms.  PS Eden Space: 1661992960 -> 0; PS Old Gen: 2048432840 -> 2048441032; PS Survivor Space: 286246616 -> 310989384
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@486318487(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:15] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-15-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10551483)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 240ms.  PS Eden Space: 1661992960 -> 0; PS Survivor Space: 310989384 -> 336036024
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 250ms.  PS Eden Space: 1706557440 -> 0; PS Survivor Space: 336036024 -> 360153272
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 272ms.  PS Eden Space: 1706557440 -> 0; PS Survivor Space: 360153272 -> 386924136
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@391564077(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:16] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-16-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10565735)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 293ms.  PS Eden Space: 1673003008 -> 0; PS Survivor Space: 386924136 -> 419888728
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 311ms.  PS Eden Space: 1652555776 -> 0; PS Old Gen: 2048441152 -> 2079960824; PS Survivor Space: 419888728 -> 426147416
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 306ms.  PS Eden Space: 1597505536 -> 0; PS Old Gen: 2079968040 -> 2106798616; PS Survivor Space: 426147416 -> 435191400
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@1751086288(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:17] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-17-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10566418)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 330ms.  PS Eden Space: 1579155456 -> 0; PS Old Gen: 2106800720 -> 2136038000; PS Survivor Space: 435191400 -> 439516760
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 326ms.  PS Eden Space: 1541931008 -> 0; PS Old Gen: 2136038000 -> 2161584800; PS Survivor Space: 439516760 -> 447839848
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 812 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@212896454(0,176KiB serialized bytes, 5 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:18] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-18-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146409, position=10580670)
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 389ms.  PS Eden Space: 1524629504 -> 0; PS Old Gen: 2161584800 -> 2187434672; PS Survivor Space: 447839848 -> 519535336
+Edges added: 1101760
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 436ms.  PS Eden Space: 1451753472 -> 0; PS Old Gen: 2187434672 -> 2209811168; PS Survivor Space: 519535336 -> 626120008
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 597ms.  PS Eden Space: 1451753472 -> 0; PS Old Gen: 2209811168 -> 2355346160; PS Survivor Space: 626120008 -> 717719368
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 621ms.  PS Eden Space: 1041760256 -> 0; PS Old Gen: 2355346160 -> 2399185664; PS Survivor Space: 717719368 -> 841101352
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 26308968 (1%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@382641811(24,782MiB serialized bytes, 2560 ops, 1%/0% of on/off-heap limit)
+[MemtableFlushWriter:19] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-19-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146410, position=29225269)
+Edges overall: 2326543
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 452ms.  PS Eden Space: 1041760256 -> 0; PS Old Gen: 2399185664 -> 2444430160; PS Survivor Space: 841101352 -> 641047496
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 456ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2444430160 -> 2486365040; PS Survivor Space: 641047496 -> 601427880
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 433ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2486365040 -> 2551982976; PS Survivor Space: 601427880 -> 537500728
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 344ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2551982976 -> 2610981760; PS Survivor Space: 537500728 -> 481022136
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 319ms.  PS Eden Space: 932708352 -> 0; PS Old Gen: 2610981760 -> 2668725392; PS Survivor Space: 481022136 -> 427573352
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS Scavenge GC in 272ms.  PS Eden Space: 1010302976 -> 0; PS Old Gen: 2668725392 -> 2915461408; PS Survivor Space: 427573352 -> 182667008
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=161, 1=405, 2=195]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,000		1,00		354435		708476		1062911		46752		13,03s		 
+2		1,980		0,99		0,038		1,00		381228		681683		1062911		46233		11,31s		 
+3		1,960		0,98		0,090		0,99		418509		644402		1062911		49273		11,31s		 
+4		1,941		0,97		0,152		0,99		462168		600743		1062911		48992		11,22s		 
+5		1,921		0,96		0,195		0,98		492676		570235		1062911		49726		11,13s		 
+6		1,902		0,95		0,213		0,98		505443		557468		1062911		49738		11,45s		 
+7		1,883		0,94		0,230		0,97		517574		545337		1062911		49884		11,28s		 
+8		1,864		0,93		0,241		0,97		525475		537436		1062911		49920		11,54s		 
+9		1,845		0,92		0,244		0,96		527162		535749		1062911		50037		11,31s		 
+10		1,827		0,91		0,256		0,96		535459		527452		1062911		49928		11,12s		 
+11		1,809		0,90		0,265		0,95		542388		520523		1062911		50120		11,06s		 
+12		1,791		0,90		0,277		0,95		550685		512226		1062911		49967		11,09s		 
+13		1,773		0,89		0,283		0,94		554936		507975		1062911		50104		11,18s		 
+14		1,755		0,88		0,296		0,94		563989		498922		1062911		50032		11,53s		 
+15		1,737		0,87		0,285		0,93		556366		506545		1062911		50024		11,25s		 
+16		1,720		0,86		0,276		0,93		549936		512975		1062911		50190		11,46s		 
+17		1,703		0,85		0,290		0,93		560068		502843		1062911		50102		11,51s		 
+18		1,686		0,84		0,309		0,92		573016		489895		1062911		50030		11,41s		 
+19		1,669		0,83		0,329		0,92		587873		475038		1062911		50113		11,08s		 
+20		1,652		0,83		0,319		0,91		580748		482163		1062911		50063		11,00s		 
+21		1,636		0,82		0,316		0,91		578509		484402		1062911		50187		11,29s		 
+22		1,619		0,81		0,329		0,90		587480		475431		1062911		50292		11,34s		 
+23		1,603		0,80		0,336		0,90		592646		470265		1062911		50260		11,52s		 
+24		1,587		0,79		0,329		0,90		587374		475537		1062911		50172		11,23s		 
+25		1,571		0,79		0,343		0,89		597139		465772		1062911		50286		11,13s		 
+26		1,556		0,78		0,356		0,89		606739		456172		1062911		50257		11,17s		 
+27		1,540		0,77		0,353		0,89		604524		458387		1062911		50222		191,00s		 
+28		1,525		0,76		0,342		0,88		596485		466426		1062911		50373		10,98s		 
+29		1,509		0,75		0,364		0,88		612112		450799		1062911		50286		11,47s		 
+30		1,494		0,75		0,364		0,87		612086		450825		1062911		50280		11,01s		 
+31		1,479		0,74		0,378		0,87		622260		440651		1062911		50170		11,08s		 
+32		1,465		0,73		0,370		0,87		616677		446234		1062911		50318		11,04s		 
+33		1,450		0,72		0,387		0,86		628735		434176		1062911		50044		11,08s		 
+34		1,435		0,72		0,382		0,86		625134		437777		1062911		50172		11,02s		 
+35		1,421		0,71		0,404		0,86		640889		422022		1062911		50320		10,90s		 
+36		1,407		0,70		0,409		0,85		644158		418753		1062911		50172		11,04s		 
+37		1,393		0,70		0,422		0,85		653161		409750		1062911		50203		11,05s		 
+38		1,379		0,69		0,413		0,84		647231		415680		1062911		50232		11,04s		 
+39		1,365		0,68		0,422		0,84		653160		409751		1062911		50231		10,95s		 
+40		1,351		0,68		0,419		0,84		651435		411476		1062911		50268		11,02s		 
+41		1,338		0,67		0,416		0,83		648809		414102		1062911		50306		11,17s		 
+42		1,325		0,66		0,444		0,83		668772		394139		1062911		50248		11,25s		 
+43		1,311		0,66		0,439		0,83		665643		397268		1062911		50310		11,21s		 
+44		1,298		0,65		0,464		0,82		683389		379522		1062911		50313		11,17s		 
+45		1,285		0,64		0,457		0,82		678533		384378		1062911		50116		11,44s		 
+46		1,272		0,64		0,466		0,82		684714		378197		1062911		50271		11,39s		 
+47		1,260		0,63		0,478		0,81		693107		369804		1062911		50304		11,20s		 
+48		1,247		0,62		0,496		0,81		706150		356761		1062911		50296		11,07s		 
+49		1,235		0,62		0,508		0,81		714472		348439		1062911		50388		11,09s		 
+50		1,222		0,61		0,507		0,81		713934		348977		1062911		50313		11,10s		 
+51		1,210		0,61		0,500		0,80		708437		354474		1062911		50345		11,15s		 
+52		1,198		0,60		0,529		0,80		728873		334038		1062911		50335		11,08s		 
+53		1,186		0,59		0,546		0,80		741117		321794		1062911		50403		191,07s		 
+54		1,174		0,59		0,551		0,79		744577		318334		1062911		50396		11,12s		 
+55		1,162		0,58		0,560		0,79		751472		311439		1062911		50416		11,01s		 
+56		1,151		0,58		0,582		0,79		766997		295914		1062911		50368		10,98s		 
+57		1,139		0,57		0,600		0,78		779576		283335		1062911		50365		11,11s		 
+58		1,128		0,56		0,607		0,78		784544		278367		1062911		50289		11,19s		 
+59		1,117		0,56		0,615		0,78		790189		272722		1062911		50354		11,11s		 
+60		1,105		0,55		0,604		0,78		782622		280289		1062911		50318		11,05s		 
+61		1,094		0,55		0,633		0,77		802879		260032		1062911		50330		11,39s		 
+62		1,083		0,54		0,627		0,77		798998		263913		1062911		50346		11,01s		 
+63		1,073		0,54		0,641		0,77		808773		254138		1062911		50302		11,19s		 
+64		1,062		0,53		0,654		0,77		817765		245146		1062911		50299		11,17s		 
+65		1,051		0,53		0,672		0,76		830404		232507		1062911		50348		11,39s		 
+66		1,041		0,52		0,683		0,76		838553		224358		1062911		50301		11,10s		 
+67		1,030		0,52		0,685		0,76		839996		222915		1062911		50336		11,00s		 
+68		1,020		0,51		0,698		0,75		848736		214175		1062911		50314		11,02s		 
+69		1,010		0,50		0,701		0,75		851394		211517		1062911		50335		11,07s		 
+70		1,000		0,50		0,711		0,75		858477		204434		1062911		50338		10,97s		 
+71		0,990		0,49		0,716		0,75		861568		201343		1062911		50336		11,15s		 
+72		0,980		0,49		0,717		0,74		862583		200328		1062911		50333		11,39s		 
+73		0,970		0,48		0,718		0,74		862909		200002		1062911		50331		11,20s		 
+74		0,960		0,48		0,718		0,74		863002		199909		1062911		50331		10,95s		 
+75		0,951		0,48		0,718		0,74		863003		199908		1062911		50331		11,44s		 
+Terminated Vaquero algorithm at iteration: 75, Runtime: 1203,29
+[ForkJoinPool.commonPool-worker-1] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.partition] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25169], 2=[20000000, 25930]]
+Clusters Lower Bound: [0=0, 1=0, 2=761]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 6310942 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@655220302(5,971MiB serialized bytes, 395 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:20] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-20-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146411, position=9185851)
+Before/After Cross Node Queries: 708476 / 199908, Improvement: 71,78%
+Good before/after Queries:  354435 / 863003
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=0, 1=0, 2=761]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,718		1,00		863003		199908		1062911		50492		13,77s		 
+2		1,980		0,99		0,361		1,00		610061		452850		1062911		50531		13,55s		 
+3		1,960		0,98		0,279		0,99		551852		511059		1062911		50511		13,92s		 
+4		1,941		0,97		0,272		0,99		547089		515822		1062911		50494		13,62s		 
+5		1,921		0,96		0,289		0,98		558850		504061		1062911		50446		13,41s		 
+6		1,902		0,95		0,313		0,98		576030		486881		1062911		50502		13,36s		 
+7		1,883		0,94		0,332		0,97		589945		472966		1062911		50510		13,38s		 
+8		1,864		0,93		0,327		0,97		585929		476982		1062911		50653		13,53s		 
+9		1,845		0,92		0,354		0,96		605433		457478		1062911		50601		13,75s		 
+10		1,827		0,91		0,347		0,96		600358		462553		1062911		50653		13,34s		 
+11		1,809		0,90		0,363		0,95		611684		451227		1062911		50567		13,16s		 
+12		1,791		0,90		0,347		0,95		600627		462284		1062911		50663		13,32s		 
+13		1,773		0,89		0,361		0,94		610451		452460		1062911		50616		13,41s		 
+14		1,755		0,88		0,377		0,94		621358		441553		1062911		50745		13,29s		 
+15		1,737		0,87		0,361		0,93		610136		452775		1062911		50427		13,24s		 
+16		1,720		0,86		0,360		0,93		609363		453548		1062911		50706		14,18s		 
+17		1,703		0,85		0,372		0,93		617940		444971		1062911		50534		13,78s		 
+18		1,686		0,84		0,386		0,92		627885		435026		1062911		50750		13,15s		 
+19		1,669		0,83		0,375		0,92		619830		443081		1062911		50710		13,53s		 
+20		1,652		0,83		0,387		0,91		628660		434251		1062911		50636		13,19s		 
+21		1,636		0,82		0,375		0,91		620274		442637		1062911		50677		13,22s		 
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of local: 594 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 8153 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131089 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 14467 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@649300041(0,399KiB serialized bytes, 73 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Writing Memtable-local@1301448373(0,053KiB serialized bytes, 22 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-tmp-ka-36-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=9200038)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-34-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=9200038)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@1180482458(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:22] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-35-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=9200038)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@1711664040(2,926KiB serialized bytes, 103 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:21] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-28-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=9200038)
+[CompactionExecutor:27] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-ka-35-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-ka-36-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-ka-34-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-ka-33-Data.db')]
+[CompactionExecutor:26] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-26-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-28-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-27-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-25-Data.db')]
+[CompactionExecutor:27] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\local-7ad54392bcdd35a684174e047860b377\system-local-ka-37,].  927 bytes to 656 (~70% of original) in 96ms = 0,006517MB/s.  4 total partitions merged to 1.  Partition merge counts were {4:1, }
+[CompactionExecutor:26] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-ka-29,].  5 245 bytes to 4 597 (~87% of original) in 135ms = 0,032474MB/s.  52 total partitions merged to 52.  Partition merge counts were {1:52, }
+22		1,619		0,81		0,386		0,90		627570		435341		1062911		50714		14,22s		 
+23		1,603		0,80		0,388		0,90		629284		433627		1062911		50836		13,25s		 
+24		1,587		0,79		0,393		0,90		633205		429706		1062911		50760		13,37s		 
+25		1,571		0,79		0,396		0,89		634884		428027		1062911		50700		13,42s		 
+26		1,556		0,78		0,411		0,89		645747		417164		1062911		50666		13,94s		 
+27		1,540		0,77		0,407		0,89		642567		420344		1062911		50682		13,21s		 
+28		1,525		0,76		0,418		0,88		650883		412028		1062911		50480		13,45s		 
+29		1,509		0,75		0,417		0,88		649848		413063		1062911		50499		13,32s		 
+30		1,494		0,75		0,426		0,87		656473		406438		1062911		50552		13,39s		 
+31		1,479		0,74		0,420		0,87		651692		411219		1062911		50664		13,28s		 
+32		1,465		0,73		0,436		0,87		663179		399732		1062911		50762		13,94s		 
+33		1,450		0,72		0,442		0,86		667668		395243		1062911		50562		13,19s		 
+34		1,435		0,72		0,452		0,86		674981		387930		1062911		50625		13,14s		 
+35		1,421		0,71		0,465		0,86		683669		379242		1062911		50686		13,68s		 
+36		1,407		0,70		0,461		0,85		680800		382111		1062911		50705		13,59s		 
+37		1,393		0,70		0,466		0,85		684354		378557		1062911		50632		13,50s		 
+38		1,379		0,69		0,458		0,84		679243		383668		1062911		50603		13,26s		 
+39		1,365		0,68		0,490		0,84		701670		361241		1062911		50795		193,34s		 
+40		1,351		0,68		0,485		0,84		697990		364921		1062911		50690		13,28s		 
+41		1,338		0,67		0,473		0,83		689504		373407		1062911		50660		13,71s		 
+42		1,325		0,66		0,498		0,83		707304		355607		1062911		50627		13,81s		 
+43		1,311		0,66		0,499		0,83		708157		354754		1062911		50592		13,35s		 
+44		1,298		0,65		0,496		0,82		706033		356878		1062911		50565		13,62s		 
+45		1,285		0,64		0,511		0,82		716654		346257		1062911		50595		13,63s		 
+46		1,272		0,64		0,526		0,82		727220		335691		1062911		50551		194,18s		 
+47		1,260		0,63		0,543		0,81		739454		323457		1062911		50603		13,65s		 
+48		1,247		0,62		0,536		0,81		734059		328852		1062911		50596		13,63s		 
+49		1,235		0,62		0,537		0,81		734627		328284		1062911		50594		13,30s		 
+50		1,222		0,61		0,537		0,81		735054		327857		1062911		50742		13,30s		 
+51		1,210		0,61		0,552		0,80		745308		317603		1062911		50594		13,21s		 
+52		1,198		0,60		0,562		0,80		752508		310403		1062911		50710		13,18s		 
+53		1,186		0,59		0,573		0,80		760609		302302		1062911		50664		13,33s		 
+54		1,174		0,59		0,584		0,79		768433		294478		1062911		50659		13,52s		 
+55		1,162		0,58		0,590		0,79		772115		290796		1062911		50689		13,48s		 
+56		1,151		0,58		0,587		0,79		770567		292344		1062911		50621		13,75s		 
+57		1,139		0,57		0,590		0,78		772692		290219		1062911		50676		13,59s		 
+58		1,128		0,56		0,615		0,78		790181		272730		1062911		50735		13,46s		 
+59		1,117		0,56		0,612		0,78		787868		275043		1062911		50776		13,41s		 
+60		1,105		0,55		0,621		0,78		794183		268728		1062911		50766		13,57s		 
+61		1,094		0,55		0,627		0,77		798884		264027		1062911		50743		13,63s		 
+62		1,083		0,54		0,645		0,77		811690		251221		1062911		50656		13,42s		 
+63		1,073		0,54		0,650		0,77		814861		248050		1062911		50655		13,40s		 
+64		1,062		0,53		0,660		0,77		821869		241042		1062911		50641		13,39s		 
+65		1,051		0,53		0,667		0,76		827269		235642		1062911		50674		13,41s		 
+66		1,041		0,52		0,672		0,76		830307		232604		1062911		50685		13,47s		 
+67		1,030		0,52		0,678		0,76		834902		228009		1062911		50691		13,35s		 
+68		1,020		0,51		0,693		0,75		845471		217440		1062911		50697		193,71s		 
+69		1,010		0,50		0,697		0,75		847915		214996		1062911		50709		13,50s		 
+70		1,000		0,50		0,698		0,75		849079		213832		1062911		50709		193,57s		 
+71		0,990		0,49		0,700		0,75		850477		212434		1062911		50716		13,38s		 
+72		0,980		0,49		0,701		0,74		851021		211890		1062911		50710		13,35s		 
+73		0,970		0,48		0,702		0,74		851490		211421		1062911		50710		13,49s		 
+74		0,960		0,48		0,703		0,74		852316		210595		1062911		50710		13,28s		 
+75		0,951		0,48		0,703		0,74		852459		210452		1062911		50711		13,35s		 
+76		0,941		0,47		0,703		0,74		852773		210138		1062911		50709		13,17s		 
+77		0,932		0,47		0,703		0,73		852784		210127		1062911		50708		13,25s		 
+78		0,922		0,46		0,703		0,73		852793		210118		1062911		50707		13,39s		 
+79		0,913		0,46		0,703		0,73		852804		210107		1062911		50708		13,11s		 
+[Service Thread] INFO org.apache.cassandra.service.GCInspector - PS MarkSweep GC in 2268ms.  PS Eden Space: 2775580672 -> 0; PS Old Gen: 5592580088 -> 686382664; PS Survivor Space: 4880504 -> 0
+80		0,904		0,45		0,704		0,73		853058		209853		1062911		50709		15,73s		 
+81		0,895		0,45		0,704		0,72		853079		209832		1062911		50710		13,10s		 
+82		0,886		0,44		0,704		0,72		853112		209799		1062911		50711		13,16s		 
+83		0,877		0,44		0,704		0,72		853287		209624		1062911		50708		12,98s		 
+84		0,868		0,43		0,705		0,72		853577		209334		1062911		50711		13,18s		 
+85		0,860		0,43		0,706		0,71		854439		208472		1062911		50717		13,48s		 
+86		0,851		0,43		0,706		0,71		854666		208245		1062911		50718		13,07s		 
+87		0,843		0,42		0,707		0,71		855414		207497		1062911		50724		12,97s		 
+88		0,834		0,42		0,710		0,71		857777		205134		1062911		50735		12,92s		 
+89		0,826		0,41		0,712		0,71		858650		204261		1062911		50738		12,99s		 
+90		0,818		0,41		0,713		0,70		859321		203590		1062911		50739		13,04s		 
+91		0,809		0,40		0,713		0,70		859593		203318		1062911		50739		12,90s		 
+92		0,801		0,40		0,713		0,70		859838		203073		1062911		50738		12,82s		 
+93		0,793		0,40		0,713		0,70		859886		203025		1062911		50738		13,22s		 
+Terminated Vaquero algorithm at iteration: 93, Runtime: 1971,59
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25169], 2=[20000000, 25930]]
+Clusters Lower Bound: [0=0, 1=0, 2=761]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5351424 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@811353491(5,064MiB serialized bytes, 325 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:23] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-21-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146411, position=20688414)
+Before/After Cross Node Queries: 708476 / 402933, Improvement: 43,13%
+Good before/after Queries:  354435 / 1722889
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0,990, iF=0,990, nClusters=3, aProb=0,50
+Clusters INIT Lower Bound: [0=0, 1=0, 2=761]
+Cooling factor: 0,990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		Time
+1		2,000		1,00		0,713		1,00		859886		203025		1062911		50595		13,45s		 
+2		1,980		0,99		0,417		1,00		649791		413120		1062911		50719		13,75s		 
+3		1,960		0,98		0,329		0,99		587265		475646		1062911		50812		13,66s		 
+4		1,941		0,97		0,321		0,99		581782		481129		1062911		50602		13,73s		 
+5		1,921		0,96		0,332		0,98		589772		473139		1062911		50607		13,57s		 
+6		1,902		0,95		0,340		0,98		595322		467589		1062911		50604		13,40s		 
+7		1,883		0,94		0,368		0,97		615066		447845		1062911		50536		13,27s		 
+8		1,864		0,93		0,355		0,97		606253		456658		1062911		50745		13,38s		 
+9		1,845		0,92		0,364		0,96		612411		450500		1062911		50517		13,80s		 
+10		1,827		0,91		0,348		0,96		601008		461903		1062911		50616		13,31s		 
+11		1,809		0,90		0,364		0,95		612106		450805		1062911		50535		13,67s		 
+12		1,791		0,90		0,375		0,95		619955		442956		1062911		50459		13,50s		 
+13		1,773		0,89		0,390		0,94		630533		432378		1062911		50489		13,60s		 
+14		1,755		0,88		0,389		0,94		629787		433124		1062911		50702		14,00s		 
+15		1,737		0,87		0,395		0,93		634562		428349		1062911		50744		13,20s		 
+16		1,720		0,86		0,407		0,93		643136		419775		1062911		50688		13,23s		 
+17		1,703		0,85		0,376		0,93		620871		442040		1062911		50729		13,33s		 
+18		1,686		0,84		0,395		0,92		634077		428834		1062911		50732		13,25s		 
+19		1,669		0,83		0,388		0,92		629084		433827		1062911		50812		13,19s		 
+20		1,652		0,83		0,395		0,91		634535		428376		1062911		50619		13,30s		 
+21		1,636		0,82		0,407		0,91		643069		419842		1062911		50796		13,47s		 
+22		1,619		0,81		0,401		0,90		638842		424069		1062911		50822		13,19s		 
+23		1,603		0,80		0,420		0,90		652211		410700		1062911		50666		13,16s		 
+24		1,587		0,79		0,418		0,90		650774		412137		1062911		50700		13,63s		 
+25		1,571		0,79		0,410		0,89		644799		418112		1062911		50504		13,33s		 
+26		1,556		0,78		0,416		0,89		649013		413898		1062911		50764		13,30s		 
+27		1,540		0,77		0,421		0,89		652847		410064		1062911		50749		13,37s		 
+28		1,525		0,76		0,431		0,88		659855		403056		1062911		50844		13,33s		 
+29		1,509		0,75		0,436		0,88		663227		399684		1062911		50678		13,12s		 
+30		1,494		0,75		0,438		0,87		664418		398493		1062911		50825		13,22s		 
+31		1,479		0,74		0,433		0,87		661338		401573		1062911		50831		13,34s		 
+32		1,465		0,73		0,437		0,87		663952		398959		1062911		50702		13,20s		 
+33		1,450		0,72		0,446		0,86		670201		392710		1062911		50895		13,20s		 
+34		1,435		0,72		0,457		0,86		678487		384424		1062911		50820		13,47s		 
+35		1,421		0,71		0,481		0,86		695431		367480		1062911		50665		12,97s		 
+36		1,407		0,70		0,490		0,85		701432		361479		1062911		50635		13,03s		 
+37		1,393		0,70		0,485		0,85		698122		364789		1062911		50590		13,10s		 
+38		1,379		0,69		0,465		0,84		683536		379375		1062911		50725		13,81s		 
+39		1,365		0,68		0,481		0,84		695171		367740		1062911		50694		13,56s		 
+40		1,351		0,68		0,510		0,84		715417		347494		1062911		50787		13,02s		 
+41		1,338		0,67		0,529		0,83		729554		333357		1062911		50796		13,11s		 
+42		1,325		0,66		0,532		0,83		731268		331643		1062911		50844		13,28s		 
+43		1,311		0,66		0,537		0,83		734990		327921		1062911		50746		13,24s		 
+44		1,298		0,65		0,535		0,82		733707		329204		1062911		50788		13,37s		 
+45		1,285		0,64		0,509		0,82		715162		347749		1062911		50753		13,14s		 
+46		1,272		0,64		0,511		0,82		716797		346114		1062911		50707		193,36s		 
+47		1,260		0,63		0,536		0,81		734340		328571		1062911		50725		13,26s		 
+48		1,247		0,62		0,542		0,81		738079		324832		1062911		50798		13,25s		 
+49		1,235		0,62		0,542		0,81		738353		324558		1062911		50828		13,22s		 
+50		1,222		0,61		0,542		0,81		738567		324344		1062911		50726		13,20s		 
+51		1,210		0,61		0,562		0,80		752526		310385		1062911		50668		13,16s		 
+52		1,198		0,60		0,579		0,80		764769		298142		1062911		50776		13,33s		 
+53		1,186		0,59		0,580		0,80		765053		297858		1062911		50740		13,26s		 
+54		1,174		0,59		0,582		0,79		767112		295799		1062911		50795		13,19s		 
+55		1,162		0,58		0,606		0,79		783631		279280		1062911		50790		13,58s		 
+56		1,151		0,58		0,596		0,79		776916		285995		1062911		50742		13,20s		 
+57		1,139		0,57		0,609		0,78		786141		276770		1062911		50739		193,35s		 
+58		1,128		0,56		0,628		0,78		799468		263443		1062911		50714		13,28s		 
+59		1,117		0,56		0,638		0,78		806762		256149		1062911		50754		13,19s		 
+60		1,105		0,55		0,636		0,78		805321		257590		1062911		50719		13,31s		 
+61		1,094		0,55		0,647		0,77		812999		249912		1062911		50707		13,36s		 
+62		1,083		0,54		0,642		0,77		809139		253772		1062911		50723		13,50s		 
+63		1,073		0,54		0,648		0,77		813636		249275		1062911		50702		13,51s		 
+64		1,062		0,53		0,655		0,77		818206		244705		1062911		50766		13,20s		 
+65		1,051		0,53		0,654		0,76		817577		245334		1062911		50758		13,46s		 
+66		1,041		0,52		0,662		0,76		823323		239588		1062911		50763		13,33s		 
+67		1,030		0,52		0,676		0,76		833668		229243		1062911		50761		12,99s		 
+68		1,020		0,51		0,684		0,75		838866		224045		1062911		50704		13,21s		 
+69		1,010		0,50		0,686		0,75		840556		222355		1062911		50696		13,37s		 
+70		1,000		0,50		0,691		0,75		844026		218885		1062911		50690		13,01s		 
+71		0,990		0,49		0,695		0,75		846601		216310		1062911		50685		13,15s		 
+72		0,980		0,49		0,697		0,74		848440		214471		1062911		50684		13,08s		 
+73		0,970		0,48		0,698		0,74		849031		213880		1062911		50685		13,14s		 
+74		0,960		0,48		0,700		0,74		850322		212589		1062911		50690		193,35s		 
+75		0,951		0,48		0,701		0,74		851097		211814		1062911		50685		13,24s		 
+76		0,941		0,47		0,701		0,74		851375		211536		1062911		50684		13,38s		 
+77		0,932		0,47		0,702		0,73		851575		211336		1062911		50683		13,31s		 
+78		0,922		0,46		0,702		0,73		851576		211335		1062911		50685		13,32s		 
+79		0,913		0,46		0,702		0,73		851579		211332		1062911		50686		13,10s		 
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of sstable_activity: 2209 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of size_estimates: 131089 (0%) on-heap, 0 (0%) off-heap
+[ScheduledTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of compaction_history: 1188 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:24] INFO org.apache.cassandra.db.Memtable - Writing Memtable-sstable_activity@154561674(0,149KiB serialized bytes, 44 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Writing Memtable-size_estimates@1369391560(9,813KiB serialized bytes, 1848 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:24] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\sstable_activity-5a1ff267ace03f128563cfae6103c65e\system-sstable_activity-tmp-ka-35-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=20772300)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-tmp-ka-36-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=20772300)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Writing Memtable-compaction_history@1157635791(0,231KiB serialized bytes, 9 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:25] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca\system-compaction_history-tmp-ka-30-Data.db (0,000KiB) for commitlog position ReplayPosition(segmentId=1545726146411, position=20772300)
+[CompactionExecutor:53] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacting [SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-35-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-34-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-33-Data.db'), SSTableReader(path='C:\Users\Martin\IdeaProjects\grm\db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-36-Data.db')]
+[CompactionExecutor:53] INFO org.apache.cassandra.db.compaction.CompactionTask - Compacted 4 sstables to [db\cassandra\data\system\size_estimates-618f817b005f3678b8a453f3930b8e86\system-size_estimates-ka-37,].  4 341 bytes to 1 597 (~36% of original) in 142ms = 0,010725MB/s.  7 total partitions merged to 2.  Partition merge counts were {3:1, 4:1, }
+80		0,904		0,45		0,702		0,73		851958		210953		1062911		50681		193,05s		 
+81		0,895		0,45		0,702		0,72		851987		210924		1062911		50682		13,00s		 
+82		0,886		0,44		0,702		0,72		851989		210922		1062911		50679		13,02s		 
+83		0,877		0,44		0,702		0,72		852023		210888		1062911		50679		13,13s		 
+84		0,868		0,43		0,702		0,72		852027		210884		1062911		50679		13,11s		 
+Terminated Vaquero algorithm at iteration: 84, Runtime: 1839,84
+Clusters capacity/usage: [0=[20000000, 25169], 1=[20000000, 25289], 2=[20000000, 25810]]
+Clusters Lower Bound: [0=0, 1=120, 2=641]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+[BatchlogTasks:1] INFO org.apache.cassandra.db.ColumnFamilyStore - Enqueuing flush of batchlog: 5099943 (0%) on-heap, 0 (0%) off-heap
+[MemtableFlushWriter:26] INFO org.apache.cassandra.db.Memtable - Writing Memtable-batchlog@366833001(4,827MiB serialized bytes, 305 ops, 0%/0% of on/off-heap limit)
+[MemtableFlushWriter:26] INFO org.apache.cassandra.db.Memtable - Completed flushing db\cassandra\data\system\batchlog-0290003c977e397cac3efdfdc01d626b\system-batchlog-tmp-ka-22-Data.db; nothing needed to be retained.  Commitlog position was ReplayPosition(segmentId=1545726146411, position=31655624)
+Before/After Cross Node Queries: 708476 / 613817, Improvement: 13,36%
+Good before/after Queries:  354435 / 2574916
+[StorageServiceShutdownHook] INFO org.apache.cassandra.thrift.ThriftServer - Stop listening to thrift clients
+[StorageServiceShutdownHook] INFO org.apache.cassandra.transport.Server - Stop listening for CQL clients
+[StorageServiceShutdownHook] INFO org.apache.cassandra.gms.Gossiper - Announcing shutdown
+[StorageServiceShutdownHook] INFO org.apache.cassandra.service.StorageService - Node localhost/127.0.0.1 state jump to shutdown
+[StorageServiceShutdownHook] INFO org.apache.cassandra.net.MessagingService - Waiting for messaging service to quiesce
+[ACCEPT-localhost/127.0.0.1] INFO org.apache.cassandra.net.MessagingService - MessagingService has terminated the accept() thread
