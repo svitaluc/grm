@@ -26,7 +26,6 @@ import org.apache.tinkerpop.gremlin.process.computer.util.AbstractVertexProgramB
 import org.apache.tinkerpop.gremlin.process.computer.util.StaticVertexProgram;
 import org.apache.tinkerpop.gremlin.process.traversal.Operator;
 import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
-import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.MapHelper;
 import org.apache.tinkerpop.gremlin.structure.*;
@@ -49,26 +48,96 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     private MessageScope.Local<Quartet<Serializable, Long, Long, Long>> voteScope;
 
+    /**
+     * The key to a vertex property defining proposed new partition
+     */
     public static final String PARTITION = "gremlin.VaqueroVertexProgram.partition";
     public static final String ARE_MOCKED_PARTITIONS = "gremlin.VaqueroVertexProgram.areMockedPartitions";
-    public static final String CLUSTER_COUNT = "gremlin.VaqueroVertexProgram.clusterCount";
-    public static final String CLUSTERS = "gremlin.VaqueroVertexProgram.clusters";
+    /**
+     * Memory key to store the number of
+     */
+    public static final String PARTITION_COUNT = "gremlin.VaqueroVertexProgram.partitionCount";
+    /**
+     * Memory key to store a Map<Long, Pair<Long, Long>> that keeps the ID of partition with its capacity and current usage.
+     */
+    public static final String CLUSTER = "gremlin.VaqueroVertexProgram.cluster";
+    /**
+     * Memory key to store a Map<Pair<Long, Long>, Long> that keeps the maximum amount of available vertex transfers from one partition
+     * to another. The pair of these partitions acts as key to this map. This map is updated once per iteration.
+     */
     public static final String CLUSTER_UPPER_BOUND_SPACE = "gremlin.VaqueroVertexProgram.clusterUpperBoundSpace";
+    /**
+     * Memory key to store Map<Long, Long> that keeps the maximum amount of vertices that can be transferred from a partition.
+     * The ID of the partition is the key to this map. If the returned value of the partition ID is higher than zero then the
+     * partition is eligible to transfer vertices from.
+     */
     public static final String CLUSTER_LOWER_BOUND_SPACE = "gremlin.VaqueroVertexProgram.clusterLowerBoundSpace";
+    /**
+     * Configuration key to set the acquireLabelProbability variable. Which affects if and vertex should acquire new partition.
+     */
     public static final String ACQUIRE_PARTITION_PROBABILITY = "gremlin.VaqueroVertexProgram.acquirePartitionProbability";
+    /**
+     * Configuration key to set the imbalanceFactor variable. Which affects the amount of eligible vertices to transfer in
+     * the Memory variable CLUSTER_LOWER_BOUND_SPACE.
+     */
     public static final String IMBALANCE_FACTOR = "gremlin.VaqueroVertexProgram.imbalanceFactor";
+    /**
+     * Configuration key to set the imbalanceFactor variable. Which affects the temperature equation that affects the
+     * probability of acquiring new partition ID.
+     */
     public static final String ADOPTION_FACTOR = "gremlin.VaqueroVertexProgram.adoptionFactor";
+    /**
+     * Memory key to boolean variable. Each vertex in their execute() run will vote true/false whether to halt the program or not.
+     * The votes sent by all vertices are then reduced via {@link Operator#and} into a single value. If true at the end of
+     * an iteration the program will halt.
+     */
     private static final String VOTE_TO_HALT = "gremlin.VaqueroVertexProgram.voteToHalt";
+    /**
+     * Configuration key to set the maxIterations variable defining the maximum number of iterations before the program will halt.
+     */
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
+    /**
+     * Configuration key to set the coolingFactor variable defining the rate of cooling down the temperature of simulated annealing.
+     */
     private static final String COOLING_FACTOR = "gremlin.VaqueroVertexProgram.coolingFactor";
+    /**
+     * The key of an edge property storing the weight of the PR Log edge
+     */
     private static final String EDGE_PROPERTY = "times";
+    /**
+     * Configuration key that sets the incidentTraversal variable. This determines the message scope.
+     * __::bothE will send the message to neighbours of a vertex using all edges.
+     * __::outE will send the message to neighbours of a vertex using only outgoing edges.
+     */
     private static final String INCIDENT_TRAVERSAL = "gremlin.VaqueroVertexProgram.incidentTraversal";
+    /**
+     * Configuration key that sets the clusterMapper variable that is responsible for mapping the partition of given vertexID.
+     */
     private static final String CLUSTER_MAPPER = "gremlin.VaqueroVertexProgram.clusterMapper";
+    /**
+     * Memory key to store Map of vertex IDs and the number of times the vertex was appeared in the PR Log. This is used
+     * for evaluation of the partitioning improvement in between iterations. (only eligible for Twitter EGO dataset)
+     */
     private static final String EVALUATING_MAP = "gremlin.VaqueroVertexProgram.evaluatingMap";
+    /**
+     * Configuration key to store a number of vertices that have different partition ID then in the beginning of the program.
+     */
     private static final String EVALUATING_CLUSTER_SWITCH_COUNT = "gremlin.VaqueroVertexProgram.evaluatingClusterSwitchCount";
+    /**
+     * Memory key to store the cross-node and same-node communication of vertices in the EVALUATING_MAP map.
+     * (only for Twitter EGO dataset)
+     */
     private static final String EVALUATING_STATS = "gremlin.VaqueroVertexProgram.evaluatingStats";
+    /**
+     * Configuration key to the initial values of cross-node/same-node communication. Gives the ability to calculate improvement of EVALUATING_STATS.
+     */
     private static final String EVALUATING_STATS_ORIGINAL = "gremlin.VaqueroVertexProgram.evaluatingStatsOriginal";
+    /**
+     * Configuration key to boolean variable to enable/disable the evaluation of cross-node/same-node communication.
+     * Only the Twitter EGO dataset is eligible to use this feature.
+     */
     private static final String EVALUATE_CROSS_COMMUNICATION = "gremlin.VaqueroVertexProgram.evaluateCrossCommunication";
+
     private static final long RANDOM_SEED = 123456L;
     private Random random = new Random(RANDOM_SEED);
 
@@ -76,7 +145,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     private long initTime = 0;
     private long maxIterations = 100L;
     private long vertexCount = 0L;
-    private int clusterCount = 16;
+    private int partitionCount = 16;
     private double initialTemperature = 2D;
     private double adoptionFactor = 1D;
     private double temperature = initialTemperature;
@@ -97,7 +166,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     private static final Set<MemoryComputeKey> MEMORY_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             MemoryComputeKey.of(VOTE_TO_HALT, Operator.and, false, true),
             MemoryComputeKey.of(EVALUATING_CLUSTER_SWITCH_COUNT, Operator.sumLong, false, true),
-            MemoryComputeKey.of(CLUSTERS, HelperOperator.incrementPairMap, true, false),
+            MemoryComputeKey.of(CLUSTER, HelperOperator.incrementPairMap, true, false),
             MemoryComputeKey.of(CLUSTER_UPPER_BOUND_SPACE, HelperOperator.sumMap, true, false),
             MemoryComputeKey.of(CLUSTER_LOWER_BOUND_SPACE, HelperOperator.sumMap, true, false),
             MemoryComputeKey.of(EVALUATING_STATS, HelperOperator.sumPair, false, false)
@@ -125,7 +194,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         if (memory.isInitialIteration()) {
             iterTime = initTime = System.currentTimeMillis();
             memory.set(VOTE_TO_HALT, false);
-            memory.set(CLUSTERS, initialClusters);
+            memory.set(CLUSTER, initialClusters);
             memory.set(CLUSTER_UPPER_BOUND_SPACE, initialClusterUpperBoundSpace);
             memory.set(CLUSTER_LOWER_BOUND_SPACE, initialClusterLowerBoundSpace);
             memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L));
@@ -138,18 +207,13 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     @Override
     public void execute(Vertex vertex, Messenger<Quartet<Serializable, Long, Long, Long>> messenger, Memory memory) {
-        if (memory.isInitialIteration()) {
+        if (memory.isInitialIteration()) {//initial iteration preparations
             if (areMockedPartitions)
-                vertex.property(VertexProperty.Cardinality.single, PARTITION, (long) random.nextInt(clusterCount));
-            long PID;
-            try {
-                PID = vertex.<Long>value(PARTITION);
-            } catch (IllegalStateException | NoSuchElementException e) {
-                PID = clusterMapper.map((Long) vertex.id());
-                vertex.property(VertexProperty.Cardinality.single, PARTITION, PID);
-
+                vertex.property(VertexProperty.Cardinality.single, PARTITION, (long) random.nextInt(partitionCount));
+            else {
+                vertex.property(VertexProperty.Cardinality.single, PARTITION, clusterMapper.map((Long) vertex.id()));
             }
-            messenger.sendMessage(voteScope, new Quartet<>((Serializable) vertex.id(), PID, -1L, -1L));
+            messenger.sendMessage(voteScope, new Quartet<>((Serializable) vertex.id(), vertex.value(PARTITION), -1L, -1L));
 
         } else {
             final long VID = (Long) vertex.id();
@@ -224,7 +288,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             return true;
         } else {
             memory.set(VOTE_TO_HALT, true); // need to reset to TRUE for the second and later iterations because of the binary AND operator
-            memory.set(CLUSTER_UPPER_BOUND_SPACE, computeNewClusterUpperBoundSpace(memory.get(CLUSTERS))); // compute new cluster available space for next iteration
+            memory.set(CLUSTER_UPPER_BOUND_SPACE, computeNewClusterUpperBoundSpace(memory.get(CLUSTER))); // compute new cluster available space for next iteration
             memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L)); //reset the counter for good and cross-cluster queries for evaluation
             memory.set(EVALUATING_CLUSTER_SWITCH_COUNT, 0L); //reset the counter for good and cross-cluster queries for evaluation
             temperature = getTemperature(iteration);
@@ -271,21 +335,21 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         if (this.evaluatingMap == null) this.evaluatingMap = new HashMap<>();
         this.evaluatingMap = Collections.synchronizedMap((Map<Long, Long>) configuration.getProperty(EVALUATING_MAP));
         this.initialClusters = Collections.synchronizedMap(new HashMap<>());
-        for (GraphTraversal<Vertex, Vertex> it = graph.traversal().V(); it.hasNext(); ) {
-            Vertex v = it.next();
+        graph.traversal().V().toStream().parallel().forEach(v -> {
             try {
                 long PID = v.value(PARTITION);
                 computeClusterHelper(initialClusters, PID);
             } catch (Exception e) {
                 computeClusterHelper(initialClusters, clusterMapper, (Long) v.id());
             }
-        }
-        this.clusterCount = initialClusters.size();
+        });
+
+        this.partitionCount = initialClusters.size();
         this.initialClusterUpperBoundSpace = computeNewClusterUpperBoundSpace(initialClusters);
         this.initialClusterLowerBoundSpace = computeClusterLowerBoundSpace(initialClusters);
         this.incidentTraversal = (Supplier<Traversal<Vertex, Edge>>) configuration.getProperty(INCIDENT_TRAVERSAL);
         if (this.incidentTraversal == null) this.incidentTraversal = () -> __.bothE();
-        this.voteScope = MessageScope.Local.of(() -> this.incidentTraversal.get()
+        this.voteScope = MessageScope.Local.of(this.incidentTraversal
                 , (m, edge) -> {
                     try {
                         return new Quartet<>(m.getValue0(), m.getValue1(), edge.<Long>value(EDGE_PROPERTY), -1L);
@@ -299,9 +363,9 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     public void storeState(final Configuration configuration) {
         super.storeState(configuration);
         configuration.setProperty(MAX_ITERATIONS, this.maxIterations);
-        configuration.setProperty(CLUSTER_COUNT, this.clusterCount);
+        configuration.setProperty(PARTITION_COUNT, this.partitionCount);
         configuration.setProperty(ACQUIRE_PARTITION_PROBABILITY, this.acquirePartitionProbability);
-        configuration.setProperty(CLUSTERS, this.initialClusters);
+        configuration.setProperty(CLUSTER, this.initialClusters);
         configuration.setProperty(ARE_MOCKED_PARTITIONS, this.areMockedPartitions);
         configuration.setProperty(CLUSTER_MAPPER, this.clusterMapper);
         configuration.setProperty(COOLING_FACTOR, this.coolingFactor);
@@ -323,13 +387,13 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
      * @return true of if the new newPartitionId was acquired, else otherwise
      */
     private boolean acquireNewPartition(long oldPartitionId, long newPartitionId, Memory memory, Vertex vertex) {
-        Pair<Long, Long> oldClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTERS).get(oldPartitionId);
-        Pair<Long, Long> newClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTERS).get(newPartitionId);
+        Pair<Long, Long> oldClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTER).get(oldPartitionId);
+        Pair<Long, Long> newClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTER).get(newPartitionId);
         long available = memory.<Map<Pair<Long, Long>, Long>>get(CLUSTER_UPPER_BOUND_SPACE).get(new Pair<>(oldPartitionId, newPartitionId));
         if (available > 0) { // checking upper partition space upper and lowerBound
             long remaining = memory.<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).get(oldPartitionId);
             if (remaining > 0) {
-                memory.add(CLUSTERS, Collections.synchronizedMap(new HashMap<Long, Pair<Long, Long>>() {{
+                memory.add(CLUSTER, Collections.synchronizedMap(new HashMap<Long, Pair<Long, Long>>() {{
                     put(oldPartitionId, new Pair<>(oldClusterCapacityUsage.getValue0(), -1L));
                     put(newPartitionId, new Pair<>(newClusterCapacityUsage.getValue0(), 1L));
                 }}));
@@ -397,19 +461,19 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
      * @return the calculated space
      */
     private long getClusterUpperBoundSpace(Pair<Long, Long> capUsage) {
-        return (capUsage.getValue0() - capUsage.getValue1()) / (clusterCount - 1);
+        return (capUsage.getValue0() - capUsage.getValue1()) / (partitionCount - 1);
     }
 
     /**
      * Helper to get the limit of minimum usage for each parition of the cluster
      *
-     * @param cluster     the cluster
+     * @param partitionCapacityUsage capacity and current usage of partition
      * @param sumCapacity cluster capacity sum
      * @param vertexCount count of every vertex of the graph
-     * @return the number of vertices that can leave given partitons
+     * @return the number of vertices that can leave given partitions
      */
-    private long getClusterLowerBoundSpace(Pair<Long, Long> cluster, long sumCapacity, long vertexCount) {
-        return (long) (cluster.getValue1() - (imbalanceFactor * vertexCount * (cluster.getValue0() / (double) sumCapacity)));
+    private long getClusterLowerBoundSpace(Pair<Long, Long> partitionCapacityUsage, long sumCapacity, long vertexCount) {
+        return (long) (partitionCapacityUsage.getValue1() - (imbalanceFactor * vertexCount * (partitionCapacityUsage.getValue0() / (double) sumCapacity)));
     }
 
     /**
@@ -448,6 +512,10 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     }
 
     //------------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Builder for creating and setting up and instance of {@link org.apache.tinkerpop.gremlin.process.computer.clustering.vacquero.VacqueroVertexProgram}.
+     */
     public static final class Builder extends AbstractVertexProgramBuilder<VaqueroVertexProgram.Builder> {
 
 

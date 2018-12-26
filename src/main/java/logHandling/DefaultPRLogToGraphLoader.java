@@ -96,6 +96,6 @@ public class DefaultPRLogToGraphLoader implements PRLogToGraphLoader {
         graph.tx().commit();
 //        System.out.println(Iterators.size(g.E().hasLabel(EDGE_LABEL)));
         System.out.println("Edges added: " + edgeMap.size());
-        System.out.println("Edges overall: " + g.E().count().next());
+//        System.out.println("Edges overall: " + g.E().count().next());
     }
 }

@@ -1,31 +1,25 @@
 import cluster.DefaultPartitionMapper;
 import cluster.PartitionMapper;
-import dataset.DatasetLoader;
 import dataset.DatasetQueryRunner;
 import dataset.PennsylvaniaDatasetLoaderQueryRunner;
 import logHandling.DefaultPRLogToGraphLoader;
 import logHandling.LogFileLoader;
 import logHandling.PRLogToGraphLoader;
-import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
-import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
-import org.janusgraph.diskstorage.BackendException;
-import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.javatuples.Pair;
 import partitioningAlgorithms.VaqueroVertexProgram;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTERS;
+import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER;
 import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER_LOWER_BOUND_SPACE;
 
 /**
@@ -64,7 +58,7 @@ public class GRMP extends GRM {
         //log part
         grm.loadLog(grm.logFile);
         grm.injectLogToGraph(logLoader);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             grm.runPartitioningAlgorithm(clusterMapper, pens);
             grm.evaluatePartitioningAlgorithm(pens);
         }
@@ -89,7 +83,7 @@ public class GRMP extends GRM {
         vertexProgram = VaqueroVertexProgram.build()
                 .clusterMapper(cm)
                 .acquirePartitionProbability(0.5)
-                .imbalanceFactor(0.80)
+                .imbalanceFactor(0.96)
                 .coolingFactor(0.99)
                 .adoptionFactor(1)
                 .evaluatingMap(runner.evaluatingMap())
@@ -97,9 +91,9 @@ public class GRMP extends GRM {
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(20).submit().get();
-        System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTER).entrySet().toArray()));
         System.out.println("Clusters Lower Bound: " + Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
-        System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());
+        System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTER).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());
         System.out.println("Vertex count: " + graph.traversal().V().count().next());
         graph.tx().commit();
     }

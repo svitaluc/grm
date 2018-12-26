@@ -1,32 +1,23 @@
 import cluster.DefaultPartitionMapper;
 import cluster.PartitionMapper;
-import dataset.DatasetLoader;
 import dataset.DatasetQueryRunner;
 import dataset.TwitterDatasetLoaderQueryRunner;
 import logHandling.DefaultPRLogToGraphLoader;
-import logHandling.LogFileLoader;
 import logHandling.PRLogToGraphLoader;
-import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__;
-import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
-import org.janusgraph.diskstorage.BackendException;
-import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.javatuples.Pair;
 import partitioningAlgorithms.VaqueroVertexProgram;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTERS;
+import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER;
 import static partitioningAlgorithms.VaqueroVertexProgram.CLUSTER_LOWER_BOUND_SPACE;
 
 /**
@@ -51,7 +42,7 @@ public class GRMT extends GRM {
         GRMT grm = new GRMT();
         TwitterDatasetLoaderQueryRunner twitter = new TwitterDatasetLoaderQueryRunner("src/main/resources/datasets/twitter");
         PRLogToGraphLoader logLoader = new DefaultPRLogToGraphLoader();
-        PartitionMapper clusterMapper = new DefaultPartitionMapper(7);
+        PartitionMapper clusterMapper = new DefaultPartitionMapper(3);
 
         //dataset part
         grm.clearGraph();
@@ -63,7 +54,7 @@ public class GRMT extends GRM {
         //log part
         grm.loadLog(grm.logFile);
         grm.injectLogToGraph(logLoader);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             grm.runPartitioningAlgorithm(clusterMapper, twitter);
             grm.evaluatePartitioningAlgorithm(twitter);
         }
@@ -87,7 +78,7 @@ public class GRMT extends GRM {
         vertexProgram = VaqueroVertexProgram.build()
                 .clusterMapper(cm)
                 .acquirePartitionProbability(0.5)
-                .imbalanceFactor(0.90)
+                .imbalanceFactor(0.97)
                 .coolingFactor(0.99)
                 .adoptionFactor(1)
                 .scopeIncidentTraversal(__::bothE)
@@ -96,9 +87,9 @@ public class GRMT extends GRM {
                 .evaluatingStatsOriginal(runner.evaluatingStats())
                 .maxIterations(200).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(24).submit().get();
-        System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).entrySet().toArray()));
+        System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTER).entrySet().toArray()));
         System.out.println("Clusters Lower Bound: " + Arrays.toString(algorithmResult.memory().<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).entrySet().toArray()));
-        System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTERS).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());
+        System.out.println("Clusters added together count: " + algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTER).values().stream().mapToLong(Pair::getValue1).reduce((left, right) -> left + right).getAsLong());
         System.out.println("Vertex count: " + graph.traversal().V().count().next());
         graph.tx().commit();
     }

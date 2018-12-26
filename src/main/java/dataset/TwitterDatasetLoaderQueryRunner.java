@@ -97,7 +97,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
         double i = 0;
         for (File file : filesToScan) {
             i++;
-            if(i > 10) break;
+//            if(i > 10) break;
             System.out.printf("%.2f%%\t%s\n", i / filesToScan.size() * 100, file.getName());
             Long id = iDmanager.toVertexId(Long.decode(file.getName().split("\\.")[0]));
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -153,6 +153,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
 
     @Override
     public void runQueries(StandardJanusGraph graph, PartitionMapper partitionMapper, boolean log) {
+        originalCrossNodeQueries = originalNodeQueries = repartitionedCrossNodeQueries = repartitionedNodeQueries = 0;
         System.out.println("Running test queries");
         Random random = new Random(RANDOM_SEED);
         GraphTraversalSource g = graph.traversal();
@@ -228,7 +229,7 @@ public class TwitterDatasetLoaderQueryRunner implements DatasetLoader, DatasetQu
     public double evaluateQueries(Graph graph, String label) throws Exception {
         if (tweetsReaders.size() == 0 || vertexIdsDegrees.size() == 0)
             throw new Exception("The dataset runner must run the queries first before the result evaluation");
-
+        repartitionedCrossNodeQueries = repartitionedNodeQueries = 0;
         GraphTraversalSource g = graph.traversal();
         System.out.println("Number of all to be expanded nodes: " + allTweetsReaders.size());
         for (Map.Entry<Long, Long> entry : allTweetsReaders.entrySet()) {
