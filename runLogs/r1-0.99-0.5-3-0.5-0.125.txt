@@ -1120,3 +1120,1992 @@ R7 Before/After Cross Node Queries: 1023563 / 175459, Improvement: 78,41% It:76
 R8 Before/After Cross Node Queries: 1023563 / 306763, Improvement: 70,03% It:75 [0=[20000000, 50733], 1=[20000000, 12712], 2=[20000000, 12823]]
 R9 Before/After Cross Node Queries: 1023563 / 306763, Improvement: 80,01% It:91
 R10 Before/After Cross Node Queries: 1023563 / 166107, Improvement: 83,77% It:82 [0=[20000000, 45097], 1=[20000000, 17520], 2=[20000000, 13651]]
+
+
+
+
+
+
+"C:\Program Files\Java\jdk1.8.0_161\bin\java.exe" -Dvisualvm.id=315392580072100 -Xmx8192m -Xms2048m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3\lib\idea_rt.jar=20373:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_161\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\rt.jar;C:\Users\black\OneDrive\Dokumenty\programLucka\target\classes;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-core\0.3.0\janusgraph-core-0.3.0.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-core\3.3.3\gremlin-core-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-shaded\3.3.3\gremlin-shaded-3.3.3.jar;C:\Users\black\.m2\repository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;C:\Users\black\.m2\repository\org\javatuples\javatuples\1.2\javatuples-1.2.jar;C:\Users\black\.m2\repository\com\jcabi\jcabi-manifests\1.1\jcabi-manifests-1.1.jar;C:\Users\black\.m2\repository\com\jcabi\jcabi-log\0.14\jcabi-log-0.14.jar;C:\Users\black\.m2\repository\com\squareup\javapoet\1.8.0\javapoet-1.8.0.jar;C:\Users\black\.m2\repository\net\objecthunter\exp4j\0.4.8\exp4j-0.4.8.jar;C:\Users\black\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.21\jcl-over-slf4j-1.7.21.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-groovy\3.3.3\gremlin-groovy-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\ivy\ivy\2.3.0\ivy-2.3.0.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-groovysh\2.4.15\groovy-groovysh-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy\2.4.15\groovy-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-console\2.4.15\groovy-console-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-swing\2.4.15\groovy-swing-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-templates\2.4.15\groovy-templates-2.4.15.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.15\groovy-xml-2.4.15.jar;C:\Users\black\.m2\repository\jline\jline\2.12\jline-2.12.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-json\2.4.15\groovy-json-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-jsr223\2.4.15\groovy-jsr223-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-lang3\3.3.1\commons-lang3-3.3.1.jar;C:\Users\black\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\black\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.3.1\caffeine-2.3.1.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\tinkergraph-gremlin\3.3.3\tinkergraph-gremlin-3.3.3.jar;C:\Users\black\.m2\repository\org\glassfish\javax.json\1.0\javax.json-1.0.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-core\3.0.1\metrics-core-3.0.1.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-ganglia\3.0.1\metrics-ganglia-3.0.1.jar;C:\Users\black\.m2\repository\info\ganglia\gmetric4j\gmetric4j\1.0.3\gmetric4j-1.0.3.jar;C:\Users\black\.m2\repository\com\codahale\metrics\metrics-graphite\3.0.1\metrics-graphite-3.0.1.jar;C:\Users\black\.m2\repository\org\reflections\reflections\0.9.9-RC1\reflections-0.9.9-RC1.jar;C:\Users\black\.m2\repository\org\javassist\javassist\3.16.1-GA\javassist-3.16.1-GA.jar;C:\Users\black\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\black\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\black\.m2\repository\org\locationtech\spatial4j\spatial4j\0.7\spatial4j-0.7.jar;C:\Users\black\.m2\repository\org\locationtech\jts\jts-core\1.15.0\jts-core-1.15.0.jar;C:\Users\black\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\black\.m2\repository\commons-configuration\commons-configuration\1.10\commons-configuration-1.10.jar;C:\Users\black\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\black\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\black\.m2\repository\commons-io\commons-io\2.3\commons-io-2.3.jar;C:\Users\black\.m2\repository\commons-codec\commons-codec\1.7\commons-codec-1.7.jar;C:\Users\black\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\black\.m2\repository\com\carrotsearch\hppc\0.7.1\hppc-0.7.1.jar;C:\Users\black\.m2\repository\com\github\stephenc\high-scale-lib\high-scale-lib\1.1.4\high-scale-lib-1.1.4.jar;C:\Users\black\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\black\.m2\repository\org\noggit\noggit\0.6\noggit-0.6.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-text\1.0\commons-text-1.0.jar;C:\Users\black\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\repartitioning-gremlin\3.3.3\repartitioning-gremlin-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-processedResultLogging\3.3.3\gremlin-processedResultLogging-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-server\3.3.3\gremlin-server-3.3.3.jar;C:\Users\black\.m2\repository\org\apache\tinkerpop\gremlin-driver\3.3.3\gremlin-driver-3.3.3.jar;C:\Users\black\.m2\repository\io\netty\netty-all\4.0.56.Final\netty-all-4.0.56.Final.jar;C:\Users\black\.m2\repository\org\codehaus\groovy\groovy-sql\2.4.15\groovy-sql-2.4.15-indy.jar;C:\Users\black\.m2\repository\org\slf4j\slf4j-simple\1.7.25\slf4j-simple-1.7.25.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-cql\0.3.0\janusgraph-cql-0.3.0.jar;C:\Users\black\.m2\repository\com\datastax\cassandra\cassandra-driver-core\3.3.2\cassandra-driver-core-3.3.2.jar;C:\Users\black\.m2\repository\io\dropwizard\metrics\metrics-core\3.2.2\metrics-core-3.2.2.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-ffi\2.0.7\jnr-ffi-2.0.7.jar;C:\Users\black\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10.jar;C:\Users\black\.m2\repository\com\github\jnr\jffi\1.2.10\jffi-1.2.10-native.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\black\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-posix\3.0.27\jnr-posix-3.0.27.jar;C:\Users\black\.m2\repository\com\github\jnr\jnr-constants\0.9.0\jnr-constants-0.9.0.jar;C:\Users\black\.m2\repository\io\netty\netty-handler\4.0.56.Final\netty-handler-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-buffer\4.0.56.Final\netty-buffer-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-common\4.0.56.Final\netty-common-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-transport\4.0.56.Final\netty-transport-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\netty\netty-codec\4.0.56.Final\netty-codec-4.0.56.Final.jar;C:\Users\black\.m2\repository\io\vavr\vavr\0.9.0\vavr-0.9.0.jar;C:\Users\black\.m2\repository\io\vavr\vavr-match\0.9.0\vavr-match-0.9.0.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-es\0.3.0\janusgraph-es-0.3.0.jar;C:\Users\black\.m2\repository\org\elasticsearch\client\elasticsearch-rest-client\6.0.1\elasticsearch-rest-client-6.0.1.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpcore\4.4.5\httpcore-4.4.5.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.2\httpasyncclient-4.1.2.jar;C:\Users\black\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.5\httpcore-nio-4.4.5.jar;C:\Users\black\.m2\repository\org\antlr\antlr-runtime\3.2\antlr-runtime-3.2.jar;C:\Users\black\.m2\repository\org\antlr\stringtemplate\3.2\stringtemplate-3.2.jar;C:\Users\black\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\black\.m2\repository\ch\qos\logback\logback-classic\1.1.2\logback-classic-1.1.2.jar;C:\Users\black\.m2\repository\ch\qos\logback\logback-core\1.1.2\logback-core-1.1.2.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-cassandra\0.3.0\janusgraph-cassandra-0.3.0.jar;C:\Users\black\.m2\repository\org\apache\cassandra\cassandra-all\2.1.20\cassandra-all-2.1.20.jar;C:\Users\black\.m2\repository\com\ning\compress-lzf\0.8.4\compress-lzf-0.8.4.jar;C:\Users\black\.m2\repository\commons-cli\commons-cli\1.1\commons-cli-1.1.jar;C:\Users\black\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\black\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3\concurrentlinkedhashmap-lru-1.3.jar;C:\Users\black\.m2\repository\org\antlr\antlr\3.5.2\antlr-3.5.2.jar;C:\Users\black\.m2\repository\org\antlr\ST4\4.0.8\ST4-4.0.8.jar;C:\Users\black\.m2\repository\org\codehaus\jackson\jackson-core-asl\1.9.2\jackson-core-asl-1.9.2.jar;C:\Users\black\.m2\repository\org\codehaus\jackson\jackson-mapper-asl\1.9.2\jackson-mapper-asl-1.9.2.jar;C:\Users\black\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\black\.m2\repository\com\boundary\high-scale-lib\1.0.6\high-scale-lib-1.0.6.jar;C:\Users\black\.m2\repository\com\yammer\metrics\metrics-core\2.2.0\metrics-core-2.2.0.jar;C:\Users\black\.m2\repository\com\addthis\metrics\reporter-config\2.1.0\reporter-config-2.1.0.jar;C:\Users\black\.m2\repository\org\hibernate\hibernate-validator\4.3.0.Final\hibernate-validator-4.3.0.Final.jar;C:\Users\black\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.CR2\jboss-logging-3.1.0.CR2.jar;C:\Users\black\.m2\repository\com\thinkaurelius\thrift\thrift-server\0.3.7\thrift-server-0.3.7.jar;C:\Users\black\.m2\repository\com\lmax\disruptor\3.0.1\disruptor-3.0.1.jar;C:\Users\black\.m2\repository\com\clearspring\analytics\stream\2.5.2\stream-2.5.2.jar;C:\Users\black\.m2\repository\it\unimi\dsi\fastutil\6.5.7\fastutil-6.5.7.jar;C:\Users\black\.m2\repository\net\sf\supercsv\super-csv\2.1.0\super-csv-2.1.0.jar;C:\Users\black\.m2\repository\org\apache\thrift\libthrift\0.9.2\libthrift-0.9.2.jar;C:\Users\black\.m2\repository\org\apache\cassandra\cassandra-thrift\2.1.20\cassandra-thrift-2.1.20.jar;C:\Users\black\.m2\repository\net\java\dev\jna\jna\4.0.0\jna-4.0.0.jar;C:\Users\black\.m2\repository\com\github\jbellis\jamm\0.3.0\jamm-0.3.0.jar;C:\Users\black\.m2\repository\commons-pool\commons-pool\1.6\commons-pool-1.6.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-core\3.8.0\astyanax-core-3.8.0.jar;C:\Users\black\.m2\repository\joda-time\joda-time\1.6.2\joda-time-1.6.2.jar;C:\Users\black\.m2\repository\com\eaio\uuid\uuid\3.2\uuid-3.2.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-thrift\3.8.0\astyanax-thrift-3.8.0.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-cassandra\3.8.0\astyanax-cassandra-3.8.0.jar;C:\Users\black\.m2\repository\org\apache\servicemix\bundles\org.apache.servicemix.bundles.commons-csv\1.0-r706900_3\org.apache.servicemix.bundles.commons-csv-1.0-r706900_3.jar;C:\Users\black\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\black\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;C:\Users\black\.m2\repository\com\netflix\astyanax\astyanax-recipes\3.8.0\astyanax-recipes-3.8.0.jar;C:\Users\black\.m2\repository\org\xerial\snappy\snappy-java\1.0.5-M3\snappy-java-1.0.5-M3.jar;C:\Users\black\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\black\.m2\repository\net\jpountz\lz4\lz4\1.3.0\lz4-1.3.0.jar;C:\Users\black\.m2\repository\org\janusgraph\janusgraph-berkeleyje\0.3.0\janusgraph-berkeleyje-0.3.0.jar;C:\Users\black\.m2\repository\com\sleepycat\je\7.4.5\je-7.4.5.jar;C:\Users\black\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar" GRMT
+Started: 27.12.18 16:14
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/black/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/black/.m2/repository/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[main] INFO org.janusgraph.diskstorage.cassandra.utils.CassandraDaemonWrapper - Starting cassandra with cassandra.yaml
+[main] WARN org.apache.cassandra.utils.CLibrary - JNA link failure, one or more native method will be unavailable.
+[main] WARN org.apache.cassandra.service.CassandraDaemon - JMX is not enabled to receive remote connections. Please see cassandra-env.sh for more info.
+[main] ERROR org.apache.cassandra.service.CassandraDaemon - cassandra.jmx.local.port missing from cassandra-env.sh, unable to start local JMX service.null
+java.lang.RuntimeException: Cache schema version 34ce2348-18b8-3352-b3cd-94ad415eb481 does not match current schema version 17d16b10-9496-3491-a206-f9eaab7a3f49
+	at org.apache.cassandra.cache.AutoSavingCache.loadSaved(AutoSavingCache.java:188)
+	at org.apache.cassandra.cache.AutoSavingCache$3.call(AutoSavingCache.java:148)
+	at org.apache.cassandra.cache.AutoSavingCache$3.call(AutoSavingCache.java:144)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=ac1df00112764-Taip-Ryzen1
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 24
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring total store cache size: 1880463106
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-27T15:14:59.247Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@49f24528
+Cleared the graph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created keyspace janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF system_properties in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF system_properties in KS janusgraph succeeded
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Set default timestamp provider MICRO
+[main] INFO org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration - Generated unique-instance-id=ac1df00112764-Taip-Ryzen2
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring index [search]
+[main] INFO org.janusgraph.diskstorage.Backend - Initiated backend operations thread pool of size 24
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF janusgraph_ids in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF janusgraph_ids in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF edgestore in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF edgestore in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF edgestore_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF edgestore_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF graphindex in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF graphindex in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF graphindex_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF graphindex_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.Backend - Configuring total store cache size: 1798332748
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF txlog in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF txlog in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF systemlog in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF systemlog in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Created CF system_properties_lock_ in KS janusgraph
+[main] INFO org.janusgraph.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager - Read on CF system_properties_lock_ in KS janusgraph succeeded
+[main] INFO org.janusgraph.diskstorage.log.kcvs.KCVSLog - Loaded unidentified ReadMarker start time 2018-12-27T15:15:02.273Z into org.janusgraph.diskstorage.log.kcvs.KCVSLog$MessagePuller@28d2d871
+Successfully created the graph schema
+0.10%	100318079.edges
+0.21%	10146102.edges
+0.31%	101859065.edges
+0.41%	101903164.edges
+0.51%	102765423.edges
+0.62%	102903198.edges
+0.72%	103431502.edges
+0.82%	103865085.edges
+0.92%	103991905.edges
+1.03%	104324908.edges
+1.13%	104615636.edges
+1.23%	1046661.edges
+1.34%	104991493.edges
+1.44%	105150583.edges
+1.54%	105398724.edges
+1.64%	105918870.edges
+1.75%	107172099.edges
+1.85%	107418464.edges
+1.95%	107511013.edges
+2.06%	107512718.edges
+2.16%	107516840.edges
+2.26%	10798802.edges
+2.36%	108159877.edges
+2.47%	108205076.edges
+2.57%	10985532.edges
+2.67%	11027262.edges
+2.77%	110536616.edges
+2.88%	110755733.edges
+2.98%	111045742.edges
+3.08%	11136132.edges
+3.19%	111374622.edges
+3.29%	112628165.edges
+3.39%	113196940.edges
+3.49%	11348282.edges
+3.60%	11348722.edges
+3.70%	113509970.edges
+3.80%	114115460.edges
+3.91%	114885421.edges
+4.01%	115221382.edges
+4.11%	115911638.edges
+4.21%	116388817.edges
+4.32%	116798290.edges
+4.42%	116808228.edges
+4.52%	11681802.edges
+4.62%	117029850.edges
+4.73%	117671022.edges
+4.83%	117800618.edges
+4.93%	117809922.edges
+5.04%	11784842.edges
+5.14%	11828432.edges
+5.24%	11928542.edges
+5.34%	119897041.edges
+5.45%	120157205.edges
+5.55%	120459837.edges
+5.65%	120679977.edges
+5.76%	12069912.edges
+5.86%	120971873.edges
+5.96%	121202578.edges
+6.06%	121258930.edges
+6.17%	12152402.edges
+6.27%	121569946.edges
+6.37%	121685268.edges
+6.47%	122216533.edges
+6.58%	123287376.edges
+6.68%	123684709.edges
+6.78%	1239671.edges
+6.89%	12415722.edges
+6.99%	124296976.edges
+7.09%	124474025.edges
+7.19%	125098615.edges
+7.30%	12570812.edges
+7.40%	126067398.edges
+7.50%	1271901.edges
+7.61%	12771872.edges
+7.71%	127912925.edges
+7.81%	128135741.edges
+7.91%	12831.edges
+8.02%	129093262.edges
+8.12%	129984134.edges
+8.22%	130734452.edges
+8.32%	13179562.edges
+8.43%	13212502.edges
+8.53%	132519763.edges
+8.63%	13274152.edges
+8.74%	13275962.edges
+8.84%	13317162.edges
+8.94%	133663120.edges
+9.04%	134208594.edges
+9.15%	13460312.edges
+9.25%	134943586.edges
+9.35%	135397331.edges
+9.46%	135605269.edges
+9.56%	135704499.edges
+9.66%	135895585.edges
+9.76%	136341512.edges
+9.87%	13649212.edges
+9.97%	1367531.edges
+10.07%	137046366.edges
+[BatchlogTasks:1] WARN org.apache.cassandra.db.BatchlogManager - Skipped batch replay of 1f922c50-09d8-11e9-aad9-835d48a6f330 due to org.apache.cassandra.db.UnknownColumnFamilyException: Couldn't find cfId=6d1c9880-09d7-11e9-aad9-835d48a6f330
+10.17%	13747362.edges
+10.28%	137527381.edges
+10.38%	13809612.edges
+10.48%	13811562.edges
+10.59%	13837812.edges
+10.69%	13872872.edges
+10.79%	14045302.edges
+10.89%	14058831.edges
+11.00%	14060856.edges
+11.10%	14077024.edges
+11.20%	14120151.edges
+11.31%	14120253.edges
+11.41%	14129601.edges
+11.51%	141341662.edges
+11.61%	14134942.edges
+11.72%	14147754.edges
+11.82%	141488457.edges
+11.92%	14150874.edges
+12.02%	14191254.edges
+12.13%	14199378.edges
+12.23%	14203895.edges
+12.33%	1422311.edges
+12.44%	14256927.edges
+12.54%	14313005.edges
+12.64%	143172151.edges
+12.74%	14327149.edges
+12.85%	14332288.edges
+12.95%	143344048.edges
+13.05%	14338082.edges
+13.16%	14353392.edges
+13.26%	1435461.edges
+13.36%	14365883.edges
+13.46%	143661263.edges
+13.57%	14371740.edges
+13.67%	14372486.edges
+13.77%	14372763.edges
+13.87%	14404235.edges
+13.98%	144211337.edges
+14.08%	14422788.edges
+14.18%	14426892.edges
+14.29%	144723379.edges
+14.39%	14505838.edges
+14.49%	14521330.edges
+14.59%	14528221.edges
+14.70%	14550962.edges
+14.80%	14555534.edges
+14.90%	145573135.edges
+15.01%	14618160.edges
+15.11%	14630490.edges
+15.21%	14677919.edges
+15.31%	14711172.edges
+15.42%	14719129.edges
+15.52%	14755105.edges
+15.62%	14791232.edges
+15.72%	14794851.edges
+15.83%	14807093.edges
+15.93%	14827526.edges
+16.03%	14836915.edges
+16.14%	14838506.edges
+16.24%	14840869.edges
+16.34%	14843763.edges
+16.44%	14848513.edges
+16.55%	14849487.edges
+16.65%	148519842.edges
+16.75%	14869783.edges
+16.86%	14893314.edges
+16.96%	14917050.edges
+17.06%	14922225.edges
+17.16%	14936377.edges
+17.27%	14957252.edges
+17.37%	14984096.edges
+17.47%	15001424.edges
+17.57%	15012486.edges
+17.68%	150402542.edges
+17.78%	15053535.edges
+17.88%	15070932.edges
+17.99%	15099384.edges
+18.09%	151175266.edges
+18.19%	151246522.edges
+18.29%	15129912.edges
+18.40%	151495845.edges
+18.50%	15164892.edges
+18.60%	152062126.edges
+18.71%	15208246.edges
+18.81%	152388029.edges
+18.91%	152435436.edges
+19.01%	15292446.edges
+19.12%	153245741.edges
+19.22%	15329577.edges
+19.32%	15331855.edges
+19.42%	15335809.edges
+19.53%	15347317.edges
+19.63%	15419775.edges
+19.73%	15420650.edges
+19.84%	15445811.edges
+19.94%	154648125.edges
+20.04%	154701532.edges
+20.14%	15473958.edges
+20.25%	15477120.edges
+20.35%	15481789.edges
+20.45%	1548841.edges
+20.55%	15507297.edges
+20.66%	15527013.edges
+20.76%	15533771.edges
+20.86%	155661154.edges
+20.97%	155689319.edges
+21.07%	15589323.edges
+21.17%	155976326.edges
+21.27%	15642031.edges
+21.38%	15647676.edges
+21.48%	15665127.edges
+21.58%	15706128.edges
+21.69%	15741636.edges
+21.79%	157488488.edges
+21.89%	15797184.edges
+21.99%	158414847.edges
+22.10%	158419434.edges
+22.20%	15849055.edges
+22.30%	15859268.edges
+22.40%	15864197.edges
+22.51%	158874150.edges
+22.61%	15924858.edges
+22.71%	15938936.edges
+22.82%	15944663.edges
+22.92%	15947217.edges
+23.02%	159588456.edges
+23.12%	159629146.edges
+23.23%	15977848.edges
+23.33%	15989218.edges
+23.43%	160237722.edges
+23.54%	16027078.edges
+23.64%	160839015.edges
+23.74%	1608991.edges
+23.84%	16105942.edges
+23.95%	16183380.edges
+24.05%	16193542.edges
+24.15%	16212913.edges
+24.25%	16234125.edges
+24.36%	16247469.edges
+24.46%	16263665.edges
+24.56%	16279105.edges
+24.67%	16285517.edges
+24.77%	16297193.edges
+24.87%	16305227.edges
+24.97%	163374693.edges
+25.08%	163491360.edges
+25.18%	163629705.edges
+25.28%	163674521.edges
+25.39%	16421962.edges
+25.49%	16437633.edges
+25.59%	16465113.edges
+25.69%	16476088.edges
+25.80%	16505296.edges
+25.90%	165580617.edges
+26.00%	165598423.edges
+26.10%	165786567.edges
+26.21%	16591188.edges
+26.31%	16606585.edges
+26.41%	16610683.edges
+26.52%	16613128.edges
+26.62%	16616109.edges
+26.72%	166214735.edges
+26.82%	166252256.edges
+26.93%	16652550.edges
+27.03%	16674149.edges
+27.13%	16685316.edges
+27.24%	16726878.edges
+27.34%	16734718.edges
+27.44%	16790036.edges
+27.54%	167901620.edges
+27.65%	16809036.edges
+27.75%	168224294.edges
+27.85%	16824073.edges
+27.95%	16834201.edges
+28.06%	16840742.edges
+28.16%	168537920.edges
+28.26%	16869298.edges
+28.37%	16878507.edges
+28.47%	169216507.edges
+28.57%	169780164.edges
+28.67%	16987303.edges
+28.78%	170167167.edges
+28.88%	17022544.edges
+28.98%	17045060.edges
+29.09%	170729553.edges
+29.19%	17111909.edges
+29.29%	171202083.edges
+29.39%	17135931.edges
+29.50%	17137927.edges
+29.60%	171536167.edges
+29.70%	17384099.edges
+29.80%	17396702.edges
+29.91%	17403755.edges
+30.01%	17421011.edges
+30.11%	174285878.edges
+30.22%	17503591.edges
+30.32%	175529494.edges
+30.42%	175553601.edges
+30.52%	17561785.edges
+30.63%	17600223.edges
+30.73%	17602896.edges
+30.83%	17627996.edges
+30.94%	176310143.edges
+31.04%	17636894.edges
+31.14%	17658786.edges
+31.24%	176589903.edges
+31.35%	176872879.edges
+31.45%	176936249.edges
+31.55%	17714569.edges
+31.65%	17723880.edges
+31.76%	1775731.edges
+31.86%	17767841.edges
+31.96%	17770689.edges
+32.07%	17787399.edges
+32.17%	17797990.edges
+32.27%	17822419.edges
+32.37%	17866414.edges
+32.48%	17874544.edges
+32.58%	179065820.edges
+32.68%	17912917.edges
+32.79%	179138862.edges
+32.89%	17918629.edges
+32.99%	17922109.edges
+33.09%	180540375.edges
+33.20%	18068719.edges
+33.30%	18069824.edges
+33.40%	18119683.edges
+33.50%	18135029.edges
+33.61%	18191231.edges
+33.71%	18201401.edges
+33.81%	18226205.edges
+33.92%	18252740.edges
+34.02%	182609394.edges
+34.12%	18270489.edges
+34.22%	18278524.edges
+34.33%	18338485.edges
+34.43%	18374320.edges
+34.53%	183786731.edges
+34.64%	184391654.edges
+34.74%	184594566.edges
+34.84%	18470775.edges
+34.94%	18472735.edges
+35.05%	184755890.edges
+35.15%	18481292.edges
+35.25%	18483115.edges
+35.35%	18486243.edges
+35.46%	18486881.edges
+35.56%	18496986.edges
+35.66%	18534908.edges
+35.77%	185512077.edges
+35.87%	18558612.edges
+35.97%	18571832.edges
+36.07%	18594420.edges
+36.18%	18630326.edges
+36.28%	186354564.edges
+36.38%	18665800.edges
+36.49%	18681592.edges
+36.59%	18687625.edges
+36.69%	18690700.edges
+36.79%	186909156.edges
+36.90%	18718580.edges
+37.00%	18731347.edges
+37.10%	18734310.edges
+37.20%	187569483.edges
+37.31%	187744415.edges
+37.41%	187773078.edges
+37.51%	18788502.edges
+37.62%	188102842.edges
+37.72%	18836167.edges
+37.82%	18846990.edges
+37.92%	18886852.edges
+38.03%	18895362.edges
+38.13%	189111957.edges
+38.23%	18917716.edges
+38.34%	18923866.edges
+38.44%	189253902.edges
+38.54%	18951737.edges
+38.64%	18957524.edges
+38.75%	189592841.edges
+38.85%	189875309.edges
+38.95%	18988524.edges
+39.05%	18996905.edges
+39.16%	190138306.edges
+39.26%	19064433.edges
+39.36%	190696559.edges
+39.47%	19110632.edges
+39.57%	19136295.edges
+39.67%	191896931.edges
+39.77%	191916463.edges
+39.88%	191924526.edges
+39.98%	19208450.edges
+40.08%	19213083.edges
+40.18%	19225156.edges
+40.29%	19283723.edges
+40.39%	19299909.edges
+40.49%	19380307.edges
+40.60%	19454519.edges
+40.70%	19492215.edges
+40.80%	195475105.edges
+40.90%	19563357.edges
+41.01%	19658936.edges
+41.11%	19668026.edges
+41.21%	196926575.edges
+41.32%	19725644.edges
+41.42%	197577781.edges
+41.52%	197602850.edges
+41.62%	19760380.edges
+41.73%	197731654.edges
+41.83%	197903282.edges
+41.93%	198327282.edges
+42.03%	198370650.edges
+42.14%	198628427.edges
+42.24%	198941747.edges
+42.34%	19898730.edges
+42.45%	199039532.edges
+42.55%	19933035.edges
+42.65%	19948202.edges
+42.75%	199483163.edges
+42.86%	19976791.edges
+42.96%	200214366.edges
+43.06%	200494218.edges
+43.17%	20060293.edges
+43.27%	20119746.edges
+43.37%	20179628.edges
+43.47%	202114894.edges
+43.58%	202195505.edges
+43.68%	202346485.edges
+43.78%	2029971.edges
+43.88%	20319646.edges
+43.99%	20347014.edges
+44.09%	203868162.edges
+44.19%	204145356.edges
+44.30%	20436059.edges
+44.40%	20446839.edges
+44.50%	204646586.edges
+44.60%	20495756.edges
+44.71%	20561154.edges
+44.81%	20689206.edges
+44.91%	206923844.edges
+45.02%	20758393.edges
+45.12%	207594668.edges
+45.22%	207936757.edges
+45.32%	20950208.edges
+45.43%	2097571.edges
+45.53%	20999409.edges
+45.63%	21028234.edges
+45.73%	21061498.edges
+45.84%	21077642.edges
+45.94%	21094279.edges
+46.04%	21132431.edges
+46.15%	211547273.edges
+46.25%	211933541.edges
+46.35%	21222922.edges
+46.45%	212642904.edges
+46.56%	212718048.edges
+46.66%	21318259.edges
+46.76%	21337501.edges
+46.87%	21339164.edges
+46.97%	21363077.edges
+47.07%	21364753.edges
+47.17%	21391704.edges
+47.28%	21415375.edges
+47.38%	21420959.edges
+47.48%	21437537.edges
+47.58%	215328630.edges
+47.69%	21578499.edges
+47.79%	215824411.edges
+47.89%	21648994.edges
+48.00%	216843160.edges
+48.10%	21731779.edges
+48.20%	21735280.edges
+48.30%	217796457.edges
+48.41%	21816783.edges
+48.51%	219365298.edges
+48.61%	22106463.edges
+48.72%	22121627.edges
+48.82%	222090651.edges
+48.92%	22252971.edges
+49.02%	224581852.edges
+49.13%	225302763.edges
+49.23%	2257971.edges
+49.33%	22745706.edges
+49.43%	22751884.edges
+49.54%	227650565.edges
+49.64%	227785045.edges
+49.74%	228270980.edges
+49.85%	22863638.edges
+49.95%	22879382.edges
+50.05%	22915745.edges
+50.15%	229425177.edges
+50.26%	22954430.edges
+50.36%	22958268.edges
+50.46%	22970486.edges
+50.57%	229741646.edges
+50.67%	22977196.edges
+50.77%	229969377.edges
+50.87%	230601773.edges
+50.98%	230880104.edges
+51.08%	232006900.edges
+51.18%	232706326.edges
+51.28%	23334169.edges
+51.39%	233598791.edges
+51.49%	234169190.edges
+51.59%	23469247.edges
+51.70%	23503181.edges
+51.80%	235219400.edges
+51.90%	2363991.edges
+52.00%	237019614.edges
+52.11%	237049769.edges
+52.21%	23742633.edges
+52.31%	23759573.edges
+52.42%	237845487.edges
+52.52%	23790454.edges
+52.62%	238264600.edges
+52.72%	23889102.edges
+52.83%	239141315.edges
+52.93%	239434259.edges
+53.03%	240740059.edges
+53.13%	24117694.edges
+53.24%	241635675.edges
+53.34%	242013901.edges
+53.44%	242024994.edges
+53.55%	242073660.edges
+53.65%	242479442.edges
+53.75%	243267948.edges
+53.85%	24479656.edges
+53.96%	24541192.edges
+54.06%	24542441.edges
+54.16%	245639401.edges
+54.27%	24636631.edges
+54.37%	24815332.edges
+54.47%	248224845.edges
+54.57%	248523038.edges
+54.68%	248883350.edges
+54.78%	248916246.edges
+54.88%	24903302.edges
+54.98%	24907197.edges
+55.09%	249829509.edges
+55.19%	249831237.edges
+55.29%	250340951.edges
+55.40%	250447400.edges
+55.50%	250900294.edges
+55.60%	25179170.edges
+55.70%	252415267.edges
+55.81%	253360762.edges
+55.91%	25344777.edges
+56.01%	253751053.edges
+56.12%	253863144.edges
+56.22%	254883790.edges
+56.32%	255790981.edges
+56.42%	25649234.edges
+56.53%	256497288.edges
+56.63%	25650268.edges
+56.73%	25755158.edges
+56.83%	2576401.edges
+56.94%	258145892.edges
+57.04%	258447233.edges
+57.14%	2589521.edges
+57.25%	258955239.edges
+57.35%	259288589.edges
+57.45%	259365099.edges
+57.55%	259884200.edges
+57.66%	26083291.edges
+57.76%	26103051.edges
+57.86%	261973875.edges
+57.97%	262310943.edges
+58.07%	26234692.edges
+58.17%	26286713.edges
+58.27%	263224927.edges
+58.38%	26335321.edges
+58.48%	26346966.edges
+58.58%	265077741.edges
+58.68%	26585095.edges
+58.79%	26604704.edges
+58.89%	266464616.edges
+58.99%	267383914.edges
+59.10%	268425888.edges
+59.20%	269485905.edges
+59.30%	269559495.edges
+59.40%	26961048.edges
+59.51%	275686563.edges
+59.61%	27595997.edges
+59.71%	276128869.edges
+59.82%	276843589.edges
+59.92%	278181157.edges
+60.02%	278311152.edges
+60.12%	27853708.edges
+60.23%	279854450.edges
+60.33%	280329780.edges
+60.43%	28205087.edges
+60.53%	283732062.edges
+60.64%	2841151.edges
+60.74%	28490110.edges
+60.84%	285287229.edges
+60.95%	28628055.edges
+61.05%	287519521.edges
+61.15%	2890961.edges
+61.25%	289738351.edges
+61.36%	290092792.edges
+61.46%	29016037.edges
+61.56%	29034979.edges
+61.66%	291403100.edges
+61.77%	292560337.edges
+61.87%	29357507.edges
+61.97%	29514951.edges
+62.08%	296218728.edges
+62.18%	297985585.edges
+62.28%	298038575.edges
+62.38%	30031265.edges
+62.49%	300842571.edges
+62.59%	30096240.edges
+62.69%	301297627.edges
+62.80%	30207757.edges
+62.90%	30310904.edges
+63.00%	30313925.edges
+63.10%	30345417.edges
+63.21%	303886358.edges
+63.31%	30393917.edges
+63.41%	306445007.edges
+63.51%	307458983.edges
+63.62%	307478701.edges
+63.72%	308220010.edges
+63.82%	30824363.edges
+63.93%	309096216.edges
+64.03%	30970675.edges
+64.13%	311227912.edges
+64.23%	31153819.edges
+64.34%	31179985.edges
+64.44%	312284236.edges
+64.54%	31246395.edges
+64.65%	312805417.edges
+64.75%	31313454.edges
+64.85%	31317273.edges
+64.95%	313359626.edges
+65.06%	314038032.edges
+65.16%	314316607.edges
+65.26%	31457243.edges
+65.36%	31464977.edges
+65.47%	31477674.edges
+65.57%	315418321.edges
+65.67%	31610343.edges
+65.78%	31631020.edges
+65.88%	317313520.edges
+65.98%	318760490.edges
+66.08%	31949053.edges
+66.19%	320527944.edges
+66.29%	321620987.edges
+66.39%	321652589.edges
+66.50%	32289713.edges
+66.60%	324201646.edges
+66.70%	3245291.edges
+66.80%	324544865.edges
+66.91%	3253671.edges
+67.01%	32547856.edges
+67.11%	32574761.edges
+67.21%	326259198.edges
+67.32%	33060624.edges
+67.42%	33080832.edges
+67.52%	33097148.edges
+67.63%	333021748.edges
+67.73%	3338681.edges
+67.83%	333881828.edges
+67.93%	333966373.edges
+68.04%	33511585.edges
+68.14%	33612973.edges
+68.24%	33617320.edges
+68.35%	336463060.edges
+68.45%	33794839.edges
+68.55%	338017544.edges
+68.65%	33806113.edges
+68.76%	33868543.edges
+68.86%	34242979.edges
+68.96%	34416153.edges
+69.06%	344966590.edges
+69.17%	345569115.edges
+69.27%	34805698.edges
+69.37%	348851602.edges
+69.48%	35012277.edges
+69.58%	35012599.edges
+69.68%	351092905.edges
+69.78%	35166642.edges
+69.89%	353767514.edges
+69.99%	35432497.edges
+70.09%	355823615.edges
+70.20%	356897757.edges
+70.30%	356963.edges
+70.40%	35726059.edges
+70.50%	358845982.edges
+70.61%	35926608.edges
+70.71%	359791673.edges
+70.81%	360025190.edges
+70.91%	360210947.edges
+71.02%	364664695.edges
+71.12%	36475508.edges
+71.22%	36544954.edges
+71.33%	36618690.edges
+71.43%	36629388.edges
+71.53%	368018677.edges
+71.63%	36836787.edges
+71.74%	36953510.edges
+71.84%	37103386.edges
+71.94%	37112942.edges
+72.05%	37170886.edges
+72.15%	37201612.edges
+72.25%	372765570.edges
+72.35%	374007416.edges
+72.46%	37723441.edges
+72.56%	377662213.edges
+72.66%	37792861.edges
+72.76%	378494343.edges
+72.87%	37899473.edges
+72.97%	37977732.edges
+73.07%	37992666.edges
+73.18%	38108292.edges
+73.28%	381688396.edges
+73.38%	382110320.edges
+73.48%	384685422.edges
+73.59%	384761809.edges
+73.69%	38703025.edges
+73.79%	38761811.edges
+73.90%	39070445.edges
+74.00%	39157827.edges
+74.10%	39322973.edges
+74.20%	396721965.edges
+74.31%	39695043.edges
+74.41%	397688944.edges
+74.51%	398994309.edges
+74.61%	40022380.edges
+74.72%	400867704.edges
+74.82%	402970625.edges
+74.92%	40564708.edges
+75.03%	40580577.edges
+75.13%	40705032.edges
+75.23%	407769660.edges
+75.33%	40777046.edges
+75.44%	40813518.edges
+75.54%	40818894.edges
+75.64%	40981798.edges
+75.75%	414334713.edges
+75.85%	41945050.edges
+75.95%	42098834.edges
+76.05%	423567032.edges
+76.16%	42522911.edges
+76.26%	4258591.edges
+76.36%	42676302.edges
+76.46%	428333.edges
+76.57%	42912024.edges
+76.67%	43003845.edges
+76.77%	430313102.edges
+76.88%	43194901.edges
+76.98%	434433610.edges
+77.08%	43540843.edges
+77.18%	437300342.edges
+77.29%	43858661.edges
+77.39%	4387041.edges
+77.49%	441252694.edges
+77.60%	44130462.edges
+77.70%	44257374.edges
+77.80%	44394333.edges
+77.90%	44524106.edges
+78.01%	44666348.edges
+78.11%	45145944.edges
+78.21%	45310286.edges
+78.31%	45333725.edges
+78.42%	45690012.edges
+78.52%	45753733.edges
+78.62%	45857296.edges
+78.73%	46160500.edges
+78.83%	46533358.edges
+78.93%	47359057.edges
+79.03%	47673661.edges
+79.14%	477094958.edges
+79.24%	47854857.edges
+79.34%	48132655.edges
+79.45%	48436259.edges
+79.55%	484991854.edges
+79.65%	48730516.edges
+79.75%	49098552.edges
+79.86%	49253437.edges
+79.96%	493138720.edges
+80.06%	49414491.edges
+80.16%	494538543.edges
+80.27%	49536244.edges
+80.37%	50145896.edges
+80.47%	50189671.edges
+80.58%	51694885.edges
+80.68%	51775432.edges
+80.78%	521489919.edges
+80.88%	52330027.edges
+80.99%	52405864.edges
+81.09%	52442002.edges
+81.19%	52498113.edges
+81.29%	52772629.edges
+81.40%	528575851.edges
+81.50%	53235381.edges
+81.60%	532617990.edges
+81.71%	53685618.edges
+81.81%	54107218.edges
+81.91%	54168315.edges
+82.01%	54178513.edges
+82.12%	54226675.edges
+82.22%	54331626.edges
+82.32%	54460963.edges
+82.43%	54695584.edges
+82.53%	5471892.edges
+82.63%	54791004.edges
+82.73%	549089429.edges
+82.84%	55019615.edges
+82.94%	5506012.edges
+83.04%	5539522.edges
+83.14%	55928029.edges
+83.25%	5747502.edges
+83.35%	5773532.edges
+83.45%	5774432.edges
+83.56%	57828817.edges
+83.66%	58427526.edges
+83.76%	58525541.edges
+83.86%	58641627.edges
+83.97%	5868402.edges
+84.07%	58930815.edges
+84.17%	59359628.edges
+84.28%	59588845.edges
+84.38%	59676554.edges
+84.48%	6018292.edges
+84.58%	61086747.edges
+84.69%	61158706.edges
+84.79%	612473.edges
+84.89%	61311054.edges
+84.99%	613313.edges
+85.10%	6165372.edges
+85.20%	61781462.edges
+85.30%	61890555.edges
+85.41%	623623.edges
+85.51%	6253282.edges
+85.61%	62609430.edges
+85.71%	62740714.edges
+85.82%	62759402.edges
+85.92%	6297852.edges
+86.02%	62985251.edges
+86.13%	629863.edges
+86.23%	63084853.edges
+86.33%	63207451.edges
+86.43%	6351572.edges
+86.54%	63787760.edges
+86.64%	6408382.edges
+86.74%	64253854.edges
+86.84%	64441390.edges
+86.95%	64496469.edges
+87.05%	64508047.edges
+87.15%	64619842.edges
+87.26%	64931560.edges
+87.36%	65185224.edges
+87.46%	65357070.edges
+87.56%	65360846.edges
+87.67%	66100530.edges
+87.77%	66136244.edges
+87.87%	66185823.edges
+87.98%	6650612.edges
+88.08%	66761133.edges
+88.18%	66804457.edges
+88.28%	66841215.edges
+88.39%	67378554.edges
+88.49%	68179571.edges
+88.59%	68257605.edges
+88.69%	68480165.edges
+88.80%	68732646.edges
+88.90%	69049114.edges
+89.00%	69193714.edges
+89.11%	69548480.edges
+89.21%	69624952.edges
+89.31%	70123665.edges
+89.41%	70160230.edges
+89.52%	70492333.edges
+89.62%	70620846.edges
+89.72%	7098022.edges
+89.83%	71091272.edges
+89.93%	7144422.edges
+90.03%	72339761.edges
+90.13%	73024519.edges
+90.24%	73025843.edges
+90.34%	73298877.edges
+90.44%	73443014.edges
+90.54%	734493.edges
+90.65%	73707412.edges
+90.75%	73738774.edges
+90.85%	742143.edges
+90.96%	7424642.edges
+91.06%	74264908.edges
+91.16%	745823.edges
+91.26%	74651704.edges
+91.37%	7517222.edges
+91.47%	75321229.edges
+91.57%	75343905.edges
+91.68%	75370828.edges
+91.78%	759679.edges
+91.88%	7668362.edges
+91.98%	7670202.edges
+92.09%	7682452.edges
+92.19%	77404713.edges
+92.29%	77843323.edges
+92.39%	778446.edges
+92.50%	779715.edges
+92.60%	78138151.edges
+92.70%	78391198.edges
+92.81%	7861312.edges
+92.91%	7875912.edges
+93.01%	78813.edges
+93.11%	7888452.edges
+93.22%	7890392.edges
+93.32%	789071.edges
+93.42%	78944566.edges
+93.53%	790205.edges
+93.63%	79797834.edges
+93.73%	80297299.edges
+93.83%	80317145.edges
+93.94%	80479756.edges
+94.04%	80660928.edges
+94.14%	80681990.edges
+94.24%	80688804.edges
+94.35%	8079892.edges
+94.45%	809864.edges
+94.55%	81938351.edges
+94.66%	819800.edges
+94.76%	82726142.edges
+94.86%	83048001.edges
+94.96%	83285096.edges
+95.07%	83478370.edges
+95.17%	83883736.edges
+95.27%	84114921.edges
+95.38%	84473837.edges
+95.48%	85432934.edges
+95.58%	85716069.edges
+95.68%	86560711.edges
+95.79%	86664924.edges
+95.89%	86775971.edges
+95.99%	86799233.edges
+96.09%	87004822.edges
+96.20%	87114066.edges
+96.30%	87525002.edges
+96.40%	8768832.edges
+96.51%	87771546.edges
+96.61%	87798068.edges
+96.71%	88456842.edges
+96.81%	88639412.edges
+96.92%	88931752.edges
+97.02%	89032548.edges
+97.12%	8914942.edges
+97.23%	89826562.edges
+97.33%	90072587.edges
+97.43%	90880254.edges
+97.53%	90998968.edges
+97.64%	91067832.edges
+97.74%	9215692.edges
+97.84%	9254272.edges
+97.94%	926981.edges
+98.05%	92715435.edges
+98.15%	9298152.edges
+98.25%	93006320.edges
+98.36%	93787797.edges
+98.46%	93906304.edges
+98.56%	93998005.edges
+98.66%	94147192.edges
+98.77%	94480069.edges
+98.87%	9460682.edges
+98.97%	94915681.edges
+99.08%	9524062.edges
+99.18%	96483973.edges
+99.28%	96545499.edges
+99.38%	96843721.edges
+99.49%	96907622.edges
+99.59%	98345808.edges
+99.69%	9855382.edges
+99.79%	98633794.edges
+99.90%	98801140.edges
+100.00%	99841247.edges
+Clusters populated to vertex count of: 76268
+Clusters: [0=[20000000, 25330], 1=[20000000, 25574], 2=[20000000, 25364]]
+Running test queries
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268, Max degree: 1251, Avg. degree: 23.28
+Successfully added the log graph schema
+Loading the log to graph
+Edges added: 1101760
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=12618, 1=12862, 2=12652]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		50551		66.28		8.39s		 
+2		1.980		0.99		0.043		1.00		384670		678241		1062911		46572		60.88		6.68s		 
+3		1.960		0.98		0.127		0.99		444570		618341		1062911		49740		54.91		6.69s		 
+4		1.941		0.97		0.182		0.99		483059		579852		1062911		49246		48.71		6.71s		 
+5		1.921		0.96		0.221		0.98		511218		551693		1062911		49888		41.22		6.67s		 
+6		1.902		0.95		0.267		0.98		543520		519391		1062911		49768		36.58		6.68s		 
+7		1.883		0.94		0.308		0.97		572852		490059		1062911		49878		33.45		6.70s		 
+8		1.864		0.93		0.322		0.97		582404		480507		1062911		49778		31.42		6.64s		 
+9		1.845		0.92		0.331		0.96		588742		474169		1062911		50098		29.66		6.63s		 
+10		1.827		0.91		0.344		0.96		598082		464829		1062911		49883		27.30		6.59s		 
+11		1.809		0.90		0.367		0.95		614357		448554		1062911		50035		26.17		6.71s		 
+12		1.791		0.90		0.379		0.95		622921		439990		1062911		50065		25.32		6.94s		 
+13		1.773		0.89		0.383		0.94		625476		437435		1062911		50088		24.35		6.54s		 
+14		1.755		0.88		0.373		0.94		618386		444525		1062911		50363		23.10		6.56s		 
+15		1.737		0.87		0.411		0.93		645527		417384		1062911		50186		22.12		6.61s		 
+16		1.720		0.86		0.393		0.93		632579		430332		1062911		50296		21.44		6.52s		 
+17		1.703		0.85		0.406		0.93		642050		420861		1062911		50309		20.95		6.61s		 
+18		1.686		0.84		0.430		0.92		658988		403923		1062911		50445		19.51		6.63s		 
+19		1.669		0.83		0.449		0.92		672443		390468		1062911		50355		18.37		6.60s		 
+20		1.652		0.83		0.454		0.91		676107		386804		1062911		50297		17.79		6.63s		 
+21		1.636		0.82		0.436		0.91		663325		399586		1062911		50346		17.77		6.64s		 
+22		1.619		0.81		0.448		0.90		672032		390879		1062911		50281		17.31		6.64s		 
+23		1.603		0.80		0.471		0.90		688348		374563		1062911		50237		16.69		6.58s		 
+24		1.587		0.79		0.451		0.90		674289		388622		1062911		50362		16.99		6.60s		 
+25		1.571		0.79		0.477		0.89		692518		370393		1062911		50324		16.03		6.59s		 
+26		1.556		0.78		0.485		0.89		698359		364552		1062911		50349		14.91		6.56s		 
+27		1.540		0.77		0.483		0.89		696586		366325		1062911		50398		15.25		6.67s		 
+28		1.525		0.76		0.495		0.88		704893		358018		1062911		50483		14.82		6.65s		 
+29		1.509		0.75		0.490		0.88		701918		360993		1062911		50430		14.60		6.70s		 
+30		1.494		0.75		0.496		0.87		705661		357250		1062911		50308		14.39		6.58s		 
+31		1.479		0.74		0.494		0.87		704565		358346		1062911		50340		14.03		6.61s		 
+32		1.465		0.73		0.512		0.87		717139		345772		1062911		50440		13.18		6.62s		 
+33		1.450		0.72		0.517		0.86		720932		341979		1062911		50484		13.24		6.57s		 
+34		1.435		0.72		0.523		0.86		724658		338253		1062911		50442		12.96		6.63s		 
+35		1.421		0.71		0.526		0.86		726826		336085		1062911		50509		11.85		6.62s		 
+36		1.407		0.70		0.533		0.85		731976		330935		1062911		50346		12.03		6.52s		 
+37		1.393		0.70		0.540		0.85		736764		326147		1062911		50349		10.82		6.62s		 
+38		1.379		0.69		0.550		0.84		743855		319056		1062911		50329		10.96		6.59s		 
+39		1.365		0.68		0.540		0.84		736834		326077		1062911		50418		10.18		6.56s		 
+40		1.351		0.68		0.529		0.84		729282		333629		1062911		50421		9.70		6.60s		 
+41		1.338		0.67		0.527		0.83		728048		334863		1062911		50527		10.11		6.57s		 
+42		1.325		0.66		0.542		0.83		738302		324609		1062911		50478		9.38		6.61s		 
+43		1.311		0.66		0.557		0.83		749337		313574		1062911		50591		8.54		6.55s		 
+44		1.298		0.65		0.559		0.82		750585		312326		1062911		50501		8.33		6.62s		 
+45		1.285		0.64		0.550		0.82		744046		318865		1062911		50536		8.35		6.48s		 
+46		1.272		0.64		0.551		0.82		744970		317941		1062911		50533		7.92		6.98s		 
+47		1.260		0.63		0.570		0.81		758231		304680		1062911		50501		7.89		7.00s		 
+48		1.247		0.62		0.599		0.81		778593		284318		1062911		50402		7.20		6.97s		 
+49		1.235		0.62		0.580		0.81		765303		297608		1062911		50453		7.30		6.63s		 
+50		1.222		0.61		0.587		0.81		770151		292760		1062911		50442		6.32		6.56s		 
+51		1.210		0.61		0.548		0.80		742703		320208		1062911		50511		6.06		6.65s		 
+52		1.198		0.60		0.573		0.80		760200		302711		1062911		50437		5.76		6.58s		 
+53		1.186		0.59		0.588		0.80		771027		291884		1062911		50530		5.76		6.52s		 
+54		1.174		0.59		0.584		0.79		768072		294839		1062911		50564		5.84		6.59s		 
+55		1.162		0.58		0.607		0.79		784204		278707		1062911		50554		5.19		6.60s		 
+56		1.151		0.58		0.618		0.79		792187		270724		1062911		50525		4.70		6.68s		 
+57		1.139		0.57		0.614		0.78		789125		273786		1062911		50500		4.06		6.61s		 
+58		1.128		0.56		0.619		0.78		793150		269761		1062911		50518		3.77		6.65s		 
+59		1.117		0.56		0.621		0.78		794056		268855		1062911		50469		3.64		6.74s		 
+60		1.105		0.55		0.645		0.78		811200		251711		1062911		50419		3.28		6.55s		 
+61		1.094		0.55		0.644		0.77		810571		252340		1062911		50458		3.03		6.64s		 
+62		1.083		0.54		0.644		0.77		810834		252077		1062911		50442		2.52		6.66s		 
+63		1.073		0.54		0.643		0.77		809794		253117		1062911		50404		2.22		6.56s		 
+64		1.062		0.53		0.645		0.77		811149		251762		1062911		50400		1.83		6.54s		 
+65		1.051		0.53		0.636		0.76		805131		257780		1062911		50414		1.73		6.65s		 
+66		1.041		0.52		0.643		0.76		809903		253008		1062911		50458		1.38		6.58s		 
+67		1.030		0.52		0.648		0.76		813788		249123		1062911		50417		1.05		6.58s		 
+68		1.020		0.51		0.654		0.75		818006		244905		1062911		50415		0.81		6.60s		 
+69		1.010		0.50		0.656		0.75		819464		243447		1062911		50422		0.47		6.59s		 
+70		1.000		0.50		0.660		0.75		822126		240785		1062911		50417		0.21		6.58s		 
+71		0.990		0.49		0.661		0.75		823054		239857		1062911		50420		0.08		6.64s		 
+72		0.980		0.49		0.662		0.74		823349		239562		1062911		50422		0.03		6.76s		 
+73		0.970		0.48		0.662		0.74		823390		239521		1062911		50421		0.02		6.64s		 
+74		0.960		0.48		0.662		0.74		823486		239425		1062911		50420		0.01		6.65s		 
+75		0.951		0.48		0.662		0.74		823497		239414		1062911		50422		0.01		6.74s		 
+76		0.941		0.47		0.662		0.74		823555		239356		1062911		50417		0.02		6.68s		 
+77		0.932		0.47		0.662		0.73		823636		239275		1062911		50417		0.05		6.65s		 
+78		0.922		0.46		0.663		0.73		823870		239041		1062911		50419		0.03		6.61s		 
+79		0.913		0.46		0.663		0.73		824387		238524		1062911		50415		0.01		6.52s		 
+80		0.904		0.45		0.664		0.73		824703		238208		1062911		50413		0.00		6.63s		 
+81		0.895		0.45		0.664		0.72		824714		238197		1062911		50413		0.00		6.63s		 
+Terminated Vaquero algorithm at iteration: 81, Runtime: 541.13
+[ForkJoinPool.commonPool-worker-13] WARN org.janusgraph.graphdb.olap.computer.FulgoraGraphComputer - Property key [gremlin.VaqueroVertexProgram.partition] is not part of the schema and will be created. It is advised to initialize all keys.
+Clusters capacity/usage: [0=[20000000, 50797], 1=[20000000, 12712], 2=[20000000, 12759]]
+Clusters Lower Bound: [0=38085, 1=0, 2=47]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 238197, Improvement: 66.38%
+Good before/after Queries:  354435 / 824714
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=38085, 1=0, 2=47]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		46400		60.84		6.86s		 
+2		1.980		0.99		0.038		1.00		381548		681363		1062911		46222		56.24		6.78s		 
+3		1.960		0.98		0.099		0.99		424286		638625		1062911		49030		55.58		6.87s		 
+4		1.941		0.97		0.155		0.99		464049		598862		1062911		49115		51.41		6.86s		 
+5		1.921		0.96		0.195		0.98		492457		570454		1062911		49731		47.74		6.85s		 
+6		1.902		0.95		0.222		0.98		512070		550841		1062911		49463		44.57		6.96s		 
+7		1.883		0.94		0.247		0.97		529545		533366		1062911		49692		41.52		6.97s		 
+8		1.864		0.93		0.258		0.97		537525		525386		1062911		49809		38.99		6.94s		 
+9		1.845		0.92		0.266		0.96		542686		520225		1062911		50002		36.94		6.87s		 
+10		1.827		0.91		0.277		0.96		550687		512224		1062911		49919		35.36		6.80s		 
+11		1.809		0.90		0.271		0.95		546518		516393		1062911		50028		34.44		6.99s		 
+12		1.791		0.90		0.295		0.95		563184		499727		1062911		49984		33.58		6.80s		 
+13		1.773		0.89		0.292		0.94		561361		501550		1062911		50231		33.23		6.82s		 
+14		1.755		0.88		0.291		0.94		560299		502612		1062911		50178		31.37		6.84s		 
+15		1.737		0.87		0.302		0.93		568399		494512		1062911		50211		30.16		6.86s		 
+16		1.720		0.86		0.324		0.93		584311		478600		1062911		50104		30.07		6.85s		 
+17		1.703		0.85		0.306		0.93		571442		491469		1062911		50215		29.06		6.79s		 
+18		1.686		0.84		0.313		0.92		576046		486865		1062911		50160		29.10		6.90s		 
+19		1.669		0.83		0.336		0.92		592212		470699		1062911		50206		28.45		6.81s		 
+20		1.652		0.83		0.326		0.91		585527		477384		1062911		50035		27.11		6.91s		 
+21		1.636		0.82		0.329		0.91		587436		475475		1062911		50124		27.13		6.87s		 
+22		1.619		0.81		0.352		0.90		604062		458849		1062911		50270		25.35		6.83s		 
+23		1.603		0.80		0.356		0.90		606851		456060		1062911		50261		24.61		6.91s		 
+24		1.587		0.79		0.349		0.90		601637		461274		1062911		50217		24.78		6.90s		 
+25		1.571		0.79		0.354		0.89		605198		457713		1062911		50179		24.05		6.89s		 
+26		1.556		0.78		0.374		0.89		619679		443232		1062911		50170		23.08		6.87s		 
+27		1.540		0.77		0.380		0.89		623465		439446		1062911		50145		21.87		6.86s		 
+28		1.525		0.76		0.367		0.88		614696		448215		1062911		50317		22.07		6.90s		 
+29		1.509		0.75		0.364		0.88		612468		450443		1062911		50209		21.59		6.87s		 
+30		1.494		0.75		0.391		0.87		631722		431189		1062911		50031		21.07		6.88s		 
+31		1.479		0.74		0.394		0.87		633627		429284		1062911		50100		19.89		6.88s		 
+32		1.465		0.73		0.388		0.87		629336		433575		1062911		50063		19.69		6.83s		 
+33		1.450		0.72		0.409		0.86		644208		418703		1062911		50230		19.26		6.82s		 
+34		1.435		0.72		0.422		0.86		653161		409750		1062911		50250		18.05		6.87s		 
+35		1.421		0.71		0.427		0.86		657293		405618		1062911		50221		17.75		6.83s		 
+36		1.407		0.70		0.431		0.85		659530		403381		1062911		50113		17.10		6.89s		 
+37		1.393		0.70		0.448		0.85		671626		391285		1062911		50318		15.92		6.92s		 
+38		1.379		0.69		0.447		0.84		671038		391873		1062911		50247		15.43		6.85s		 
+39		1.365		0.68		0.456		0.84		677429		385482		1062911		50172		15.26		6.84s		 
+40		1.351		0.68		0.454		0.84		676047		386864		1062911		50257		13.89		6.84s		 
+41		1.338		0.67		0.466		0.83		684344		378567		1062911		50237		14.01		6.84s		 
+42		1.325		0.66		0.461		0.83		680928		381983		1062911		50234		13.15		6.88s		 
+43		1.311		0.66		0.491		0.83		702638		360273		1062911		50220		12.17		6.84s		 
+44		1.298		0.65		0.516		0.82		720215		342696		1062911		50168		11.57		6.83s		 
+45		1.285		0.64		0.526		0.82		727120		335791		1062911		50152		11.37		6.80s		 
+46		1.272		0.64		0.526		0.82		726969		335942		1062911		50104		10.69		6.83s		 
+47		1.260		0.63		0.512		0.81		717285		345626		1062911		50173		10.71		6.96s		 
+48		1.247		0.62		0.529		0.81		729120		333791		1062911		50093		9.79		6.94s		 
+49		1.235		0.62		0.542		0.81		738349		324562		1062911		50073		9.08		6.95s		 
+50		1.222		0.61		0.562		0.81		752586		310325		1062911		50085		8.58		6.85s		 
+51		1.210		0.61		0.562		0.80		752319		310592		1062911		50111		8.10		6.90s		 
+52		1.198		0.60		0.586		0.80		769371		293540		1062911		50100		7.78		6.88s		 
+53		1.186		0.59		0.571		0.80		759091		303820		1062911		50181		6.79		6.94s		 
+54		1.174		0.59		0.588		0.79		770714		292197		1062911		50237		6.56		6.89s		 
+55		1.162		0.58		0.598		0.79		778074		284837		1062911		50183		6.22		6.88s		 
+56		1.151		0.58		0.623		0.79		796033		266878		1062911		50145		5.35		6.88s		 
+57		1.139		0.57		0.634		0.78		803705		259206		1062911		50126		5.04		6.87s		 
+58		1.128		0.56		0.646		0.78		812002		250909		1062911		50243		4.25		6.80s		 
+59		1.117		0.56		0.654		0.78		817524		245387		1062911		50208		3.83		6.88s		 
+60		1.105		0.55		0.639		0.78		807478		255433		1062911		50152		3.43		6.92s		 
+61		1.094		0.55		0.675		0.77		832340		230571		1062911		50150		2.88		6.93s		 
+62		1.083		0.54		0.683		0.77		838491		224420		1062911		50131		2.38		6.92s		 
+63		1.073		0.54		0.690		0.77		843064		219847		1062911		50113		2.13		7.16s		 
+64		1.062		0.53		0.700		0.77		850197		212714		1062911		50126		1.70		6.98s		 
+65		1.051		0.53		0.714		0.76		860537		202374		1062911		50151		1.41		6.84s		 
+66		1.041		0.52		0.712		0.76		858655		204256		1062911		50120		1.20		6.90s		 
+67		1.030		0.52		0.719		0.76		863859		199052		1062911		50112		0.98		6.94s		 
+68		1.020		0.51		0.731		0.75		872140		190771		1062911		50086		0.58		6.86s		 
+69		1.010		0.50		0.733		0.75		873461		189450		1062911		50114		0.38		6.91s		 
+70		1.000		0.50		0.735		0.75		874971		187940		1062911		50113		0.23		7.61s		 
+71		0.990		0.49		0.740		0.75		878930		183981		1062911		50113		0.11		7.02s		 
+72		0.980		0.49		0.742		0.74		880265		182646		1062911		50108		0.04		7.05s		 
+73		0.970		0.48		0.742		0.74		880293		182618		1062911		50110		0.02		6.93s		 
+74		0.960		0.48		0.742		0.74		880437		182474		1062911		50111		0.01		6.90s		 
+75		0.951		0.48		0.742		0.74		880463		182448		1062911		50112		0.01		6.89s		 
+76		0.941		0.47		0.742		0.74		880457		182454		1062911		50113		0.00		6.92s		 
+77		0.932		0.47		0.742		0.73		880457		182454		1062911		50112		0.00		6.89s		 
+78		0.922		0.46		0.742		0.73		880458		182453		1062911		50112		0.00		6.91s		 
+Terminated Vaquero algorithm at iteration: 78, Runtime: 539.50
+Clusters capacity/usage: [0=[20000000, 36610], 1=[20000000, 26946], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=23898, 1=14234, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 182453, Improvement: 74.25%
+Good before/after Queries:  354435 / 880458
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=-1568, 1=27096, 2=12605]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		49529		64.94		6.90s		 
+2		1.980		0.99		0.042		1.00		384247		678664		1062911		46588		60.13		6.91s		 
+3		1.960		0.98		0.134		0.99		449474		613437		1062911		49710		54.89		6.88s		 
+4		1.941		0.97		0.191		0.99		489620		573291		1062911		49385		46.19		6.93s		 
+5		1.921		0.96		0.237		0.98		522041		540870		1062911		49929		40.26		6.81s		 
+6		1.902		0.95		0.278		0.98		551596		511315		1062911		49755		35.60		6.87s		 
+7		1.883		0.94		0.317		0.97		579085		483826		1062911		49943		32.15		6.99s		 
+8		1.864		0.93		0.333		0.97		590211		472700		1062911		49810		30.35		6.90s		 
+9		1.845		0.92		0.347		0.96		600094		462817		1062911		50022		28.63		6.93s		 
+10		1.827		0.91		0.368		0.96		614879		448032		1062911		49963		26.27		6.92s		 
+11		1.809		0.90		0.381		0.95		624188		438723		1062911		50129		25.12		6.91s		 
+12		1.791		0.90		0.380		0.95		623854		439057		1062911		50098		24.08		6.87s		 
+13		1.773		0.89		0.377		0.94		621338		441573		1062911		50097		23.58		6.89s		 
+14		1.755		0.88		0.394		0.94		633387		429524		1062911		50220		22.29		6.97s		 
+15		1.737		0.87		0.403		0.93		639621		423290		1062911		50266		21.39		6.90s		 
+16		1.720		0.86		0.416		0.93		649086		413825		1062911		50235		20.14		6.91s		 
+17		1.703		0.85		0.424		0.93		654491		408420		1062911		50197		19.73		6.89s		 
+18		1.686		0.84		0.424		0.92		654831		408080		1062911		50271		19.45		6.87s		 
+19		1.669		0.83		0.425		0.92		655493		407418		1062911		50343		18.63		6.93s		 
+20		1.652		0.83		0.435		0.91		662755		400156		1062911		50277		18.10		6.81s		 
+21		1.636		0.82		0.441		0.91		666855		396056		1062911		50325		17.44		6.90s		 
+22		1.619		0.81		0.440		0.90		665956		396955		1062911		50395		17.07		6.85s		 
+23		1.603		0.80		0.434		0.90		662022		400889		1062911		50334		17.35		6.92s		 
+24		1.587		0.79		0.440		0.90		666466		396445		1062911		50302		17.18		6.84s		 
+25		1.571		0.79		0.466		0.89		684836		378075		1062911		50351		16.49		6.86s		 
+26		1.556		0.78		0.439		0.89		665766		397145		1062911		50315		16.01		6.91s		 
+27		1.540		0.77		0.462		0.89		681599		381312		1062911		50339		15.53		6.88s		 
+28		1.525		0.76		0.500		0.88		708513		354398		1062911		50295		15.29		6.83s		 
+29		1.509		0.75		0.483		0.88		696741		366170		1062911		50507		14.54		6.88s		 
+30		1.494		0.75		0.505		0.87		711976		350935		1062911		50235		14.46		6.87s		 
+31		1.479		0.74		0.491		0.87		702300		360611		1062911		50340		14.09		6.85s		 
+32		1.465		0.73		0.495		0.87		704971		357940		1062911		50308		14.17		6.88s		 
+33		1.450		0.72		0.485		0.86		698088		364823		1062911		50382		13.67		6.79s		 
+34		1.435		0.72		0.506		0.86		713218		349693		1062911		50323		12.79		6.87s		 
+35		1.421		0.71		0.553		0.86		746560		316351		1062911		50376		12.37		6.86s		 
+36		1.407		0.70		0.545		0.85		740634		322277		1062911		50473		12.11		6.90s		 
+37		1.393		0.70		0.538		0.85		735420		327491		1062911		50426		11.98		6.90s		 
+38		1.379		0.69		0.532		0.84		731696		331215		1062911		50379		11.83		6.84s		 
+39		1.365		0.68		0.559		0.84		750442		312469		1062911		50424		11.24		6.90s		 
+40		1.351		0.68		0.568		0.84		756725		306186		1062911		50530		10.71		6.97s		 
+41		1.338		0.67		0.573		0.83		760263		302648		1062911		50464		10.49		6.99s		 
+42		1.325		0.66		0.599		0.83		778819		284092		1062911		50419		10.11		6.94s		 
+43		1.311		0.66		0.590		0.83		772401		290510		1062911		50482		9.46		6.87s		 
+44		1.298		0.65		0.578		0.82		763869		299042		1062911		50381		9.09		6.88s		 
+45		1.285		0.64		0.589		0.82		771596		291315		1062911		50411		8.95		6.94s		 
+46		1.272		0.64		0.621		0.82		794561		268350		1062911		50467		8.34		6.92s		 
+47		1.260		0.63		0.636		0.81		805041		257870		1062911		50457		7.66		6.90s		 
+48		1.247		0.62		0.630		0.81		800671		262240		1062911		50366		7.42		6.87s		 
+49		1.235		0.62		0.612		0.81		787998		274913		1062911		50457		7.36		6.82s		 
+50		1.222		0.61		0.661		0.81		822905		240006		1062911		50425		6.66		6.94s		 
+51		1.210		0.61		0.662		0.80		823160		239751		1062911		50457		6.07		6.93s		 
+52		1.198		0.60		0.650		0.80		814710		248201		1062911		50521		5.88		6.89s		 
+53		1.186		0.59		0.664		0.80		825011		237900		1062911		50438		5.53		6.82s		 
+54		1.174		0.59		0.685		0.79		839538		223373		1062911		50540		5.16		7.01s		 
+55		1.162		0.58		0.727		0.79		869171		193740		1062911		50507		4.59		7.13s		 
+56		1.151		0.58		0.733		0.79		873651		189260		1062911		50531		4.12		6.83s		 
+57		1.139		0.57		0.748		0.78		884508		178403		1062911		50541		3.74		6.88s		 
+58		1.128		0.56		0.743		0.78		880538		182373		1062911		50559		3.61		6.94s		 
+59		1.117		0.56		0.737		0.78		876448		186463		1062911		50529		3.48		6.84s		 
+60		1.105		0.55		0.719		0.78		863526		199385		1062911		50557		3.23		6.84s		 
+61		1.094		0.55		0.724		0.77		867510		195401		1062911		50554		2.90		6.89s		 
+62		1.083		0.54		0.784		0.77		909733		153178		1062911		50517		2.51		6.85s		 
+63		1.073		0.54		0.798		0.77		919659		143252		1062911		50503		2.11		6.88s		 
+64		1.062		0.53		0.799		0.77		920377		142534		1062911		50498		1.94		6.87s		 
+65		1.051		0.53		0.792		0.76		915779		147132		1062911		50514		1.69		6.82s		 
+66		1.041		0.52		0.806		0.76		925733		137178		1062911		50480		1.35		6.85s		 
+67		1.030		0.52		0.827		0.76		940370		122541		1062911		50492		0.98		6.88s		 
+68		1.020		0.51		0.837		0.75		947512		115399		1062911		50476		0.73		6.89s		 
+69		1.010		0.50		0.850		0.75		956420		106491		1062911		50460		0.51		6.84s		 
+70		1.000		0.50		0.854		0.75		959396		103515		1062911		50459		0.33		6.87s		 
+71		0.990		0.49		0.870		0.75		970506		92405		1062911		50479		0.17		6.87s		 
+72		0.980		0.49		0.872		0.74		972433		90478		1062911		50480		0.10		6.85s		 
+73		0.970		0.48		0.873		0.74		972803		90108		1062911		50480		0.09		6.90s		 
+74		0.960		0.48		0.873		0.74		973045		89866		1062911		50485		0.10		6.87s		 
+75		0.951		0.48		0.874		0.74		973606		89305		1062911		50487		0.07		6.80s		 
+76		0.941		0.47		0.875		0.74		974059		88852		1062911		50489		0.09		6.92s		 
+77		0.932		0.47		0.875		0.73		974577		88334		1062911		50483		0.08		6.98s		 
+78		0.922		0.46		0.876		0.73		974917		87994		1062911		50477		0.07		6.81s		 
+79		0.913		0.46		0.876		0.73		975408		87503		1062911		50481		0.06		6.84s		 
+80		0.904		0.45		0.877		0.73		976075		86836		1062911		50472		0.08		6.90s		 
+81		0.895		0.45		0.879		0.72		977035		85876		1062911		50468		0.10		7.25s		 
+82		0.886		0.44		0.881		0.72		978276		84635		1062911		50469		0.06		6.83s		 
+83		0.877		0.44		0.881		0.72		978733		84178		1062911		50472		0.02		6.89s		 
+84		0.868		0.43		0.882		0.72		979195		83716		1062911		50473		0.03		6.80s		 
+85		0.860		0.43		0.882		0.71		979295		83616		1062911		50476		0.04		6.83s		 
+86		0.851		0.43		0.882		0.71		979464		83447		1062911		50481		0.05		6.73s		 
+87		0.843		0.42		0.883		0.71		979671		83240		1062911		50478		0.03		6.87s		 
+88		0.834		0.42		0.883		0.71		979895		83016		1062911		50480		0.03		6.79s		 
+89		0.826		0.41		0.883		0.71		979951		82960		1062911		50480		0.01		6.84s		 
+90		0.818		0.41		0.883		0.70		979954		82957		1062911		50480		0.00		6.83s		 
+91		0.809		0.40		0.883		0.70		979957		82954		1062911		50479		0.00		6.72s		 
+92		0.801		0.40		0.883		0.70		979974		82937		1062911		50479		0.00		6.83s		 
+Terminated Vaquero algorithm at iteration: 92, Runtime: 635.03
+Clusters capacity/usage: [0=[20000000, 39995], 1=[20000000, 23561], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=27284, 1=10849, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 82937, Improvement: 88.29%
+Good before/after Queries:  354435 / 979974
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=41470, 1=-3384, 2=47]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		39837		52.23		6.88s		 
+2		1.980		0.99		0.059		1.00		396018		666893		1062911		44383		51.19		6.91s		 
+3		1.960		0.98		0.134		0.99		449176		613735		1062911		49183		54.51		6.88s		 
+4		1.941		0.97		0.187		0.99		486724		576187		1062911		49169		50.40		6.87s		 
+5		1.921		0.96		0.224		0.98		512965		549946		1062911		49864		44.93		6.94s		 
+6		1.902		0.95		0.269		0.98		545253		517658		1062911		49645		39.16		6.84s		 
+7		1.883		0.94		0.299		0.97		566618		496293		1062911		50067		35.06		6.84s		 
+8		1.864		0.93		0.327		0.97		586314		476597		1062911		49995		32.28		6.87s		 
+9		1.845		0.92		0.326		0.96		585470		477441		1062911		50045		30.55		6.92s		 
+10		1.827		0.91		0.355		0.96		605749		457162		1062911		49885		28.19		6.93s		 
+11		1.809		0.90		0.354		0.95		605293		457618		1062911		49967		26.58		6.86s		 
+12		1.791		0.90		0.356		0.95		606555		456356		1062911		50081		25.48		6.90s		 
+13		1.773		0.89		0.403		0.94		639700		423211		1062911		49960		23.10		6.84s		 
+14		1.755		0.88		0.402		0.94		639373		423538		1062911		50058		22.13		6.88s		 
+15		1.737		0.87		0.435		0.93		662469		400442		1062911		50164		19.44		6.87s		 
+16		1.720		0.86		0.431		0.93		659958		402953		1062911		50001		18.93		6.88s		 
+17		1.703		0.85		0.448		0.93		671983		390928		1062911		50263		18.55		6.84s		 
+18		1.686		0.84		0.452		0.92		675012		387899		1062911		50027		18.05		6.82s		 
+19		1.669		0.83		0.480		0.92		694503		368408		1062911		50159		17.02		6.82s		 
+20		1.652		0.83		0.483		0.91		696824		366087		1062911		50240		16.76		6.84s		 
+21		1.636		0.82		0.450		0.91		673495		389416		1062911		50172		16.34		6.84s		 
+22		1.619		0.81		0.505		0.90		712239		350672		1062911		50117		14.44		6.81s		 
+23		1.603		0.80		0.517		0.90		720788		342123		1062911		50180		13.51		6.79s		 
+24		1.587		0.79		0.519		0.90		722057		340854		1062911		50229		13.16		6.83s		 
+25		1.571		0.79		0.530		0.89		729817		333094		1062911		50131		12.82		6.87s		 
+26		1.556		0.78		0.538		0.89		735533		327378		1062911		50081		12.15		6.87s		 
+27		1.540		0.77		0.511		0.89		716355		346556		1062911		50224		13.06		6.92s		 
+28		1.525		0.76		0.529		0.88		729293		333618		1062911		50297		11.57		7.28s		 
+29		1.509		0.75		0.561		0.88		751740		311171		1062911		50119		10.92		7.07s		 
+30		1.494		0.75		0.561		0.87		751706		311205		1062911		50227		10.30		7.02s		 
+31		1.479		0.74		0.580		0.87		765205		297706		1062911		50277		9.72		7.06s		 
+32		1.465		0.73		0.604		0.87		782687		280224		1062911		50240		8.59		186.91s		 
+33		1.450		0.72		0.592		0.86		773838		289073		1062911		50183		9.19		6.94s		 
+34		1.435		0.72		0.592		0.86		773982		288929		1062911		50255		8.52		6.95s		 
+35		1.421		0.71		0.594		0.86		775170		287741		1062911		50201		7.92		6.87s		 
+36		1.407		0.70		0.596		0.85		776662		286249		1062911		50146		7.56		6.94s		 
+37		1.393		0.70		0.633		0.85		802835		260076		1062911		50240		7.21		6.96s		 
+38		1.379		0.69		0.634		0.84		803397		259514		1062911		50187		7.24		7.01s		 
+39		1.365		0.68		0.609		0.84		785651		277260		1062911		50201		7.30		7.02s		 
+40		1.351		0.68		0.604		0.84		782426		280485		1062911		50177		6.60		6.99s		 
+41		1.338		0.67		0.637		0.83		805725		257186		1062911		50251		5.98		6.89s		 
+42		1.325		0.66		0.630		0.83		800456		262455		1062911		50248		5.91		6.89s		 
+43		1.311		0.66		0.647		0.83		812956		249955		1062911		50155		5.36		6.87s		 
+44		1.298		0.65		0.668		0.82		827367		235544		1062911		50182		5.22		7.02s		 
+45		1.285		0.64		0.648		0.82		813603		249308		1062911		50190		4.74		6.89s		 
+46		1.272		0.64		0.662		0.82		823537		239374		1062911		50192		4.68		6.91s		 
+47		1.260		0.63		0.692		0.81		844513		218398		1062911		50178		4.37		6.90s		 
+48		1.247		0.62		0.660		0.81		822277		240634		1062911		50263		4.31		6.84s		 
+49		1.235		0.62		0.662		0.81		823412		239499		1062911		50257		3.79		6.85s		 
+50		1.222		0.61		0.687		0.81		841456		221455		1062911		50248		3.29		6.87s		 
+51		1.210		0.61		0.699		0.80		849859		213052		1062911		50212		2.96		6.85s		 
+52		1.198		0.60		0.702		0.80		851440		211471		1062911		50221		2.47		6.84s		 
+53		1.186		0.59		0.701		0.80		851359		211552		1062911		50206		2.63		6.91s		 
+54		1.174		0.59		0.710		0.79		857603		205308		1062911		50257		2.05		6.93s		 
+55		1.162		0.58		0.715		0.79		861267		201644		1062911		50243		1.87		6.91s		 
+56		1.151		0.58		0.718		0.79		862919		199992		1062911		50211		1.75		6.86s		 
+57		1.139		0.57		0.736		0.78		875559		187352		1062911		50258		1.49		6.98s		 
+58		1.128		0.56		0.760		0.78		893154		169757		1062911		50257		1.28		6.84s		 
+59		1.117		0.56		0.763		0.78		895239		167672		1062911		50260		1.29		6.89s		 
+60		1.105		0.55		0.770		0.78		899677		163234		1062911		50228		1.06		6.84s		 
+61		1.094		0.55		0.778		0.77		905626		157285		1062911		50225		0.86		6.90s		 
+62		1.083		0.54		0.786		0.77		911173		151738		1062911		50251		0.72		7.27s		 
+63		1.073		0.54		0.784		0.77		909688		153223		1062911		50266		0.55		6.83s		 
+64		1.062		0.53		0.777		0.77		905264		157647		1062911		50257		0.48		6.80s		 
+65		1.051		0.53		0.784		0.76		909654		153257		1062911		50254		0.47		6.85s		 
+66		1.041		0.52		0.784		0.76		910137		152774		1062911		50260		0.38		6.77s		 
+67		1.030		0.52		0.795		0.76		917729		145182		1062911		50261		0.26		6.79s		 
+68		1.020		0.51		0.797		0.75		918998		143913		1062911		50258		0.22		6.77s		 
+69		1.010		0.50		0.797		0.75		919159		143752		1062911		50260		0.15		6.77s		 
+70		1.000		0.50		0.799		0.75		920560		142351		1062911		50263		0.07		6.80s		 
+71		0.990		0.49		0.799		0.75		920813		142098		1062911		50267		0.02		6.82s		 
+72		0.980		0.49		0.800		0.74		920869		142042		1062911		50268		0.01		6.91s		 
+73		0.970		0.48		0.800		0.74		920994		141917		1062911		50268		0.00		6.85s		 
+74		0.960		0.48		0.800		0.74		921003		141908		1062911		50265		0.01		6.67s		 
+75		0.951		0.48		0.800		0.74		920998		141913		1062911		50270		0.01		6.82s		 
+76		0.941		0.47		0.800		0.74		921066		141845		1062911		50271		0.01		6.85s		 
+77		0.932		0.47		0.800		0.73		921155		141756		1062911		50271		0.00		6.84s		 
+Terminated Vaquero algorithm at iteration: 77, Runtime: 712.31
+Clusters capacity/usage: [0=[20000000, 32864], 1=[20000000, 30692], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=20152, 1=17981, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 141756, Improvement: 79.99%
+Good before/after Queries:  354435 / 921155
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=-8699, 1=34227, 2=12605]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		43051		56.45		6.98s		 
+2		1.980		0.99		0.074		1.00		406676		656235		1062911		46354		54.04		6.92s		 
+3		1.960		0.98		0.171		0.99		475557		587354		1062911		49055		47.00		6.87s		 
+4		1.941		0.97		0.193		0.99		491316		571595		1062911		49363		43.11		6.87s		 
+5		1.921		0.96		0.231		0.98		518347		544564		1062911		49733		40.36		6.81s		 
+6		1.902		0.95		0.262		0.98		540075		522836		1062911		49662		36.23		6.91s		 
+7		1.883		0.94		0.315		0.97		577888		485023		1062911		49875		32.85		6.93s		 
+8		1.864		0.93		0.341		0.97		595976		466935		1062911		50023		30.09		6.96s		 
+9		1.845		0.92		0.375		0.96		620163		442748		1062911		50165		27.92		6.91s		 
+10		1.827		0.91		0.374		0.96		619660		443251		1062911		50180		25.86		6.94s		 
+11		1.809		0.90		0.406		0.95		641777		421134		1062911		50157		24.05		6.94s		 
+12		1.791		0.90		0.401		0.95		638687		424224		1062911		50380		22.90		6.91s		 
+13		1.773		0.89		0.411		0.94		645581		417330		1062911		50447		21.06		6.93s		 
+14		1.755		0.88		0.441		0.94		667089		395822		1062911		50283		19.92		6.93s		 
+15		1.737		0.87		0.437		0.93		664108		398803		1062911		50281		19.07		6.88s		 
+16		1.720		0.86		0.453		0.93		675390		387521		1062911		50311		18.89		6.87s		 
+17		1.703		0.85		0.460		0.93		680369		382542		1062911		50299		17.90		6.89s		 
+18		1.686		0.84		0.479		0.92		693582		369329		1062911		50272		17.52		6.86s		 
+19		1.669		0.83		0.457		0.92		678534		384377		1062911		50247		16.73		6.87s		 
+20		1.652		0.83		0.458		0.91		678916		383995		1062911		50205		16.73		6.87s		 
+21		1.636		0.82		0.484		0.91		697649		365262		1062911		50299		16.72		6.84s		 
+22		1.619		0.81		0.477		0.90		692305		370606		1062911		50250		16.23		6.81s		 
+23		1.603		0.80		0.513		0.90		717533		345378		1062911		50265		15.67		6.87s		 
+24		1.587		0.79		0.468		0.90		685903		377008		1062911		50269		15.02		6.91s		 
+25		1.571		0.79		0.477		0.89		692584		370327		1062911		50354		14.63		6.78s		 
+26		1.556		0.78		0.528		0.89		728265		334646		1062911		50305		13.66		6.87s		 
+27		1.540		0.77		0.496		0.89		705657		357254		1062911		50335		13.36		6.88s		 
+28		1.525		0.76		0.517		0.88		721000		341911		1062911		50335		13.00		6.87s		 
+29		1.509		0.75		0.565		0.88		754856		308055		1062911		50369		12.57		6.84s		 
+30		1.494		0.75		0.551		0.87		744585		318326		1062911		50381		12.48		6.96s		 
+31		1.479		0.74		0.556		0.87		748349		314562		1062911		50509		12.08		6.88s		 
+32		1.465		0.73		0.546		0.87		741379		321532		1062911		50485		11.76		6.87s		 
+33		1.450		0.72		0.576		0.86		762595		300316		1062911		50497		11.45		6.98s		 
+34		1.435		0.72		0.558		0.86		749748		313163		1062911		50445		10.96		6.82s		 
+35		1.421		0.71		0.573		0.86		760157		302754		1062911		50407		10.72		6.83s		 
+36		1.407		0.70		0.570		0.85		757956		304955		1062911		50422		10.43		6.86s		 
+37		1.393		0.70		0.555		0.85		747430		315481		1062911		50513		10.11		6.93s		 
+38		1.379		0.69		0.588		0.84		771283		291628		1062911		50463		9.65		6.87s		 
+39		1.365		0.68		0.586		0.84		769566		293345		1062911		50271		8.79		7.03s		 
+40		1.351		0.68		0.587		0.84		770507		292404		1062911		50370		8.57		6.86s		 
+41		1.338		0.67		0.615		0.83		790282		272629		1062911		50463		8.64		6.91s		 
+42		1.325		0.66		0.638		0.83		806202		256709		1062911		50355		8.45		6.93s		 
+43		1.311		0.66		0.620		0.83		793859		269052		1062911		50465		7.91		6.88s		 
+44		1.298		0.65		0.643		0.82		809899		253012		1062911		50527		7.49		6.95s		 
+45		1.285		0.64		0.646		0.82		812247		250664		1062911		50409		7.15		6.87s		 
+46		1.272		0.64		0.636		0.82		804769		258142		1062911		50439		6.91		6.86s		 
+47		1.260		0.63		0.683		0.81		838239		224672		1062911		50438		6.66		6.86s		 
+48		1.247		0.62		0.669		0.81		828386		234525		1062911		50433		6.34		6.86s		 
+49		1.235		0.62		0.663		0.81		824034		238877		1062911		50475		6.07		6.84s		 
+50		1.222		0.61		0.651		0.81		815466		247445		1062911		50499		6.14		6.88s		 
+51		1.210		0.61		0.653		0.80		817398		245513		1062911		50465		6.04		6.85s		 
+52		1.198		0.60		0.690		0.80		843388		219523		1062911		50430		5.47		6.86s		 
+53		1.186		0.59		0.718		0.80		863057		199854		1062911		50412		4.79		6.86s		 
+54		1.174		0.59		0.696		0.79		847639		215272		1062911		50461		4.47		6.95s		 
+55		1.162		0.58		0.732		0.79		872703		190208		1062911		50475		4.25		6.85s		 
+56		1.151		0.58		0.740		0.79		878456		184455		1062911		50434		3.81		6.81s		 
+57		1.139		0.57		0.768		0.78		898793		164118		1062911		50406		3.40		6.95s		 
+58		1.128		0.56		0.773		0.78		902031		160880		1062911		50440		3.06		6.89s		 
+59		1.117		0.56		0.799		0.78		920425		142486		1062911		50426		2.64		6.86s		 
+60		1.105		0.55		0.809		0.78		927597		135314		1062911		50411		2.46		7.27s		 
+61		1.094		0.55		0.802		0.77		922310		140601		1062911		50484		2.25		6.76s		 
+62		1.083		0.54		0.806		0.77		925792		137119		1062911		50526		2.02		6.78s		 
+63		1.073		0.54		0.841		0.77		950288		112623		1062911		50443		1.73		6.74s		 
+64		1.062		0.53		0.836		0.77		946787		116124		1062911		50426		1.39		6.71s		 
+65		1.051		0.53		0.847		0.76		954192		108719		1062911		50486		1.17		6.64s		 
+66		1.041		0.52		0.864		0.76		966651		96260		1062911		50457		0.96		6.74s		 
+67		1.030		0.52		0.878		0.76		976718		86193		1062911		50445		0.71		6.79s		 
+68		1.020		0.51		0.889		0.75		984528		78383		1062911		50454		0.57		6.81s		 
+69		1.010		0.50		0.900		0.75		992225		70686		1062911		50455		0.46		6.74s		 
+70		1.000		0.50		0.916		0.75		1003531		59380		1062911		50458		0.23		6.90s		 
+71		0.990		0.49		0.925		0.75		1009574		53337		1062911		50456		0.11		6.79s		 
+72		0.980		0.49		0.927		0.74		1011544		51367		1062911		50441		0.09		6.89s		 
+73		0.970		0.48		0.929		0.74		1012450		50461		1062911		50441		0.05		6.85s		 
+74		0.960		0.48		0.929		0.74		1012530		50381		1062911		50445		0.04		6.80s		 
+75		0.951		0.48		0.929		0.74		1012601		50310		1062911		50446		0.04		6.84s		 
+76		0.941		0.47		0.929		0.74		1012659		50252		1062911		50453		0.05		6.80s		 
+77		0.932		0.47		0.929		0.73		1012698		50213		1062911		50452		0.02		6.76s		 
+78		0.922		0.46		0.929		0.73		1012704		50207		1062911		50453		0.01		6.76s		 
+79		0.913		0.46		0.929		0.73		1012704		50207		1062911		50453		0.00		6.83s		 
+80		0.904		0.45		0.929		0.73		1012704		50207		1062911		50453		0.00		6.80s		 
+Terminated Vaquero algorithm at iteration: 80, Runtime: 551.08
+Clusters capacity/usage: [0=[20000000, 37669], 1=[20000000, 25037], 2=[20000000, 13562]]
+Clusters Lower Bound: [0=24958, 1=12325, 2=850]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 50207, Improvement: 92.91%
+Good before/after Queries:  354435 / 1012704
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=46275, 1=-9039, 2=897]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		31210		40.92		6.90s		 
+2		1.980		0.99		0.091		1.00		418742		644169		1062911		45730		50.90		6.86s		 
+3		1.960		0.98		0.177		0.99		479531		583380		1062911		49024		52.25		6.86s		 
+4		1.941		0.97		0.222		0.99		511904		551007		1062911		49377		47.03		6.83s		 
+5		1.921		0.96		0.280		0.98		552579		510332		1062911		49841		40.09		6.87s		 
+6		1.902		0.95		0.356		0.98		606442		456469		1062911		49876		30.82		6.88s		 
+7		1.883		0.94		0.433		0.97		661101		401810		1062911		49845		23.60		6.79s		 
+8		1.864		0.93		0.464		0.97		683444		379467		1062911		49893		21.60		6.81s		 
+9		1.845		0.92		0.462		0.96		681654		381257		1062911		50014		17.99		6.90s		 
+10		1.827		0.91		0.453		0.96		675486		387425		1062911		50048		18.14		6.82s		 
+11		1.809		0.90		0.478		0.95		692901		370010		1062911		50140		16.17		6.83s		 
+12		1.791		0.90		0.499		0.95		707999		354912		1062911		50147		15.31		6.87s		 
+13		1.773		0.89		0.500		0.94		708633		354278		1062911		50049		14.41		6.83s		 
+14		1.755		0.88		0.516		0.94		720009		342902		1062911		49977		12.92		6.87s		 
+15		1.737		0.87		0.508		0.93		714469		348442		1062911		50084		13.28		6.91s		 
+16		1.720		0.86		0.559		0.93		750176		312735		1062911		50162		11.28		6.84s		 
+17		1.703		0.85		0.562		0.93		752799		310112		1062911		50192		10.92		6.93s		 
+18		1.686		0.84		0.552		0.92		745817		317094		1062911		50299		10.12		6.94s		 
+19		1.669		0.83		0.534		0.92		733071		329840		1062911		50268		9.91		7.13s		 
+20		1.652		0.83		0.557		0.91		748886		314025		1062911		50302		9.18		6.93s		 
+21		1.636		0.82		0.554		0.91		747274		315637		1062911		50190		9.53		6.92s		 
+22		1.619		0.81		0.583		0.90		767366		295545		1062911		50314		8.71		6.91s		 
+23		1.603		0.80		0.620		0.90		793903		269008		1062911		50273		8.23		6.85s		 
+24		1.587		0.79		0.606		0.90		783638		279273		1062911		50311		7.94		6.86s		 
+25		1.571		0.79		0.604		0.89		782702		280209		1062911		50217		7.70		6.90s		 
+26		1.556		0.78		0.597		0.89		777547		285364		1062911		50218		6.95		6.97s		 
+27		1.540		0.77		0.613		0.89		788629		274282		1062911		50280		7.03		6.87s		 
+28		1.525		0.76		0.594		0.88		775411		287500		1062911		50249		6.90		6.84s		 
+29		1.509		0.75		0.617		0.88		791338		271573		1062911		50285		6.75		6.85s		 
+30		1.494		0.75		0.640		0.87		807650		255261		1062911		50277		7.00		6.87s		 
+31		1.479		0.74		0.650		0.87		815083		247828		1062911		50351		6.60		6.83s		 
+32		1.465		0.73		0.660		0.87		822094		240817		1062911		50285		5.87		6.79s		 
+33		1.450		0.72		0.648		0.86		813592		249319		1062911		50342		5.34		6.83s		 
+34		1.435		0.72		0.662		0.86		823296		239615		1062911		50341		4.78		6.93s		 
+35		1.421		0.71		0.634		0.86		803480		259431		1062911		50202		4.94		6.93s		 
+36		1.407		0.70		0.674		0.85		831765		231146		1062911		50252		4.40		7.35s		 
+37		1.393		0.70		0.645		0.85		811612		251299		1062911		50284		4.32		7.03s		 
+38		1.379		0.69		0.667		0.84		826683		236228		1062911		50254		3.96		6.93s		 
+39		1.365		0.68		0.658		0.84		820360		242551		1062911		50273		4.09		6.88s		 
+40		1.351		0.68		0.680		0.84		836172		226739		1062911		50278		3.58		6.90s		 
+41		1.338		0.67		0.689		0.83		842247		220664		1062911		50316		3.50		6.88s		 
+42		1.325		0.66		0.714		0.83		860051		202860		1062911		50402		3.13		6.86s		 
+43		1.311		0.66		0.711		0.83		858128		204783		1062911		50378		2.64		6.88s		 
+44		1.298		0.65		0.690		0.82		843545		219366		1062911		50393		2.76		6.93s		 
+45		1.285		0.64		0.730		0.82		871691		191220		1062911		50396		2.50		6.94s		 
+46		1.272		0.64		0.747		0.82		883588		179323		1062911		50356		2.36		6.85s		 
+47		1.260		0.63		0.740		0.81		878611		184300		1062911		50370		2.10		6.88s		 
+48		1.247		0.62		0.739		0.81		878034		184877		1062911		50357		1.96		6.98s		 
+49		1.235		0.62		0.740		0.81		878795		184116		1062911		50378		1.54		6.85s		 
+50		1.222		0.61		0.717		0.81		862520		200391		1062911		50381		1.47		6.89s		 
+51		1.210		0.61		0.704		0.80		853182		209729		1062911		50408		1.71		6.85s		 
+52		1.198		0.60		0.722		0.80		865935		196976		1062911		50377		1.35		6.87s		 
+53		1.186		0.59		0.712		0.80		859162		203749		1062911		50367		1.19		6.94s		 
+54		1.174		0.59		0.730		0.79		871734		191177		1062911		50337		1.11		6.85s		 
+55		1.162		0.58		0.735		0.79		875020		187891		1062911		50328		1.03		6.86s		 
+56		1.151		0.58		0.754		0.79		888391		174520		1062911		50295		0.87		6.95s		 
+57		1.139		0.57		0.752		0.78		887350		175561		1062911		50262		0.77		7.31s		 
+58		1.128		0.56		0.749		0.78		885304		177607		1062911		50306		0.78		6.76s		 
+59		1.117		0.56		0.745		0.78		882538		180373		1062911		50285		0.70		6.81s		 
+60		1.105		0.55		0.769		0.78		899597		163314		1062911		50282		0.53		6.75s		 
+61		1.094		0.55		0.775		0.77		903493		159418		1062911		50305		0.41		6.80s		 
+62		1.083		0.54		0.779		0.77		906366		156545		1062911		50303		0.42		6.84s		 
+63		1.073		0.54		0.788		0.77		912714		150197		1062911		50288		0.35		6.83s		 
+64		1.062		0.53		0.787		0.77		911907		151004		1062911		50314		0.35		6.80s		 
+65		1.051		0.53		0.796		0.76		918360		144551		1062911		50319		0.22		6.80s		 
+66		1.041		0.52		0.796		0.76		918308		144603		1062911		50331		0.16		6.82s		 
+67		1.030		0.52		0.797		0.76		919030		143881		1062911		50324		0.14		6.79s		 
+68		1.020		0.51		0.800		0.75		921368		141543		1062911		50325		0.08		6.81s		 
+69		1.010		0.50		0.801		0.75		922027		140884		1062911		50326		0.05		6.84s		 
+70		1.000		0.50		0.801		0.75		921978		140933		1062911		50321		0.02		6.80s		 
+71		0.990		0.49		0.801		0.75		922112		140799		1062911		50317		0.02		6.85s		 
+72		0.980		0.49		0.802		0.74		922291		140620		1062911		50319		0.00		6.78s		 
+73		0.970		0.48		0.802		0.74		922288		140623		1062911		50324		0.01		7.01s		 
+74		0.960		0.48		0.802		0.74		922323		140588		1062911		50322		0.01		6.80s		 
+75		0.951		0.48		0.802		0.74		922760		140151		1062911		50322		0.00		6.75s		 
+76		0.941		0.47		0.802		0.74		922760		140151		1062911		50322		0.00		6.85s		 
+Terminated Vaquero algorithm at iteration: 76, Runtime: 524.70
+Clusters capacity/usage: [0=[20000000, 35082], 1=[20000000, 28474], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=22370, 1=15763, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 140151, Improvement: 80.22%
+Good before/after Queries:  354435 / 922760
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=-11286, 1=37664, 2=11755]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		40877		53.60		6.88s		 
+2		1.980		0.99		0.092		1.00		419412		643499		1062911		46472		51.66		7.10s		 
+3		1.960		0.98		0.162		0.99		469244		593667		1062911		49008		46.44		7.03s		 
+4		1.941		0.97		0.182		0.99		483554		579357		1062911		49431		43.18		6.96s		 
+5		1.921		0.96		0.216		0.98		507291		555620		1062911		49689		40.27		6.85s		 
+6		1.902		0.95		0.246		0.98		528907		534004		1062911		49738		37.60		6.86s		 
+7		1.883		0.94		0.268		0.97		544165		518746		1062911		50056		34.81		6.91s		 
+8		1.864		0.93		0.280		0.97		553071		509840		1062911		50143		32.35		6.92s		 
+9		1.845		0.92		0.303		0.96		569251		493660		1062911		50174		29.79		6.90s		 
+10		1.827		0.91		0.308		0.96		572875		490036		1062911		50194		28.13		6.89s		 
+11		1.809		0.90		0.321		0.95		581752		481159		1062911		50295		26.88		6.96s		 
+12		1.791		0.90		0.328		0.95		586934		475977		1062911		50159		26.24		6.98s		 
+13		1.773		0.89		0.343		0.94		597627		465284		1062911		50147		24.95		6.95s		 
+14		1.755		0.88		0.341		0.94		595890		467021		1062911		50209		23.93		6.92s		 
+15		1.737		0.87		0.378		0.93		622545		440366		1062911		50242		21.92		6.89s		 
+16		1.720		0.86		0.416		0.93		648871		414040		1062911		50179		21.55		6.95s		 
+17		1.703		0.85		0.390		0.93		630884		432027		1062911		50250		20.47		6.92s		 
+18		1.686		0.84		0.408		0.92		643563		419348		1062911		50297		20.01		6.92s		 
+19		1.669		0.83		0.413		0.92		647338		415573		1062911		50256		19.56		6.99s		 
+20		1.652		0.83		0.451		0.91		673971		388940		1062911		50200		18.71		6.90s		 
+21		1.636		0.82		0.419		0.91		651221		411690		1062911		50308		18.45		6.89s		 
+22		1.619		0.81		0.433		0.90		661091		401820		1062911		50339		18.15		6.86s		 
+23		1.603		0.80		0.448		0.90		671532		391379		1062911		50207		17.51		6.88s		 
+24		1.587		0.79		0.451		0.90		674114		388797		1062911		50370		17.63		6.87s		 
+25		1.571		0.79		0.437		0.89		664361		398550		1062911		50266		17.51		6.88s		 
+26		1.556		0.78		0.460		0.89		680593		382318		1062911		50215		16.36		6.80s		 
+27		1.540		0.77		0.501		0.89		709243		353668		1062911		50279		15.35		6.89s		 
+28		1.525		0.76		0.491		0.88		702107		360804		1062911		50193		15.31		6.84s		 
+29		1.509		0.75		0.510		0.88		715452		347459		1062911		50296		14.96		6.86s		 
+30		1.494		0.75		0.460		0.87		680365		382546		1062911		50361		14.65		6.90s		 
+31		1.479		0.74		0.491		0.87		702473		360438		1062911		50250		14.01		7.03s		 
+32		1.465		0.73		0.545		0.87		740206		322705		1062911		50207		13.61		6.94s		 
+33		1.450		0.72		0.515		0.86		719174		343737		1062911		50373		12.94		6.94s		 
+34		1.435		0.72		0.547		0.86		741722		321189		1062911		50409		12.42		6.87s		 
+35		1.421		0.71		0.576		0.86		762319		300592		1062911		50369		12.19		6.93s		 
+36		1.407		0.70		0.546		0.85		741478		321433		1062911		50441		11.63		6.95s		 
+37		1.393		0.70		0.561		0.85		752078		310833		1062911		50295		11.07		6.79s		 
+38		1.379		0.69		0.564		0.84		753992		308919		1062911		50349		11.03		6.89s		 
+39		1.365		0.68		0.584		0.84		768047		294864		1062911		50335		10.72		6.79s		 
+40		1.351		0.68		0.612		0.84		788358		274553		1062911		50298		9.84		6.96s		 
+41		1.338		0.67		0.614		0.83		789386		273525		1062911		50229		9.23		6.91s		 
+42		1.325		0.66		0.596		0.83		776591		286320		1062911		50493		9.16		6.90s		 
+43		1.311		0.66		0.647		0.83		812533		250378		1062911		50542		8.95		6.92s		 
+44		1.298		0.65		0.614		0.82		789263		273648		1062911		50438		8.41		6.92s		 
+45		1.285		0.64		0.648		0.82		813662		249249		1062911		50365		8.10		7.03s		 
+46		1.272		0.64		0.633		0.82		802805		260106		1062911		50407		7.29		6.95s		 
+47		1.260		0.63		0.625		0.81		797059		265852		1062911		50422		7.20		6.88s		 
+48		1.247		0.62		0.679		0.81		835296		227615		1062911		50298		6.87		6.99s		 
+49		1.235		0.62		0.673		0.81		831371		231540		1062911		50370		6.49		6.89s		 
+50		1.222		0.61		0.667		0.81		826949		235962		1062911		50440		6.46		6.90s		 
+51		1.210		0.61		0.613		0.80		788437		274474		1062911		50416		6.67		6.96s		 
+52		1.198		0.60		0.703		0.80		852719		210192		1062911		50450		6.18		6.88s		 
+53		1.186		0.59		0.735		0.80		875318		187593		1062911		50441		5.08		6.93s		 
+54		1.174		0.59		0.746		0.79		883217		179694		1062911		50458		4.67		6.91s		 
+55		1.162		0.58		0.727		0.79		869677		193234		1062911		50420		4.47		6.89s		 
+56		1.151		0.58		0.753		0.79		888118		174793		1062911		50460		4.14		7.00s		 
+57		1.139		0.57		0.729		0.78		870848		192063		1062911		50379		3.86		7.44s		 
+58		1.128		0.56		0.764		0.78		895895		167016		1062911		50484		3.56		6.88s		 
+59		1.117		0.56		0.765		0.78		896735		166176		1062911		50459		3.04		6.75s		 
+60		1.105		0.55		0.784		0.78		910125		152786		1062911		50397		2.85		6.87s		 
+61		1.094		0.55		0.801		0.77		922006		140905		1062911		50386		2.70		6.85s		 
+62		1.083		0.54		0.791		0.77		914548		148363		1062911		50359		2.28		6.89s		 
+63		1.073		0.54		0.813		0.77		930209		132702		1062911		50372		1.92		6.89s		 
+64		1.062		0.53		0.813		0.77		930774		132137		1062911		50377		1.68		6.81s		 
+65		1.051		0.53		0.828		0.76		941163		121748		1062911		50429		1.46		6.92s		 
+66		1.041		0.52		0.856		0.76		961060		101851		1062911		50443		0.99		7.00s		 
+67		1.030		0.52		0.858		0.76		961957		100954		1062911		50428		0.77		7.01s		 
+68		1.020		0.51		0.856		0.75		961198		101713		1062911		50430		0.49		6.85s		 
+69		1.010		0.50		0.885		0.75		981658		81253		1062911		50442		0.22		6.84s		 
+70		1.000		0.50		0.889		0.75		984423		78488		1062911		50440		0.09		6.87s		 
+71		0.990		0.49		0.893		0.75		986893		76018		1062911		50443		0.02		6.84s		 
+72		0.980		0.49		0.893		0.74		987410		75501		1062911		50444		0.00		6.90s		 
+73		0.970		0.48		0.894		0.74		987568		75343		1062911		50444		0.00		6.84s		 
+Terminated Vaquero algorithm at iteration: 73, Runtime: 506.58
+Clusters capacity/usage: [0=[20000000, 36178], 1=[20000000, 27378], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=23467, 1=14666, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 75343, Improvement: 89.37%
+Good before/after Queries:  354435 / 987568
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=47371, 1=-10135, 2=897]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		29371		38.51		6.98s		 
+2		1.980		0.99		0.098		1.00		423517		639394		1062911		47797		54.39		6.87s		 
+3		1.960		0.98		0.176		0.99		479320		583591		1062911		48910		52.82		6.85s		 
+4		1.941		0.97		0.232		0.99		518907		544004		1062911		49588		46.51		6.90s		 
+5		1.921		0.96		0.326		0.98		585065		477846		1062911		49842		34.33		6.87s		 
+6		1.902		0.95		0.394		0.98		633908		429003		1062911		50113		27.43		6.82s		 
+7		1.883		0.94		0.441		0.97		666850		396061		1062911		49959		22.41		6.92s		 
+8		1.864		0.93		0.453		0.97		675594		387317		1062911		49989		19.50		6.88s		 
+9		1.845		0.92		0.470		0.96		687244		375667		1062911		50060		16.56		6.88s		 
+10		1.827		0.91		0.488		0.96		700167		362744		1062911		50008		15.32		6.91s		 
+11		1.809		0.90		0.517		0.95		720908		342003		1062911		50046		12.70		6.85s		 
+12		1.791		0.90		0.516		0.95		720036		342875		1062911		50121		13.28		6.87s		 
+13		1.773		0.89		0.535		0.94		733500		329411		1062911		50092		11.42		6.88s		 
+14		1.755		0.88		0.557		0.94		748718		314193		1062911		50131		10.79		6.91s		 
+15		1.737		0.87		0.539		0.93		736297		326614		1062911		50226		10.51		6.88s		 
+16		1.720		0.86		0.575		0.93		762049		300862		1062911		50117		8.77		6.79s		 
+17		1.703		0.85		0.556		0.93		748242		314669		1062911		50256		8.87		6.81s		 
+18		1.686		0.84		0.576		0.92		762733		300178		1062911		50199		7.58		6.92s		 
+19		1.669		0.83		0.580		0.92		765373		297538		1062911		50265		7.43		6.87s		 
+20		1.652		0.83		0.594		0.91		775021		287890		1062911		50386		7.59		6.89s		 
+21		1.636		0.82		0.585		0.91		768787		294124		1062911		50377		6.93		6.82s		 
+22		1.619		0.81		0.635		0.90		804211		258700		1062911		50361		6.09		6.81s		 
+23		1.603		0.80		0.609		0.90		785790		277121		1062911		50315		7.14		6.87s		 
+24		1.587		0.79		0.587		0.90		770496		292415		1062911		50274		6.28		6.84s		 
+25		1.571		0.79		0.623		0.89		795589		267322		1062911		50211		5.47		6.83s		 
+26		1.556		0.78		0.649		0.89		814344		248567		1062911		50262		4.99		6.89s		 
+27		1.540		0.77		0.659		0.89		821193		241718		1062911		50323		4.84		6.78s		 
+28		1.525		0.76		0.648		0.88		813542		249369		1062911		50298		4.72		6.82s		 
+29		1.509		0.75		0.649		0.88		814477		248434		1062911		50264		4.48		6.85s		 
+30		1.494		0.75		0.633		0.87		803073		259838		1062911		50344		4.56		6.80s		 
+31		1.479		0.74		0.646		0.87		812123		250788		1062911		50322		4.37		6.80s		 
+32		1.465		0.73		0.667		0.87		826830		236081		1062911		50318		3.99		6.99s		 
+33		1.450		0.72		0.677		0.86		834371		228540		1062911		50385		3.59		6.88s		 
+34		1.435		0.72		0.671		0.86		829768		233143		1062911		50351		3.88		6.89s		 
+35		1.421		0.71		0.698		0.86		848934		213977		1062911		50407		3.27		6.86s		 
+36		1.407		0.70		0.698		0.85		848736		214175		1062911		50433		2.81		6.87s		 
+37		1.393		0.70		0.706		0.85		854798		208113		1062911		50434		2.36		6.82s		 
+38		1.379		0.69		0.705		0.84		854143		208768		1062911		50383		2.36		6.83s		 
+39		1.365		0.68		0.716		0.84		861965		200946		1062911		50362		2.35		6.82s		 
+40		1.351		0.68		0.730		0.84		871937		190974		1062911		50446		2.05		7.06s		 
+41		1.338		0.67		0.733		0.83		873935		188976		1062911		50414		1.88		7.02s		 
+42		1.325		0.66		0.739		0.83		878090		184821		1062911		50418		1.88		6.99s		 
+43		1.311		0.66		0.761		0.83		893582		169329		1062911		50399		1.47		7.06s		 
+44		1.298		0.65		0.752		0.82		886982		175929		1062911		50412		1.56		7.38s		 
+45		1.285		0.64		0.758		0.82		891525		171386		1062911		50396		1.53		7.20s		 
+46		1.272		0.64		0.765		0.82		896312		166599		1062911		50410		1.29		7.06s		 
+47		1.260		0.63		0.770		0.81		900237		162674		1062911		50404		1.01		6.99s		 
+48		1.247		0.62		0.778		0.81		905433		157478		1062911		50395		0.91		6.91s		 
+49		1.235		0.62		0.767		0.81		897952		164959		1062911		50406		0.85		6.84s		 
+50		1.222		0.61		0.773		0.81		902355		160556		1062911		50405		0.75		7.04s		 
+51		1.210		0.61		0.780		0.80		907323		155588		1062911		50406		0.69		7.06s		 
+52		1.198		0.60		0.780		0.80		907390		155521		1062911		50383		0.57		6.92s		 
+53		1.186		0.59		0.777		0.80		904950		157961		1062911		50410		0.58		6.85s		 
+54		1.174		0.59		0.778		0.79		905397		157514		1062911		50400		0.64		6.88s		 
+55		1.162		0.58		0.781		0.79		907807		155104		1062911		50398		0.44		6.86s		 
+56		1.151		0.58		0.769		0.79		899578		163333		1062911		50405		0.47		6.96s		 
+57		1.139		0.57		0.761		0.78		893521		169390		1062911		50404		0.50		6.92s		 
+58		1.128		0.56		0.767		0.78		897889		165022		1062911		50416		0.47		6.96s		 
+59		1.117		0.56		0.753		0.78		887923		174988		1062911		50404		0.37		6.91s		 
+60		1.105		0.55		0.752		0.78		887120		175791		1062911		50401		0.37		6.94s		 
+61		1.094		0.55		0.785		0.77		910692		152219		1062911		50361		0.30		6.93s		 
+62		1.083		0.54		0.794		0.77		917203		145708		1062911		50363		0.14		7.09s		 
+63		1.073		0.54		0.798		0.77		919489		143422		1062911		50353		0.12		7.33s		 
+64		1.062		0.53		0.797		0.77		918745		144166		1062911		50347		0.06		6.74s		 
+65		1.051		0.53		0.797		0.76		918742		144169		1062911		50347		0.12		6.80s		 
+66		1.041		0.52		0.797		0.76		918881		144030		1062911		50360		0.11		6.89s		 
+67		1.030		0.52		0.801		0.76		921957		140954		1062911		50351		0.08		6.81s		 
+68		1.020		0.51		0.802		0.75		922671		140240		1062911		50355		0.05		6.77s		 
+69		1.010		0.50		0.802		0.75		922931		139980		1062911		50357		0.05		6.81s		 
+70		1.000		0.50		0.803		0.75		923620		139291		1062911		50358		0.02		6.77s		 
+71		0.990		0.49		0.804		0.75		923712		139199		1062911		50356		0.01		6.80s		 
+72		0.980		0.49		0.804		0.74		923798		139113		1062911		50354		0.01		6.76s		 
+73		0.970		0.48		0.804		0.74		923826		139085		1062911		50352		0.04		6.83s		 
+74		0.960		0.48		0.805		0.74		924646		138265		1062911		50350		0.07		6.89s		 
+75		0.951		0.48		0.806		0.74		925708		137203		1062911		50353		0.03		6.89s		 
+76		0.941		0.47		0.811		0.74		929068		133843		1062911		50353		0.01		6.88s		 
+77		0.932		0.47		0.811		0.73		929085		133826		1062911		50351		0.00		6.81s		 
+78		0.922		0.46		0.811		0.73		929155		133756		1062911		50350		0.00		6.85s		 
+79		0.913		0.46		0.811		0.73		929160		133751		1062911		50351		0.00		6.91s		 
+80		0.904		0.45		0.811		0.73		929160		133751		1062911		50351		0.00		6.81s		 
+Terminated Vaquero algorithm at iteration: 80, Runtime: 553.61
+Clusters capacity/usage: [0=[20000000, 35387], 1=[20000000, 28169], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=22675, 1=15458, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 133751, Improvement: 81.12%
+Good before/after Queries:  354435 / 929160
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=-12077, 1=38455, 2=11755]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		40127		52.61		6.85s		 
+2		1.980		0.99		0.089		1.00		417397		645514		1062911		46532		51.93		6.86s		 
+3		1.960		0.98		0.158		0.99		466390		596521		1062911		48999		46.30		6.88s		 
+4		1.941		0.97		0.185		0.99		485660		577251		1062911		49489		44.29		6.90s		 
+5		1.921		0.96		0.221		0.98		510866		552045		1062911		49589		41.00		6.92s		 
+6		1.902		0.95		0.238		0.98		523386		539525		1062911		49799		37.90		6.87s		 
+7		1.883		0.94		0.264		0.97		541250		521661		1062911		49963		34.89		6.88s		 
+8		1.864		0.93		0.290		0.97		560145		502766		1062911		50167		31.87		6.90s		 
+9		1.845		0.92		0.322		0.96		582213		480698		1062911		50224		29.46		6.89s		 
+10		1.827		0.91		0.333		0.96		590344		472567		1062911		50268		27.78		6.81s		 
+11		1.809		0.90		0.333		0.95		590651		472260		1062911		50205		25.98		6.90s		 
+12		1.791		0.90		0.362		0.95		610752		452159		1062911		50342		25.24		6.82s		 
+13		1.773		0.89		0.349		0.94		601425		461486		1062911		50190		24.19		6.89s		 
+14		1.755		0.88		0.368		0.94		615458		447453		1062911		50191		22.38		6.79s		 
+15		1.737		0.87		0.360		0.93		609499		453412		1062911		50352		21.78		6.84s		 
+16		1.720		0.86		0.404		0.93		640888		422023		1062911		50394		20.81		6.80s		 
+17		1.703		0.85		0.392		0.93		631937		430974		1062911		50399		20.61		6.90s		 
+18		1.686		0.84		0.411		0.92		645863		417048		1062911		50356		20.08		6.88s		 
+19		1.669		0.83		0.430		0.92		659222		403689		1062911		50300		19.06		6.84s		 
+20		1.652		0.83		0.434		0.91		661598		401313		1062911		50308		18.28		6.86s		 
+21		1.636		0.82		0.465		0.91		684055		378856		1062911		50398		17.82		6.88s		 
+22		1.619		0.81		0.426		0.90		655976		406935		1062911		50325		17.76		6.90s		 
+23		1.603		0.80		0.445		0.90		669879		393032		1062911		50398		16.87		6.85s		 
+24		1.587		0.79		0.457		0.90		678252		384659		1062911		50357		16.57		6.90s		 
+25		1.571		0.79		0.497		0.89		706634		356277		1062911		50285		16.40		6.89s		 
+26		1.556		0.78		0.497		0.89		706399		356512		1062911		50304		15.36		6.90s		 
+27		1.540		0.77		0.469		0.89		686520		376391		1062911		50387		15.03		6.83s		 
+28		1.525		0.76		0.483		0.88		696803		366108		1062911		50428		15.22		6.87s		 
+29		1.509		0.75		0.488		0.88		700039		362872		1062911		50390		14.76		6.86s		 
+30		1.494		0.75		0.497		0.87		706538		356373		1062911		50462		14.14		6.84s		 
+31		1.479		0.74		0.536		0.87		734189		328722		1062911		50521		13.56		6.88s		 
+32		1.465		0.73		0.535		0.87		733324		329587		1062911		50500		13.10		6.86s		 
+33		1.450		0.72		0.538		0.86		735891		327020		1062911		50502		12.95		6.79s		 
+34		1.435		0.72		0.531		0.86		730453		332458		1062911		50487		12.17		6.94s		 
+35		1.421		0.71		0.548		0.86		742771		320140		1062911		50561		11.93		6.92s		 
+36		1.407		0.70		0.564		0.85		753890		309021		1062911		50556		11.53		6.84s		 
+37		1.393		0.70		0.587		0.85		770139		292772		1062911		50452		10.96		6.85s		 
+38		1.379		0.69		0.579		0.84		764532		298379		1062911		50434		10.48		6.84s		 
+39		1.365		0.68		0.582		0.84		766971		295940		1062911		50496		9.82		6.88s		 
+40		1.351		0.68		0.600		0.84		779343		283568		1062911		50521		9.83		6.81s		 
+41		1.338		0.67		0.579		0.83		764719		298192		1062911		50527		9.53		6.90s		 
+42		1.325		0.66		0.627		0.83		798433		264478		1062911		50453		8.73		6.91s		 
+43		1.311		0.66		0.621		0.83		794291		268620		1062911		50551		8.73		6.82s		 
+44		1.298		0.65		0.606		0.82		783967		278944		1062911		50418		8.31		7.00s		 
+45		1.285		0.64		0.647		0.82		812578		250333		1062911		50455		7.97		6.88s		 
+46		1.272		0.64		0.650		0.82		814651		248260		1062911		50498		7.58		6.91s		 
+47		1.260		0.63		0.650		0.81		814595		248316		1062911		50494		7.27		7.04s		 
+48		1.247		0.62		0.647		0.81		812871		250040		1062911		50577		6.76		6.99s		 
+49		1.235		0.62		0.644		0.81		810558		252353		1062911		50523		6.62		6.91s		 
+50		1.222		0.61		0.655		0.81		818802		244109		1062911		50488		6.23		6.92s		 
+51		1.210		0.61		0.680		0.80		836037		226874		1062911		50560		5.85		6.99s		 
+52		1.198		0.60		0.726		0.80		869014		193897		1062911		50572		5.44		7.08s		 
+53		1.186		0.59		0.719		0.80		863996		198915		1062911		50488		4.90		6.92s		 
+54		1.174		0.59		0.717		0.79		862170		200741		1062911		50544		4.76		6.90s		 
+55		1.162		0.58		0.735		0.79		875330		187581		1062911		50492		4.70		6.82s		 
+56		1.151		0.58		0.714		0.79		860551		202360		1062911		50468		4.42		6.91s		 
+57		1.139		0.57		0.751		0.78		886651		176260		1062911		50567		4.08		6.85s		 
+58		1.128		0.56		0.749		0.78		885131		177780		1062911		50566		3.55		6.96s		 
+59		1.117		0.56		0.782		0.78		908308		154603		1062911		50531		3.26		6.98s		 
+60		1.105		0.55		0.733		0.78		873975		188936		1062911		50518		3.03		6.95s		 
+61		1.094		0.55		0.795		0.77		917557		145354		1062911		50551		2.72		6.93s		 
+62		1.083		0.54		0.782		0.77		908534		154377		1062911		50576		2.25		6.88s		 
+63		1.073		0.54		0.800		0.77		920993		141918		1062911		50562		1.89		6.94s		 
+64		1.062		0.53		0.828		0.77		940991		121920		1062911		50539		1.60		6.89s		 
+65		1.051		0.53		0.834		0.76		945431		117480		1062911		50547		1.32		6.88s		 
+66		1.041		0.52		0.853		0.76		958932		103979		1062911		50549		0.92		6.86s		 
+67		1.030		0.52		0.849		0.76		955999		106912		1062911		50550		0.65		7.13s		 
+68		1.020		0.51		0.874		0.75		973749		89162		1062911		50547		0.37		6.87s		 
+69		1.010		0.50		0.888		0.75		983266		79645		1062911		50542		0.20		6.93s		 
+70		1.000		0.50		0.902		0.75		993262		69649		1062911		50545		0.08		6.84s		 
+71		0.990		0.49		0.904		0.75		994787		68124		1062911		50539		0.03		6.96s		 
+72		0.980		0.49		0.905		0.74		995537		67374		1062911		50539		0.02		7.06s		 
+73		0.970		0.48		0.905		0.74		995880		67031		1062911		50536		0.02		7.00s		 
+74		0.960		0.48		0.906		0.74		996281		66630		1062911		50539		0.02		6.90s		 
+75		0.951		0.48		0.906		0.74		996467		66444		1062911		50540		0.02		6.81s		 
+76		0.941		0.47		0.906		0.74		996616		66295		1062911		50547		0.03		6.90s		 
+77		0.932		0.47		0.907		0.73		997239		65672		1062911		50549		0.04		6.82s		 
+78		0.922		0.46		0.908		0.73		997777		65134		1062911		50554		0.04		6.78s		 
+79		0.913		0.46		0.909		0.73		998578		64333		1062911		50558		0.06		6.86s		 
+80		0.904		0.45		0.911		0.73		999828		63083		1062911		50566		0.09		6.85s		 
+81		0.895		0.45		0.914		0.72		1001900		61011		1062911		50552		0.07		6.87s		 
+82		0.886		0.44		0.917		0.72		1004029		58882		1062911		50557		0.04		6.83s		 
+83		0.877		0.44		0.918		0.72		1004569		58342		1062911		50556		0.01		6.83s		 
+84		0.868		0.43		0.918		0.72		1004688		58223		1062911		50553		0.01		6.88s		 
+85		0.860		0.43		0.918		0.71		1004739		58172		1062911		50552		0.00		6.85s		 
+86		0.851		0.43		0.918		0.71		1004754		58157		1062911		50552		0.00		6.86s		 
+Terminated Vaquero algorithm at iteration: 86, Runtime: 594.14
+Clusters capacity/usage: [0=[20000000, 35462], 1=[20000000, 28094], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=22751, 1=15382, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 58157, Improvement: 91.79%
+Good before/after Queries:  354435 / 1004754
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Staring Vaquero partitioning - cF=0.990, iF=0.500, nClusters=3, aProb=0.50
+Clusters INIT Lower Bound: [0=47446, 1=-10210, 2=897]
+Cooling factor: 0.990
+It.		Temp		tRatio		Impr.		pSwitch		Good		Cross		Sum		sCount		cpCount		Time
+1		2.000		1.00		0.000		1.00		354435		708476		1062911		28973		37.99		6.88s		 
+2		1.980		0.99		0.113		1.00		434142		628769		1062911		46854		52.58		6.93s		 
+3		1.960		0.98		0.177		0.99		479669		583242		1062911		48968		52.50		6.84s		 
+4		1.941		0.97		0.234		0.99		520494		542417		1062911		49530		46.10		6.88s		 
+5		1.921		0.96		0.299		0.98		566598		496313		1062911		49669		37.60		6.87s		 
+6		1.902		0.95		0.375		0.98		620136		442775		1062911		49887		30.06		6.79s		 
+7		1.883		0.94		0.398		0.97		636640		426271		1062911		50016		25.31		6.90s		 
+8		1.864		0.93		0.439		0.97		665255		397656		1062911		49999		20.67		6.89s		 
+9		1.845		0.92		0.470		0.96		687615		375296		1062911		50183		19.71		6.88s		 
+10		1.827		0.91		0.480		0.96		694689		368222		1062911		50135		16.96		6.85s		 
+11		1.809		0.90		0.508		0.95		714478		348433		1062911		50165		16.39		6.93s		 
+12		1.791		0.90		0.523		0.95		724893		338018		1062911		50186		14.11		6.81s		 
+13		1.773		0.89		0.528		0.94		728437		334474		1062911		50266		13.62		6.92s		 
+14		1.755		0.88		0.528		0.94		728647		334264		1062911		50198		12.75		6.86s		 
+15		1.737		0.87		0.527		0.93		727724		335187		1062911		50124		13.07		6.92s		 
+16		1.720		0.86		0.560		0.93		750906		312005		1062911		50167		11.01		6.86s		 
+17		1.703		0.85		0.567		0.93		756076		306835		1062911		50224		11.83		6.90s		 
+18		1.686		0.84		0.566		0.92		755420		307491		1062911		50298		10.43		6.88s		 
+19		1.669		0.83		0.565		0.92		754994		307917		1062911		50136		9.47		6.87s		 
+20		1.652		0.83		0.571		0.91		759299		303612		1062911		50226		9.96		6.86s		 
+21		1.636		0.82		0.582		0.91		766513		296398		1062911		50169		9.13		6.89s		 
+22		1.619		0.81		0.564		0.90		753692		309219		1062911		50241		9.45		6.89s		 
+23		1.603		0.80		0.556		0.90		748378		314533		1062911		50252		8.82		6.89s		 
+24		1.587		0.79		0.579		0.90		764433		298478		1062911		50236		7.74		6.98s		 
+25		1.571		0.79		0.574		0.89		760940		301971		1062911		50273		8.21		6.88s		 
+26		1.556		0.78		0.609		0.89		785743		277168		1062911		50260		7.11		6.86s		 
+27		1.540		0.77		0.596		0.89		776427		286484		1062911		50265		7.24		6.90s		 
+28		1.525		0.76		0.606		0.88		783784		279127		1062911		50312		6.73		6.84s		 
+29		1.509		0.75		0.588		0.88		771330		291581		1062911		50247		6.56		6.96s		 
+30		1.494		0.75		0.631		0.87		801497		261414		1062911		50266		5.98		6.84s		 
+31		1.479		0.74		0.617		0.87		791725		271186		1062911		50291		6.07		6.90s		 
+32		1.465		0.73		0.608		0.87		785485		277426		1062911		50281		5.89		6.88s		 
+33		1.450		0.72		0.625		0.86		796999		265912		1062911		50273		5.93		6.99s		 
+34		1.435		0.72		0.620		0.86		793572		269339		1062911		50317		5.41		6.98s		 
+35		1.421		0.71		0.625		0.86		797325		265586		1062911		50317		5.37		6.88s		 
+36		1.407		0.70		0.638		0.85		806640		256271		1062911		50309		4.71		6.92s		 
+37		1.393		0.70		0.634		0.85		803630		259281		1062911		50333		4.84		6.85s		 
+38		1.379		0.69		0.643		0.84		809993		252918		1062911		50279		4.24		6.86s		 
+39		1.365		0.68		0.650		0.84		814814		248097		1062911		50291		4.16		6.95s		 
+40		1.351		0.68		0.655		0.84		818280		244631		1062911		50289		4.02		6.88s		 
+41		1.338		0.67		0.633		0.83		803205		259706		1062911		50403		4.08		6.84s		 
+42		1.325		0.66		0.667		0.83		826957		235954		1062911		50366		3.47		6.90s		 
+43		1.311		0.66		0.663		0.83		824157		238754		1062911		50317		3.26		6.91s		 
+44		1.298		0.65		0.660		0.82		822250		240661		1062911		50345		2.96		6.85s		 
+45		1.285		0.64		0.684		0.82		839017		223894		1062911		50326		2.88		6.88s		 
+46		1.272		0.64		0.685		0.82		840076		222835		1062911		50386		2.47		6.90s		 
+47		1.260		0.63		0.667		0.81		827168		235743		1062911		50405		2.41		6.94s		 
+48		1.247		0.62		0.671		0.81		829835		233076		1062911		50397		2.25		6.82s		 
+49		1.235		0.62		0.667		0.81		826700		236211		1062911		50367		2.34		6.83s		 
+50		1.222		0.61		0.673		0.81		831004		231907		1062911		50312		1.97		6.92s		 
+51		1.210		0.61		0.674		0.80		832068		230843		1062911		50355		1.73		6.90s		 
+52		1.198		0.60		0.677		0.80		834251		228660		1062911		50352		1.45		6.95s		 
+53		1.186		0.59		0.686		0.80		840432		222479		1062911		50381		1.29		6.97s		 
+54		1.174		0.59		0.688		0.79		841625		221286		1062911		50405		1.04		6.91s		 
+55		1.162		0.58		0.698		0.79		849220		213691		1062911		50420		0.94		6.88s		 
+56		1.151		0.58		0.701		0.79		851192		211719		1062911		50398		0.89		6.92s		 
+57		1.139		0.57		0.701		0.78		851030		211881		1062911		50405		0.81		6.86s		 
+58		1.128		0.56		0.717		0.78		862151		200760		1062911		50416		0.80		6.91s		 
+59		1.117		0.56		0.723		0.78		866679		196232		1062911		50406		0.68		6.95s		 
+60		1.105		0.55		0.712		0.78		859103		203808		1062911		50433		0.57		6.86s		 
+61		1.094		0.55		0.719		0.77		863608		199303		1062911		50399		0.39		6.89s		 
+62		1.083		0.54		0.723		0.77		866444		196467		1062911		50406		0.26		7.08s		 
+63		1.073		0.54		0.723		0.77		866558		196353		1062911		50388		0.34		7.12s		 
+64		1.062		0.53		0.734		0.77		874635		188276		1062911		50379		0.26		7.31s		 
+65		1.051		0.53		0.728		0.76		869967		192944		1062911		50377		0.29		6.75s		 
+66		1.041		0.52		0.729		0.76		871112		191799		1062911		50377		0.18		6.73s		 
+67		1.030		0.52		0.733		0.76		873416		189495		1062911		50367		0.11		6.73s		 
+68		1.020		0.51		0.741		0.75		879245		183666		1062911		50378		0.08		6.77s		 
+69		1.010		0.50		0.741		0.75		879551		183360		1062911		50380		0.06		6.72s		 
+70		1.000		0.50		0.741		0.75		879623		183288		1062911		50378		0.04		6.70s		 
+71		0.990		0.49		0.742		0.75		879798		183113		1062911		50371		0.02		6.81s		 
+72		0.980		0.49		0.743		0.74		880515		182396		1062911		50376		0.01		6.72s		 
+73		0.970		0.48		0.743		0.74		880523		182388		1062911		50376		0.00		6.85s		 
+74		0.960		0.48		0.743		0.74		880515		182396		1062911		50376		0.00		6.80s		 
+Terminated Vaquero algorithm at iteration: 74, Runtime: 511.10
+Clusters capacity/usage: [0=[20000000, 36191], 1=[20000000, 27365], 2=[20000000, 12712]]
+Clusters Lower Bound: [0=23479, 1=14654, 2=0]
+Clusters added together count: 76268
+[main] WARN org.janusgraph.graphdb.transaction.StandardJanusGraphTx - Query requires iterating over all vertices [()]. For better performance, use indexes
+Vertex count: 76268
+Number of all to be expanded nodes: 14831
+Before/After Cross Node Queries: 708476 / 182396, Improvement: 74.26%
+Good before/after Queries:  354435 / 880515
+
+Process finished with exit code 0
