@@ -78,13 +78,14 @@ public class GRMT extends GRM {
         vertexProgram = VaqueroVertexProgram.build()
                 .clusterMapper(cm)
                 .acquirePartitionProbability(0.5)
-                .imbalanceFactor(0.97)
+                .imbalanceFactor(0.5)
                 .coolingFactor(0.99)
                 .adoptionFactor(1)
                 .scopeIncidentTraversal(__::bothE)
                 .evaluatingMap(runner.evaluatingMap())
                 .evaluateCrossCommunication(true)
                 .evaluatingStatsOriginal(runner.evaluatingStats())
+                .maxPartitionChangeRatio(1)
                 .maxIterations(200).create(graph);
         algorithmResult = graph.compute().program(vertexProgram).workers(24).submit().get();
         System.out.println("Clusters capacity/usage: " + Arrays.toString(algorithmResult.memory().<Map<Long, Pair<Long, Long>>>get(CLUSTER).entrySet().toArray()));

@@ -42,6 +42,7 @@ VaqueroVertexProgram can be build using the ```VaqueroVertexProgram.Builder``` w
                      .evaluateCrossCommunication(true)
                      .scopeIncidentTraversal(__.outE())
                      .evaluatingStatsOriginal(runner.evaluatingStats())
+                     .maxPartitionChangeRatio(1)
                      .maxIterations(200)
                  .create(graph);
  algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
@@ -60,6 +61,7 @@ Configuration::
   * ```evaluateCrossCommunication```: Sets whether or not to enable cross-node communication evaluation in between iteration.
   * ```scopeIncidentTraversal```: Sets the incident traversal for whom to send a message ( ```__.outE()``` means that the messages will be sent to incident vertices only using outgoing edges).
   * ```evaluatingStatsOriginal```: Sets the initial statistic of cross-node communication.
+  * ```maxPartitionChangeRatio```: Sets the limit of how many vertices can change partition during one iteration (input is a fraction of vertex count).
   * ```maxIterations```: Sets the maximum number of iterations before the program halts.
 
 Another important configuration is selecting the proper graph config file. In ```config.properties``` you can select choose between ```graph-berkeley-embeded.properties``` and ```graph-cassandra-embedded.properties``` for the ```graph.propFile``` property. This enables BerkeleyDB or Apache Cassandra embedded backend respectively.

@@ -93,9 +93,14 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
      */
     private static final String VOTE_TO_HALT = "gremlin.VaqueroVertexProgram.voteToHalt";
     /**
+     * Memory key to store the number of times the partitions were changed during an iteration.
+     */
+    private static final String VOTE_COUNT = "gremlin.VaqueroVertexProgram.voteCount";
+    /**
      * Configuration key to set the maxIterations variable defining the maximum number of iterations before the program will halt.
      */
     private static final String MAX_ITERATIONS = "gremlin.VaqueroVertexProgram.maxIterations";
+    private static final String MAX_PARTITION_CHANGES = "gremlin.VaqueroVertexProgram.maxPartitionChanges";
     /**
      * Configuration key to set the coolingFactor variable defining the rate of cooling down the temperature of simulated annealing.
      */
@@ -144,6 +149,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     private long iterTime = 0;
     private long initTime = 0;
     private long maxIterations = 100L;
+    private long maxPartitionChanges = 100L;
     private long vertexCount = 0L;
     private int partitionCount = 16;
     private double initialTemperature = 2D;
@@ -165,6 +171,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
     private static final Set<MemoryComputeKey> MEMORY_COMPUTE_KEYS = new HashSet<>(Arrays.asList(
             MemoryComputeKey.of(VOTE_TO_HALT, Operator.and, false, true),
+            MemoryComputeKey.of(VOTE_COUNT, Operator.sumLong, true, true),
+            MemoryComputeKey.of(MAX_PARTITION_CHANGES, Operator.sumLong, true, true),
             MemoryComputeKey.of(EVALUATING_CLUSTER_SWITCH_COUNT, Operator.sumLong, false, true),
             MemoryComputeKey.of(CLUSTER, HelperOperator.incrementPairMap, true, false),
             MemoryComputeKey.of(CLUSTER_UPPER_BOUND_SPACE, HelperOperator.sumMap, true, false),
@@ -199,6 +207,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             memory.set(CLUSTER_LOWER_BOUND_SPACE, initialClusterLowerBoundSpace);
             memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L));
             memory.set(EVALUATING_CLUSTER_SWITCH_COUNT, 0L);
+            memory.set(VOTE_COUNT, 0L);
+            memory.set(MAX_PARTITION_CHANGES, maxPartitionChanges);
             System.out.printf("Staring Vaquero partitioning - cF=%.3f, iF=%.3f, nClusters=%d, aProb=%.2f\n", coolingFactor, imbalanceFactor, initialClusters.size(), acquirePartitionProbability);
             System.out.println("Clusters INIT Lower Bound: " + Arrays.toString(initialClusterLowerBoundSpace.entrySet().toArray()));
         }
@@ -266,6 +276,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         int iteration = memory.getIteration();
         Pair<Long, Long> cStats = memory.get(EVALUATING_STATS);
         Long cSwitch = memory.get(EVALUATING_CLUSTER_SWITCH_COUNT);
+        Long cpCount = memory.get(VOTE_COUNT);
+        double cpPercent = cpCount / (double) vertexCount * 100;
         double tRatio = temperature / initialTemperature;
         long now = System.currentTimeMillis();
         long time = now - iterTime;
@@ -273,10 +285,10 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             double improvement = (evaluatingStatsOriginal.getValue1() - cStats.getValue1()) / (double) evaluatingStatsOriginal.getValue1();
             if (memory.isInitialIteration()) {
                 System.out.printf("Cooling factor: %.3f\n", coolingFactor);
-                System.out.println("It.\t\tTemp\t\ttRatio\t\tImpr.\t\tpSwitch\t\tGood\t\tCross\t\tSum\t\tsCount\t\tTime");
+                System.out.println("It.\t\tTemp\t\ttRatio\t\tImpr.\t\tpSwitch\t\tGood\t\tCross\t\tSum\t\tsCount\t\tcpCount\t\tTime");
             } else {
-                System.out.printf("%d\t\t%.3f\t\t%.2f\t\t%.3f\t\t%.2f\t\t%d\t\t%d\t\t%d\t\t%d\t\t%.2fs\t\t \n",
-                        iteration, temperature, tRatio, improvement, getPartitionAcquirementProbability(), cStats.getValue0(), cStats.getValue1(), cStats.getValue0() + cStats.getValue1(), cSwitch, time / 1000D);
+                System.out.printf("%d\t\t%.3f\t\t%.2f\t\t%.3f\t\t%.2f\t\t%d\t\t%d\t\t%d\t\t%d\t\t%.2f\t\t%.2fs\t\t \n",
+                        iteration, temperature, tRatio, improvement, getPartitionAcquirementProbability(), cStats.getValue0(), cStats.getValue1(), cStats.getValue0() + cStats.getValue1(), cSwitch, cpPercent, time / 1000D);
             }
         } else {
             System.out.printf("End of Vaquero iteration: %d\t Temp: %.4f, tRatio: %.3f \n", iteration, temperature, tRatio);
@@ -291,6 +303,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
             memory.set(CLUSTER_UPPER_BOUND_SPACE, computeNewClusterUpperBoundSpace(memory.get(CLUSTER))); // compute new cluster available space for next iteration
             memory.set(EVALUATING_STATS, new Pair<Long, Long>(0L, 0L)); //reset the counter for good and cross-cluster queries for evaluation
             memory.set(EVALUATING_CLUSTER_SWITCH_COUNT, 0L); //reset the counter for good and cross-cluster queries for evaluation
+            memory.set(VOTE_COUNT, 0L); //reset the counter for number of partition changes
             temperature = getTemperature(iteration);
             return false;
         }
@@ -357,6 +370,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
                         return new Quartet<>(m.getValue0(), m.getValue1(), -1L, edge.vertices(Direction.OUT).hasNext() ? (Long) edge.vertices(Direction.OUT).next().id() : -1);
                     }
                 });
+        this.maxPartitionChanges = (long) (vertexCount * configuration.getDouble(MAX_PARTITION_CHANGES, 1D));
     }
 
     @Override
@@ -374,6 +388,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
         configuration.setProperty(EVALUATING_STATS_ORIGINAL, this.evaluatingStatsOriginal);
         configuration.setProperty(INCIDENT_TRAVERSAL, this.incidentTraversal);
         configuration.setProperty(EVALUATE_CROSS_COMMUNICATION, this.evaluateCrossCommunication);
+        configuration.setProperty(MAX_PARTITION_CHANGES, this.maxPartitionChanges);
     }
 
 
@@ -389,6 +404,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
     private boolean acquireNewPartition(long oldPartitionId, long newPartitionId, Memory memory, Vertex vertex) {
         Pair<Long, Long> oldClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTER).get(oldPartitionId);
         Pair<Long, Long> newClusterCapacityUsage = memory.<Map<Long, Pair<Long, Long>>>get(CLUSTER).get(newPartitionId);
+        long voteCount = memory.get(VOTE_COUNT);
+        if (voteCount >= maxPartitionChanges) return false;
         long available = memory.<Map<Pair<Long, Long>, Long>>get(CLUSTER_UPPER_BOUND_SPACE).get(new Pair<>(oldPartitionId, newPartitionId));
         if (available > 0) { // checking upper partition space upper and lowerBound
             long remaining = memory.<Map<Long, Long>>get(CLUSTER_LOWER_BOUND_SPACE).get(oldPartitionId);
@@ -408,6 +425,7 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
                 }}));
 
                 vertex.property(VertexProperty.Cardinality.single, PARTITION, newPartitionId);
+                memory.add(VOTE_COUNT, 1L);
                 return true;
             }
         }
@@ -468,8 +486,8 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
      * Helper to get the limit of minimum usage for each parition of the cluster
      *
      * @param partitionCapacityUsage capacity and current usage of partition
-     * @param sumCapacity cluster capacity sum
-     * @param vertexCount count of every vertex of the graph
+     * @param sumCapacity            cluster capacity sum
+     * @param vertexCount            count of every vertex of the graph
      * @return the number of vertices that can leave given partitions
      */
     private long getClusterLowerBoundSpace(Pair<Long, Long> partitionCapacityUsage, long sumCapacity, long vertexCount) {
@@ -573,6 +591,11 @@ public class VaqueroVertexProgram extends StaticVertexProgram<Quartet<Serializab
 
         public VaqueroVertexProgram.Builder adoptionFactor(double adoptionFactor) {
             this.configuration.setProperty(ADOPTION_FACTOR, adoptionFactor);
+            return this;
+        }
+
+        public VaqueroVertexProgram.Builder maxPartitionChangeRatio(double percent) {
+            this.configuration.setProperty(MAX_PARTITION_CHANGES, percent);
             return this;
         }
 
