@@ -7,7 +7,7 @@ The paths from the log are added to the database. Finally a partitioning algorit
 
 == VaqueroVertexProgram
 
-VaqueroVertexProgram is the Vaquero algorithm implemented in the TinkerPop VertexProgram framework which is bases on PREGL computation mode.
+VaqueroVertexProgram is the Vaquero algorithm implemented in the TinkerPop VertexProgram framework which is bases on PREGEL computation mode.
 This program is works in iterations. After initial setup the ```execute``` method is ran for each vertex of the graph.
 In this method there is communication between selected vertices which are chosen via MessageScope. These iterations are ran
 in parallel manner so after each iteration there is a synchronization barrier and the ```terminate``` method is called which
