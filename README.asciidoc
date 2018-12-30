@@ -1,35 +1,46 @@
 = Graph Redistribution Manager
 
-GRM is a proof of concept solution to redistribute data in distributed graph database systems.
-The process of redistribution starts with loading a dataset to JanusGraph database. Then a set of generated queries is
-ran against the database generating a processed result log via the custom Processed Result Logging module of the TinkerPop project.
-The paths from the log are added to the database. Finally a partitioning algorithm is ran and new partitions for each vertex are proposed.
+Graph Redistribution Manager (GRM) is a proof of concept solution of data redistribution in distributed graph database systems.
+The process of redistribution starts with loading a dataset in JanusGraph database. Then, a set of generated queries is
+ran against the database, generating a processed result log via the custom Processed Result Logging module of the TinkerPop project.
+The paths from the log are added to the database. Last but not least, a partitioning algorithm is executed and a new partition for each
+vertex is proposed.
 
 == VaqueroVertexProgram
 
-VaqueroVertexProgram is the Vaquero algorithm implemented in the TinkerPop VertexProgram framework which is bases on PREGEL computation mode.
-This program is works in iterations. After initial setup the ```execute``` method is ran for each vertex of the graph.
-In this method there is communication between selected vertices which are chosen via MessageScope. These iterations are ran
-in parallel manner so after each iteration there is a synchronization barrier and the ```terminate``` method is called which
-determines whether the algorithm should continue into the next iteration or whether it should halt the program. After the end of the run
-each vertex has been assigned new partition ID which can be accessed via the ```vertex.value(PARTITION)``` method where ```PARTITION```
+`VaqueroVertexProgram` is the Vaquero et al.footnote:[Vaquero, L. M.; Cuadrado, F.; et al. Adaptive Partitioning for Large-Scale
+ Dynamic Graphs. In 2014 IEEE 34th International Conference on Distributed Computing Systems, Madrid, Spain, 2014, pp. 144–153,
+  doi:10.1109/ICDCS.2014.23.]
+algorithm implemented in the TinkerPop `VertexProgram` framework which is bases on Pregel computation system.
+Therefore, the `VaqueroVertexProgram` works in iterations. After initial setup, the ```execute``` method is ran for each vertex of the graph.
+These iterations are ran
+in parallel manner, which also means that after each iteration, there is a synchronization barrier and the ```terminate``` method is called.
+The ``terminate`` method determines whether the algorithm should continue into the next iteration or whether the program should halt.
+After the end of the execution,
+each vertex is assigned a new partition ID which can be accessed via the ```vertex.value(PARTITION)``` method. The ```PARTITION```
 is a constant with the key of the property of the new partition ID.
 
 === Iteration process
-In each iteration vertices communicate with each other via messages. Every vertex sends it's PID to all of it's neighbours.
-The partition ID of the vertex is determined by the frequency of different partition IDs(PIDs) of the Vertex's neighbours. The more the PID is represented among the neighbours the bigger is the chance that it will be acquired. However there are more conditions which determine whether the new PID will be acquired. One of which is the current balance of the partitions. The ```imbalanceFactor``` sets the lower bound of how much the partitions can be imbalanced in terms of their current capacity usage and upper bounds of each partition is determined by the maximum capacity of the partitions. The second condition is just a coin toss which solves an oscillation problem where two or more vertices would change it's PID back and forth between.
+In each iteration, vertices communicate with each other via messages. Every vertex sends its partition ID (PID) to all of its neighbors.
+A new partition ID of the vertex is determined by the frequency of PIDs of the vertex neighbors.
+The more frequently the PID is represented among the neighbors, the higher the chance that it will be acquired.
+However, there are more conditions which determine whether the new PID will be acquired.
+One of them is the current balance of the partitions. The ```imbalanceFactor``` sets the lower bound of how much the partitions
+can be imbalanced regarding a proportional vertex distribution.
+The upper bound of each partition is determined by its maximum capacity.
+Another condition solves an oscillation problem of two or more vertices changing their PID back and forth.
 
 == Datasets
 
-The current implementation supports two datasets for testing the Vaquero algorithm.
+The current implementation supports two datasets for testing the Vaquero et al. algorithm.
 
-  . Twitter ego dataset - https://snap.stanford.edu/data/roadNet-PA.html[link]
+  . Twitter dataset - https://snap.stanford.edu/data/roadNet-PA.html[link]
   . Pennsylvania road network dataset - https://snap.stanford.edu/data/ego-Twitter.html[link]
 
 Loading and query testing is implemented via two classes: ```PennsylvaniaDatasetLoaderQueryRunner``` and ```TwitterDatasetLoaderQueryRunner```.
 
 === Configuration and usage
-VaqueroVertexProgram can be build using the ```VaqueroVertexProgram.Builder``` which enables configuration of the algorithm.
+The ``VaqueroVertexProgram`` can be built with the ```VaqueroVertexProgram.Builder``` which enables configuration of the algorithm.
 [source,java]
 ----
  vertexProgram = VaqueroVertexProgram.build()
@@ -47,48 +58,55 @@ VaqueroVertexProgram can be build using the ```VaqueroVertexProgram.Builder``` w
                  .create(graph);
  algorithmResult = graph.compute().program(vertexProgram).workers(12).submit().get();
 ----
-In the code snippet above an instance of VaqueroVertexProgram is created using the ```VaqueroVertexProgram.Builder``` and then it is submitted to the graph computer.
+In the code snippet above, an instance of the ``VaqueroVertexProgram`` is created with the ```VaqueroVertexProgram.Builder```,
+ which is then submitted to the ``GraphComputer``.
 
 Configuration::
-  * ```clusterMapper```:
-    This method will set the provided ```ClusterMapper``` to be used to determine the original partition
-    ID from a vertex ID
-  * ```acquirePartitionProbability```: This sets the probability for vertices to acquire new partition.
-  * ```imbalanceFactor```: This sets the imbalance factor which determines how much the partitions can be imbalanced.
-  * ```coolingFactor```: Simulated annealing is used when executing the program. The cooling factor determines how quickly the temperature is going to drop affecting the probability of vertices to acquire new partition.
-  * ```adoptionFactor```: This factor determines how to calculate the probability of acquiring new partition.
-  * ```evaluatingMap```: Provides a map of vertices to number of appearances the vertices had in the query set. Used for evaluating the improvement of the partitioning between iterations.
-  * ```evaluateCrossCommunication```: Sets whether or not to enable cross-node communication evaluation in between iteration.
-  * ```scopeIncidentTraversal```: Sets the incident traversal for whom to send a message ( ```__.outE()``` means that the messages will be sent to incident vertices only using outgoing edges).
-  * ```evaluatingStatsOriginal```: Sets the initial statistic of cross-node communication.
-  * ```maxPartitionChangeRatio```: Sets the limit of how many vertices can change partition during one iteration (input is a fraction of vertex count).
+  * ```clusterMapper``` - sets the provided ```ClusterMapper``` to determine the original partition
+    ID from a vertex ID.
+  * ```acquirePartitionProbability``` - sets the probability for vertices to acquire a new partition.
+  * ```imbalanceFactor``` - sets the imbalance factor which determines how much the partitions can be imbalanced regarding the lower bound.
+  * ```coolingFactor``` - simulated annealing is used when executing the program. The cooling factor determines how quickly the temperature
+   is going to drop, affecting the probability of vertices, which partition to acquire.
+  * ```adoptionFactor``` - determines how to calculate the probability of acquiring a new partition.
+  * ```evaluatingMap``` - provides a map of vertices to number of their appearance in the query set.
+  It is used for evaluating the improvement of the partitioning between iterations.
+  * ```evaluateCrossCommunication``` - sets whether or not to enable cross-node communication evaluation between iterations.
+  * ```scopeIncidentTraversal``` - sets the incident vertices to which to send a message ( ```__.outE()``` means that the
+  messages will be sent to incident vertices using only out-going edges).
+  * ```evaluatingStatsOriginal``` - sets the initial statistics of cross-node communication.
+  * ```maxPartitionChangeRatio``` - sets the limit of how many vertices can change partition during one iteration
+  (input is a fraction of the vertex count).
   * ```maxIterations```: Sets the maximum number of iterations before the program halts.
 
-Another important configuration is selecting the proper graph config file. In ```config.properties``` you can select choose between ```graph-berkeley-embeded.properties``` and ```graph-cassandra-embedded.properties``` for the ```graph.propFile``` property. This enables BerkeleyDB or Apache Cassandra embedded backend respectively.
+Another important configuration is selecting the proper graph configuration file. In ```config.properties``` you can
+currently state either ```graph-berkeley-embeded.properties``` or ```graph-cassandra-embedded.properties``` for the
+```graph.propFile``` property. This provides the BerkeleyDB or the embedded Apache Cassandra storage backend, respectively.
 
 Project structure::
     logHandling:::
-      * ```PRLogFileLoader```: Loads the log file to the memory or provides ```Iterator<PRLogRecord>``` of the log file.
-      * ```PRLogRecord```:  Represents one record of the ```PRLog```.
-      * ```PRElement```:  Represents Edge or Vertex element of the graph and stores only the ID of the element.
-      * ```PRLog```: Represents the log file when loaded to the memory.
-      * ```PRPath```: List of ```PRElement``` representing the Traverser path that was walked when running the queries.
-      * ```PRLogToGraphLoader```: This interface describes operations necessary to load the log to the graph  which are ```addSchema```, ```removeSchema``` and ```loadLogToGraph```.
-      * ```DefaultPRLogToGraphLoader```: The default implementation of ```PRLogToGraphLoader``` loading the ```PRLog``` to given graph.
+      * ```PRLogFileLoader``` - loads a log file in the memory or provides an ```Iterator<PRLogRecord>``` of the log file.
+      * ```PRLog``` - represents a log file when loaded in the memory.
+      * ```PRLogRecord``` - represents all paths generated by one ``Traverser``, that is, by one query.
+      * ```PRPath``` - list of ```PRElement```s representing one path of the ``Traverser``.
+      * ```PRElement``` - represents an edge or a vertex of the graph.
+      * ```PRLogToGraphLoader``` - this interface describes operations necessary for loading a log in the graph,  which are ```addSchema```, ```removeSchema``` and ```loadLogToGraph```.
+      * ```DefaultPRLogToGraphLoader``` - the default implementation of ```PRLogToGraphLoader``` loading the ```PRLog``` to a given graph.
     dataset:::
-      * ```DatasetQueryRunner```: Defines the interface to run a set of queries against database.
-      * ```DatasetLoader```: Defines the interface to load a dataset into the graph database.
+      * ```DatasetQueryRunner``` - defines an interface to run a set of queries against the database.
+      * ```DatasetLoader``` - defines an interface to load a dataset in the graph database.
 
-      * ```PennsylvaniaDatasetLoaderQueryRunner```: Implements both of the interfaces above. Handles the Pennsylvania road network dataset.
+      * ```PennsylvaniaDatasetLoaderQueryRunner``` - implements both the interfaces above. Handles the Pennsylvania road network dataset.
 
-      * ```TwitterDatasetLoaderQueryRunner```: Implements both of the interfaces above. Handles the Twitter EGO network dataset.
+      * ```TwitterDatasetLoaderQueryRunner``` - implements both the interfaces above. Handles the Twitter network dataset.
     cluster:::
-      * ```PartitionMapper```: This interface defines the method ```map(vertexID)``` to get the partition ID from ```vertexID```.
-      * ```DefaultPartitionMapper```: The default implementation of ```PartitionMapper``` which uses modulo division of the hash of ```vertexID``` (that was before converted to "originalID" via ```IDManager.fromVertexId```) to get the partition ID.
+      * ```PartitionMapper``` - this interface defines the method ```map(vertexID)``` to get the partition ID from ```vertexID```.
+      * ```DefaultPartitionMapper``` - a default implementation of the ```PartitionMapper```, which uses modulo division of the hash
+      of ```vertexID``` (that was before converted to ```originalID``` via ```IDManager.fromVertexId```) to get the partition ID.
 
     helpers:::
-      * ```HelperOperator```: Set of binary operators to use when reducing data in ```VaqueroVertexProgram```.
-      * ```ShuffleComparator```: A random comparator which is used for traversal ordering when implementing random walk on the graph.
-    GRMP::: Executable class that will run the complete "benchmark" of the Pennsylvania road network dataset.
-    GRMT::: Executable class that will run the complete "benchmark" of the Twitter EGO network dataset.
-    GRM::: The base class of ```GRMP``` and ```GRMT``` containing shared components and resources.
+      * ```HelperOperator``` - a set of binary operators to use when reducing data in the ```VaqueroVertexProgram```.
+      * ```ShuffleComparator``` - a random comparator which is used for traversal ordering when implementing a random walk on the graph.
+    GRMP::: Executable class that runs the complete "benchmark" of the Pennsylvania road network dataset.
+    GRMT::: Executable class that runs the complete "benchmark" of the Twitter network dataset.
+    GRM::: The base class of the ```GRMP``` and the ```GRMT```, containing shared components and resources.
