@@ -77,11 +77,11 @@ Configuration::
   * ```evaluatingStatsOriginal``` - sets the initial statistics of cross-node communication.
   * ```maxPartitionChangeRatio``` - sets the limit of how many vertices can change partition during one iteration
   (input is a fraction of the vertex count).
-  * ```maxIterations```: Sets the maximum number of iterations before the program halts.
+  * ```maxIterations``` - sets the maximum number of iterations before the program halts.
 
 Another important configuration is selecting the proper graph configuration file. In ```config.properties``` you can
-currently state either ```graph-berkeley-embeded.properties``` or ```graph-cassandra-embedded.properties``` for the
-```graph.propFile``` property. This provides the BerkeleyDB or the embedded Apache Cassandra storage backend, respectively.
+currently state either ```graph-berkeley-embeded.properties``` or ```graph-cassandra-embedded.properties``` for
+the ```graph.propFile``` property. This provides the BerkeleyDB or the embedded Apache Cassandra storage backend, respectively.
 
 Project structure::
     logHandling:::
